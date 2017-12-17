@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_white"
+    >
+
+
+            <ImageView
+                android:id="@+id/newsThumb"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:src="@drawable/img_conte"
+                android:scaleType="centerCrop"
+                />
+
+              <ImageButton
+                  android:id="@+id/mediaPlay"
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:layout_gravity="center"
+                  android:src="@drawable/play_button"
+                  android:background="@null"
+                  />
+
+
+
+
+        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            android:id="@+id/newsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Chelsea boss Conte to be fined after being sent to the stands against Norwich."
+            android:textSize="14sp"
+            android:textColor="@color/text_white"
+            app:font_name="@string/font_montserrat_semibold"
+            android:layout_gravity="bottom"
+            android:shadowColor="@color/near_dark_text"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:background="@drawable/news_highlight_bg"
+            />
+
+        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            android:id="@+id/newsAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chelsea News"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/text_white"
+            app:font_name="@string/font_montserrat_semibold"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:background="@drawable/news_element_bg"
+            />
+
+
+        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            android:id="@+id/newsDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newsTitle"
+            android:text="2h"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/text_white"
+            app:font_name="@string/font_montserrat_semibold"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:drawablePadding="3dp"
+            android:padding="5dp"
+            android:background="@drawable/news_element_bg"
+            />
+
+    </FrameLayout>

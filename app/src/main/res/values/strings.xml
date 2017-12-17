@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CFC Nepal</string>
+
+    <string name="title_activity_splash">Welcome</string>
+
+    <string name="image_attribution"> Image by Brian Minkoff-London Pixels</string>
+
+
+    <!-- menu strings -->
+    <string name="about_us">About Us</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="youtube_api_key">AIzaSyDa31SHAlwK6jvcLrV4XQsgHcQxNxGBzjA</string>
+    <string name="share">Share</string>
+    <string name="crash_text">Oops, the app crashed.</string>
+
+</resources>

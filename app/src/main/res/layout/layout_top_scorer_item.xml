@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    >
+
+
+
+    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        android:id="@+id/topScorerName"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:layout_width="0dp"
+        android:text="Alvaro Morata"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/dark_text"
+        app:font_name="@string/font_montserrat_regular"
+        android:layout_gravity="center"
+        />
+
+    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:id="@+id/topScorerGoals"
+        android:text="12"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:layout_gravity="center"
+        />
+
+
+</LinearLayout>

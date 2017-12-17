@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/fragment_padding"
+        >
+
+        <include layout="@layout/layout_next_match_card" />
+        <include layout="@layout/layout_last_match_card" />
+        <include layout="@layout/layout_team_stats_epl_card" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

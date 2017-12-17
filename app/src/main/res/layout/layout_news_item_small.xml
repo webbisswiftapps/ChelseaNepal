@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_white"
+    android:padding="5dp"
+    >
+
+
+
+        <FrameLayout
+            android:id="@+id/newsImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+            <ImageView
+                android:id="@+id/newsThumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_conte"
+                android:scaleType="centerCrop"
+                />
+
+            <ImageButton
+            android:id="@+id/mediaPlay"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_play_arrow_small"
+            android:background="@null"
+            />
+        </FrameLayout>
+
+
+        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            android:id="@+id/newsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/newsImage"
+            android:padding="3dp"
+            android:text="Antonio conte furious at the lines man."
+            android:layout_alignTop="@+id/newsImage"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/near_dark_text"
+            app:font_name="@string/font_montserrat_semibold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            />
+
+        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            android:id="@+id/newsAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/newsTitle"
+            android:layout_alignLeft="@+id/newsTitle"
+            android:text="Chelsea News"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/semi_dark_text"
+            app:font_name="@string/font_montserrat_regular"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            />
+
+
+        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            android:id="@+id/newsDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/newsTitle"
+            android:text="2h"
+            android:layout_alignBaseline="@+id/newsAuthor"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/semi_dark_text"
+            app:font_name="@string/font_montserrat_regular"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="3dp"
+            />
+
+    </RelativeLayout>
+
+

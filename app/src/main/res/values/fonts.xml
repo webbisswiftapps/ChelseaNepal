@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="font_big_john">big_john.otf</string>
+    <string name="font_slim_joe">slim_joe.otf</string>
+    <string name="font_josefin_bold">josefin_bold.ttf</string>
+    <string name="font_josefin_bolditalic">josefinsans_bolditalic.ttf</string>
+    <string name="font_josefin_italic">josefinsans_italic.ttf</string>
+    <string name="font_josefin_light">josefinsans_light.ttf</string>
+    <string name="font_josefin_lightitalic">josefinsans_lightitalic.ttf</string>
+    <string name="font_josefin_regular">josefinsans_regular.ttf</string>
+    <string name="font_josefin_semibold">josefinsans_semibold.ttf</string>
+    <string name="font_josefin_semibold_italic">josefinsans_semibolditalic.ttf</string>
+    <string name="font_josefin_thin">josefinsans_thin.ttf</string>
+    <string name="font_josefin_thinitalic">josefinsans_thinitalic.ttf</string>
+
+    <string name="font_montserrat_black">Montserrat-Black.otf</string>
+    <string name="font_montserrat_blackitalic">Montserrat-BlackItalic.otf</string>
+    <string name="font_montserrat_bold">Montserrat-Bold.otf</string>
+    <string name="font_montserrat_bolditalic">Montserrat-BoldItalic.otf</string>
+    <string name="font_montserrat_extrabold">Montserrat-ExtraBold.otf</string>
+    <string name="font_montserrat_extrabolditalic">Montserrat-ExtraBoldItalic.otf</string>
+    <string name="font_montserrat_extralight">Montserrat-ExtraLight.otf</string>
+    <string name="font_montserrat_extralightitalic">Montserrat-ExtraLightItalic.otf</string>
+    <string name="font_montserrat_italic">Montserrat-Italic.otf</string>
+    <string name="font_montserrat_light">Montserrat-Light.otf</string>
+    <string name="font_montserrat_lightitalic">Montserrat-LightItalic.otf</string>
+    <string name="font_montserrat_medium">Montserrat-Medium.otf</string>
+    <string name="font_montserrat_mediumitalic">Montserrat-MediumItalic.otf</string>
+    <string name="font_montserrat_regular">Montserrat-Regular.otf</string>
+    <string name="font_montserrat_semibold">Montserrat-SemiBold.otf</string>
+    <string name="font_montserrat_semibolditalic">Montserrat-SemiBoldItalic.otf</string>
+    <string name="font_montserrat_thin">Montserrat-Thin.otf</string>
+    <string name="font_montserrat_thinitalic">Montserrat-ThinItalic.otf</string>
+
+
+
+
+</resources>

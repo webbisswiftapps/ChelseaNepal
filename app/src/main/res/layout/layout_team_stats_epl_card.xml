@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/teamStatsCard"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    >
+
+    <ViewSwitcher
+        android:id="@+id/teamStatsSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/teamStatsProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyleSmall"
+            />
+
+        <RelativeLayout
+            android:id="@+id/teamStatsDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/card_padding"
+            >
+
+            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                android:id="@+id/teamStatsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English Premier League "
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_white"
+                android:layout_below="@+id/teamStatsTitle"
+                android:layout_marginTop="5dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/statsHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@+id/teamStatsTitle"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="6dp"
+                    >
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/tsCurrentPos"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="2"
+                        android:textSize="28sp"
+                        app:font_name="@string/font_josefin_regular"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:text="Pos"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/semi_dark_text"
+                        app:font_name="@string/font_montserrat_semibold"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_white"
+                    android:layout_below="@+id/teamStatsTitle"
+                    android:layout_marginTop="5dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="6dp"
+                    >
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/tsCurrentPoints"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="80"
+                        android:textSize="28sp"
+                        app:font_name="@string/font_josefin_regular"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:text="Pts"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/semi_dark_text"
+                        app:font_name="@string/font_montserrat_semibold"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_white"
+                    android:layout_below="@+id/teamStatsTitle"
+                    android:layout_marginTop="5dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="6dp"
+                    >
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/tsWins"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="20"
+                        android:textSize="28sp"
+                        app:font_name="@string/font_josefin_regular"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:text="Won"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/semi_dark_text"
+                        app:font_name="@string/font_montserrat_semibold"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_white"
+                    android:layout_below="@+id/teamStatsTitle"
+                    android:layout_marginTop="5dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="6dp"
+                    >
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/tsDraws"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="6"
+                        android:textSize="28sp"
+                        app:font_name="@string/font_josefin_regular"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:text="Draw"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/semi_dark_text"
+                        app:font_name="@string/font_montserrat_semibold"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_white"
+                    android:layout_below="@+id/teamStatsTitle"
+                    android:layout_marginTop="5dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="6dp"
+                    >
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/tsLosses"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textSize="28sp"
+                        app:font_name="@string/font_josefin_regular"
+                        android:textColor="@color/colorPrimary"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center"
+                        android:text="Lost"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/semi_dark_text"
+                        app:font_name="@string/font_montserrat_semibold"
+                        />
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <com.webbisswift.cfcnepal.ui.custom_views.CButton
+                android:id="@+id/viewTableBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/statsHolder"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/colorful_gradient"
+                android:text="View League Table"
+                android:textColor="@color/text_white"
+                app:font_name="@string/font_josefin_semibold"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAllCaps="true"
+                android:layout_centerHorizontal="true"
+                android:drawableRight="@drawable/ic_arrow_forward_white_24dp"
+                />
+
+
+        </RelativeLayout>
+
+    </ViewSwitcher>
+
+</android.support.v7.widget.CardView>

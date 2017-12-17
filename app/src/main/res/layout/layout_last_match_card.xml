@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lastMatchCard"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    >
+
+    <ViewSwitcher
+        android:id="@+id/lastMatchSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <ProgressBar
+            android:id="@+id/lastMatchProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyleSmall"
+            />
+
+        <RelativeLayout
+            android:id="@+id/lastMatchDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/card_padding"
+            >
+
+            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                android:id="@+id/lastMatchTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Match"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_white"
+                android:layout_below="@+id/lastMatchTitle"
+                android:layout_marginTop="5dp"
+                />
+
+            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                android:id="@+id/lastMatchCompetition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_light"
+                android:textColor="@color/semi_dark_text"
+                android:layout_below="@id/lastMatchTitle"
+                android:text="Champions League"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"
+                />
+
+            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                android:id="@+id/lastMatchDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textColor="@color/semi_dark_text"
+                android:layout_below="@id/lastMatchCompetition"
+                android:text="Friday, 24 Dec 2017"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="2dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/scoresPaneLR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/lastMatchDate"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageView
+                        android:id="@+id/homeTeamLogoLR"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/chelsea"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/lastMatchHomeTeam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:text="CHELSEA"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+
+                </LinearLayout>
+
+
+
+                <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                    android:id="@+id/homeScoreLR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:text="3"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="top"
+                    />
+
+                <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                    android:id="@+id/hifen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:text="-"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_gravity="top"
+                    />
+
+                <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                    android:id="@+id/awayScoreLR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:text="1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="top"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageView
+                        android:id="@+id/awayTeamLogoLR"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/atm_logo"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        />
+
+                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                        android:id="@+id/lastMatchAwayTeam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:text="Atletico"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_horizontal"
+                        />
+                </LinearLayout>
+
+
+
+
+
+
+
+            </LinearLayout>
+
+            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                android:id="@+id/lastMatchPenalties"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_semibold"
+                android:textColor="@color/colorPrimary"
+                android:layout_below="@id/scoresPaneLR"
+                android:text="Pen(4-1)"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="1dp"
+                />
+
+
+
+            <!--<com.webbisswift.cfcnepal.ui.custom_views.CButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lastMatchPenalties"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/colorful_gradient"
+                android:text="Match FACTS"
+                android:textColor="@color/text_white"
+                app:font_name="@string/font_josefin_semibold"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAllCaps="true"
+                android:layout_centerHorizontal="true"
+                android:drawableRight="@drawable/ic_arrow_forward_white_24dp"
+                /> -->
+
+
+        </RelativeLayout>
+
+    </ViewSwitcher>
+
+</android.support.v7.widget.CardView>

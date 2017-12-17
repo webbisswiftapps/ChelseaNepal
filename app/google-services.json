@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "666432060050",
+    "firebase_url": "https://bluesnp-1727e.firebaseio.com",
+    "project_id": "bluesnp-1727e",
+    "storage_bucket": "bluesnp-1727e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666432060050:android:56a33474f89bb504",
+        "android_client_info": {
+          "package_name": "com.webbisswift.cfcnepal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666432060050-62mpkt2ptdchtfmaistkvpup3o592lkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa31SHAlwK6jvcLrV4XQsgHcQxNxGBzjA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

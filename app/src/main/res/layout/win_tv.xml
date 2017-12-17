@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.webbisswift.cfcnepal.ui.custom_views.CTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:background="@drawable/form_guide_win_bg"
+    android:text="W"
+    android:gravity="center"
+    android:textColor="@color/text_white"
+    app:font_name="@string/font_montserrat_semibold"
+    />
+

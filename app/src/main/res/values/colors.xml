@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1b5fc4</color>
+    <color name="colorPrimaryDark">#1a57b1</color>
+    <color name="colorAccent">#69f0ae</color>
+    <color name="chelsea_blue_dark">#134287</color>
+
+
+    <color name="colorPrimary_tp">#ee1b5fc4</color>
+    <color name="toolbar_tp">#bb1b5fc4</color>
+    <color name="colorPrimaryDark_tp">#ee073a84</color>
+    <color name="chelsea_blue_dark_tp">#ef041d41</color>
+    <color name="colorAccent_tp">#ee69f0ae</color>
+
+
+    <color name="black_overlay">#66000000</color>
+    <color name="light_white">#ededed</color>
+
+
+    <!-- Text Colors -->
+    <color name="text_white">#ffffff</color>
+    <color name="light_text">#bababa</color>
+    <color name="semi_dark_text">#888</color>
+    <color name="dark_text">#222</color>
+    <color name="near_dark_text">#555</color>
+
+    <!-- Form Guide Colors -->
+    <color name="win_1">#13e274</color>
+    <color name="win_2">#048641</color>
+    <color name="draw_1">#ffe23e</color>
+    <color name="draw_2">#e7ae28</color>
+    <color name="loss_1">#e00</color>
+    <color name="loss_2">#df412f</color>
+</resources>
