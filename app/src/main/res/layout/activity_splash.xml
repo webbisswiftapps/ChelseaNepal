@@ -29,11 +29,11 @@
         android:src="@drawable/final_full_logo_transparent_noflag" />
 
 
-    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/copyrightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:font_name="@string/font_big_john"
+        app:font_name="@string/font_montserrat_bold"
         android:textSize="14sp"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="50dp"
@@ -41,11 +41,11 @@
         />
 
 
-    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/attribution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:font_name="@string/font_josefin_light"
+        app:font_name="@string/font_montserrat_light"
         android:textSize="14sp"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="20dp"

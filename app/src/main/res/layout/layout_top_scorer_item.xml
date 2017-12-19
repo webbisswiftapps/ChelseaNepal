@@ -9,7 +9,7 @@
 
 
 
-    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+    <TextView
         android:id="@+id/topScorerName"
         android:layout_height="wrap_content"
         android:layout_weight="0.6"
@@ -17,21 +17,20 @@
         android:text="Alvaro Morata"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/dark_text"
-        app:font_name="@string/font_montserrat_regular"
         android:layout_gravity="center"
         />
 
-    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+    <TextView
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="0.2"
         android:id="@+id/topScorerGoals"
         android:text="12"
-        app:font_name="@string/font_montserrat_semibold"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/colorPrimary"
         android:gravity="center"
         android:layout_gravity="center"
+        android:textStyle="bold"
         />
 
 

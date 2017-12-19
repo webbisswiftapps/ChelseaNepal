@@ -9,7 +9,7 @@
 
 
 
-    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/topScorerName"
         android:layout_height="wrap_content"
         android:layout_weight="0.6"
@@ -21,7 +21,7 @@
         android:layout_gravity="center"
         />
 
-    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="0.2"

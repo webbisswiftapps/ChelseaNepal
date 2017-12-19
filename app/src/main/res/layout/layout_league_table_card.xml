@@ -25,18 +25,18 @@
             style="?android:attr/progressBarStyleSmall"
             />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="12dp"
             >
 
-            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/tableTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="English Premier League "
+                android:text="Premier League"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 app:font_name="@string/font_montserrat_regular"
                 android:textAllCaps="true"
@@ -49,6 +49,7 @@
                 android:background="@color/light_white"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:layout_below="@id/tableTitle"
                 />
 
 
@@ -57,12 +58,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_below="@id/tableTitle"
+                android:layout_marginTop="5dp"
                 >
-                <include layout="@layout/layout_table_title" />
             </LinearLayout>
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
 

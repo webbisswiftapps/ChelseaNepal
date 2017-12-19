@@ -13,4 +13,9 @@
     <string name="share">Share</string>
     <string name="crash_text">Oops, the app crashed.</string>
 
+
+    <!-- Admob-->
+    <string name="app_id">ca-app-pub-5865133861479449~5545798392</string>
+    <string name="overview_ad_unit_id">ca-app-pub-5865133861479449/6947220413</string>
+    <string name="overview_ad_unit_bottom">ca-app-pub-5865133861479449/5342618410</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:orientation="horizontal"
+        android:id="@+id/tableTitlePanel"
         >
         <View
             android:layout_width="0dp"
@@ -15,51 +16,46 @@
             android:layout_height="match_parent"
             android:gravity="center"
             />
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="P"
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="W"
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="D"
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="L"
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="Goals"
             android:gravity="center"
@@ -68,22 +64,20 @@
 
 
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="GD"
             android:gravity="center"
             android:visibility="gone"
             />
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="match_parent"
-            app:font_name="@string/font_montserrat_light"
             android:textColor="@color/semi_dark_text"
             android:text="Pts."
             android:gravity="center"
@@ -97,9 +91,6 @@
         android:layout_height="2dp"
         android:background="@color/light_white"
         android:layout_marginBottom="3dp"
+        android:layout_below="@+id/tableTitlePanel"
         />
-
-
-
-
-</LinearLayout>
+</RelativeLayout>

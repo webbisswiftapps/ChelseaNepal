@@ -31,7 +31,7 @@
             android:padding="@dimen/card_padding"
             >
 
-            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/lastMatchTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                 android:layout_marginTop="5dp"
                 />
 
-            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/lastMatchCompetition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:layout_marginTop="14dp"
                 />
 
-            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/lastMatchDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         android:layout_gravity="center_vertical|center_horizontal"
                         />
 
-                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
                         android:id="@+id/lastMatchHomeTeam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
 
 
 
-                <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
                     android:id="@+id/homeScoreLR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                     android:layout_gravity="top"
                     />
 
-                <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
                     android:id="@+id/hifen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                     android:layout_gravity="top"
                     />
 
-                <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
                     android:id="@+id/awayScoreLR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
                         android:layout_gravity="center_vertical|center_horizontal"
                         />
 
-                    <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
                         android:id="@+id/lastMatchAwayTeam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
 
             </LinearLayout>
 
-            <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/lastMatchPenalties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

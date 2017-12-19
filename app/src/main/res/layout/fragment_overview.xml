@@ -10,12 +10,74 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/fragment_padding"
         >
 
         <include layout="@layout/layout_next_match_card" />
+        <com.google.android.gms.ads.AdView
+            android:layout_marginTop="5dp"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/overview_ad_unit_id"/>
+
         <include layout="@layout/layout_last_match_card" />
+
         <include layout="@layout/layout_team_stats_epl_card" />
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/card_padding"
+                >
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/adTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sponsored"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/light_white"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@id/adTitle"
+                    />
+
+            <com.google.android.gms.ads.AdView
+                android:layout_marginTop="10dp"
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adViewBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                ads:adSize="300x250"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/adTitle"
+                ads:adUnitId="@string/overview_ad_unit_id"/>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

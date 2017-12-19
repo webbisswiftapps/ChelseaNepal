@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:666432060050:android:56a33474f89bb504",
+        "mobilesdk_app_id": "1:666432060050:android:29120f82a33c1d0e",
         "android_client_info": {
-          "package_name": "com.webbisswift.cfcnepal"
+          "package_name": "com.webbisswift.cfcn"
         }
       },
       "oauth_client": [

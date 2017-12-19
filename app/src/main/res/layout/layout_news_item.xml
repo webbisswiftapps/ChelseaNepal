@@ -27,7 +27,7 @@
 
 
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
             android:id="@+id/newsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             android:background="@drawable/news_highlight_bg"
             />
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
             android:id="@+id/newsAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             />
 
 
-        <com.webbisswift.cfcnepal.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
             android:id="@+id/newsDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
