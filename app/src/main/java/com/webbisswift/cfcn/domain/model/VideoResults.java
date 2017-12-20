@@ -12,7 +12,6 @@ public class VideoResults {
 
     @SerializedName("entry")
     private List<VideoItem> mItem;
-
     public List<VideoItem> getItem() {
         return mItem;
     }

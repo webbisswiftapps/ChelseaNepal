@@ -22,14 +22,6 @@
             app:expandedTitleTextAppearance="@android:color/transparent"
             android:fitsSystemWindows="true">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/stamford_bridge"
-                        android:scaleType="centerCrop"
-                        android:fitsSystemWindows="true"
-                        app:layout_collapseMode="parallax"
-                        />
 
                     <android.support.v7.widget.Toolbar
                         android:id="@+id/toolBar"

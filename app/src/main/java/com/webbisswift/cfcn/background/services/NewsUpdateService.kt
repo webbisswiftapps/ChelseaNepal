@@ -55,7 +55,7 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
 
 
     private val newsSources = arrayOf(Constants.GUARDIAN_FEED_URL, Constants.METRO_FEED_URL, Constants.DM_FEED_URL, Constants.CNEWS_FEED_URL)
-    private val videoSources = arrayOf(Constants.CHELSEA_FC_URL, Constants.H100_PER_CHE_URL, Constants.SHPENDI_CFC_URL, Constants.BEANYMAN_CHE_URL)
+    private val videoSources = arrayOf(Constants.CHELSEA_FC_URL, Constants.H100_PER_CHE_URL, Constants.SHPENDI_CFC_URL ,Constants.BEANYMAN_CHE_URL)
 
      var shouldNotify:Boolean = true
 
@@ -119,6 +119,7 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
                         addVideosToCollection(newsResponse.query.results.item)
                     }else reduceCount()
                 }catch(e:Exception){
+                    Log.d("NewsUpdateService","Video Response: "+response.toString())
                     e.printStackTrace()
                     reduceCount()
                 }

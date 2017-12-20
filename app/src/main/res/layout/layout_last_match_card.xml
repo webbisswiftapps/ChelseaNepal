@@ -213,7 +213,8 @@
 
 
 
-            <!--<com.webbisswift.cfcnepal.ui.custom_views.CButton
+            <com.webbisswift.cfcnepal.ui.custom_views.CButton
+                android:id="@+id/matchFactsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lastMatchPenalties"
@@ -229,7 +230,7 @@
                 android:textAllCaps="true"
                 android:layout_centerHorizontal="true"
                 android:drawableRight="@drawable/ic_arrow_forward_white_24dp"
-                /> -->
+                />
 
 
         </RelativeLayout>

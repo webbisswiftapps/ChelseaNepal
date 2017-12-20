@@ -75,6 +75,11 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
             val mA:MainActivity = activity as MainActivity
             mA.toSeasonTab()
         })
+
+        matchFactsBtn.setOnClickListener({
+            val mA:MainActivity = activity as MainActivity
+            mA.toLastMatchFacts()
+        })
     }
 
 

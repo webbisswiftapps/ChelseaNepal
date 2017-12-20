@@ -1,5 +1,6 @@
 package com.webbisswift.cfcn.ui.screens.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.webbisswift.cfcn.R
@@ -7,6 +8,7 @@ import com.webbisswift.cfcn.ui.screens.home.fragments.overview.HomeFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.matches.MatchesFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.news.NewsFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.season.SeasonFragment
+import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsUI
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -47,6 +49,11 @@ class MainActivity : AppCompatActivity(){
         viewPager.currentItem = 2
     }
 
+    fun toLastMatchFacts(){
+        val lmIntent = Intent(this, MatchFactsUI::class.java)
+        lmIntent.putExtra("OF_LAST_MATCH", true)
+        startActivity(lmIntent)
+    }
 
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.home_menu, menu)
