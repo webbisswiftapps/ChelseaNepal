@@ -11,6 +11,7 @@ import android.content.IntentFilter
 import android.support.v4.content.LocalBroadcastManager
 import com.webbisswift.cfcn.background.AppAlarmManagement
 import com.webbisswift.cfcn.domain.model.MatchEvent
+import com.webbisswift.cfcn.domain.sharedpref.LiveUpdateScoreManager
 
 
 /**
@@ -61,10 +62,23 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase, val lbm:LocalBr
     override fun subscribeToLive(listener: HomeContract.LiveScoreListener) {
         this.listener = listener
         lbm.registerReceiver(this, IntentFilter("LIVE_SCORE_EVENT"))
+        getLastLiveScore()
     }
 
     override fun unsubscribeFromLive() {
         lbm.unregisterReceiver(this)
+    }
+
+    override fun getLastLiveScore() {
+        val luSM = LiveUpdateScoreManager(context)
+        val lastStatus = luSM.getLastStatus()
+        val lastHomeScore = luSM.getLastHomeScore()
+        val lastAwayScore = luSM.getLastAwayScore()
+
+        val started = luSM.getMatchStarted()
+
+        if(started)
+            listener?.scoreUpdateEvent(lastHomeScore, lastAwayScore, lastStatus)
     }
 
     override fun unsubscribeFromFirebase() {
@@ -91,7 +105,7 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase, val lbm:LocalBr
         val events = intent.getParcelableArrayListExtra<MatchEvent>("EVENTS")!!
 
         if(listener != null){
-            listener?.scoreUpdateEvent(homeScr.toString(), awayScr.toString(), status, events)
+            listener?.scoreUpdateEvent(homeScr.toString(), awayScr.toString(), status)
         }
     }
 }

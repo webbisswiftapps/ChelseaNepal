@@ -22,13 +22,13 @@ public class Match {
      public ArrayList<MatchEvent> events;
      public ArrayList<Integer> score;
      public ArrayList<Integer> penalties;
-     public MatchFacts match_facts;
+     public MatchFactsHolder match_facts;
 
-    public MatchFacts getMatch_facts() {
+    public MatchFactsHolder getMatch_facts() {
         return match_facts;
     }
 
-    public void setMatch_facts(MatchFacts match_facts) {
+    public void setMatch_facts(MatchFactsHolder match_facts) {
         this.match_facts = match_facts;
     }
 

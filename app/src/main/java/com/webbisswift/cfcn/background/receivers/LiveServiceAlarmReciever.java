@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.webbisswift.cfcn.background.services.LiveScoreService;
+import com.webbisswift.cfcn.domain.sharedpref.LiveUpdateScoreManager;
 
 /**
  * Created by apple on 12/9/17.

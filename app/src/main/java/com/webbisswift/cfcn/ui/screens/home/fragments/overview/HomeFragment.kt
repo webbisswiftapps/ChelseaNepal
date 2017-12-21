@@ -18,6 +18,10 @@ import com.webbisswift.cfcn.domain.model.MatchEvent
 import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import kotlinx.android.synthetic.main.fragment_overview.*
 import kotlinx.android.synthetic.main.layout_team_stats_epl_card.*
+import android.opengl.ETC1.getHeight
+import android.opengl.ETC1.getWidth
+
+
 
 
 /**

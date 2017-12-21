@@ -63,14 +63,20 @@ public class AppAlarmManagement {
    }
 
    public void setNextMatchAlarm(Date  startDate){
-       AlarmManager am = (AlarmManager) this.c.getSystemService(Context.ALARM_SERVICE);
-       Calendar calendar  = Calendar.getInstance();
-       calendar.setTime(startDate);
 
-       Intent i = new Intent(this.c, LiveServiceAlarmReciever.class);
-       PendingIntent pi = PendingIntent.getBroadcast(c, 888, i, PendingIntent.FLAG_UPDATE_CURRENT);
-       am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
-       Log.d("AppAlarmManagement", "Next Match Alarm | Set at: "+calendar.getTime().toString());
+       try {
+           AlarmManager am = (AlarmManager) this.c.getSystemService(Context.ALARM_SERVICE);
+           Calendar calendar = Calendar.getInstance();
+           calendar.setTime(startDate);
+
+           Intent i = new Intent(this.c, LiveServiceAlarmReciever.class);
+           PendingIntent pi = PendingIntent.getBroadcast(c, 888, i, PendingIntent.FLAG_UPDATE_CURRENT);
+           am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
+           Log.d("AppAlarmManagement", "Next Match Alarm | Set at: " + calendar.getTime().toString());
+       }catch (Exception e){
+           e.printStackTrace();
+           Log.d("AppAlarmManagement", "Next Match Alarm | Cannot set to: " +startDate);
+       }
 
    }
 

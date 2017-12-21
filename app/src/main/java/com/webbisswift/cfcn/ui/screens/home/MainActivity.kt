@@ -2,6 +2,7 @@ package com.webbisswift.cfcn.ui.screens.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.home.fragments.overview.HomeFragment
@@ -10,6 +11,9 @@ import com.webbisswift.cfcn.ui.screens.home.fragments.news.NewsFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.season.SeasonFragment
 import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsUI
 import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v4.app.ActivityOptionsCompat
+import android.view.View
+
 
 /**
  * Created by apple on 12/3/17.
@@ -51,7 +55,6 @@ class MainActivity : AppCompatActivity(){
 
     fun toLastMatchFacts(){
         val lmIntent = Intent(this, MatchFactsUI::class.java)
-        lmIntent.putExtra("OF_LAST_MATCH", true)
         startActivity(lmIntent)
     }
 

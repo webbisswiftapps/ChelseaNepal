@@ -43,11 +43,12 @@ public class FontManager {
         Typeface font = null;
 
         try {
-            asset = "fonts/"+asset;
-            font = Typeface.createFromAsset(mgr, asset);
+            String path = "fonts/"+asset;
+            font = Typeface.createFromAsset(mgr, path);
             fonts.put(asset, font);
             return font;
         } catch (Exception e) {
+            e.printStackTrace();
             return font;
         }
 
@@ -58,9 +59,8 @@ public class FontManager {
         int count = 0;
         for(String name:fontNames){
             try {
-                String asset = "fonts/" + name;
                 Typeface font = Typeface.createFromAsset(mgr, "fonts/" + name);
-                fonts.put(asset, font);
+                fonts.put(name, font);
                 count++;
             }catch(Exception e){
                 e.printStackTrace();

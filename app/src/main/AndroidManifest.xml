@@ -39,6 +39,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme"
             />
+        <activity android:name="com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsUI"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme"
+            />
 
         <activity android:name="com.webbisswift.cfcn.ui.screens.webview.WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

@@ -10,6 +10,9 @@ import android.os.Parcelable;
 public class MatchEvent implements Parcelable {
     public String away, home, minute, type;
 
+    public String getId(){
+        return away+home+minute+type;
+    }
     @Override
     public int describeContents() {
         return 0;
@@ -44,4 +47,6 @@ public class MatchEvent implements Parcelable {
             return new MatchEvent[size];
         }
     };
+
+
 }

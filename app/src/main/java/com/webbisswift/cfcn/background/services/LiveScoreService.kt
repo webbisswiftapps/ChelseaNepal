@@ -21,6 +21,7 @@ import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.LSMatch
 import com.webbisswift.cfcn.domain.model.LiveScoreResponse
 import com.webbisswift.cfcn.domain.model.MatchEvent
+import com.webbisswift.cfcn.domain.sharedpref.LiveUpdateScoreManager
 import com.webbisswift.cfcn.root.CFCNepalApp
 import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import org.json.JSONObject
@@ -35,12 +36,7 @@ class LiveScoreService() : Service() {
     internal var queue: RequestQueue = CFCNepalApp.instance?.requestQueue!!
 
     private var lbm:LocalBroadcastManager? = null
-
-    private var lastEvent:MatchEvent? = null
-    private var matchStarted:Boolean = false
-    private var halfTime:Boolean = false
-
-
+    private var luSM:LiveUpdateScoreManager? = null
 
 
     override fun onBind(p0: Intent?): IBinder? {
@@ -57,14 +53,15 @@ class LiveScoreService() : Service() {
     }
 
 
-
-
-
-
     private fun loadLiveScore() {
          Log.d("LiveScoreService", "... service started..")
+
+
         if(lbm == null)
             lbm = LocalBroadcastManager.getInstance(this)
+
+        if(luSM == null)
+            luSM = LiveUpdateScoreManager(this)
         
         val newsReceiver = object: Response.Listener<JSONObject> {
             override fun onResponse(response: JSONObject?) {
@@ -97,7 +94,19 @@ class LiveScoreService() : Service() {
 
     private fun parseAndUpdateScores(response:LiveScoreResponse)
     {
+
         val matches:List<LSMatch>? = response.matches
+        val matchStarted = luSM?.getMatchStarted()!!
+        val halfTime = luSM?.getMatchHalfTime()!!
+        val lastEventId = luSM?.getLastEventId()!!
+        val secHalf = luSM?.getMatchSecondHalfStarted()!!
+
+        Log.d("LiveScoreService","Cache: STARTED "+matchStarted)
+        Log.d("LiveScoreService","Cache: HT "+halfTime)
+        Log.d("LiveScoreService", "Cache: 2nd Half: "+secHalf)
+        Log.d("LiveScoreService","Cache: LAST EVENT "+lastEventId)
+
+
         if(matches != null && matches.isNotEmpty()){
 
             val currentMatch = matches[0]
@@ -106,32 +115,34 @@ class LiveScoreService() : Service() {
                 Log.d("LiveScoreService", "Match Started | Status: "+currentMatch.status+" Events: "+currentMatch.events)
 
                 if(!matchStarted){
-                    matchStarted = true
-
                     val title = currentMatch.home + " "+currentMatch.score[0]+" - "+currentMatch.score[1]+" "+currentMatch.away
                     val eventDesc = "Match begins."
                     Log.d("LiveScoreService","Match begins.. Notified.")
                     notifyEvent(eventDesc, title)
                 }
 
+                var halfTimeL = halfTime
 
                 if(!halfTime && currentMatch.status.contentEquals("HT")){
-                    halfTime = true
                     val title = currentMatch.home + " "+currentMatch.score[0]+" - "+currentMatch.score[1]+" "+currentMatch.away
                     val eventDesc = "1st half ended."
                     notifyEvent(eventDesc, title)
                     Log.d("LiveScoreService","1st half ends .. notified.")
+                    halfTimeL = true
                 }
 
-                if(halfTime && !currentMatch.status.contentEquals("HT")){
+                var secHalfL = secHalf
+                if(halfTime && !secHalf && !currentMatch.status.contentEquals("HT")){
                     val title = currentMatch.home + " "+currentMatch.score[0]+" - "+currentMatch.score[1]+" "+currentMatch.away
                     val eventDesc = "2nd half begins."
                     notifyEvent(eventDesc, title)
                     Log.d("LiveScoreService","2nd half begins..notified")
+                    secHalfL = true
                 }
 
 
 
+                var lastEventL = ""
                 if(lbm != null){
 
                     val scoreIntent = Intent("LIVE_SCORE_EVENT")
@@ -144,7 +155,7 @@ class LiveScoreService() : Service() {
                     scoreIntent.putParcelableArrayListExtra("EVENTS", events)
 
                     val eventSize = events.size
-                    if(eventSize > 0 && lastEvent != events[eventSize - 1]){
+                    if(eventSize > 0 && !lastEventId.contentEquals(events[eventSize - 1].id)){
 
                         val event = events[eventSize-1]
 
@@ -152,9 +163,12 @@ class LiveScoreService() : Service() {
                         val eventDesc = event.minute+" "+event.type.toUpperCase()+": "+event.home+event.away
                         notifyEvent(eventDesc, title)
                         Log.d("LiveScoreService","Match event notified "+event)
-                        this.lastEvent = events[eventSize -1]
+
                     }
 
+                    if(eventSize > 0){
+                        lastEventL = events[eventSize - 1].id
+                    }
                     lbm?.sendBroadcast(scoreIntent) /* Send score update broadcast */
                 }
 
@@ -164,13 +178,19 @@ class LiveScoreService() : Service() {
                     Log.d("LiveScoreService","Match full time notified")
 
                     notifyEvent(eventDesc, title)
+                    luSM?.reset()
                     stopSelf()
                 }else{
+                    Log.d("LiveScoreService","New: STARTED "+true)
+                    Log.d("LiveScoreService","New: HT "+halfTimeL)
+                    Log.d("LiveScoreService","New: LAST EVENT "+lastEventL)
+                    luSM?.setLiveMatchLastEvent(true, halfTimeL, secHalfL, lastEventL, currentMatch.score[0].toString(), currentMatch.score[1].toString(), currentMatch.status)
                     subscribeToLive()
                 }
 
             }else{
                 Log.d("LiveScoreService","Match not started yet")
+                luSM?.reset()
                 subscribeToLive()
             }
         }else stopSelf()
@@ -188,7 +208,7 @@ class LiveScoreService() : Service() {
                 .setContentTitle(title)
                 .setContentText(eventDesc)
                 .setContentIntent(pendingIntent)
-                .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.news_updated))
+                .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.whistle))
                 .setLights(Color.BLUE, 3000, 3000)
 
 

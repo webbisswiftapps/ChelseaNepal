@@ -66,7 +66,6 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         }
         this.model.subscribeToLastMatch(nextMatchListener)
 
-
     }
 
 
@@ -128,7 +127,7 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         }else this.view?.hideNextMatchCard()
     }
 
-    override fun scoreUpdateEvent(homeScore: String, awayScore: String, status: String, events: ArrayList<MatchEvent>) {
+    override fun scoreUpdateEvent(homeScore: String, awayScore: String, status: String) {
         this.view?.switchToScores()
         this.view?.setMatchHomeScore(homeScore)
         this.view?.setMatchAwayScore(awayScore)
@@ -188,7 +187,6 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         loadNextMatchInfo()
         loadLastMatchInfo()
         loadEPLStats()
-
         this.model?.subscribeToLive(this)
     }
 

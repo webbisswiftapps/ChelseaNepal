@@ -71,12 +71,13 @@ interface HomeContract {
         fun subscribeToEPLStats(listener:ValueEventListener)
         fun setNextMatchAlarm(startDateTime:Date)
         fun subscribeToLive(listener:LiveScoreListener)
+        fun getLastLiveScore()
         fun unsubscribeFromLive()
         fun unsubscribeFromFirebase()
     }
 
     interface LiveScoreListener{
-        fun scoreUpdateEvent(homeScore:String, awayScore:String, status:String, events:ArrayList<MatchEvent>)
+        fun scoreUpdateEvent(homeScore:String, awayScore:String, status:String)
     }
 
 
