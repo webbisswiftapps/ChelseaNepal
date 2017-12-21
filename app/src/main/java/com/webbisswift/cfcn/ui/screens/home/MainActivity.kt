@@ -13,6 +13,11 @@ import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsUI
 import kotlinx.android.synthetic.main.activity_main.*
 import android.support.v4.app.ActivityOptionsCompat
 import android.view.View
+import kotlinx.android.synthetic.main.activity_main_coordinator.*
+import android.support.v4.view.GravityCompat
+import android.support.v7.app.ActionBarDrawerToggle
+import android.view.MenuItem
+import com.webbisswift.cfcn.ui.screens.team.TeamInfoActivity
 
 
 /**
@@ -27,6 +32,7 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupTabs()
+        setupDrawer()
 
     }
 
@@ -48,9 +54,33 @@ class MainActivity : AppCompatActivity(){
 
     }
 
+    fun setupDrawer(){
+
+        hamburgerMenuBtn.setOnClickListener {
+            if (!drawer_layout.isDrawerOpen(GravityCompat.START)) {
+                drawer_layout.openDrawer(GravityCompat.START)
+            }
+        }
+
+        navigation_drawer.setNavigationItemSelectedListener { item: MenuItem ->  
+            when(item.itemId){
+                R.id.nav_players -> goToPlayers()
+                else ->  true
+            }
+        }
+
+    }
+
 
     fun toSeasonTab(){
         viewPager.currentItem = 2
+    }
+
+    fun goToPlayers():Boolean{
+        val lmIntent = Intent(this, TeamInfoActivity::class.java)
+        startActivity(lmIntent)
+        drawer_layout?.closeDrawer(GravityCompat.START)
+        return true
     }
 
     fun toLastMatchFacts(){
@@ -63,5 +93,13 @@ class MainActivity : AppCompatActivity(){
         return true
     }*/
 
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
 
 }

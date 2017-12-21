@@ -9,8 +9,17 @@
     <!-- menu strings -->
     <string name="about_us">About Us</string>
     <string name="disclaimer">Disclaimer</string>
-    <string name="youtube_api_key">AIzaSyDa31SHAlwK6jvcLrV4XQsgHcQxNxGBzjA</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="other">Other</string>
     <string name="share">Share</string>
+    <string name="players">Team</string>
+    <string name="home">Home</string>
+    <string name="social">Social Media</string>
+    <string name="settings">Settings</string>
+
+
+    <!-- API Key -->
+    <string name="youtube_api_key">AIzaSyDa31SHAlwK6jvcLrV4XQsgHcQxNxGBzjA</string>
     <string name="crash_text">Oops, the app crashed.</string>
 
 
@@ -18,4 +27,12 @@
     <string name="app_id">ca-app-pub-5865133861479449~5545798392</string>
     <string name="overview_ad_unit_id">ca-app-pub-5865133861479449/6947220413</string>
     <string name="overview_ad_unit_bottom">ca-app-pub-5865133861479449/5342618410</string>
+
+
+    <!-- Menu -->
+
+
+    <!-- Attribution -->
+    <string name="west_stand_attribute">belongs to Vespa125125CFC.</string>
+
 </resources>

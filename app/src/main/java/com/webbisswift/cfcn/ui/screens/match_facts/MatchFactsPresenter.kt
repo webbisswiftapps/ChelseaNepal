@@ -71,7 +71,7 @@ class MatchFactsPresenter(val model: MatchFactsModel): MatchFactsContract.MatchF
 
                 val events = match.match_facts.facts.events
                 if(events != null){
-                    for(event in events){
+                    for(event in events.reversed()){
                         view?.addMatchEvent(event)
                     }
                 }
