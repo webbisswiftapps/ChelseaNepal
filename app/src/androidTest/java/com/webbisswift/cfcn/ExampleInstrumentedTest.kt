@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.webbisswift.cfcnepal", appContext.packageName)
+        assertEquals("com.webbisswift.cfcn", appContext.packageName)
     }
 }

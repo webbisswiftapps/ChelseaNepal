@@ -16,6 +16,10 @@ public class InjuredPlayer {
     }
 
     public String getEnddate() {
+        if(enddate == null || enddate.isEmpty()){
+            enddate = "Unknown";
+        }
+
         return enddate;
     }
 

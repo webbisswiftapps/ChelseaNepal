@@ -9,6 +9,9 @@ import android.view.MenuItem
 import com.google.firebase.database.FirebaseDatabase
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.home.MainPagerAdapter
+import com.webbisswift.cfcn.ui.screens.team.fragments.sidelined.SidelinedFragment
+import com.webbisswift.cfcn.ui.screens.team.fragments.sidelined.TransferInFragment
+import com.webbisswift.cfcn.ui.screens.team.fragments.sidelined.TransferOutFragment
 import com.webbisswift.cfcn.ui.screens.team.fragments.squad.SquadFragment
 import kotlinx.android.synthetic.main.activity_team_info.*
 
@@ -39,9 +42,9 @@ class TeamInfoActivity:AppCompatActivity(){
         val adapter = MainPagerAdapter(supportFragmentManager)
 
         adapter.addFragment(SquadFragment(), R.layout.tab_squad)
-        adapter.addFragment(Fragment(), R.layout.tab_sidelined)
-        adapter.addFragment(Fragment(), R.layout.tab_transfers_in)
-        adapter.addFragment(Fragment(), R.layout.tab_transfers_out)
+        adapter.addFragment(SidelinedFragment(), R.layout.tab_sidelined)
+        adapter.addFragment(TransferInFragment(), R.layout.tab_transfers_in)
+        adapter.addFragment(TransferOutFragment(), R.layout.tab_transfers_out)
 
         viewPager.offscreenPageLimit = 2
         viewPager.adapter = adapter

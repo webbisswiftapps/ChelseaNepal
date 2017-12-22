@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    >
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/transferPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="true"
+        android:text="Davide Zappacosta"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginLeft="10dp"
+        />
+
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/transferSource"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="false"
+        android:text="23m Euros"
+        android:textColor="@color/text_white"
+        android:layout_below="@+id/transferPlayer"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/colorful_gradient"
+        android:padding="6dp"
+        />
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/soruceTitle"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textAllCaps="false"
+        android:text="To"
+        android:textColor="@color/light_text"
+        android:layout_below="@+id/transferSource"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="false"
+        android:text="Torino FC"
+        android:textColor="@color/dark_text"
+        android:layout_below="@+id/transferSource"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/soruceTitle"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/transferDateTitle"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textAllCaps="false"
+        android:text="Date"
+        android:textColor="@color/light_text"
+        android:layout_below="@+id/soruceTitle"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/transferDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="false"
+        android:text="2017-06-28"
+        android:textColor="@color/dark_text"
+        android:layout_below="@+id/soruceTitle"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/transferDateTitle"
+        />
+
+
+</RelativeLayout>

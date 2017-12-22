@@ -1,4 +1,4 @@
-package com.webbisswift.cfcn.ui.screens.team.fragments.squad.adapters
+package com.webbisswift.cfcn.ui.screens.team.adapters
 
 import android.view.View
 import android.widget.TextView

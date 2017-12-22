@@ -1,6 +1,7 @@
-package com.webbisswift.cfcn.ui.screens.team.fragments.squad
+package com.webbisswift.cfcn.ui.screens.team.fragments.sidelined
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -9,20 +10,24 @@ import com.google.firebase.database.FirebaseDatabase
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.base.BaseFragment
 import com.webbisswift.cfcn.base.BasePresenter
-import com.webbisswift.cfcn.domain.model.SquadPlayer
+import com.webbisswift.cfcn.domain.model.InjuredPlayer
+import com.webbisswift.cfcn.domain.model.TransferOutPlayer
+import com.webbisswift.cfcn.domain.model.TrasnferInPlayer
 import com.webbisswift.cfcn.ui.screens.team.TeamInfoModel
 import com.webbisswift.cfcn.ui.screens.team.adapters.SquadAdapterConstants
 import com.webbisswift.cfcn.ui.screens.team.adapters.SquadItem
 import com.webbisswift.cfcn.ui.screens.team.adapters.SquadRVAdapter
+import com.webbisswift.cfcn.ui.screens.team.fragments.transfer_in.TransferOutPresenter
+import com.webbisswift.cfcn.ui.screens.team.fragments.transfer_out.TransferOutContract
 import kotlinx.android.synthetic.main.fragment_rv.*
 
 /**
- * Created by biswas on 21/12/2017.
+ * Created by biswas on 22/12/2017.
  */
 
-class SquadFragment:BaseFragment(), SquadContract.SquadView{
+class TransferOutFragment: BaseFragment(), TransferOutContract.TransferOutView{
 
-    var presenter: SquadPresenter? = null
+    var presenter: TransferOutPresenter? = null
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -45,7 +50,7 @@ class SquadFragment:BaseFragment(), SquadContract.SquadView{
 
     override fun initView() {
         val model = TeamInfoModel(FirebaseDatabase.getInstance())
-        this.presenter = SquadPresenter(model)
+        this.presenter = TransferOutPresenter(model)
     }
 
 
@@ -57,7 +62,7 @@ class SquadFragment:BaseFragment(), SquadContract.SquadView{
 
     private fun setupListeners(){
         rvRefresh.setOnRefreshListener {
-            this.presenter?.loadCurrentSquad()
+            this.presenter?.loadTransferOutPlayers()
         }
     }
 
@@ -65,34 +70,29 @@ class SquadFragment:BaseFragment(), SquadContract.SquadView{
     private fun setupRecyclerView(){
 
 
-            val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
-            rv.layoutManager = layoutManager
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+        rv.layoutManager = layoutManager
+
+        val dividerItemDecoration = DividerItemDecoration(rv.context, LinearLayoutManager.VERTICAL)
+        rv.addItemDecoration(dividerItemDecoration)
 
         rvAdapter = SquadRVAdapter(this.context)
         rv.adapter = rvAdapter
 
     }
 
-    override fun showSquadLoading() {
+    override fun showLoading() {
         rvRefresh?.postDelayed({
             rvRefresh?.isRefreshing = true
         }, 600)
     }
 
-    override fun addCoach(coach: String) {
-        val titleItem = SquadItem(SquadAdapterConstants.TYPE_TITLE, "Manager", null, null, null , null, null)
-        val coachItem = SquadItem(SquadAdapterConstants.TYPE_COACH, null, null, coach, null, null, null)
-        this.rvAdapter.addSquadItem(titleItem)
-        this.rvAdapter.addSquadItem(coachItem)
-        this.rvAdapter.notifyDataSetChanged()
-    }
 
-    override fun addSquadGroup(title: String, players: List<SquadPlayer>) {
-        val titleItem = SquadItem(SquadAdapterConstants.TYPE_TITLE, title, null, null, null , null , null)
-        this.rvAdapter.addSquadItem(titleItem)
+
+    override fun addPlayers(players: List<TransferOutPlayer>) {
 
         for(player in players) {
-            val playerItem = SquadItem(SquadAdapterConstants.TYPE_SQUAD_PLAYER, null, player, null, null , null , null)
+            val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_OUT, null, null, null,  null, null , player)
             this.rvAdapter.addSquadItem(playerItem)
         }
 
@@ -103,7 +103,7 @@ class SquadFragment:BaseFragment(), SquadContract.SquadView{
         this.rvAdapter.clear()
     }
 
-    override fun hideSquadLoading() {
+    override fun hideLoading() {
         rvRefresh?.postDelayed({
             rvRefresh?.isRefreshing = false
         }, 600)
@@ -112,11 +112,11 @@ class SquadFragment:BaseFragment(), SquadContract.SquadView{
             rvVS?.showPrevious()
     }
 
-    override fun showNoSquadError() {
+    override fun showNoPlayers() {
         if(rvVS?.currentView?.id != R.id.errorRV)
             rvVS?.showNext()
 
-        errorRV.text = "Could not load squad info."
+        errorRV.text = "No transfer in data."
     }
 
 

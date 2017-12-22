@@ -1,8 +1,6 @@
-package com.webbisswift.cfcn.ui.screens.team.fragments.squad.adapters
+package com.webbisswift.cfcn.ui.screens.team.adapters
 
 import android.view.View
-import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import com.webbisswift.cfcn.R
 
