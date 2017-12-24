@@ -16,11 +16,24 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@android:color/transparent"
             android:fitsSystemWindows="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/west_stand"
+                android:scaleType="centerCrop"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/toolbar_tp"
+                />
 
 
             <android.support.v7.widget.Toolbar
@@ -29,7 +42,6 @@
                 android:layout_height="match_parent"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                android:background="@color/colorPrimary_tp"
                 android:contentInsetLeft="0dp"
                 android:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
@@ -62,7 +74,6 @@
                         android:src="@drawable/lion_logo_ony"
                         android:layout_centerVertical="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
                         />
 
                 </RelativeLayout>

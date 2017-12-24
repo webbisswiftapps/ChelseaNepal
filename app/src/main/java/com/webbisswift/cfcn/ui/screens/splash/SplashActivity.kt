@@ -37,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         FontManager.getInstance(this).cacheAllFonts()
-        moveToHome()
+        playChant()
     }
 
 

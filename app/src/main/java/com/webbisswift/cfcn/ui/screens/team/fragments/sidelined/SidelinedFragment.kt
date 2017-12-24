@@ -87,9 +87,20 @@ class SidelinedFragment: BaseFragment(), SidelinedContract.SidelinedView{
 
     override fun addPlayers(players: List<InjuredPlayer>) {
 
-        for(player in players) {
-            val playerItem = SquadItem(SquadAdapterConstants.TYPE_INJURED_PLAYER, null, null, null,  player, null , null)
+        if(players.size > 1) {
+            for ((index, value) in players.withIndex()) {
+                val playerItem = SquadItem(SquadAdapterConstants.TYPE_INJURED_PLAYER, null, null, null, value, null, null)
+                this.rvAdapter.addSquadItem(playerItem)
+                if(index % 5 == 0){
+                    val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null, null, null, null, null, null)
+                    this.rvAdapter.addSquadItem(adItem)
+                }
+            }
+        }else{
+            val playerItem = SquadItem(SquadAdapterConstants.TYPE_INJURED_PLAYER, null, null, null, players[0], null, null)
             this.rvAdapter.addSquadItem(playerItem)
+            val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null, null, null, null, null, null)
+            this.rvAdapter.addSquadItem(adItem)
         }
 
         this.rvAdapter.notifyDataSetChanged()

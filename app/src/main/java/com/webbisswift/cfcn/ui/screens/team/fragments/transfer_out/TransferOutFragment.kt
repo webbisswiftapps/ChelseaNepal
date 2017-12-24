@@ -91,9 +91,20 @@ class TransferOutFragment: BaseFragment(), TransferOutContract.TransferOutView{
 
     override fun addPlayers(players: List<TransferOutPlayer>) {
 
-        for(player in players) {
-            val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_OUT, null, null, null,  null, null , player)
+        if(players.size > 1) {
+            for ((index, value) in players.withIndex()) {
+                val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_OUT, null, null, null, null, null, value)
+                this.rvAdapter.addSquadItem(playerItem)
+                if(index % 8 == 0){
+                    val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null, null, null, null, null, null)
+                    this.rvAdapter.addSquadItem(adItem)
+                }
+            }
+        }else{
+            val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_OUT, null, null, null, null, null, players[0])
             this.rvAdapter.addSquadItem(playerItem)
+            val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null, null, null, null, null, null)
+            this.rvAdapter.addSquadItem(adItem)
         }
 
         this.rvAdapter.notifyDataSetChanged()

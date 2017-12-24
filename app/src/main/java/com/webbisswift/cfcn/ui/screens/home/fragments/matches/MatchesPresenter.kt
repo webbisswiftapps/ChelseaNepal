@@ -63,20 +63,32 @@ class MatchesPresenter(val model: MatchesModel): MatchesContract.MatchesPresente
      **/
     fun presentFixtures(matches:List<Match>?){
 
-        if(matches!=null && matches?.size > 0){
-            view?.hideLoading()
-            view?.addFixtures(matches)
+        val array = ArrayList<Match>()
+        val adItem = Match()
+        adItem.isAd = true
+
+        if(matches!=null && matches.isNotEmpty()){
+            array.addAll(matches)
+            if(array.size > 3){
+                array.add(2, adItem)
+            }else{
+                array.add(adItem)
+            }
+        }else{
+            array.add(adItem)
         }
+
+        view?.hideLoading()
+        view?.addFixtures(array)
 
     }
 
     fun presentResults(matches:List<Match>?){
 
-        if(matches!=null && matches?.size > 0){
-            view?.hideLoading()
+        view?.hideLoading()
+        if(matches != null && matches.isNotEmpty()) {
             view?.addResults(matches)
         }
-
     }
 
     /**

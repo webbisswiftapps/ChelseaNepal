@@ -13,8 +13,10 @@ import java.util.TimeZone;
 
 public class Match {
 
+
     public static final int TYPE_FIXTURE = 0;
     public static final int TYPE_RESULT = 1;
+    public static final int TYPE_AD = 2;
 
      public static final String SHIRT_BASE_URL = "https://bluesnp-1727e.firebaseapp.com/";
      public String away, awayfull,  awaypath, awayshirt, competition, home, homepath, homefull, homeshirt, start_date, start_time,tv_guide, status, match_id, competitionkey, country;
@@ -23,6 +25,9 @@ public class Match {
      public ArrayList<Integer> score;
      public ArrayList<Integer> penalties;
      public MatchFactsHolder match_facts;
+
+     public boolean isAd = false;
+
 
     public MatchFactsHolder getMatch_facts() {
         return match_facts;
@@ -124,6 +129,7 @@ public class Match {
 
 
     public int getMatchType(){
+        if(isAd) return TYPE_AD;
         if(status.toUpperCase().contentEquals("FT")) return TYPE_RESULT;
         else return TYPE_FIXTURE;
     }

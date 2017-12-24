@@ -2,17 +2,57 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="@color/colorPrimary_tp"
+    android:layout_height="240dp"
+    android:background="@color/colorPrimary"
+    android:padding="10dp"
     >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
-        android:src="@drawable/final_full_logo_transparent_noflag"
+        android:src="@drawable/lion_logo_ony"
         android:layout_centerInParent="true"
         />
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:font_name="@string/font_montserrat_bold"
+        android:textAllCaps="true"
+        android:textColor="@color/text_white"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowColor="@color/colorPrimaryDark"
+        />
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By Chelsea Fan Club, Nepal"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textColor="@color/text_white"
+        android:layout_below="@+id/appName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowColor="@color/colorPrimaryDark"
+        />
+
+
+
 
 
 </RelativeLayout>

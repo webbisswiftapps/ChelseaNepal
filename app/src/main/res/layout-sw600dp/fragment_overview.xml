@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/fragment_padding"
+        android:focusableInTouchMode="true"
         >
 
         <LinearLayout
@@ -46,15 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
-                <com.google.android.gms.ads.AdView
-                    android:layout_marginTop="5dp"
-                    xmlns:ads="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/adView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    ads:adSize="SMART_BANNER"
-                    ads:adUnitId="@string/overview_ad_unit_id"/>
+                <include layout="@layout/ad_card_small_overview" />
                 <include layout="@layout/layout_top_scorers_card" />
 
             </LinearLayout>

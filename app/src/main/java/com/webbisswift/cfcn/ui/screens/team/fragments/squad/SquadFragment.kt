@@ -82,8 +82,10 @@ class SquadFragment:BaseFragment(), SquadContract.SquadView{
     override fun addCoach(coach: String) {
         val titleItem = SquadItem(SquadAdapterConstants.TYPE_TITLE, "Manager", null, null, null , null, null)
         val coachItem = SquadItem(SquadAdapterConstants.TYPE_COACH, null, null, coach, null, null, null)
+        val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null , null, null, null, null, null)
         this.rvAdapter.addSquadItem(titleItem)
         this.rvAdapter.addSquadItem(coachItem)
+        this.rvAdapter.addSquadItem(adItem)
         this.rvAdapter.notifyDataSetChanged()
     }
 

@@ -90,9 +90,20 @@ class TransferInFragment: BaseFragment(), TransferInContract.TransferInView{
 
     override fun addPlayers(players: List<TrasnferInPlayer>) {
 
-        for(player in players) {
-            val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_IN, null, null, null,  null, player , null)
+        if(players.size > 1) {
+            for ((index, value) in players.withIndex()) {
+                val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_IN, null, null, null, null, value, null)
+                this.rvAdapter.addSquadItem(playerItem)
+                if(index % 8 == 0){
+                    val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null, null, null, null, null, null)
+                    this.rvAdapter.addSquadItem(adItem)
+                }
+            }
+        }else{
+            val playerItem = SquadItem(SquadAdapterConstants.TYPE_TRANSFER_IN, null, null, null, null, players[0], null)
             this.rvAdapter.addSquadItem(playerItem)
+            val adItem = SquadItem(SquadAdapterConstants.TYPE_AD, null, null, null, null, null, null)
+            this.rvAdapter.addSquadItem(adItem)
         }
 
         this.rvAdapter.notifyDataSetChanged()

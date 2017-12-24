@@ -55,9 +55,16 @@ class SquadRVAdapter(val context: Context?):
             SquadAdapterConstants.TYPE_TRANSFER_IN->{
                 val squadItemView = LayoutInflater.from(context).inflate(R.layout.item_squad_transfer_in, parent, false)
                 return SquadTransferInVH(squadItemView)
-            }else -> {
+            }
+
+            SquadAdapterConstants.TYPE_TRANSFER_OUT-> {
                 val squadItemView = LayoutInflater.from(context).inflate(R.layout.item_squad_transfer_out, parent, false)
                 return SquadTransferOutVH(squadItemView)
+            }
+
+            else ->{
+                val squadItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item, parent, false)
+                return SquadAdViewHolder(squadItemView)
             }
 
         }

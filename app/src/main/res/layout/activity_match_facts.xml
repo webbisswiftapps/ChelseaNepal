@@ -7,6 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.screens.home.MainActivity"
     android:orientation="vertical"
+    android:focusableInTouchMode="true"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -17,195 +18,214 @@
         >
 
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolBar"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                android:contentInsetLeft="0dp"
-                android:contentInsetStart="0dp"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                android:contentInsetRight="0dp"
-                android:contentInsetEnd="0dp"
-                app:contentInsetRight="0dp"
-                app:contentInsetEnd="0dp"
-               />
-
-        <RelativeLayout
-            android:id="@+id/lastMatchDisplay"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="match_parent">
 
 
-
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
-                android:id="@+id/lastMatchCompetition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                app:font_name="@string/font_montserrat_semibold"
-                android:textColor="@color/text_white"
-                android:layout_below="@id/lastMatchTitle"
-                android:text="Champions League"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="14dp"
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/west_stand"
+                android:scaleType="centerCrop"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
-                android:id="@+id/lastMatchDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                app:font_name="@string/font_montserrat_regular"
-                android:textColor="@color/text_white"
-                android:layout_below="@id/lastMatchCompetition"
-                android:text="Friday, 24 Dec 2017"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="2dp"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/toolbar_tp"
                 />
 
             <LinearLayout
-                android:id="@+id/scoresPaneLR"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/lastMatchDate"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 >
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    android:contentInsetLeft="0dp"
+                    android:contentInsetStart="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    android:contentInsetRight="0dp"
+                    android:contentInsetEnd="0dp"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetEnd="0dp"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/lastMatchDisplay"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     >
 
-                    <ImageView
-                        android:id="@+id/homeTeamLogoLR"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/chelsea_logo"
-                        android:layout_gravity="center_vertical|center_horizontal"
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/lastMatchCompetition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/lastMatchTitle"
+                        android:text="Champions League"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="14dp"
                         />
 
                     <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/lastMatchHomeTeam"
+                        android:id="@+id/lastMatchDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        app:font_name="@string/font_montserrat_semibold"
-                        android:textAllCaps="true"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
                         android:textColor="@color/text_white"
-                        android:text="CHELSEA"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_below="@id/lastMatchCompetition"
+                        android:text="Friday, 24 Dec 2017"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="2dp"
                         />
 
+                    <LinearLayout
+                        android:id="@+id/scoresPaneLR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/lastMatchDate"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
 
-                </LinearLayout>
+                            <ImageView
+                                android:id="@+id/homeTeamLogoLR"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/chelsea_logo"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                />
 
-
-
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
-                    android:id="@+id/homeScoreLR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    app:font_name="@string/font_montserrat_semibold"
-                    android:textAllCaps="true"
-                    android:textColor="@color/text_white"
-                    android:text="3"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="top"
-                    />
-
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
-                    android:id="@+id/hifen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    app:font_name="@string/font_montserrat_semibold"
-                    android:textAllCaps="true"
-                    android:textColor="@color/text_white"
-                    android:text="-"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_gravity="top"
-                    />
-
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
-                    android:id="@+id/awayScoreLR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="26sp"
-                    app:font_name="@string/font_montserrat_semibold"
-                    android:textAllCaps="true"
-                    android:textColor="@color/text_white"
-                    android:text="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="top"
-                    />
+                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                android:id="@+id/lastMatchHomeTeam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                app:font_name="@string/font_montserrat_semibold"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_white"
+                                android:text="CHELSEA"
+                                android:layout_gravity="center_horizontal"
+                                />
 
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                        </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/awayTeamLogoLR"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/atm_logo"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        />
+
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/homeScoreLR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="26sp"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_white"
+                            android:text="3"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_gravity="top"
+                            />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/hifen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="26sp"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_white"
+                            android:text="-"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_gravity="top"
+                            />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/awayScoreLR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="26sp"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_white"
+                            android:text="1"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_gravity="top"
+                            />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <ImageView
+                                android:id="@+id/awayTeamLogoLR"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/atm_logo"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                />
+
+                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                android:id="@+id/lastMatchAwayTeam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:font_name="@string/font_montserrat_semibold"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_white"
+                                android:text="Atletico"
+                                android:textSize="12sp"
+                                android:layout_gravity="center_horizontal"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                     <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/lastMatchAwayTeam"
+                        android:id="@+id/lastMatchPenalties"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
                         app:font_name="@string/font_montserrat_semibold"
-                        android:textAllCaps="true"
                         android:textColor="@color/text_white"
-                        android:text="Atletico"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_horizontal"
+                        android:layout_below="@id/scoresPaneLR"
+                        android:text="Pen(4-1)"
+                        android:visibility="gone"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="1dp"
                         />
-                </LinearLayout>
 
-
-
-
-
-
+                </RelativeLayout>
 
             </LinearLayout>
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
-                android:id="@+id/lastMatchPenalties"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                app:font_name="@string/font_montserrat_semibold"
-                android:textColor="@color/text_white"
-                android:layout_below="@id/scoresPaneLR"
-                android:text="Pen(4-1)"
-                android:visibility="gone"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="1dp"
-                />
+        </FrameLayout>
 
-
-
-
-        </RelativeLayout>
 
 
 
@@ -224,7 +244,9 @@
             android:orientation="vertical"
             >
             <include layout="@layout/layout_match_stats_card" />
+            <include layout="@layout/ad_card_small_banner_season" />
             <include layout="@layout/layout_match_stats_events" />
+            <include layout="@layout/ad_card_large_overview" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

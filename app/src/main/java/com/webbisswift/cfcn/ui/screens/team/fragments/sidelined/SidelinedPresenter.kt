@@ -42,6 +42,7 @@ class SidelinedPresenter(val model: TeamInfoModel) : SidelinedContract.Sidelined
         if(teamInfo != null){
             val sidelined = teamInfo.sidelined
             if(sidelined != null){
+                view?.clearList()
                 view?.addPlayers(sidelined)
             }else view?.showNoSidelined()
         }else view?.showNoSidelined()

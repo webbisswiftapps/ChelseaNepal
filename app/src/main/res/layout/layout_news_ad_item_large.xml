@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_white"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/sponsoredTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sponsored"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textAllCaps="true"
+        android:textColor="@color/light_text"
+        android:layout_marginLeft="5dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/sponsoredTitle"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        />
+
+    <com.google.android.gms.ads.AdView
+        android:layout_marginTop="10dp"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        ads:adSize="300x250"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/sponsoredTitle"
+        ads:adUnitId="@string/news_list_ad_unit_large"/>
+
+</RelativeLayout>

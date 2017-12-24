@@ -6,27 +6,27 @@
     tools:context=".ui.screens.splash.SplashActivity">
 
 
-   <!-- <ImageView
+   <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/stamford_bridge"
+        android:src="@drawable/west_stand"
         android:scaleType="centerCrop"
-    /> -->
+    />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_splash_gradient_tp" />
+        android:background="@color/toolbar_tp" />
 
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/final_full_logo_transparent_noflag" />
+        android:src="@drawable/lion_logo_ony" />
 
 
     <com.webbisswift.cfcn.ui.custom_views.CTextView

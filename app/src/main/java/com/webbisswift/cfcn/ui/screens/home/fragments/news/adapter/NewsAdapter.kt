@@ -18,7 +18,7 @@ import com.webbisswift.cfcn.domain.localdb.entities.DBNewsItem
 
 
 class NewsAdapter(val context: Context?):
-        RecyclerView.Adapter<NewsViewHolder>(), NewsViewHolder.OnItemClickListener{
+        RecyclerView.Adapter<RecyclerView.ViewHolder>(), NewsViewHolder.OnItemClickListener{
 
 
 
@@ -26,11 +26,19 @@ class NewsAdapter(val context: Context?):
         setHasStableIds(true)
     }
 
-    val news:ArrayList<DBNewsItem> = ArrayList()
+    val news:ArrayList<NormalizedNewsItem> = ArrayList()
 
-    fun addNewsSection(items:List<DBNewsItem>){
+    fun addNewsSection(items:List<NormalizedNewsItem>){
         if(items.isNotEmpty()) {
             news.addAll(items)
+
+            for (index in news.indices) {
+                if(index > 0 && index % 8 == 0){
+                    //every five items, add in an ad item
+                    val adItem = NormalizedNewsItem(null, true)
+                    news.add(index, adItem)
+                }
+            }
             notifyDataSetChanged()
         }
     }
@@ -43,21 +51,24 @@ class NewsAdapter(val context: Context?):
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): NewsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
 
             if(viewType == 0) {
                 val newsItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_item, parent, false)
                 return NewsViewHolder(newsItemView, this)
-            }else{
+            }else if(viewType == 1){
                 val newsItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_item_small, parent, false)
                 return NewsViewHolder(newsItemView, this)
+            }else{
+                val adItem = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item, parent , false)
+                return NewsAdViewHolder(adItem)
             }
 
 
     }
 
-    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.setNews(news[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as? NewsViewHolder)?.setNews(news[position])
     }
 
 
@@ -66,31 +77,37 @@ class NewsAdapter(val context: Context?):
     }
 
     override fun getItemViewType(position: Int): Int {
-        when(news[position].isHeading) {
-            true -> return 0
-            false -> return 1
-        }
+        val item = news[position]
+        if(item.newsItem != null){
+            if(item.newsItem.isHeading)
+                return 0
+            else return 1
+        }else return 2
+
     }
 
 
     override fun getItemId(position: Int): Long {
-        return news[position].finalLink.hashCode().toLong()
+        return news[position].hashCode().toLong()
     }
 
     override fun onItemClicked(position:Int){
 
-        val url = news[position].finalLink
-        var i = Intent(context, WebViewActivity::class.java)
-        i.putExtra("URL", url)
+        val item = news[position]
+        if(item.newsItem != null) {
+            val url = item.newsItem.finalLink
+            var i = Intent(context, WebViewActivity::class.java)
+            i.putExtra("URL", url)
 
-        if(url.contains("youtube")){
-            val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            try {
-                context?.startActivity(appIntent)
-            } catch (ex: ActivityNotFoundException) {
-                context?.startActivity(i)
-            }
-        }else context?.startActivity(i)
+            if (url.contains("youtube")) {
+                val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                try {
+                    context?.startActivity(appIntent)
+                } catch (ex: ActivityNotFoundException) {
+                    context?.startActivity(i)
+                }
+            } else context?.startActivity(i)
+        }
     }
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CFC Nepal</string>
+    <string name="app_name">CFCN</string>
 
     <string name="title_activity_splash">Welcome</string>
 
@@ -12,7 +12,7 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="other">Other</string>
     <string name="share">Share</string>
-    <string name="players">Team</string>
+    <string name="players">Players</string>
     <string name="home">Home</string>
     <string name="social">Social Media</string>
     <string name="settings">Settings</string>
@@ -27,6 +27,8 @@
     <string name="app_id">ca-app-pub-5865133861479449~5545798392</string>
     <string name="overview_ad_unit_id">ca-app-pub-5865133861479449/6947220413</string>
     <string name="overview_ad_unit_bottom">ca-app-pub-5865133861479449/5342618410</string>
+    <string name="news_list_ad_unit_large">ca-app-pub-5865133861479449/1433720031</string>
+    <string name="season_banner_small">ca-app-pub-5865133861479449/5248965670</string>
 
 
     <!-- Menu -->

@@ -10,9 +10,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/fragment_padding"
         >
         <include layout="@layout/layout_form_guide_card" />
+        <include layout="@layout/ad_card_small_banner_season" />
         <include layout="@layout/layout_league_table_card" />
         <include layout="@layout/layout_top_scorers_card" />
 

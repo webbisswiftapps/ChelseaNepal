@@ -22,7 +22,9 @@ import kotlinx.android.synthetic.main.activity_match_facts.*
 import kotlinx.android.synthetic.main.layout_match_stats_card.*
 import kotlinx.android.synthetic.main.layout_match_stats_events.*
 import android.view.ViewAnimationUtils
-
+import com.google.android.gms.ads.AdRequest
+import kotlinx.android.synthetic.main.ad_card_large_overview.*
+import kotlinx.android.synthetic.main.ad_card_small_overview.*
 
 
 /**
@@ -44,20 +46,29 @@ class MatchFactsUI : BaseActivity(), MatchFactsContract.MatchFactsView{
 
 
 
+
+
     override fun initView() {
         setSupportActionBar(toolBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         val model = MatchFactsModel(FirebaseDatabase.getInstance())
         this.presenter = MatchFactsPresenter(model)
-
-
+        loadAds()
     }
 
     override fun getPresenter(): BasePresenter {
         return this.presenter as BasePresenter
     }
 
+    private fun loadAds(){
+        val adRequest = AdRequest.Builder()
+                .addTestDevice("D97506CE44741D62F39273476ECCCA35")
+                .addTestDevice("C59EB2BE510BBC21EF6D8F6A3D585248")
+                .build()
+        adView.loadAd(adRequest)
+        adViewLarge.loadAd(adRequest)
+    }
 
 
 

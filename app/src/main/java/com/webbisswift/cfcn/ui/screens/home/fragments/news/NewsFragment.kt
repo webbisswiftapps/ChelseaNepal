@@ -17,6 +17,7 @@ import com.webbisswift.cfcn.domain.localdb.AppDatabase
 import com.webbisswift.cfcn.domain.localdb.entities.DBNewsItem
 import com.webbisswift.cfcn.ui.custom_views.ItemOffsetDecoration
 import com.webbisswift.cfcn.ui.screens.home.fragments.news.adapter.NewsAdapter
+import com.webbisswift.cfcn.ui.screens.home.fragments.news.adapter.NormalizedNewsItem
 import kotlinx.android.synthetic.main.fragment_news.*
 
 
@@ -104,7 +105,11 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
 
 
     override fun addNewsSection(items: List<DBNewsItem>) {
-        newsAdapter?.addNewsSection(items)
+        var normalizedList = ArrayList<NormalizedNewsItem>()
+        for(item in items){
+            normalizedList.add(NormalizedNewsItem(item, false))
+        }
+        newsAdapter.addNewsSection(normalizedList)
     }
 
     override fun hideLoading() {

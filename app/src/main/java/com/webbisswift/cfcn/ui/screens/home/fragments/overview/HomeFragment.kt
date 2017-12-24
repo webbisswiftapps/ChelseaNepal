@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.fragment_overview.*
 import kotlinx.android.synthetic.main.layout_team_stats_epl_card.*
 import android.opengl.ETC1.getHeight
 import android.opengl.ETC1.getWidth
-
-
+import kotlinx.android.synthetic.main.ad_card_large_overview.*
+import kotlinx.android.synthetic.main.ad_card_small_overview.*
 
 
 /**
@@ -90,9 +90,10 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
     private fun loadAds(){
         val adRequest = AdRequest.Builder()
                 .addTestDevice("D97506CE44741D62F39273476ECCCA35")
+                .addTestDevice("C59EB2BE510BBC21EF6D8F6A3D585248")
                 .build()
         adView.loadAd(adRequest)
-        adViewBottom.loadAd(adRequest)
+        adViewLarge.loadAd(adRequest)
     }
 
     /**
@@ -255,6 +256,5 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
     override fun hideTeamStatsPane() {
         teamStatsCard?.visibility = View.GONE
     }
-
 
 }

@@ -31,9 +31,12 @@ class MatchesRVAdapter(val context:Context?):
         if(viewType == Match.TYPE_RESULT) {
             val resultView = LayoutInflater.from(context).inflate(R.layout.layout_result_item, null, false)
             return ResultsViewHolder(resultView)
-        }else{
+        }else if(viewType == Match.TYPE_FIXTURE){
             val resultView = LayoutInflater.from(context).inflate(R.layout.layout_fixture_item, null, false)
             return FixturesViewHolder(resultView)
+        }else{
+            val adItem = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item, parent , false)
+            return MatchesAdViewHolder(adItem)
         }
 
 

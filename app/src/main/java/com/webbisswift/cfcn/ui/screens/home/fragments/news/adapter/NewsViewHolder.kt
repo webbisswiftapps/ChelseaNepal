@@ -29,8 +29,6 @@ class NewsViewHolder(v: View, val listener:NewsViewHolder.OnItemClickListener): 
     var newsTime: TextView
     var mediaPlayButton:ImageButton
 
-
-
     init{
 
         newsTitle = this.view.findViewById(R.id.newsTitle)
@@ -46,22 +44,20 @@ class NewsViewHolder(v: View, val listener:NewsViewHolder.OnItemClickListener): 
     }
 
 
-    fun setNews(item:DBNewsItem){
+    fun setNews(nItem:NormalizedNewsItem){
 
-        newsTitle.text = item.title.trim()
-        newsSource.text = item.authorName.trim()
-        newsTime.text = Utilities.getTimeAgo(item.getPubDate())
-        Glide.with(view.context).load(item.thumbURL).into(newsThumb)
+        val item = nItem.newsItem
+        newsTitle.text = item?.title?.trim()
+        newsSource.text = item?.authorName?.trim()
+        newsTime.text = Utilities.getTimeAgo(item?.getPubDate())
+        Glide.with(view.context).load(item?.thumbURL).into(newsThumb)
 
-        if(item.isVideo)
+        val isVideo = item?.isVideo
+        if(isVideo!=null && isVideo)
             mediaPlayButton.visibility = View.VISIBLE
         else mediaPlayButton.visibility = View.GONE
 
     }
-
-
-
-
 
 
 }

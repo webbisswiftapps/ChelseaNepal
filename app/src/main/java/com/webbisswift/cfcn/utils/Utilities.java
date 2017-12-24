@@ -24,7 +24,7 @@ public class Utilities {
     public static String getCopyrightDate(){
         try {
             DateTime now = new DateTime();
-            return "© " + now.year();
+            return "© " + now.year().getAsText();
         }catch (Exception e){
             return "";
         }
