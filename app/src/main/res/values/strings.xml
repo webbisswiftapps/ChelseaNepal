@@ -1,19 +1,37 @@
 <resources>
     <string name="app_name">CFCN</string>
+    <string name="group_name">Chelsea Fan Club Nepal</string>
 
     <string name="title_activity_splash">Welcome</string>
 
-    <string name="image_attribution"> Image by Brian Minkoff-London Pixels</string>
+    <string name="image_attribution"> "West Stand" image by  Vespa125125CFC.</string>
+    <string name="lion_head_attribution">"Lion head" image by sdfasdfasasdfasd.</string>
+    <string name="copyright_disclaimer">
+
+        © Copyright CFCN. All rights reserved.\n\n
+
+        The app "CFCN" is strictly for informational and entertainment purposes and in no way represents "Chelsea Football Club" or
+        any other chelsea fan websites or their views. \n \n
+
+        The images, logos and names of the clubs used in the app belong to the respective clubs
+        and we do not intend to infringe the copyright of any of these entities and we hereby credit them to the owner.
+
+
+    </string>
+
+    <string name="about_group"> Chelsea Fan Club, Nepal is an unofficial Chelsea fan club from Nepal registered in 2016. We organize different events and match screenings and also various social works.
+    Learn more about us and join us by clicking the link below.
+    </string>
 
 
     <!-- menu strings -->
     <string name="about_us">About Us</string>
-    <string name="disclaimer">Disclaimer</string>
+    <string name="disclaimer">Copyright &amp; Disclaimer</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="other">Other</string>
     <string name="share">Share</string>
-    <string name="players">Players</string>
-    <string name="home">Home</string>
+    <string name="players">Squad &amp; Transfers</string>
+    <string name="home">Latest</string>
     <string name="social">Social Media</string>
     <string name="settings">Settings</string>
 

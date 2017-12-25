@@ -74,20 +74,32 @@ class LiveScoreService() : Service() {
         val errorReceiver = object: Response.ErrorListener{
             override fun onErrorResponse(error: VolleyError?) {
                 Log.d("LiveScoreService", error.toString())
-                subscribeToLive()
+                continuePolling()
             }
         }
 
 
         val request = JsonObjectRequest(Request.Method.GET, "http://api.statsfc.com/crowdscores/live.php?key=VsIkrxOyDBTSi1KkdIl7gdFb5dqjvOihsJ1PxVnN&domain=statsfc.com&team=chelsea&timezone=Asia/Kathmandu&goals=true",
                 null, newsReceiver, errorReceiver)
-        this.queue.add(request)
+        //val request = JsonObjectRequest(Request.Method.GET, "https://bluesnp-updater.herokuapp.com/livedemo",
+                //null, newsReceiver, errorReceiver)
 
+        this.queue.add(request)
+    }
+
+    private val pollerRunnable:Runnable = Runnable { loadLiveScore() }
+
+    private fun continuePolling(){
+        Log.d("LiveScoreService", "Scheduling after 30 seconds.")
+        h.removeCallbacks(pollerRunnable) /* Clear any lingering previous runnable */
+        h.postDelayed(pollerRunnable, 60000) /* minute by minute update */
     }
 
 
-    private fun subscribeToLive(){
-        h.postDelayed({ loadLiveScore() }, 30000) /* minute by minute update */
+    private fun stopPolling(){
+        Log.d("LiveScoreService", "Stopping polling....")
+        h.removeCallbacks(pollerRunnable)
+        stopSelf()
     }
 
 
@@ -100,12 +112,6 @@ class LiveScoreService() : Service() {
         val halfTime = luSM?.getMatchHalfTime()!!
         val lastEventId = luSM?.getLastEventId()!!
         val secHalf = luSM?.getMatchSecondHalfStarted()!!
-
-        Log.d("LiveScoreService","Cache: STARTED "+matchStarted)
-        Log.d("LiveScoreService","Cache: HT "+halfTime)
-        Log.d("LiveScoreService", "Cache: 2nd Half: "+secHalf)
-        Log.d("LiveScoreService","Cache: LAST EVENT "+lastEventId)
-
 
         if(matches != null && matches.isNotEmpty()){
 
@@ -179,21 +185,21 @@ class LiveScoreService() : Service() {
 
                     notifyEvent(eventDesc, title)
                     luSM?.reset()
-                    stopSelf()
+                    stopPolling()
                 }else{
                     Log.d("LiveScoreService","New: STARTED "+true)
                     Log.d("LiveScoreService","New: HT "+halfTimeL)
                     Log.d("LiveScoreService","New: LAST EVENT "+lastEventL)
                     luSM?.setLiveMatchLastEvent(true, halfTimeL, secHalfL, lastEventL, currentMatch.score[0].toString(), currentMatch.score[1].toString(), currentMatch.status)
-                    subscribeToLive()
+                    continuePolling()
                 }
 
             }else{
                 Log.d("LiveScoreService","Match not started yet")
                 luSM?.reset()
-                subscribeToLive()
+                continuePolling()
             }
-        }else stopSelf()
+        }else continuePolling()
     }
 
 

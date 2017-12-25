@@ -5,6 +5,8 @@ import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
+import android.support.v4.content.LocalBroadcastManager
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import com.webbisswift.cfcn.utils.FontManager
@@ -19,6 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
 
     val mHandler:Handler =  Handler()
+    lateinit var mPlayer:MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +29,8 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         //initialize
+        mPlayer = MediaPlayer.create(this, R.raw.cfc_chant_carefree_short)
+        mPlayer.setVolume(0.25f, 0.25f)
 
         initActivity()
     }
@@ -37,21 +42,30 @@ class SplashActivity : AppCompatActivity() {
 
 
         FontManager.getInstance(this).cacheAllFonts()
-        playChant()
+
+        if(isFirstSplash()) {
+            playChant()
+            setFirstSplash()
+        }else {
+            moveToHome()
+        }
     }
 
 
     private fun playChant(){
-        val mPlayer = MediaPlayer.create(this, R.raw.cfc_chant_carefree_short)
-        mPlayer.setVolume(0.5f, 0.5f)
-        mPlayer.setOnCompletionListener {
-            //played media, now release and go to next activity
-            mPlayer.release()
-            mHandler.postDelayed({
-                moveToHome()
-            }, 200)
+        try {
+            mPlayer.setOnCompletionListener {
+                //played media, now release and go to next activity
+                mPlayer.release()
+                mHandler.postDelayed({
+                    moveToHome()
+                }, 100)
+            }
+            mPlayer.start()
+        }catch (e:Exception){
+            e.printStackTrace()
+            moveToHome()
         }
-        mPlayer.start()
     }
 
 
@@ -62,6 +76,16 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
+    private fun isFirstSplash():Boolean{
 
+        val sp = PreferenceManager.getDefaultSharedPreferences(this)
+        return sp.getBoolean("IS_FIRST", true);
+    }
+
+    private fun setFirstSplash(){
+        val editor = PreferenceManager.getDefaultSharedPreferences(this).edit()
+        editor.putBoolean("IS_FIRST", false)
+        editor.apply()
+    }
 
 }

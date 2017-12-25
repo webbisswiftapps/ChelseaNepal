@@ -27,13 +27,17 @@ class SquadTransferInVH(private val view: View):SquadViewHolder(view){
 
 
     override fun setItem(item: SquadItem) {
-        val player = item.transferInPlayer
-        val typeEncoded = Html.fromHtml(player?.type)
+        try {
+            val player = item.transferInPlayer
+            val typeEncoded = Html.fromHtml(player?.type)
 
-        transferPlayer.text = player?.name
-        transferType.text = typeEncoded
-        sourceClub.text = player?.from_team
-        transferDate.text = player?.date
+            transferPlayer.text = player?.name
+            transferType.text = typeEncoded
+            sourceClub.text = player?.from_team
+            transferDate.text = player?.date
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
 
     }
 }

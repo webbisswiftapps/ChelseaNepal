@@ -3,6 +3,7 @@ package com.webbisswift.cfcn.background.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 import com.webbisswift.cfcn.background.services.LiveScoreService;
@@ -12,7 +13,7 @@ import com.webbisswift.cfcn.domain.sharedpref.LiveUpdateScoreManager;
  * Created by apple on 12/9/17.
  */
 
-public class LiveServiceAlarmReciever extends BroadcastReceiver{
+public class LiveServiceAlarmReciever extends WakefulBroadcastReceiver{
 
     @Override
     public void onReceive(Context context, Intent intent) {

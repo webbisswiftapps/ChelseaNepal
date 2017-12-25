@@ -13,11 +13,7 @@
             android:icon="@drawable/ic_players_light_gray"
             />
 
-        <item
-            android:id="@+id/nav_settings"
-            android:title="@string/settings"
-            android:icon="@drawable/ic_settings_light_gray"
-            />
+
     </group>
 
     <item android:title="@string/other">
@@ -26,12 +22,12 @@
                 android:id="@+id/nav_about_us"
                 android:title="@string/about_us" />
 
-            <item
+           <!-- <item
                 android:id="@+id/nav_social"
-                android:title="@string/social" />
-            <item
+                android:title="@string/social" /> -->
+           <!-- <item
                 android:id="@+id/nav_privacy_policy"
-                android:title="@string/privacy_policy" />
+                android:title="@string/privacy_policy" /> -->
 
             <item
                 android:id="@+id/nav_disclaimer"
