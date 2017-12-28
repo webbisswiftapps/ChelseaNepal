@@ -34,13 +34,14 @@ class CFCNepalApp:Application(){
 
     override fun onCreate() {
         super.onCreate()
-        ACRA.init(this)
+        //ACRA.init(this)
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
         instance = this
         JodaTimeAndroid.init(this)
         MobileAds.initialize(this, resources.getString(R.string.app_id))
         FirebaseMessaging.getInstance().subscribeToTopic("NextMatchTopic")
         FirebaseMessaging.getInstance().subscribeToTopic("NewsUpdatePing")
+        FirebaseMessaging.getInstance().subscribeToTopic("LiveScoreChelsea")
         AppAlarmManagement(this).fetchNextMatchDetailsAndSetAlarm()
     }
 

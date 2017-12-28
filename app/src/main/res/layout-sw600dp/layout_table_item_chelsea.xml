@@ -76,7 +76,7 @@
             android:layout_weight="0.2"
             android:layout_height="match_parent"
             android:textColor="@color/colorPrimary"
-            android:text="24:11"
+            android:text="24 : 11"
             android:gravity="center"
             />
 

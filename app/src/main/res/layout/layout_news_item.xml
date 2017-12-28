@@ -13,7 +13,6 @@
                 android:id="@+id/newsThumb"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:src="@drawable/img_conte"
                 android:scaleType="centerCrop"
                 />
 

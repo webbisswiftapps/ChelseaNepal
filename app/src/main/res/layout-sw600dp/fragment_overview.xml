@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +10,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/fragment_padding"
         android:focusableInTouchMode="true"
         >
 
@@ -29,8 +28,12 @@
                 <include layout="@layout/layout_next_match_card"
                     />
 
-                <include layout="@layout/layout_last_match_card"
+                <include layout="@layout/layout_team_stats_epl_card"
                     />
+                <include layout="@layout/ad_card_small_overview" />
+
+
+
 
 
             </LinearLayout>
@@ -43,18 +46,25 @@
                 android:layout_marginLeft="5dp"
                 >
 
-                <include layout="@layout/layout_team_stats_epl_card" android:layout_marginTop="0dp"
+
+
+                <include layout="@layout/layout_last_match_card"
+                    android:layout_marginTop="0dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
-                <include layout="@layout/ad_card_small_overview" />
-                <include layout="@layout/layout_top_scorers_card" />
+
+
+                <include layout="@layout/ad_card_large_overview" />
+
+
 
             </LinearLayout>
+
 
         </LinearLayout>
 
 
 
     </LinearLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

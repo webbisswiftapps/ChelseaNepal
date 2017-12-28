@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/next_match_widget"
+    android:initialLayout="@layout/next_match_widget"
+    android:minHeight="180dp"
+    android:minWidth="380dp"
+    android:previewImage="@android:drawable/ic_menu_add"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen"/>

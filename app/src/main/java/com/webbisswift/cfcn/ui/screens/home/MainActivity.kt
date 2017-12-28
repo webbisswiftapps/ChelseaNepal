@@ -18,8 +18,12 @@ import kotlinx.android.synthetic.main.activity_main_coordinator.*
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.gms.common.GooglePlayServicesUtil
 import com.webbisswift.cfcn.ui.screens.about_us.AboutUsUI
 import com.webbisswift.cfcn.ui.screens.team.TeamInfoActivity
 
@@ -31,6 +35,7 @@ import com.webbisswift.cfcn.ui.screens.team.TeamInfoActivity
 class MainActivity : AppCompatActivity(){
 
 
+    val kPlayServicesInstallReqCode = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,7 @@ class MainActivity : AppCompatActivity(){
         setupTabs()
         setupDrawer()
 
+        checkPlayServices()
         if(isFirstCopyright()){
             showDisclaimer()
             setFirstCopyright()
@@ -154,6 +160,26 @@ class MainActivity : AppCompatActivity(){
         val editor = PreferenceManager.getDefaultSharedPreferences(this).edit()
         editor.putBoolean("IS_FIRST_CR", false)
         editor.apply()
+    }
+
+
+
+    fun checkPlayServices(){
+        val playServicesChecker = GoogleApiAvailability.getInstance()
+        val googlePlayAvailability = playServicesChecker.isGooglePlayServicesAvailable(this)
+
+        when(googlePlayAvailability){
+            ConnectionResult.SERVICE_MISSING,
+            ConnectionResult.SERVICE_DISABLED,
+            ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED,
+            ConnectionResult.SERVICE_MISSING_PERMISSION,
+            ConnectionResult.SERVICE_INVALID ->{
+                Log.d("PlayServicesCheck", "Play services not available or missing or disabled or requires update. Showing relevant dialog.")
+                val errorDialog = playServicesChecker.getErrorDialog(this, googlePlayAvailability, kPlayServicesInstallReqCode)
+                errorDialog.show()
+            }
+
+        }
     }
 
 

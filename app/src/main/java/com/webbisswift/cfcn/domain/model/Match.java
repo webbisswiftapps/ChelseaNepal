@@ -25,6 +25,7 @@ public class Match {
      public ArrayList<Integer> score;
      public ArrayList<Integer> penalties;
      public MatchFactsHolder match_facts;
+     public MatchLiveStatus live;
 
      public boolean isAd = false;
 
@@ -134,5 +135,13 @@ public class Match {
         else return TYPE_FIXTURE;
     }
 
-     public Match(){}
+    public MatchLiveStatus getLive() {
+        return live;
+    }
+
+    public void setLive(MatchLiveStatus live) {
+        this.live = live;
+    }
+
+    public Match(){}
 }

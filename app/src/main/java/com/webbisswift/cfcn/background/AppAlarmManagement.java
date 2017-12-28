@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -33,9 +34,14 @@ public class AppAlarmManagement {
 
 
    public void startNewsUpdateService(boolean shouldNotify){
-       Intent i = new Intent(c, NewsUpdateService.class);
-       i.putExtra("SHOULD_NOTIFY", shouldNotify);
-       c.startService(i);
+       try {
+           Intent i = new Intent(c, NewsUpdateService.class);
+           i.putExtra("SHOULD_NOTIFY", shouldNotify);
+           ContextCompat.startForegroundService(c, i);
+       }catch (Exception e){
+           e.printStackTrace();
+           Log.d("AppAlarmManagement","Failed to start news update service..");
+       }
    }
 
 
@@ -65,41 +71,24 @@ public class AppAlarmManagement {
 
    public void setNextMatchAlarm(Date  startDate){
 
-       if(!wasNextMatchAlarmSet()) {
-
-
            try {
                AlarmManager am = (AlarmManager) this.c.getSystemService(Context.ALARM_SERVICE);
                Calendar calendar = Calendar.getInstance();
                calendar.setTime(startDate);
-               calendar.add(Calendar.MINUTE , 1); //* set alarm after 1 minutos.
+               calendar.add(Calendar.MINUTE, -15);
 
                Intent i = new Intent(this.c, LiveServiceAlarmReciever.class);
                PendingIntent pi = PendingIntent.getBroadcast(c, 888, i, PendingIntent.FLAG_UPDATE_CURRENT);
                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                    am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
-                   Log.d("AppAlarmManagement", "Next Match Alarm | Set at: " + calendar.getTime().toString() + " Set exact.");
                } else {
                    am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
-                   Log.d("AppAlarmManagement", "Next Match Alarm | Set at: " + calendar.getTime().toString() + "Set not exact.");
                }
            } catch (Exception e) {
                e.printStackTrace();
-               Log.d("AppAlarmManagement", "Next Match Alarm | Cannot set to: " + startDate);
            }
-       }else{
-           Log.d("AppAlarmManagement","Next match alarm was already set.");
-       }
-
    }
 
 
-
-
-   private boolean wasNextMatchAlarmSet(){
-       Intent intent = new Intent(this.c, LiveServiceAlarmReciever.class);
-       PendingIntent pi = PendingIntent.getBroadcast(c, 888, intent, PendingIntent.FLAG_NO_CREATE);
-       return pi != null;
-   }
 
 }

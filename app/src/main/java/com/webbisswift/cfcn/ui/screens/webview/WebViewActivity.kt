@@ -1,5 +1,7 @@
 package com.webbisswift.cfcn.ui.screens.webview
 
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +19,8 @@ import kotlinx.android.synthetic.main.layout_webview.*
 class WebViewActivity : AppCompatActivity(){
 
 
+    lateinit var  notificationManager:NotificationManager
+
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_webview)
@@ -26,13 +30,18 @@ class WebViewActivity : AppCompatActivity(){
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp)
 
+         this.notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
         val url:String? = intent.getStringExtra("URL")
         if(url!= null){
             startLoading(url)
         }
     }
 
-
+    override fun onResume(){
+        super.onResume()
+        notificationManager.cancel(808)
+    }
 
     private fun startLoading(url:String){
 

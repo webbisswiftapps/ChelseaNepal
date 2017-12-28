@@ -6,6 +6,11 @@ import com.google.firebase.messaging.RemoteMessage
 import com.webbisswift.cfcn.background.AppAlarmManagement
 import java.text.SimpleDateFormat
 import java.util.*
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
+import android.content.Intent
+import com.webbisswift.cfcn.ui.widgets.NextMatchWidget
+
 
 /**
  * Created by apple on 12/12/17.
@@ -17,11 +22,11 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
         Log.d("FirebaseMessaging", "Message Received: "+message?.data +" "+message?.from)
 
         val from = message?.from
-        if(from?.contentEquals("/topics/NextMatchTopic")!!)
-            parseNextMatchUpdatePush(message?.data)
-        else if(from?.contentEquals("/topics/NewsUpdatePing"))
-            startNewsUpdateService(message?.data)
-
+        if(from?.contentEquals("/topics/NextMatchTopic")!!) {
+            updateNextMatchWidget()
+            parseNextMatchUpdatePush(message.data)
+        }else if(from.contentEquals("/topics/NewsUpdatePing"))
+            startNewsUpdateService(message.data)
     }
 
 
@@ -61,6 +66,18 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
     fun startNewsUpdateService(data:Map<String, String>?){
         Log.d("FirebaseMessaging", "Received push to start News Update Service!")
         AppAlarmManagement(this).startNewsUpdateService(true)
+    }
+
+
+    fun updateNextMatchWidget(){
+        //Also update widget
+        val intent = Intent(this, NextMatchWidget::class.java)
+        intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+        // Use an array and EXTRA_APPWIDGET_IDS instead of AppWidgetManager.EXTRA_APPWIDGET_ID,
+        // since it seems the onUpdate() is only fired on that:
+        val ids = AppWidgetManager.getInstance(application).getAppWidgetIds(ComponentName(application, NextMatchWidget::class.java))
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+        sendBroadcast(intent)
     }
 
 

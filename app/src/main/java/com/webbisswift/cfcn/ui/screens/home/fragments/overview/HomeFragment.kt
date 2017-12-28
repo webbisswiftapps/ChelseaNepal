@@ -52,8 +52,7 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
      * */
 
     override fun initView() {
-        val lbm = LocalBroadcastManager.getInstance(context!!)
-        val model = HomeModel(FirebaseDatabase.getInstance(),lbm,  context!!)
+        val model = HomeModel(FirebaseDatabase.getInstance(),  context!!)
         this.presenter = HomePresenter(model)
     }
 

@@ -59,21 +59,13 @@ class MatchesFragment: BaseFragment(), MatchesContract.MatchesView {
 
     fun setupRecyclerView(){
 
-        val isWide = context?.resources?.getBoolean(R.bool.isWide)!!
-        if(isWide) {
-            layoutManager = GridLayoutManager(context, 2)
-            matchesRecyclerV.layoutManager = layoutManager
 
-            val dividerItemDecoration = DividerItemDecoration(matchesRecyclerV.context, GridLayoutManager.HORIZONTAL)
-            matchesRecyclerV.addItemDecoration(dividerItemDecoration)
-
-        }else{
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
             matchesRecyclerV.layoutManager = layoutManager
 
             val dividerItemDecoration = DividerItemDecoration(matchesRecyclerV.context, LinearLayoutManager.VERTICAL)
             matchesRecyclerV.addItemDecoration(dividerItemDecoration)
-        }
+
 
 
 

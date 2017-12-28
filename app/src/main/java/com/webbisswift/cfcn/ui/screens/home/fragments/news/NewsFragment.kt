@@ -19,6 +19,12 @@ import com.webbisswift.cfcn.ui.custom_views.ItemOffsetDecoration
 import com.webbisswift.cfcn.ui.screens.home.fragments.news.adapter.NewsAdapter
 import com.webbisswift.cfcn.ui.screens.home.fragments.news.adapter.NormalizedNewsItem
 import kotlinx.android.synthetic.main.fragment_news.*
+import android.support.v7.widget.StaggeredGridLayoutManager
+import com.webbisswift.cfcn.R.id.position
+
+
+
+
 
 
 /**
@@ -70,12 +76,14 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
 
     fun setupRecyclerView(){
 
+        newsAdapter = NewsAdapter(this.context)
         val isWide = context?.resources?.getBoolean(R.bool.isWide)!!
         if(isWide) {
-            val layoutManager = GridLayoutManager(context, 3)
+            val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             newsRecyclerView.layoutManager = layoutManager
 
-            val dividerItemDecoration = ItemOffsetDecoration(15)
+
+            val dividerItemDecoration = ItemOffsetDecoration(2)
             newsRecyclerView.addItemDecoration(dividerItemDecoration)
 
         }else{
@@ -86,7 +94,6 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
             newsRecyclerView.addItemDecoration(dividerItemDecoration)
         }
 
-        newsAdapter = NewsAdapter(this.context)
         newsRecyclerView.adapter = newsAdapter
     }
 
@@ -105,8 +112,11 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
 
 
     override fun addNewsSection(items: List<DBNewsItem>) {
+        val isWide = context?.resources?.getBoolean(R.bool.isWide)!!
+
         var normalizedList = ArrayList<NormalizedNewsItem>()
         for(item in items){
+            //if(isWide)item.isHeading = true
             normalizedList.add(NormalizedNewsItem(item, false))
         }
         newsAdapter.addNewsSection(normalizedList)

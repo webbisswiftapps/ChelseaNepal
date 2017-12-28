@@ -91,7 +91,7 @@
                 android:id="@+id/nextMatchTimings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/awayTeamLogo"
+                android:layout_below="@+id/nextMatchCompetition"
                 android:textColor="@color/light_text"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 app:font_name="@string/font_montserrat_regular"

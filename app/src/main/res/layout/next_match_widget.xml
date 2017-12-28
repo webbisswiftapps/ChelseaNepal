@@ -1,0 +1,99 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nextMatchDisplay"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:padding="@dimen/card_padding"
+    android:background="@color/text_white"
+    >
+
+    <TextView
+        android:id="@+id/nextMatchTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Match"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAllCaps="true"
+        android:textColor="@color/light_text"
+        />
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/nextMatchTitle"
+        android:layout_marginTop="5dp"
+        />-->
+
+    <ImageView
+        android:id="@+id/awayTeamLogo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/nextMatchTitle"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/atm_logo"
+        />
+
+
+    <TextView
+        android:id="@+id/nextMatchAwayTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@id/nextMatchTitle"
+        android:layout_toRightOf="@+id/awayTeamLogo"
+        android:layout_marginTop="3dp"
+        android:layout_alignTop="@+id/awayTeamLogo"
+        android:layout_marginLeft="10dp"
+        android:text="Brighton ANd HOVE ALBION"
+        android:maxLines="2"
+        />
+
+    <TextView
+        android:id="@+id/nextMatchCompetition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/semi_dark_text"
+        android:layout_below="@id/nextMatchAwayTeam"
+        android:layout_toRightOf="@+id/awayTeamLogo"
+        android:layout_alignLeft="@+id/nextMatchAwayTeam"
+        android:text="Champions League"
+        />
+
+    <TextView
+        android:id="@+id/nextMatchTimings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nextMatchCompetition"
+        android:textColor="@color/light_text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="6th December, 2017 @ 1:30"
+        android:drawableLeft="@drawable/ic_date_semiblack_24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="5dp"
+        />
+
+    <TextView
+        android:id="@+id/nextmatchTVGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nextMatchTimings"
+        android:layout_alignLeft="@+id/nextMatchTimings"
+        android:textColor="@color/light_text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Live on - Sony TEN 2 HD / SD"
+        android:drawableLeft="@drawable/ic_live_tv_semiblack_24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="5dp"
+        />
+
+
+
+</RelativeLayout>

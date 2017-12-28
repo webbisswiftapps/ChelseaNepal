@@ -220,20 +220,28 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
         val updateManager = NewsUpdateManager(this)
         val lastNewsUpdateTime = updateManager.getLastNewsUpdatedTime()
         this.potentialNotifications.sortByDescending { it.pubDate }
-        val itemToNotify = potentialNotifications[0]
-        if(itemToNotify.pubDate.isAfter(lastNewsUpdateTime)){
-            //there is a new news!
-            addNotification(itemToNotify, 808, itemToNotify.title)
-            updateManager.saveLastNotifiedNewsTime(itemToNotify.pubDate)
-        }else Log.d("NewsUpdateService","Stale news, do not notify.")
+
+        if(potentialNotifications.size > 0) {
+            val itemToNotify = potentialNotifications[0]
+            if (itemToNotify != null && itemToNotify.pubDate.isAfter(lastNewsUpdateTime)) {
+                //there is a new news!
+                addNotification(itemToNotify, 808, itemToNotify.title)
+                updateManager.saveLastNotifiedNewsTime(itemToNotify.pubDate)
+            } else Log.d("NewsUpdateService", "Stale news, do not notify.")
+        }
 
         val lastUpdatedYTTime = updateManager.getLastNotifiedYoutubeTime()
-        val vidToNotify = potentialVideoNotifications[0]
-        if(vidToNotify.pubDate.isAfter(lastUpdatedYTTime)){
-            addNotificationVideo(vidToNotify, 909, itemToNotify.title)
-            updateManager.saveLastNotifiedYoutubeTime(vidToNotify.pubDate)
-        }else Log.d("NewsUpdateService","Stale video, do not notify..")
+
+        if(potentialVideoNotifications.size > 0) {
+            val vidToNotify = potentialVideoNotifications[0]
+            if (vidToNotify != null && vidToNotify.pubDate.isAfter(lastUpdatedYTTime)) {
+                addNotificationVideo(vidToNotify, 909, vidToNotify.title)
+                updateManager.saveLastNotifiedYoutubeTime(vidToNotify.pubDate)
+            } else Log.d("NewsUpdateService", "Stale video, do not notify..")
+        }
     }
+
+
 
     private fun addNotification(item:NewsItem, notificationId:Int, title:String){
         val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)

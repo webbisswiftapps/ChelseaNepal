@@ -116,11 +116,16 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
             if(match.startDateTime != null){
                 val timeDiff = Utilities.getTimeDifferenceFromNow(match.startDateTime)
                 this.model.setNextMatchAlarm(match.startDateTime)
-                if(timeDiff > 0){
+
+                if(match.live == null || !match.live.isStarted){
                     this.view?.switchToCountdown()
                     this.view?.startNextMatchCountdown(timeDiff)
                 }else{
                     this.view?.switchToScores()
+
+                    this.view?.setMatchStatus(match.live.status)
+                    this.view?.setMatchHomeScore(match.live.homeScore)
+                    this.view?.setMatchAwayScore(match.live.awayScore)
                 }
             }else view?.hideNextMatchCard()
 
@@ -175,7 +180,6 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
 
 
     override fun destroy() {
-        this.model?.unsubscribeFromLive()
         this.model?.unsubscribeFromFirebase()
     }
 
@@ -187,7 +191,6 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         loadNextMatchInfo()
         loadLastMatchInfo()
         loadEPLStats()
-        this.model?.subscribeToLive(this)
     }
 
 

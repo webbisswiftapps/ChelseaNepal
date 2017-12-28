@@ -63,7 +63,7 @@ class SquadRVAdapter(val context: Context?):
             }
 
             else ->{
-                val squadItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item, parent, false)
+                val squadItemView = LayoutInflater.from(context).inflate(R.layout.ad_card_wide_banner_season, parent, false)
                 return SquadAdViewHolder(squadItemView)
             }
 

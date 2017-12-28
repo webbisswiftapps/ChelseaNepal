@@ -1,24 +1,22 @@
 package com.webbisswift.cfcn.ui.screens.home.fragments.overview
 
-import android.content.Context
+import android.appwidget.AppWidgetManager
+import android.content.*
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.*
-import android.content.BroadcastReceiver
-import android.content.Intent
-import android.content.IntentFilter
 import android.support.v4.content.LocalBroadcastManager
 import com.webbisswift.cfcn.background.AppAlarmManagement
 import com.webbisswift.cfcn.domain.model.MatchEvent
-import com.webbisswift.cfcn.domain.sharedpref.LiveUpdateScoreManager
+import com.webbisswift.cfcn.ui.widgets.NextMatchWidget
 
 
 /**
  * Created by apple on 12/3/17.
  */
 
-class HomeModel(private val firebaseDBInstance:FirebaseDatabase, val lbm:LocalBroadcastManager,val context: Context) : HomeContract.HomeModel, BroadcastReceiver(){
+class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Context) : HomeContract.HomeModel{
 
 
     var listener:HomeContract.LiveScoreListener? = null
@@ -56,30 +54,17 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase, val lbm:LocalBr
 
     override fun setNextMatchAlarm(startDateTime: Date) {
         AppAlarmManagement(context).setNextMatchAlarm(startDateTime)
+        //Also update widget
+        val intent = Intent(context, NextMatchWidget::class.java)
+        intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+        // Use an array and EXTRA_APPWIDGET_IDS instead of AppWidgetManager.EXTRA_APPWIDGET_ID,
+        // since it seems the onUpdate() is only fired on that:
+        val ids = AppWidgetManager.getInstance(context.applicationContext).getAppWidgetIds(ComponentName(context.applicationContext, NextMatchWidget::class.java))
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+        context.sendBroadcast(intent)
     }
 
 
-    override fun subscribeToLive(listener: HomeContract.LiveScoreListener) {
-        this.listener = listener
-        lbm.registerReceiver(this, IntentFilter("LIVE_SCORE_EVENT"))
-        getLastLiveScore()
-    }
-
-    override fun unsubscribeFromLive() {
-        lbm.unregisterReceiver(this)
-    }
-
-    override fun getLastLiveScore() {
-        val luSM = LiveUpdateScoreManager(context)
-        val lastStatus = luSM.getLastStatus()
-        val lastHomeScore = luSM.getLastHomeScore()
-        val lastAwayScore = luSM.getLastAwayScore()
-
-        val started = luSM.getMatchStarted()
-
-        if(started)
-            listener?.scoreUpdateEvent(lastHomeScore, lastAwayScore, lastStatus)
-    }
 
     override fun unsubscribeFromFirebase() {
         if(this.nextMatchRef != null && this.nextMatchListener != null){
@@ -93,19 +78,8 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase, val lbm:LocalBr
         if(this.eplStatsRef != null && this.eplStatsListener != null){
             eplStatsRef?.removeEventListener(eplStatsListener)
         }
-
-
     }
 
-    /* Broadcast Receiver */
-    override fun onReceive(p0: Context?, intent: Intent?) {
-        val status = intent?.getStringExtra("STATUS")!!
-        val homeScr = intent.getLongExtra("HOME_SCORE",0)
-        val awayScr = intent.getLongExtra("AWAY_SCORE", 0)
-        val events = intent.getParcelableArrayListExtra<MatchEvent>("EVENTS")!!
 
-        if(listener != null){
-            listener?.scoreUpdateEvent(homeScr.toString(), awayScr.toString(), status)
-        }
-    }
+
 }

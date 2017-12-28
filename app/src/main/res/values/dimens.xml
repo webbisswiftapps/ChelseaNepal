@@ -2,4 +2,5 @@
 <resources>
     <dimen name="fragment_padding">16dp</dimen>
     <dimen name="card_padding">12dp</dimen>
+    <dimen name="widget_margin">8dp</dimen>
 </resources>
