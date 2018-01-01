@@ -1,9 +1,10 @@
 package com.webbisswift.cfcn.ui.screens.home
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.home.fragments.overview.HomeFragment
@@ -12,20 +13,19 @@ import com.webbisswift.cfcn.ui.screens.home.fragments.news.NewsFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.season.SeasonFragment
 import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsUI
 import kotlinx.android.synthetic.main.activity_main.*
-import android.support.v4.app.ActivityOptionsCompat
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main_coordinator.*
 import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
-import com.google.android.gms.common.GooglePlayServicesUtil
 import com.webbisswift.cfcn.ui.screens.about_us.AboutUsUI
+import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterUI
+import com.webbisswift.cfcn.ui.screens.settings.SettingsActivity
 import com.webbisswift.cfcn.ui.screens.team.TeamInfoActivity
+import com.webbisswift.cfcn.ui.screens.webview.WebViewActivity
 
 
 /**
@@ -47,10 +47,17 @@ class MainActivity : AppCompatActivity(){
         if(isFirstCopyright()){
             showDisclaimer()
             setFirstCopyright()
+            checkIntents()
         }
 
     }
 
+    private fun checkIntents(){
+        val notificationURL:String? = intent.getStringExtra("NOTIFICATION_URL")
+        if(notificationURL != null && notificationURL.isNotBlank()){
+            switchToNewsTabAndShowArticle(notificationURL)
+        }
+    }
 
 
     fun setupTabs(){
@@ -83,11 +90,27 @@ class MainActivity : AppCompatActivity(){
                 R.id.nav_players -> goToPlayers()
                 R.id.nav_disclaimer -> showDisclaimer()
                 R.id.nav_about_us -> toAboutUs()
-                //R.id.nav_settings -> goToSettings()
+                R.id.nav_settings -> goToSettings()
                 else ->  true
             }
         }
 
+    }
+
+
+    private fun switchToNewsTabAndShowArticle(url:String){
+        viewPager.setCurrentItem(1, false)
+        val i = Intent(this, WebViewActivity::class.java)
+        i.putExtra("URL", url)
+
+        if (url.contains("youtube")) {
+            val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            try {
+                startActivity(appIntent)
+            } catch (ex: ActivityNotFoundException) {
+                startActivity(i)
+            }
+        } else startActivity(i)
     }
 
 
@@ -97,6 +120,8 @@ class MainActivity : AppCompatActivity(){
     }
 
     fun goToSettings():Boolean{
+        val i = Intent(this, SettingsActivity::class.java)
+        startActivity(i)
         drawer_layout?.closeDrawer(GravityCompat.START)
         return true
     }
@@ -134,6 +159,12 @@ class MainActivity : AppCompatActivity(){
         val lmIntent = Intent(this, MatchFactsUI::class.java)
         startActivity(lmIntent)
     }
+
+    fun toMatchCenter(){
+        val mcIntent = Intent(this, MatchCenterUI::class.java)
+        startActivity(mcIntent)
+    }
+
 
     /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.home_menu, menu)

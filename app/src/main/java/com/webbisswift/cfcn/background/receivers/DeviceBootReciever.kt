@@ -21,7 +21,7 @@ class DeviceBootReciever :BroadcastReceiver(){
           appAM?.fetchNextMatchDetailsAndSetAlarm()
 
          //2. Start News Update Service
-           appAM?.startNewsUpdateService(true)
+         appAM?.startNewsUpdateService(true)
     }
 
 

@@ -1,7 +1,8 @@
 
 package com.webbisswift.cfcn.domain.model;
 
-import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class MatchFactsHolder {
 
@@ -9,6 +10,7 @@ public class MatchFactsHolder {
     public Lineup lineup;
     public MatchStats match_stats;
     public Substitutes subs;
+    public List<MatchComment> comments;
 
     public Facts getFacts() {
         return facts;

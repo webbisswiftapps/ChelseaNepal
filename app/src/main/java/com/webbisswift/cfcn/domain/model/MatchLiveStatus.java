@@ -10,6 +10,7 @@ public class MatchLiveStatus {
     public String status;
     public boolean started;
     public List<Long> score;
+    public MatchFactsHolder match_facts;
 
     public String getStatus() {
         return status;

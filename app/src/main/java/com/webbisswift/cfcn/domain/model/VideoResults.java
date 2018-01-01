@@ -17,4 +17,13 @@ public class VideoResults {
     }
 
 
+
+    public List<VideoItem> getmItem() {
+        return mItem;
+    }
+
+    public void setmItem(List<VideoItem> mItem) {
+        this.mItem = mItem;
+    }
+
 }

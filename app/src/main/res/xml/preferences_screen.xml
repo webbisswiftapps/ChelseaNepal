@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <PreferenceCategory
+            android:title="@string/notifications">
+
+            <SwitchPreference
+                android:key="notify_news"
+                android:title="@string/notify_news_title"
+                android:summary="@string/notify_news"
+                android:defaultValue="true" />
+
+            <SwitchPreference
+                android:key="notify_mts"
+                android:title="@string/notify_mts_title"
+                android:summary="@string/notify_match_to_start"
+                android:defaultValue="true" />
+
+            <!--<SwitchPreference
+                android:key="notify_events"
+                android:title="@string/notify_me_title"
+                android:summary="@string/notify_match_events"
+                android:defaultValue="true" /> -->
+
+        </PreferenceCategory>
+
+
+
+
+</PreferenceScreen>

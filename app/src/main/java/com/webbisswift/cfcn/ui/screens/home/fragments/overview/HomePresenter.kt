@@ -101,28 +101,34 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         if(match != null) {
             this.view?.hideNextMatchInfoLoading()
 
-            if(!match.away.toLowerCase().contentEquals("chelsea"))
+            var homeAway = ""
+            if(!match.away.toLowerCase().contentEquals("chelsea")){
                 this.view?.setNextMatchAwayTeam(match.awayfull, match.awayShirtURL)
-            else this.view?.setNextMatchAwayTeam(match.homefull, match.homeShirtURL)
+                homeAway = "Stamford Bridge | "
+            }else{
+
+                this.view?.setNextMatchAwayTeam(match.homefull, match.homeShirtURL)
+                homeAway = "Away | "
+
+            }
 
             this.view?.setNextMatchScoreHomeTeam(match.home, match.homeShirtURL)
             this.view?.setNextMatchScoreAwayTeam(match.away, match.awayShirtURL)
 
-            this.view?.setCompetitionName(match.competition)
+            this.view?.setCompetitionName(homeAway+match.competition)
 
             this.view?.setTVInfo(match.tv_guide)
             this.view?.setNextMatchTimings(match.start_date+"  "+match.start_time)
 
             if(match.startDateTime != null){
                 val timeDiff = Utilities.getTimeDifferenceFromNow(match.startDateTime)
-                this.model.setNextMatchAlarm(match.startDateTime)
+                this.model.setNextMatchAlarm(match.startDateTime, match.home, match.away)
 
                 if(match.live == null || !match.live.isStarted){
                     this.view?.switchToCountdown()
                     this.view?.startNextMatchCountdown(timeDiff)
                 }else{
                     this.view?.switchToScores()
-
                     this.view?.setMatchStatus(match.live.status)
                     this.view?.setMatchHomeScore(match.live.homeScore)
                     this.view?.setMatchAwayScore(match.live.awayScore)

@@ -33,11 +33,18 @@
         <activity
             android:name=".ui.screens.home.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            />
         <activity
             android:name=".ui.screens.match_facts.MatchFactsUI"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ui.screens.match_center.MatchCenterUI"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.screens.team.TeamInfoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -50,6 +57,17 @@
             android:name=".ui.screens.webview.WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.screens.settings.SettingsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".ui.screens.home.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.screens.home.MainActivity" />
+        </activity>
 
         <receiver
             android:name=".background.receivers.DeviceBootReciever"
@@ -65,7 +83,8 @@
         </receiver>
         <receiver android:name=".background.receivers.LiveServiceAlarmReciever" />
 
-        <!--<service android:name=".background.services.LiveScoreService" />-->
+        <!-- <service android:name=".background.services.LiveScoreService" /> -->
+
         <service android:name=".background.services.NewsUpdateService" />
         <service android:name=".background.services.AppFirebaseMessagingService">
             <intent-filter>
@@ -78,7 +97,6 @@
             </intent-filter>
         </service>
 
-
         <!-- App Widgets -->
 
         <receiver android:name=".ui.widgets.NextMatchWidget">
@@ -90,9 +108,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/next_match_widget_info" />
         </receiver>
+
         <service android:name=".background.services.NextMatchWidgetUpdateService" />
-
-
     </application>
 
 </manifest>

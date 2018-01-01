@@ -13,11 +13,19 @@
             android:icon="@drawable/ic_players_light_gray"
             />
 
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/settings"
+            android:icon="@drawable/ic_settings_light_gray"
+            />
+
 
     </group>
 
     <item android:title="@string/other">
         <menu>
+
+
             <item
                 android:id="@+id/nav_about_us"
                 android:title="@string/about_us" />

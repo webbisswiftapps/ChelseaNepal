@@ -18,6 +18,8 @@ import android.graphics.Bitmap
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.AppWidgetTarget
 import com.bumptech.glide.request.transition.Transition
+import android.app.PendingIntent
+import com.webbisswift.cfcn.ui.screens.home.MainActivity
 
 
 /**
@@ -73,6 +75,12 @@ class NextMatchWidgetUpdateService: Service(), ValueEventListener{
         if(match != null) {
 
             val view = RemoteViews(packageName, R.layout.next_match_widget)
+
+            val homeIntent = Intent(this, MainActivity::class.java)
+            homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            val homePendingIntent = PendingIntent.getActivity(this, 0, homeIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+            view.setOnClickPendingIntent(R.id.nextMatchWidget, homePendingIntent)
 
             var logo = ""
             if(!match.away.toLowerCase().contentEquals("chelsea")) {

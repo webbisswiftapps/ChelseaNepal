@@ -1,0 +1,21 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <include layout="@layout/layout_tv_card" />
+        <include layout="@layout/layout_match_stats_card" />
+        <include layout="@layout/ad_card_small_banner_season" />
+        <include layout="@layout/layout_match_stats_events" />
+        <include layout="@layout/ad_card_large_overview" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

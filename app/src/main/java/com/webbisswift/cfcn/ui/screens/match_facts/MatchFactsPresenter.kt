@@ -3,16 +3,9 @@ package com.webbisswift.cfcn.ui.screens.match_facts
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.GenericTypeIndicator
 import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
-import com.webbisswift.cfcn.domain.model.LeagueTableItem
 import com.webbisswift.cfcn.domain.model.Match
-import com.webbisswift.cfcn.domain.model.MatchEvent
-import com.webbisswift.cfcn.ui.screens.home.fragments.overview.HomeContract
-import com.webbisswift.cfcn.ui.screens.home.fragments.overview.HomeModel
-import com.webbisswift.cfcn.utils.Utilities
-import java.util.ArrayList
 
 /**
  * Created by apple on 12/20/17.

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nextMatchCard"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    >
+
+
+
+        <RelativeLayout
+            android:id="@+id/tvGuideDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/card_padding"
+            >
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/tvGuideTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TV GUIDE"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_white"
+                android:layout_below="@+id/tvGuideTitle"
+                android:layout_marginTop="5dp"
+                />
+
+
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/tvGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvGuideTitle"
+                android:layout_alignLeft="@+id/nextMatchTimings"
+                android:textColor="@color/near_dark_text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_semibold"
+                android:text="Live on - Sony TEN 2 HD / SD"
+                android:drawableLeft="@drawable/ic_live_tv_semiblack_24dp"
+                android:gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:layout_marginTop="10dp"
+                />
+
+        </RelativeLayout>
+
+</android.support.v7.widget.CardView>

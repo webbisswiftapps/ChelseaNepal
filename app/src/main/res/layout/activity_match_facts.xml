@@ -155,7 +155,7 @@
                             app:font_name="@string/font_montserrat_semibold"
                             android:textAllCaps="true"
                             android:textColor="@color/text_white"
-                            android:text="-"
+                            android:text=":"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="8dp"
                             android:layout_gravity="top"

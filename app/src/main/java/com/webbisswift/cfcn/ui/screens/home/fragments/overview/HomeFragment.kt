@@ -83,6 +83,11 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
             val mA:MainActivity = activity as MainActivity
             mA.toLastMatchFacts()
         })
+
+        matchCenterBtn.setOnClickListener({
+            val mA:MainActivity = activity as MainActivity
+            mA.toMatchCenter()
+        })
     }
 
 

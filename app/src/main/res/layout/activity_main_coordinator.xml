@@ -61,12 +61,15 @@
                         android:id="@+id/hamburgerMenuBtn"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/ic_menu_hamburger_white24dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:srcCompat="@drawable/ic_menu_hamburger_white24dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:background="@android:color/transparent"
                         android:layout_marginTop="16dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         />
+
                     <ImageView
                         android:id="@+id/logo"
                         android:layout_width="75dp"

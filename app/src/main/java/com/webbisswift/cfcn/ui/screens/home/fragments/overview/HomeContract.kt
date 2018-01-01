@@ -69,7 +69,7 @@ interface HomeContract {
         fun subscribeToNextMatch(listener:ValueEventListener)
         fun subscribeToLastMatch(listener:ValueEventListener)
         fun subscribeToEPLStats(listener:ValueEventListener)
-        fun setNextMatchAlarm(startDateTime:Date)
+        fun setNextMatchAlarm(startDateTime:Date, home:String, away:String)
         fun unsubscribeFromFirebase()
     }
 

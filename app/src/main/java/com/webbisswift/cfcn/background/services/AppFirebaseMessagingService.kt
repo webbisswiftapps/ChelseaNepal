@@ -38,20 +38,22 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
         if(type != null && type.contentEquals("next_match")){
             val startDate = data?.get("match_start_date")
             val startTime = data?.get("match_start_time")
+            val home = data.get("match_home")
+            val away = data.get("match_away")
 
-            if(startDate!=null && startTime!=null){
+            if(startDate!=null && startTime!=null && home!=null && away!=null){
                 val startDT = startDate+" "+startTime
-                setNextMatchAlarm(startDT)
+                setNextMatchAlarm(startDT, home, away)
             }
         }
     }
 
-    fun setNextMatchAlarm(startDT: String) {
+    fun setNextMatchAlarm(startDT: String, home:String, away:String) {
         val formatter = SimpleDateFormat("EEEE, dd MMM yyyy HH:mm")
         formatter.timeZone = TimeZone.getTimeZone("Asia/Kathmandu")
         try {
             val startDateTime = formatter.parse(startDT)
-            AppAlarmManagement(this).setNextMatchAlarm(startDateTime)
+            AppAlarmManagement(this).setNextMatchAlarm(startDateTime, home, away)
 
         } catch (e: Exception) {
             e.printStackTrace()

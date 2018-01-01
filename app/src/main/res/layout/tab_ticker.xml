@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.webbisswift.cfcn.ui.custom_views.CTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textColor="@color/text_white"
+    app:font_name="@string/font_montserrat_semibold"
+    android:text="LIVE TICKER"
+    android:textAllCaps="true"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:gravity="center_vertical|center_horizontal"
+    android:layout_gravity="center_vertical|center_horizontal"
+    />

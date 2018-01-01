@@ -39,4 +39,5 @@ class NewsUpdateManager(val c:Context){
     }
 
 
+
 }

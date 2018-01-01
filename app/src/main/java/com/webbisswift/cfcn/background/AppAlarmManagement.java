@@ -26,7 +26,7 @@ import java.util.Date;
 
 public class AppAlarmManagement {
 
-    Context c;
+    private Context c;
    public AppAlarmManagement(Context c){
        this.c = c;
    }
@@ -57,7 +57,7 @@ public class AppAlarmManagement {
 
                if(nextMatchInfo != null){
                    Date startDateTime = nextMatchInfo.getStartDateTime();
-                   setNextMatchAlarm(startDateTime);
+                   setNextMatchAlarm(startDateTime, nextMatchInfo.home, nextMatchInfo.away);
                }
            }
 
@@ -69,7 +69,7 @@ public class AppAlarmManagement {
 
    }
 
-   public void setNextMatchAlarm(Date  startDate){
+   public void setNextMatchAlarm(Date  startDate, String homeTeam, String awayTeam){
 
            try {
                AlarmManager am = (AlarmManager) this.c.getSystemService(Context.ALARM_SERVICE);
@@ -77,7 +77,14 @@ public class AppAlarmManagement {
                calendar.setTime(startDate);
                calendar.add(Calendar.MINUTE, -15);
 
+               /*calendar.setTime(new Date());
+               calendar.add(Calendar.MINUTE, 1);*/
+
                Intent i = new Intent(this.c, LiveServiceAlarmReciever.class);
+               i.putExtra("HOME", homeTeam);
+               i.putExtra("AWAY", awayTeam);
+               i.putExtra("DATE", startDate.toString());
+
                PendingIntent pi = PendingIntent.getBroadcast(c, 888, i, PendingIntent.FLAG_UPDATE_CURRENT);
                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                    am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);

@@ -2,6 +2,8 @@
 package com.webbisswift.cfcn.domain.model;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.SerializedName;
 
 import org.joda.time.DateTime;
@@ -120,6 +122,13 @@ public class VideoItem {
         }
 
         return pubDateTime;
+    }
+
+
+    public static VideoItem parseVideoItem(String responseJson){
+        Gson gson = new GsonBuilder().create();
+        VideoItem response = gson.fromJson(responseJson, VideoItem.class);
+        return response;
     }
 
 }

@@ -39,7 +39,7 @@ public class VideoQuery {
         private String mCreated;
         private String mLang;
         private Results mResults;
-
-
     }
+
+
 }

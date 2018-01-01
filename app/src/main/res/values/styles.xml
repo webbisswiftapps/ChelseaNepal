@@ -5,8 +5,9 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccentDark</item>
         <item name="android:windowBackground">@color/text_white</item>
+
     </style>
 
     <style name="AppTheme.Fullscreen" parent="AppTheme">

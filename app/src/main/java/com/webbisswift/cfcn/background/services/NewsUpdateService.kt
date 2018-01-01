@@ -3,10 +3,12 @@ package com.webbisswift.cfcn.background.services
 import android.app.IntentService
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.support.v4.content.LocalBroadcastManager
 import android.util.Log
@@ -17,6 +19,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.NotificationTarget
+import com.google.gson.Gson
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.localdb.AppDatabase
 import com.webbisswift.cfcn.domain.localdb.dao.NewsDao
@@ -27,7 +30,9 @@ import com.webbisswift.cfcn.domain.model.VideoItem
 import com.webbisswift.cfcn.domain.model.VideoResponse
 import com.webbisswift.cfcn.domain.net.Constants
 import com.webbisswift.cfcn.domain.sharedpref.NewsUpdateManager
+import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.root.CFCNepalApp
+import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import com.webbisswift.cfcn.ui.screens.webview.WebViewActivity
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -38,7 +43,7 @@ import kotlin.collections.ArrayList
  * Created by apple on 12/12/17.
  */
 
-class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListener{
+class NewsUpdateService: Service(), Response.ErrorListener{
 
     private val requestQueue = CFCNepalApp.instance?.requestQueue
     private var newsDAO:NewsDao? = null
@@ -59,27 +64,36 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
 
      var shouldNotify:Boolean = true
 
-    override fun onHandleIntent(intent: Intent?) {
+    override fun onBind(p0: Intent?): IBinder? {
+        return null
+    }
 
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d("NewsUpdateService", "news update service started... updating news ...")
         //check news updates and then show notifications if necessary
         //first load old news items in the db
-        newsDAO = AppDatabase.getInstance(this).newsDao()
-        if(newsDAO != null ) {
-            oldNewsList = newsDAO?.getAllNews()!!
+        doAsync {
+
+            newsDAO = AppDatabase.getInstance(applicationContext).newsDao()
+            if (newsDAO != null) {
+                oldNewsList = newsDAO?.getAllNews()!!
+            }
+
+            uiThread {
+
+                if(intent != null) {
+                    shouldNotify = intent.getBooleanExtra("SHOULD_NOTIFY", true)
+                }
+
+                newNewsList.clear()
+                total += loadAllNews()
+                total += loadYoutubeVideos()
+            }
         }
 
-
-        if(intent != null) {
-            this.shouldNotify = intent.getBooleanExtra("SHOULD_NOTIFY", true)
-        }
-
-
-        newNewsList.clear()
-        total +=loadAllNews()
-        total += loadYoutubeVideos()
-
+        return START_NOT_STICKY
     }
+
 
      private fun loadAllNews():Int {
 
@@ -114,10 +128,22 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
         val newsReceiver = object: Response.Listener<JSONObject> {
             override fun onResponse(response: JSONObject?) {
                 try {
-                    val newsResponse = VideoResponse.parseResponse(response.toString())
-                    if (newsResponse.query.count > 0) {
-                        addVideosToCollection(newsResponse.query.results.item)
-                    }else reduceCount()
+                    val query = response?.getJSONObject("query")
+                    if(query!= null && query.getInt("count")  == 1){
+                          //just a single news Item, parse it
+                        val singleArray = ArrayList<VideoItem>()
+                        val results = query.getJSONObject("results")
+                        val item = results.getJSONObject("entry")
+                        val vItem = VideoItem.parseVideoItem(item.toString())
+                        singleArray.add(vItem)
+                        addVideosToCollection(singleArray)
+                    }else {
+
+                        val newsResponse = VideoResponse.parseResponse(response.toString())
+                        if (newsResponse.query.count > 0) {
+                            addVideosToCollection(newsResponse.query.results.item)
+                        } else reduceCount()
+                    }
                 }catch(e:Exception){
                     Log.d("NewsUpdateService","Video Response: "+response.toString())
                     e.printStackTrace()
@@ -202,6 +228,7 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
                         processNotifications()
                     else Log.d("NewsUpdateServcice","Notification was not requested.")
                     sendNewsUpdateBroadcast()
+                    stopSelf()
                 }
             }
 
@@ -218,7 +245,10 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
 
         //1st process news
         val updateManager = NewsUpdateManager(this)
+        val settings = SettingsHelper(this)
         val lastNewsUpdateTime = updateManager.getLastNewsUpdatedTime()
+        if(!settings.shouldShowNewsNotification()) return  // Do not show news notification if user has turned off news notifications in settings.
+
         this.potentialNotifications.sortByDescending { it.pubDate }
 
         if(potentialNotifications.size > 0) {
@@ -239,6 +269,8 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
                 updateManager.saveLastNotifiedYoutubeTime(vidToNotify.pubDate)
             } else Log.d("NewsUpdateService", "Stale video, do not notify..")
         }
+
+
     }
 
 
@@ -246,18 +278,21 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
     private fun addNotification(item:NewsItem, notificationId:Int, title:String){
         val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)
         remoteViews.setImageViewResource(R.id.imagenotileft, R.drawable.lion_logo_ony)
-        remoteViews.setTextViewText(R.id.title, item.title.trim() +" ("+item.newsAuthor+")")
+
+        remoteViews.setTextViewText(R.id.title, item.newsAuthor+" | CFCN" )
+        remoteViews.setTextViewText(R.id.desc, item.title.trim())
+        remoteViews.setTextViewCompoundDrawables(R.id.title, R.drawable.ic_news_rss_feed_small, 0 , 0 , 0)
 
 
-        val notificationIntent = Intent(applicationContext, WebViewActivity::class.java)
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        notificationIntent.putExtra("URL", item.link)
+        val notificationIntent = Intent(applicationContext, MainActivity::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        notificationIntent.putExtra("NOTIFICATION_URL", item.link)
         val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
 
         val builder = NotificationCompat.Builder(this, "News_Update_Service")
-                .setSmallIcon(R.drawable.lion_logo_ony)
+                .setSmallIcon(R.drawable.ic_stat_notification)
                 .setContentTitle(title)
                 .setContentText(item.title)
                 .setContent(remoteViews)
@@ -279,18 +314,19 @@ class NewsUpdateService: IntentService("NewsUpdateService"), Response.ErrorListe
     private fun addNotificationVideo(item:VideoItem, notificationId: Int, title:String){
         val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)
         remoteViews.setImageViewResource(R.id.imagenotileft, R.drawable.lion_logo_ony)
-        remoteViews.setTextViewText(R.id.title, "Youtube: "+item.title.trim() +" - "+ item.author.name)
+        remoteViews.setTextViewText(R.id.title, item.author.name+" | CFCN" )
+        remoteViews.setTextViewText(R.id.desc, item.title.trim())
+        remoteViews.setTextViewCompoundDrawables(R.id.title, R.drawable.ic_news_youtube_small, 0 , 0 , 0)
 
-
-        val notificationIntent = Intent(applicationContext, WebViewActivity::class.java)
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        notificationIntent.putExtra("URL", item.link.href)
+        val notificationIntent = Intent(applicationContext, MainActivity::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        notificationIntent.putExtra("NOTIFICATION_URL", item.link.href)
         val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
 
         val builder = NotificationCompat.Builder(this, "News_Update_Service")
-                .setSmallIcon(R.drawable.lion_logo_ony)
+                .setSmallIcon(R.drawable.ic_stat_notification)
                 .setContentTitle(title)
                 .setContentText(item.title)
                 .setContent(remoteViews)
