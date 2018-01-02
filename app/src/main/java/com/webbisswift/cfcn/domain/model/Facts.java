@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Facts {
 
-   String comp_id, ft_score, ht_score, id, localteam_id, localteam_score, season, status, time, timer, venue, venue_city, venue_id, visitorteam_id, visitorteam_name, visitorteam_score, week;
+   String comp_id, ft_score, ht_score, id, localteam_id, localteam_name, localteam_score, season, status, time, timer, venue, venue_city, venue_id, visitorteam_id, visitorteam_name, visitorteam_score, week;
    List<FactsMatchEvent> events;
 
     public String getComp_id() {
@@ -50,9 +50,18 @@ public class Facts {
         this.localteam_id = localteam_id;
     }
 
+    public String getLocalteam_name() {
+        return localteam_name;
+    }
+
+    public void setLocalteam_name(String localteam_name) {
+        this.localteam_name = localteam_name;
+    }
+
     public String getLocalteam_score() {
         return localteam_score;
     }
+
 
     public void setLocalteam_score(String localteam_score) {
         this.localteam_score = localteam_score;
@@ -154,9 +163,10 @@ public class Facts {
         this.events = events;
     }
 
-
     @Override
     public String toString() {
         return id+" "+ft_score+" "+ht_score+" "+venue;
     }
+
+
 }

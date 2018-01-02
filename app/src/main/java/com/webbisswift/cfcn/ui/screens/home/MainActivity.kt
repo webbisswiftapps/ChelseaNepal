@@ -47,17 +47,11 @@ class MainActivity : AppCompatActivity(){
         if(isFirstCopyright()){
             showDisclaimer()
             setFirstCopyright()
-            checkIntents()
         }
 
     }
 
-    private fun checkIntents(){
-        val notificationURL:String? = intent.getStringExtra("NOTIFICATION_URL")
-        if(notificationURL != null && notificationURL.isNotBlank()){
-            switchToNewsTabAndShowArticle(notificationURL)
-        }
-    }
+
 
 
     fun setupTabs(){
@@ -73,6 +67,11 @@ class MainActivity : AppCompatActivity(){
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
         adapter.setCustomViews(tabs)
+
+        val notificationURL:String? = intent.getStringExtra("NOTIFICATION_URL")
+        if(notificationURL != null && notificationURL.isNotBlank()){
+            switchToNewsTabAndShowArticle(notificationURL)
+        }
 
     }
 

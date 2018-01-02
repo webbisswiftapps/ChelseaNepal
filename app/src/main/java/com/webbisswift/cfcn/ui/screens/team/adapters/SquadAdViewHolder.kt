@@ -22,8 +22,6 @@ class SquadAdViewHolder(private val view: View):SquadViewHolder(view){
 
     fun load(){
         val adRequest = AdRequest.Builder()
-                .addTestDevice("D97506CE44741D62F39273476ECCCA35")
-                .addTestDevice("C59EB2BE510BBC21EF6D8F6A3D585248")
                 .build()
         adView.loadAd(adRequest)
     }

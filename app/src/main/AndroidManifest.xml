@@ -43,7 +43,16 @@
         <activity
             android:name=".ui.screens.match_center.MatchCenterUI"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER_LINEUPS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".ui.screens.team.TeamInfoActivity"
@@ -86,6 +95,13 @@
         <!-- <service android:name=".background.services.LiveScoreService" /> -->
 
         <service android:name=".background.services.NewsUpdateService" />
+        <service
+            android:name=".background.services.NewsUpdateJobService"
+            android:label="NewsUpdateJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" >
+
+        </service>
+
         <service android:name=".background.services.AppFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

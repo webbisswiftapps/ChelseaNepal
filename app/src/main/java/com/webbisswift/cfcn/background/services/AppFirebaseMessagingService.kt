@@ -23,7 +23,6 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
 
         val from = message?.from
         if(from?.contentEquals("/topics/NextMatchTopic")!!) {
-            updateNextMatchWidget()
             parseNextMatchUpdatePush(message.data)
         }else if(from.contentEquals("/topics/NewsUpdatePing"))
             startNewsUpdateService(message.data)
@@ -33,11 +32,12 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
     /* Next Match Push Handlers */
 
     fun parseNextMatchUpdatePush(data:Map<String, String>?){
+        updateNextMatchWidget()
         val type:String? = data?.get("type")
 
         if(type != null && type.contentEquals("next_match")){
-            val startDate = data?.get("match_start_date")
-            val startTime = data?.get("match_start_time")
+            val startDate = data.get("match_start_date")
+            val startTime = data.get("match_start_time")
             val home = data.get("match_home")
             val away = data.get("match_away")
 

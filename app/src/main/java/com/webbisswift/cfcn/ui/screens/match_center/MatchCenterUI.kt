@@ -2,6 +2,7 @@ package com.webbisswift.cfcn.ui.screens.match_center
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
@@ -9,6 +10,7 @@ import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.base.BaseActivity
 import com.webbisswift.cfcn.base.BasePresenter
 import com.webbisswift.cfcn.ui.screens.home.MainPagerAdapter
+import com.webbisswift.cfcn.ui.screens.match_center.fragments.lineups.MCLineupFragment
 import com.webbisswift.cfcn.ui.screens.match_center.fragments.liveticker.MCLiveTickerFragment
 import com.webbisswift.cfcn.ui.screens.match_center.fragments.overview.MCOverviewFragment
 import kotlinx.android.synthetic.main.activity_match_center.*
@@ -49,19 +51,26 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
         val adapter = MainPagerAdapter(supportFragmentManager)
 
         adapter.addFragment(MCOverviewFragment(), R.layout.tab_overview)
-        adapter.addFragment(Fragment(), R.layout.tab_lineups)
+        adapter.addFragment(MCLineupFragment(), R.layout.tab_lineups)
         adapter.addFragment(MCLiveTickerFragment(), R.layout.tab_ticker)
 
         viewPager.offscreenPageLimit = 3
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
         adapter.setCustomViews(tabs)
+
+        Log.d("MatchCenterUI"," Action : "+intent.action)
+        if(switchToLineups()) viewPager.setCurrentItem(1, false)
     }
 
     private fun setListeners(){
         backButton.setOnClickListener {
             finish()
         }
+    }
+
+    private fun switchToLineups():Boolean{
+        return (intent.action != null && intent.action.contentEquals("com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER_LINEUPS"))
     }
 
 

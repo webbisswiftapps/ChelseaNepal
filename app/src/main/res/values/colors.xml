@@ -14,6 +14,7 @@
 
     <color name="toolbar_tp">#cc1b5fc4</color>
 
+    <color name="switch_color">#1565c0</color>
 
     <color name="colorAccent_tp">#ee69f0ae</color>
     <string name="black_tp">#55000000</string>

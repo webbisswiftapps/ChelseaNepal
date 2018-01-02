@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:textSize="18sp"
-            android:textColor="@color/light_text"
+            android:textColor="@color/semi_dark_text"
+            android:gravity="center"
             app:font_name="@string/font_montserrat_semibold"
             />
 

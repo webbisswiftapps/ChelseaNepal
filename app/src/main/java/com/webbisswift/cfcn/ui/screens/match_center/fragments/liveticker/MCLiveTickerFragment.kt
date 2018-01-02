@@ -55,6 +55,9 @@ class MCLiveTickerFragment:BaseFragment(), MCLiveTickerContract.MCLiveTickerView
         rvAdapter = LiveTickerAdapter(this.context)
         rv.adapter = rvAdapter
 
+        rvRefresh.isRefreshing = false
+        rvRefresh.isEnabled = false
+
     }
 
     override fun showTickerNotStarted(error:String) {

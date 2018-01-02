@@ -15,11 +15,6 @@ import com.webbisswift.cfcn.ui.screens.team.adapters.SquadItem
 
 class LiveTickerAdapter(val context: Context?): RecyclerView.Adapter<LiveTickerViewHolder>(){
 
-
-    init {
-        setHasStableIds(true)
-    }
-
     val comments:ArrayList<TickerItem> = ArrayList()
 
     fun addComments(items: List<MatchComment>){
@@ -36,11 +31,12 @@ class LiveTickerAdapter(val context: Context?): RecyclerView.Adapter<LiveTickerV
                 val commentItem = TickerItem(type, value)
                 comments.add(commentItem)
 
-                if(index % 8 == 0){
-                    val adItem = TickerItem(SquadAdapterConstants.TYPE_AD, null)
+                if(index > 7 && index % 8 == 0){
+                    val adItem = TickerItem(TickerAdapterConstants.TYPE_AD, null)
                     comments.add(adItem)
                 }
             }
+            this.notifyDataSetChanged()
         }else{
             val value = items[0]
             var type = TickerAdapterConstants.TYPE_NORMAL
@@ -51,11 +47,11 @@ class LiveTickerAdapter(val context: Context?): RecyclerView.Adapter<LiveTickerV
 
             val commentItem = TickerItem(type, value)
             comments.add(commentItem)
-            val adItem = TickerItem(SquadAdapterConstants.TYPE_AD, null)
+            val adItem = TickerItem(TickerAdapterConstants.TYPE_AD, null)
              comments.add(adItem)
+            this.notifyDataSetChanged()
         }
 
-        notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
@@ -95,5 +91,9 @@ class LiveTickerAdapter(val context: Context?): RecyclerView.Adapter<LiveTickerV
     override fun getItemViewType(position: Int): Int {
         val item = comments[position]
         return item.type
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
     }
 }

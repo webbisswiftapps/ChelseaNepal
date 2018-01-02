@@ -40,12 +40,7 @@ class MatchFactsUI : BaseActivity(), MatchFactsContract.MatchFactsView{
         super.onCreate(savedInstanceState)
          setContentView(R.layout.activity_match_facts)
         initView()
-
-
     }
-
-
-
 
 
     override fun initView() {
@@ -63,8 +58,6 @@ class MatchFactsUI : BaseActivity(), MatchFactsContract.MatchFactsView{
 
     private fun loadAds(){
         val adRequest = AdRequest.Builder()
-                .addTestDevice("D97506CE44741D62F39273476ECCCA35")
-                .addTestDevice("C59EB2BE510BBC21EF6D8F6A3D585248")
                 .build()
         adView.loadAd(adRequest)
         adViewLarge.loadAd(adRequest)
