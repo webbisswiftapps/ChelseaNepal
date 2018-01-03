@@ -221,14 +221,18 @@ class NewsUpdateService: Service(), Response.ErrorListener{
                 for (item in newNewsList){
                     newsDAO?.insertNewsItem(item)
                 }
-
                 uiThread {
                     //now show notification
-                    if(shouldNotify)
-                        processNotifications()
-                    else Log.d("NewsUpdateServcice","Notification was not requested.")
-                    sendNewsUpdateBroadcast()
-                    stopSelf()
+                    try {
+                        if (shouldNotify)
+                            processNotifications()
+                        else Log.d("NewsUpdateServcice", "Notification was not requested.")
+                        sendNewsUpdateBroadcast()
+                        stopSelf()
+                    }catch (e:Exception){
+                        e.printStackTrace()
+                        stopSelf()
+                    }
                 }
             }
 

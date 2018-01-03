@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.TimeZone;
 
 /**
@@ -19,7 +20,10 @@ public class Match {
     public static final int TYPE_AD = 2;
 
      public static final String SHIRT_BASE_URL = "https://bluesnp-1727e.firebaseapp.com/";
-     public String away, awayfull,  awaypath, awayshirt, competition, home, homepath, homefull, homeshirt, start_date, start_time,tv_guide, status, match_id, competitionkey, country;
+     public String away, awayfull,  awaypath, awayshirt, competition, home, homepath, homefull, homeshirt, start_date, start_time,
+             tv_guide, status, match_id, competitionkey, country;
+
+     public HashMap<String, String> tv_guide_all;
 
      public ArrayList<MatchEvent> events;
      public ArrayList<Integer> score;
@@ -73,6 +77,8 @@ public class Match {
 
           return startDateTime;
      }
+
+
 
     public String explain(){
         return home+" vs "+away+" - "+competition+" @ "+start_date+" "+start_time+"  | "+tv_guide;
@@ -133,6 +139,14 @@ public class Match {
         if(isAd) return TYPE_AD;
         if(status.toUpperCase().contentEquals("FT")) return TYPE_RESULT;
         else return TYPE_FIXTURE;
+    }
+
+    public HashMap<String, String> getTVGuideAllCountries() {
+        return tv_guide_all;
+    }
+
+    public void setTVGuideAllCountries(HashMap<String, String> tv_guide_all) {
+        this.tv_guide_all = tv_guide_all;
     }
 
     public MatchLiveStatus getLive() {

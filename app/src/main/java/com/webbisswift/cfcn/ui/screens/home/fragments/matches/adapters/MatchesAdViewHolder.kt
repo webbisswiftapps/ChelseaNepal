@@ -30,6 +30,6 @@ class MatchesAdViewHolder(v: View): BaseMatchViewHolder(v){
         adView.loadAd(adRequest)
     }
 
-    override fun setMatch(match: Match) {
+    override fun setMatch(match: Match?) {
     }
 }

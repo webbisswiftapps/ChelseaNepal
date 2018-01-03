@@ -36,7 +36,7 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance())
+        val model = MatchCenterModel(FirebaseDatabase.getInstance(), this)
         this.presenter =MatchCenterPresenter(model)
         setupTabs()
         setListeners()

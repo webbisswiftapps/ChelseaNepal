@@ -6,6 +6,7 @@ import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
 import com.webbisswift.cfcn.domain.model.Match
 import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsContract
+import com.webbisswift.cfcn.utils.Utilities
 import org.joda.time.DateTime
 import org.joda.time.Days
 import org.joda.time.LocalDateTime
@@ -59,12 +60,6 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
             this.view?.setNextMatchAwayTeam(match.away, match.awayShirtURL)
             this.view?.setNextMatchCompetitionName(match.competition)
 
-
-            val now = DateTime()
-            val matchDate = DateTime(match.startDateTime)
-
-
-
             if(match.live.isStarted) {
                 this.view?.setCurrentMatchStatus(match.live.status)
                 this.view?.setNextMatchDate("LIVE")
@@ -72,9 +67,7 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
             }else{
                 this.view?.setCurrentMatchStatus(":")
 
-                if(Days.daysBetween(now.withTimeAtStartOfDay(), matchDate.withTimeAtStartOfDay()).days  < 1){
-                    this.view?.setNextMatchDate("Today")
-                }else this.view?.setNextMatchDate(match.start_date+" @ "+match.start_time)
+                this.view?.setNextMatchDate(Utilities.getLocaleFormattedDate(match.startDateTime))
                 this.view?.setNextMatchScore("-", "-")
             }
 

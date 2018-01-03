@@ -1,5 +1,6 @@
 package com.webbisswift.cfcn.ui.screens.home.fragments.overview
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.content.LocalBroadcastManager
 import android.view.LayoutInflater
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_overview.*
 import kotlinx.android.synthetic.main.layout_team_stats_epl_card.*
 import android.opengl.ETC1.getHeight
 import android.opengl.ETC1.getWidth
+import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import kotlinx.android.synthetic.main.ad_card_large_overview.*
 import kotlinx.android.synthetic.main.ad_card_small_overview.*
 
@@ -28,10 +30,12 @@ import kotlinx.android.synthetic.main.ad_card_small_overview.*
  * Created by apple on 12/4/17.
  */
 
-class HomeFragment:BaseFragment(), HomeContract.HomeView{
+class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSharedPreferenceChangeListener {
 
 
     var presenter:HomePresenter? = null
+
+    lateinit var settings:SettingsHelper
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_overview, null, true)
@@ -54,6 +58,8 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
     override fun initView() {
         val model = HomeModel(FirebaseDatabase.getInstance(),  context!!)
         this.presenter = HomePresenter(model)
+        settings = SettingsHelper(context!!)
+        this.settings.registerCountryChangeListener(this)
     }
 
     override fun getPresenter(): BasePresenter {
@@ -258,5 +264,20 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView{
     override fun hideTeamStatsPane() {
         teamStatsCard?.visibility = View.GONE
     }
+
+
+
+    override fun onSharedPreferenceChanged(pref: SharedPreferences?, key: String?) {
+
+        if(key != null && key.contentEquals("user_country")) {
+            this.presenter?.loadNextMatchInfo()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        this.settings.unregisterCountryChangeListener(this)
+    }
+
 
 }

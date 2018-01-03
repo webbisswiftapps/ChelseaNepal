@@ -77,7 +77,7 @@ class MCLiveTickerFragment:BaseFragment(), MCLiveTickerContract.MCLiveTickerView
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance())
+        val model = MatchCenterModel(FirebaseDatabase.getInstance(), context!!)
         this.presenter = MCLiveTickerPresenter(model)
     }
 

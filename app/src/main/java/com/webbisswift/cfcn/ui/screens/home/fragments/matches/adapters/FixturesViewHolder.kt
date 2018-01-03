@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.Match
+import com.webbisswift.cfcn.utils.Utilities
 
 /**
  * Created by apple on 12/7/17.
@@ -34,11 +35,13 @@ class FixturesViewHolder(v: View): BaseMatchViewHolder(v){
 
     }
 
-    override  fun setMatch(match: Match){
+    override  fun setMatch(match: Match?){
 
         if(match != null) {
             matchCompetitionV.text = match.competition
-            matchDate.text = match.start_date +" "+match.start_time
+
+            matchDate.text = (Utilities.getLocaleFormattedDate(match.startDateTime))
+
 
             matchAwayTeamName.text = match.away
             matchHomeTeamName.text = match.home

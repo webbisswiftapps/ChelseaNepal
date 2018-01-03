@@ -33,6 +33,8 @@ public class Utilities {
         }
     }
 
+
+
     public static long getTimeDifferenceFromNow(Date checkDate){
         Date now = new Date();
         return checkDate.getTime() - now.getTime();

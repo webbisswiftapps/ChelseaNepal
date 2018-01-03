@@ -52,7 +52,14 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
 
         if (match != null) {
 
-            view?.setTvGuide(match.tv_guide)
+            var tv = match.tvGuideAllCountries[model.getUserCountry()];
+            if(tv == null || tv.isBlank()) {
+                tv = match.tvGuideAllCountries["International"]
+            }
+
+            if(tv != null && tv.isNotBlank()) {
+                this.view?.setTvGuide(tv)
+            }else this.view?.setTvGuide("Not Available.")
 
             if(match.live.match_facts != null){
                 val events = match.live.match_facts.facts.events

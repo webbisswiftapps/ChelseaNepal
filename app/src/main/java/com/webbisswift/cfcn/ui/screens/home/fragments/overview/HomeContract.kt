@@ -61,8 +61,6 @@ interface HomeContract {
         fun loadNextMatchInfo()
         fun loadLastMatchInfo()
         fun loadEPLStats()
-
-
     }
 
     interface HomeModel{
@@ -71,6 +69,7 @@ interface HomeContract {
         fun subscribeToEPLStats(listener:ValueEventListener)
         fun setNextMatchAlarm(startDateTime:Date, home:String, away:String)
         fun unsubscribeFromFirebase()
+        fun getUserCountry():String
     }
 
     interface LiveScoreListener{

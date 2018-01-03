@@ -9,6 +9,7 @@ import java.util.*
 import android.support.v4.content.LocalBroadcastManager
 import com.webbisswift.cfcn.background.AppAlarmManagement
 import com.webbisswift.cfcn.domain.model.MatchEvent
+import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.ui.widgets.NextMatchWidget
 
 
@@ -26,6 +27,8 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Con
     var eplStatsListener:ValueEventListener? = null
     var lastMatchRef:DatabaseReference? = null
     var lastMatchListener:ValueEventListener? = null
+
+    private  var settings:SettingsHelper?  = null
 
     override fun subscribeToNextMatch(listener:ValueEventListener) {
         nextMatchRef = firebaseDBInstance.getReference("next-match")
@@ -81,5 +84,12 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Con
     }
 
 
+    override fun getUserCountry(): String {
 
+        if(settings == null)
+            settings = SettingsHelper(context)
+
+
+        return settings!!.getUserCurrentCountry()
+    }
 }

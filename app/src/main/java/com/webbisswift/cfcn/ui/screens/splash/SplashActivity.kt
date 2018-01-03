@@ -8,6 +8,7 @@ import android.os.Handler
 import android.preference.PreferenceManager
 
 import com.webbisswift.cfcn.R
+import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import com.webbisswift.cfcn.utils.FontManager
 import com.webbisswift.cfcn.utils.Utilities
@@ -73,9 +74,25 @@ class SplashActivity : AppCompatActivity() {
 
 
     private fun moveToHome(){
-        val i = Intent(this, MainActivity::class.java)
-        startActivity(i)
-        finish()
+
+        if(!shouldShowCountrySelection()) {
+
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+            finish()
+        }else{
+            val i = Intent(this, CountrySelectorActivity::class.java)
+            startActivity(i)
+            finish()
+        }
+
+    }
+
+    private fun shouldShowCountrySelection():Boolean{
+        val settings = SettingsHelper(this);
+        val country =  settings.getUserCurrentCountry()
+        val shouldSkip = settings.getDontAskCountryAgain()
+        return country.equals("ERR_NO_COUNTRY_SET") && !shouldSkip
 
     }
 

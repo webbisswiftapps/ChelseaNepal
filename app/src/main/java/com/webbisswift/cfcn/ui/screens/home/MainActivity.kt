@@ -72,7 +72,6 @@ class MainActivity : AppCompatActivity(){
         if(notificationURL != null && notificationURL.isNotBlank()){
             switchToNewsTabAndShowArticle(notificationURL)
         }
-
     }
 
     fun setupDrawer(){

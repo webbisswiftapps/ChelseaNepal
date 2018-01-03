@@ -7,7 +7,6 @@ import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
 import com.webbisswift.cfcn.domain.model.*
 import com.webbisswift.cfcn.utils.Utilities
-import java.util.ArrayList
 
 /**
  * Created by apple on 12/3/17.
@@ -117,7 +116,6 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
 
             this.view?.setCompetitionName(homeAway+match.competition)
 
-            this.view?.setTVInfo(match.tv_guide)
 
             if(match.startDateTime != null){
                 val timeDiff = Utilities.getTimeDifferenceFromNow(match.startDateTime)
@@ -135,6 +133,17 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
                     this.view?.setMatchAwayScore(match.live.awayScore)
                 }
             }else view?.hideNextMatchCard()
+
+
+            var tv = match.tvGuideAllCountries[model.getUserCountry()];
+            if(tv == null || tv.isBlank()) {
+                tv = match.tvGuideAllCountries["International"]
+            }
+
+            if(tv != null && tv.isNotBlank()) {
+                this.view?.setTVInfo(tv)
+            }else this.view?.setTVInfo("Not Available.")
+
 
         }else this.view?.hideNextMatchCard()
     }

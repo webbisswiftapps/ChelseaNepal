@@ -42,7 +42,7 @@ class MCLineupFragment : BaseFragment(), MCLineupContract.MCLineupView{
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance())
+        val model = MatchCenterModel(FirebaseDatabase.getInstance(), context!!)
         this.presenter = MCLineupPresenter(model)
     }
 

@@ -41,7 +41,7 @@ class ResultsViewHolder(v: View): BaseMatchViewHolder(v){
 
     }
 
-    override fun setMatch(match: Match){
+    override fun setMatch(match: Match?){
 
         if(match != null) {
             matchCompetitionV.text = match.competition

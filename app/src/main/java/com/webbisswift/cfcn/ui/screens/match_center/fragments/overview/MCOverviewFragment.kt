@@ -49,7 +49,7 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance())
+        val model = MatchCenterModel(FirebaseDatabase.getInstance(), context!!)
         this.presenter = MCOverviewPresenter(model)
         loadAds()
     }

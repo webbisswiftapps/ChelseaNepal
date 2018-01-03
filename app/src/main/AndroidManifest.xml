@@ -30,6 +30,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.screens.splash.CountrySelectorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme.Fullscreen"/>
+
         <activity
             android:name=".ui.screens.home.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

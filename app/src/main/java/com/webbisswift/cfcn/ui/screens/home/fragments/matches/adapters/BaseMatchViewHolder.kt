@@ -10,5 +10,5 @@ import com.webbisswift.cfcn.domain.model.Match
 
 abstract class BaseMatchViewHolder(v: View): RecyclerView.ViewHolder(v){
 
-    abstract fun setMatch(match: Match)
+    abstract fun setMatch(match: Match?)
 }

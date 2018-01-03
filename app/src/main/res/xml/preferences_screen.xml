@@ -25,6 +25,19 @@
 
         </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/tv_info">
+
+
+        <ListPreference
+            android:entries="@array/countries"
+            android:entryValues="@array/countries"
+            android:key="user_country"
+            android:summary="Select Country to show TV Info for.(If not chosen, only international and online media will be shown. Match timings and dates are based on your current device time zone settings.)"
+            android:title="Country (Region)" />
+
+
+    </PreferenceCategory>
 
 
 
