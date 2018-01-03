@@ -5,6 +5,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -12,6 +14,7 @@ import org.joda.time.format.DateTimeFormatterBuilder;
 import org.joda.time.format.DateTimeParser;
 import org.joda.time.format.PeriodFormatterBuilder;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -77,6 +80,34 @@ public class Utilities {
         }else return "now";
 
         return formatter.toFormatter().print(period);
+    }
+
+
+    public static String getLocaleFormattedDate(Date date){
+        try{
+            LocalDate dt = new LocalDate(date);
+            LocalDate tomorrow = new LocalDate().plusDays(1);
+            LocalDate yesterday = new LocalDate().minusDays(1);
+            LocalDate today = new LocalDate();
+
+            if(dt.equals(today)) {
+                SimpleDateFormat df = new SimpleDateFormat("hh:mm a");
+                return "Today, "+df.format(date);
+            }else if(dt.equals(tomorrow)) {
+                SimpleDateFormat df = new SimpleDateFormat("hh:mm a");
+                return "Tomorrow, "+df.format(date);
+            }else if(dt.equals(yesterday)) {
+                return "Yesterday";
+            }else {
+                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM, hh:mm a");
+                return df.format(date);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM, hh:mm a");
+            return df.format(date);
+        }
     }
 
     private boolean isNetworkAvailable(Context context) {

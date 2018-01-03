@@ -118,11 +118,12 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
             this.view?.setCompetitionName(homeAway+match.competition)
 
             this.view?.setTVInfo(match.tv_guide)
-            this.view?.setNextMatchTimings(match.start_date+"  "+match.start_time)
 
             if(match.startDateTime != null){
                 val timeDiff = Utilities.getTimeDifferenceFromNow(match.startDateTime)
                 this.model.setNextMatchAlarm(match.startDateTime, match.home, match.away)
+
+                this.view?.setNextMatchTimings(Utilities.getLocaleFormattedDate(match.startDateTime))
 
                 if(match.live == null || !match.live.isStarted){
                     this.view?.switchToCountdown()

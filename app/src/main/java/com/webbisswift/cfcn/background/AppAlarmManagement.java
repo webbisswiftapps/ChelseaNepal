@@ -105,6 +105,11 @@ public class AppAlarmManagement {
                calendar.setTime(startDate);
                calendar.add(Calendar.MINUTE, -15);
 
+               if(calendar.getTime().before(new Date())) {
+                   Log.d("AppAlarmManagement","Trying to set next match alarm to a past date. Ignore.");
+                   return;
+               }
+
                /*calendar.setTime(new Date());
                calendar.add(Calendar.MINUTE, 1);*/
 

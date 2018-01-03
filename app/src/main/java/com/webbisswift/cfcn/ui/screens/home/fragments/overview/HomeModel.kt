@@ -53,7 +53,7 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Con
 
 
     override fun setNextMatchAlarm(startDateTime: Date, home:String, away:String) {
-        AppAlarmManagement(context).setNextMatchAlarm(startDateTime, home, away)
+       AppAlarmManagement(context).setNextMatchAlarm(startDateTime, home, away)
         //Also update widget
         val intent = Intent(context, NextMatchWidget::class.java)
         intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
