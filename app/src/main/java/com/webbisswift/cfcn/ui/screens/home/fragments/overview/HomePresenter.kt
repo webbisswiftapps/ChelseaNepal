@@ -135,13 +135,15 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
             }else view?.hideNextMatchCard()
 
 
-            var tv = match.tvGuideAllCountries[model.getUserCountry()];
-            if(tv == null || tv.isBlank()) {
-                tv = match.tvGuideAllCountries["International"]
-            }
+            if(match.tvGuideAllCountries != null) {
+                var tv = match.tvGuideAllCountries[model.getUserCountry()]
+                if (tv == null || tv.isBlank()) {
+                    tv = match.tvGuideAllCountries["International"]
+                }
 
-            if(tv != null && tv.isNotBlank()) {
-                this.view?.setTVInfo(tv)
+                if (tv != null && tv.isNotBlank()) {
+                    this.view?.setTVInfo(tv)
+                } else this.view?.setTVInfo("Not Available.")
             }else this.view?.setTVInfo("Not Available.")
 
 
@@ -164,6 +166,8 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
             this.view?.setLastMatchCompetitionName(match.competition)
             this.view?.setLastMatchDate(match.start_date)
             this.view?.setLastMatchScore(match.homeScore, match.awayScore)
+            if(match.hadPenalties())
+                this.view?.setLastMatchPenalties(match.homePenaltyScore, match.awayPenaltyScore)
 
         }else view?.hideLastMatchCard()
     }

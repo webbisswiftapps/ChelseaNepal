@@ -15,10 +15,9 @@ interface MatchCenterContract{
         fun setNextMatchAwayTeam(name:String, logo:String)
         fun setNextMatchHomeTeam(name:String, logo:String)
         fun setNextMatchCompetitionName(name:String)
-        fun setNextMatchDate(date:String)
+        fun setNextMatchDate(date:String, blink:Boolean)
         fun setNextMatchPenalties(homePenalties:String, awayPenalties:String)
         fun setNextMatchScore(homeScore:String, awayScore:String)
-        fun setCurrentMatchStatus(status:String)
         fun showNoDataAndFinish()
     }
 

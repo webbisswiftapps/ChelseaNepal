@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
 import com.bumptech.glide.Glide
 import com.google.firebase.database.FirebaseDatabase
 import com.webbisswift.cfcn.R
@@ -14,6 +15,9 @@ import com.webbisswift.cfcn.ui.screens.match_center.fragments.lineups.MCLineupFr
 import com.webbisswift.cfcn.ui.screens.match_center.fragments.liveticker.MCLiveTickerFragment
 import com.webbisswift.cfcn.ui.screens.match_center.fragments.overview.MCOverviewFragment
 import kotlinx.android.synthetic.main.activity_match_center.*
+import android.view.animation.AnimationUtils
+
+
 
 
 /**
@@ -24,6 +28,8 @@ import kotlinx.android.synthetic.main.activity_match_center.*
 class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
 
     var presenter: MatchCenterContract.MatchCenterPresenter? = null
+
+    lateinit var blinkAnimation: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +44,7 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
     override fun initView() {
         val model = MatchCenterModel(FirebaseDatabase.getInstance(), this)
         this.presenter =MatchCenterPresenter(model)
+        blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink_tween)
         setupTabs()
         setListeners()
     }
@@ -93,9 +100,20 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
         nextMatchCompetition?.text = name
     }
 
-    override fun setNextMatchDate(date: String) {
+    override fun setNextMatchDate(date: String, blink:Boolean) {
         nextMatchTimings?.text = date
+
+        if(blink){
+            nextMatchTimings.setBackgroundDrawable(resources.getDrawable(R.drawable.live_bg_round))
+            nextMatchTimings.startAnimation(blinkAnimation)
+        }else{
+            nextMatchTimings.setBackgroundDrawable(resources.getDrawable(R.drawable.bg_splash_gradient))
+            nextMatchTimings?.clearAnimation()
+        }
+
+
     }
+
 
     override fun setNextMatchPenalties(homePenalties: String, awayPenalties: String) {
         nextMatchPenalties?.visibility = View.VISIBLE
@@ -107,9 +125,8 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
         awayScoreLR?.text = awayScore
     }
 
-    override fun setCurrentMatchStatus(status: String) {
-        hifen?.text = status
-    }
+
+
 
     override fun showNoDataAndFinish() {
         finish()

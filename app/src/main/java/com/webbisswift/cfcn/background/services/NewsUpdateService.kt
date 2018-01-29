@@ -8,9 +8,11 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.support.v4.content.LocalBroadcastManager
+import android.support.v7.content.res.AppCompatResources
 import android.util.Log
 import android.widget.RemoteViews
 import com.android.volley.Request
@@ -82,7 +84,7 @@ class NewsUpdateService: Service(), Response.ErrorListener{
             uiThread {
 
                 if(intent != null) {
-                    shouldNotify = intent.getBooleanExtra("SHOULD_NOTIFY", true)
+                   // shouldNotify = intent.getBooleanExtra("SHOULD_NOTIFY", true)
                 }
 
                 newNewsList.clear()
@@ -282,10 +284,10 @@ class NewsUpdateService: Service(), Response.ErrorListener{
     private fun addNotification(item:NewsItem, notificationId:Int, title:String){
         val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)
         remoteViews.setImageViewResource(R.id.imagenotileft, R.drawable.lion_logo_ony)
-
+        remoteViews.setImageViewResource(R.id.newsIcn, R.drawable.ic_news_rss_notification)
         remoteViews.setTextViewText(R.id.title, item.newsAuthor+" | CFCN" )
         remoteViews.setTextViewText(R.id.desc, item.title.trim())
-        remoteViews.setTextViewCompoundDrawables(R.id.title, R.drawable.ic_news_rss_feed_small, 0 , 0 , 0)
+
 
 
         val notificationIntent = Intent(applicationContext, MainActivity::class.java)
@@ -318,9 +320,9 @@ class NewsUpdateService: Service(), Response.ErrorListener{
     private fun addNotificationVideo(item:VideoItem, notificationId: Int, title:String){
         val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)
         remoteViews.setImageViewResource(R.id.imagenotileft, R.drawable.lion_logo_ony)
+        remoteViews.setImageViewResource(R.id.newsIcn, R.drawable.ic_news_youtube)
         remoteViews.setTextViewText(R.id.title, item.author.name+" | CFCN" )
         remoteViews.setTextViewText(R.id.desc, item.title.trim())
-        remoteViews.setTextViewCompoundDrawables(R.id.title, R.drawable.ic_news_youtube_small, 0 , 0 , 0)
 
         val notificationIntent = Intent(applicationContext, MainActivity::class.java)
         notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)

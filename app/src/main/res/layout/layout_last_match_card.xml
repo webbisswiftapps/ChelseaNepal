@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-       <ProgressBar
+      <ProgressBar
             android:id="@+id/lastMatchProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                 android:padding="10dp"
                 android:textAllCaps="true"
                 android:layout_centerHorizontal="true"
-                android:drawableRight="@drawable/ic_arrow_forward_white_24dp"
+                app:drawableRightCompat="@drawable/ic_arrow_forward_white_24dp"
                 />
 
 

@@ -51,7 +51,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 app:font_name="@string/font_montserrat_semibold"
                 android:text="Live on - Sony TEN 2 HD / SD"
-                android:drawableLeft="@drawable/ic_live_tv_semiblack_24dp"
+                app:drawableLeftCompat="@drawable/ic_live_tv_semiblack_24dp"
                 android:gravity="center_vertical"
                 android:drawablePadding="5dp"
                 android:layout_marginTop="10dp"

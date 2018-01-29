@@ -276,7 +276,7 @@
                 android:padding="10dp"
                 android:textAllCaps="true"
                 android:layout_centerHorizontal="true"
-                android:drawableRight="@drawable/ic_arrow_forward_white_24dp"
+                app:drawableRightCompat="@drawable/ic_arrow_forward_white_24dp"
                 />
 
 

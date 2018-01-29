@@ -23,6 +23,7 @@
                   android:layout_gravity="center"
                   android:src="@drawable/play_button"
                   android:background="@null"
+                  android:scaleType="centerCrop"
                   />
 
 

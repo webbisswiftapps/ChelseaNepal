@@ -107,8 +107,11 @@ public class Utilities {
 
         }catch (Exception e){
             e.printStackTrace();
-            SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM, hh:mm a");
-            return df.format(date);
+
+            if(date != null) {
+                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM, hh:mm a");
+                return df.format(date);
+            }else return "";
         }
     }
 

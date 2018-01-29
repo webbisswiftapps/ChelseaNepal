@@ -72,6 +72,13 @@
             android:name=".ui.screens.webview.WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ui.screens.admin.AdminActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:title="Admin"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+
         <activity
             android:name=".ui.screens.settings.SettingsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

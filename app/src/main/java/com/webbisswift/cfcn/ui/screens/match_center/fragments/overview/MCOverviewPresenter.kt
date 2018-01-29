@@ -52,13 +52,15 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
 
         if (match != null) {
 
-            var tv = match.tvGuideAllCountries[model.getUserCountry()];
-            if(tv == null || tv.isBlank()) {
-                tv = match.tvGuideAllCountries["International"]
-            }
+            if(match.tvGuideAllCountries != null) {
+                var tv = match.tvGuideAllCountries[model.getUserCountry()];
+                if (tv == null || tv.isBlank()) {
+                    tv = match.tvGuideAllCountries["International"]
+                }
 
-            if(tv != null && tv.isNotBlank()) {
-                this.view?.setTvGuide(tv)
+                if (tv != null && tv.isNotBlank()) {
+                    this.view?.setTvGuide(tv)
+                } else this.view?.setTvGuide("Not Available.")
             }else this.view?.setTvGuide("Not Available.")
 
             if(match.live.match_facts != null){

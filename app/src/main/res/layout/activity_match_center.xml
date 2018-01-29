@@ -83,7 +83,7 @@
                         android:layout_below="@id/lastMatchTitle"
                         android:text="Champions League"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="40dp"
                         />
 
                     <com.webbisswift.cfcn.ui.custom_views.CTextView
@@ -94,10 +94,14 @@
                         app:font_name="@string/font_montserrat_regular"
                         android:textColor="@color/text_white"
                         android:layout_below="@id/nextMatchCompetition"
-                        android:text="Today, @ 1.30"
+                        android:text="Today, 10:15 p.m."
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="2dp"
+                        android:background="@drawable/live_bg_round"
+                        android:padding="8dp"
                         />
+
+
 
                     <LinearLayout
                         android:id="@+id/scoresPaneLR"
@@ -107,7 +111,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/nextMatchTimings"
                         android:gravity="center"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="10dp"
                         >
                         <LinearLayout
                             android:layout_width="0dp"
@@ -144,7 +148,7 @@
                         <com.webbisswift.cfcn.ui.custom_views.CTextView
                             android:id="@+id/homeScoreLR"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:textSize="26sp"
                             app:font_name="@string/font_montserrat_semibold"
                             android:textAllCaps="true"
@@ -152,21 +156,21 @@
                             android:text="0"
                             android:layout_marginLeft="8dp"
                             android:layout_marginRight="5dp"
-                            android:layout_gravity="top"
+                            android:gravity="center"
                             />
 
                         <com.webbisswift.cfcn.ui.custom_views.CTextView
                             android:id="@+id/hifen"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="26sp"
+                            android:layout_height="match_parent"
+                            android:textSize="20sp"
                             app:font_name="@string/font_montserrat_semibold"
                             android:textAllCaps="true"
                             android:textColor="@color/text_white"
                             android:text=":"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="8dp"
-                            android:layout_gravity="top"
+                            android:gravity="center"
                             />
 
                         <com.webbisswift.cfcn.ui.custom_views.CTextView
@@ -180,7 +184,7 @@
                             android:text="0"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:layout_gravity="top"
+                            android:gravity="center"
                             />
 
 
@@ -262,6 +266,5 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
-
 
 </android.support.design.widget.CoordinatorLayout>

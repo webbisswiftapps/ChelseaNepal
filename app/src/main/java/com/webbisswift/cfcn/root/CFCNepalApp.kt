@@ -42,6 +42,8 @@ class CFCNepalApp:Application(){
         FirebaseMessaging.getInstance().subscribeToTopic("NextMatchTopic")
         FirebaseMessaging.getInstance().subscribeToTopic("NewsUpdatePing")
         FirebaseMessaging.getInstance().subscribeToTopic("LiveScoreChelsea")
+        FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScoreChelsea")
+        FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopic")
         AppAlarmManagement(this).fetchNextMatchDetailsAndSetAlarm()
     }
 

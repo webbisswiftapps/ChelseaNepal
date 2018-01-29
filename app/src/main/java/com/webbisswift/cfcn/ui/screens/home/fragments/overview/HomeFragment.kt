@@ -100,8 +100,8 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
     private fun loadAds(){
         val adRequest = AdRequest.Builder()
                 .build()
-        adView.loadAd(adRequest)
-        adViewLarge.loadAd(adRequest)
+        adView?.loadAd(adRequest)
+        adViewLarge?.loadAd(adRequest)
     }
 
     /**

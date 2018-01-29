@@ -22,6 +22,7 @@ import android.view.MenuItem
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.webbisswift.cfcn.ui.screens.about_us.AboutUsUI
+import com.webbisswift.cfcn.ui.screens.admin.AdminActivity
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterUI
 import com.webbisswift.cfcn.ui.screens.settings.SettingsActivity
 import com.webbisswift.cfcn.ui.screens.team.TeamInfoActivity
@@ -93,8 +94,16 @@ class MainActivity : AppCompatActivity(){
             }
         }
 
+        logo.setOnLongClickListener{
+            startAdminActivity()
+        }
     }
 
+    private fun startAdminActivity():Boolean{
+        val i = Intent(this, AdminActivity::class.java)
+        startActivity(i)
+        return true
+    }
 
     private fun switchToNewsTabAndShowArticle(url:String){
         viewPager.setCurrentItem(1, false)

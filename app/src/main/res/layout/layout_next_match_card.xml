@@ -98,7 +98,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:text="6th December, 2017 @ 1:30"
-                android:drawableLeft="@drawable/ic_date_semiblack_24dp"
+                app:drawableLeftCompat="@drawable/ic_date_semiblack_24dp"
                 android:gravity="center_vertical"
                 android:drawablePadding="5dp"
                 />
@@ -113,7 +113,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 app:font_name="@string/font_montserrat_semibold"
                 android:text="Live on - Sony TEN 2 HD / SD"
-                android:drawableLeft="@drawable/ic_live_tv_semiblack_24dp"
+                app:drawableLeftCompat="@drawable/ic_live_tv_semiblack_24dp"
                 android:gravity="center_vertical"
                 android:drawablePadding="5dp"
                 />
@@ -305,6 +305,9 @@
                 </LinearLayout>
             </ViewSwitcher>
 
+
+
+
             <com.webbisswift.cfcn.ui.custom_views.CButton
                 android:id="@+id/matchCenterBtn"
                 android:layout_width="match_parent"
@@ -321,7 +324,7 @@
                 android:padding="10dp"
                 android:textAllCaps="true"
                 android:layout_centerHorizontal="true"
-                android:drawableRight="@drawable/ic_arrow_forward_white_24dp"
+                app:drawableRightCompat="@drawable/ic_arrow_forward_white_24dp"
                 />
 
         </RelativeLayout>

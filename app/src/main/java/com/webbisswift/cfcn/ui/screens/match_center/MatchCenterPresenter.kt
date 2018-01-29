@@ -61,13 +61,13 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
             this.view?.setNextMatchCompetitionName(match.competition)
 
             if(match.live.isStarted) {
-                this.view?.setCurrentMatchStatus(match.live.status)
-                this.view?.setNextMatchDate("LIVE")
+                this.view?.setNextMatchDate("LIVE - "+match.live.status, true)
                 this.view?.setNextMatchScore(match.live.homeScore, match.live.awayScore)
-            }else{
-                this.view?.setCurrentMatchStatus(":")
 
-                this.view?.setNextMatchDate(Utilities.getLocaleFormattedDate(match.startDateTime))
+                if(match.hadPenalties())
+                    this.view?.setNextMatchPenalties(match.live.homeScore, match.live.awayScore)
+            }else{
+                this.view?.setNextMatchDate(Utilities.getLocaleFormattedDate(match.startDateTime), false)
                 this.view?.setNextMatchScore("-", "-")
             }
 

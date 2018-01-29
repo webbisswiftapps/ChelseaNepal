@@ -59,6 +59,9 @@ class MatchFactsPresenter(val model: MatchFactsModel): MatchFactsContract.MatchF
             this.view?.setLastMatchDate(match.start_date)
             this.view?.setLastMatchScore(match.homeScore, match.awayScore)
 
+            if(match.hadPenalties())
+                this.view?.setLastMatchPenalties(match.homePenaltyScore, match.awayPenaltyScore)
+
             if(match.match_facts != null){
                 Log.d("MFPresenter", match.match_facts.toString())
 

@@ -13,7 +13,9 @@ import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import com.webbisswift.cfcn.utils.FontManager
 import com.webbisswift.cfcn.utils.Utilities
 import kotlinx.android.synthetic.main.activity_splash.*
-
+import android.R.attr.path
+import android.net.Uri
+import android.util.Log
 
 
 /**
@@ -35,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
         mPlayer = MediaPlayer.create(this, R.raw.cfc_chant_carefree_short)
         mPlayer.setVolume(0.25f, 0.25f)
 
-       initActivity()
+        initActivity()
     }
 
 
@@ -107,8 +109,5 @@ class SplashActivity : AppCompatActivity() {
         editor.putBoolean("IS_FIRST", false)
         editor.apply()
     }
-
-
-
 
 }
