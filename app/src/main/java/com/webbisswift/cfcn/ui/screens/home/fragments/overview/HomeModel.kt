@@ -31,7 +31,7 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Con
     private  var settings:SettingsHelper?  = null
 
     override fun subscribeToNextMatch(listener:ValueEventListener) {
-        nextMatchRef = firebaseDBInstance.getReference("next-match")
+        nextMatchRef = firebaseDBInstance.getReference("v2/next-match")
         nextMatchRef?.keepSynced(true)
         this.nextMatchListener = listener
         nextMatchRef?.addValueEventListener(nextMatchListener)
