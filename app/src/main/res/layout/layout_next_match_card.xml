@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ProgressBar
+     <ProgressBar
             android:id="@+id/nextMatchProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +97,6 @@
                 app:font_name="@string/font_montserrat_regular"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
-                android:text="6th December, 2017 @ 1:30"
                 app:drawableLeftCompat="@drawable/ic_date_semiblack_24dp"
                 android:gravity="center_vertical"
                 android:drawablePadding="5dp"
@@ -112,10 +111,16 @@
                 android:textColor="@color/light_text"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 app:font_name="@string/font_montserrat_semibold"
-                android:text="Live on - Sony TEN 2 HD / SD"
                 app:drawableLeftCompat="@drawable/ic_live_tv_semiblack_24dp"
                 android:gravity="center_vertical"
                 android:drawablePadding="5dp"
+                />
+
+            <View android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/colorful_gradient"
+                android:layout_below="@+id/nextmatchTVGuide"
+                android:layout_marginTop="5dp"
                 />
 
 
@@ -130,117 +135,141 @@
                 android:layout_below="@+id/nextmatchTVGuide"
                 >
 
+
+
                 <LinearLayout
                     android:id="@+id/scoresPaneLS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/lastMatchDate"
-                    android:gravity="center"
+                    android:orientation="vertical"
                     android:layout_marginTop="10dp"
                     >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                        <ImageView
-                            android:id="@+id/homeTeamLogoLS"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/chelsea"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            />
-
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
-                            android:id="@+id/homeTeamLS"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:font_name="@string/font_montserrat_semibold"
-                            android:textAllCaps="true"
-                            android:textColor="@color/colorPrimary"
-                            android:text="Chelsea"
-                            android:textSize="12sp"
-                            android:layout_gravity="center_horizontal"
-                            />
-                    </LinearLayout>
-
-
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/homeScoreLS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="26sp"
-                        app:font_name="@string/font_montserrat_semibold"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
-                        android:text="0"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="5dp"
-                        />
 
                     <com.webbisswift.cfcn.ui.custom_views.CTextView
                         android:id="@+id/statusLS"
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        app:font_name="@string/font_montserrat_semibold"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:text=":"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="8dp"
-                        android:gravity="center"
-                        />
-
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/awayScoreLS"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="26sp"
-                        app:font_name="@string/font_montserrat_semibold"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
-                        android:text="0"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/nextMatchCompetition"
+                        android:text="Live"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/live_bg_round"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:layout_gravity="center"
                         />
-
-
 
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/lastMatchDate"
+                        android:gravity="center"
                         >
-                        <ImageView
-                            android:id="@+id/awayTeamLogoLS"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/atm_logo"
-                            android:layout_gravity="center_vertical|center_horizontal"
-                            />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <ImageView
+                                android:id="@+id/homeTeamLogoLS"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/chelsea"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                />
+
+                        </LinearLayout>
+
 
                         <com.webbisswift.cfcn.ui.custom_views.CTextView
-                            android:id="@+id/awayTeamLS"
+                            android:id="@+id/homeScoreLS"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="26sp"
                             app:font_name="@string/font_montserrat_semibold"
                             android:textAllCaps="true"
                             android:textColor="@color/colorPrimary"
-                            android:text="Atletico"
-                            android:textSize="12sp"
-                            android:layout_gravity="center_horizontal"
+                            android:text="-"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="5dp"
                             />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/divider"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text=":"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="8dp"
+                            android:gravity="center"
+                            />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/awayScoreLS"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="26sp"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:text="-"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            />
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <ImageView
+                                android:id="@+id/awayTeamLogoLS"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/atm_logo"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                />
+
+
+                        </LinearLayout>
+
+
                     </LinearLayout>
 
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/nextMatchPenalties"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/colorPrimary"
+                        android:visibility="gone"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="1dp"
+                        android:layout_gravity="center"
+                        />
 
                 </LinearLayout>
+
+
 
                 <LinearLayout
                     android:id="@+id/nextMatchCountdownHolder"
@@ -248,14 +277,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="5dp"
+                    android:layout_marginTop="5dp"
                     >
-
-                    <View android:layout_width="match_parent"
-                        android:layout_height="5dp"
-                        android:background="@drawable/colorful_gradient"
-                        android:layout_below="@+id/nextmatchTVGuide"
-                        android:layout_marginBottom="5dp"
-                        />
 
 
 
@@ -294,7 +317,6 @@
                     <com.webbisswift.cfcn.ui.custom_views.CTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/nextMatchTimings"
                         android:layout_marginLeft="3dp"
                         android:textColor="@color/light_text"
                         android:textAppearance="?android:attr/textAppearanceSmall"

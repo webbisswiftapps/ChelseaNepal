@@ -134,12 +134,10 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
     }
 
     override fun setNextMatchScoreHomeTeam(name: String, logo: String) {
-        homeTeamLS?.text = name
         Glide.with(this).load(logo).into(homeTeamLogoLS)
     }
 
     override fun setNextMatchScoreAwayTeam(name: String, logo: String) {
-        awayTeamLS?.text = name
         Glide.with(this).load(logo).into(awayTeamLogoLS)
     }
 
@@ -177,6 +175,14 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
 
     override fun setMatchAwayScore(score: String) {
         awayScoreLS?.text = score
+    }
+
+    override fun setNextMatchPenalties(homePenalties: String, awayPenalties: String) {
+        nextMatchPenalties?.text = "Penalties: "+homePenalties+" - "+awayPenalties
+    }
+
+    override fun hideNextMatchPenalties() {
+        nextMatchPenalties?.visibility = View.GONE
     }
 
     override fun setMatchStatus(status: String) {

@@ -101,7 +101,6 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         if(match != null) {
             this.view?.hideNextMatchInfoLoading()
 
-            var homeAway = ""
             val localTeamId = match.localteam_id
             if(localTeamId == 18){
                 val name = match.visitorTeam.data.name
@@ -126,15 +125,23 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
 
                 this.view?.setNextMatchTimings(Utilities.getLocaleFormattedDate(startDT))
 
-                /*if(match.live == null || !match.live.isStarted){
+                if(timeDiff <= 0 || match.time.isLive){
+                    this.view?.switchToScores()
+
+                    val statusDesc = match.time.statusDescription
+
+                    this.view?.setMatchStatus(statusDesc)
+                    this.view?.setMatchHomeScore(match.score.localteam_score)
+                    this.view?.setMatchAwayScore(match.score.visitorteam_score)
+
+                    if(match.time.showPenalties()){
+                        this.view?.setNextMatchPenalties(match.score.localteam_pen_score, match.score.visitorteam_pen_score)
+                    }else view?.hideNextMatchPenalties()
+
+                }else{
                     this.view?.switchToCountdown()
                     this.view?.startNextMatchCountdown(timeDiff)
-                }else{
-                    this.view?.switchToScores()
-                    this.view?.setMatchStatus(match.live.status)
-                    this.view?.setMatchHomeScore(match.live.homeScore)
-                    this.view?.setMatchAwayScore(match.live.awayScore)
-                } */
+                }
 
 
             }else view?.hideNextMatchCard()

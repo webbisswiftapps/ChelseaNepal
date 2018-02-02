@@ -32,6 +32,8 @@ interface HomeContract {
         fun setNextMatchScoreAwayTeam(name:String, logo:String)
         fun setMatchStatus(status:String)
         fun addMatchEvent(event: MatchEvent)
+        fun setNextMatchPenalties(homePenalties: String, awayPenalties: String)
+        fun hideNextMatchPenalties()
 
 
 
