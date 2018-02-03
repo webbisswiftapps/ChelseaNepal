@@ -19,7 +19,7 @@ class MatchCenterModel(private val firebaseDBInstance: FirebaseDatabase, private
 
 
     fun subscribeToNextMatch(listener: ValueEventListener) {
-        this.liveMatchRef = firebaseDBInstance.getReference("next-match")
+        this.liveMatchRef = firebaseDBInstance.getReference("/v2/next-match")
         liveMatchRef?.keepSynced(true)
         this.liveMatchListener = listener
         liveMatchRef?.addValueEventListener(this.liveMatchListener)

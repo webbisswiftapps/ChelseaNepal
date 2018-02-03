@@ -21,6 +21,8 @@ public class SMTime {
     }
 
     String status;
+    int minute;
+    int injury_time;
     MatchTime starting_at;
 
 
@@ -54,6 +56,22 @@ public class SMTime {
 
     public void setStarting_at(MatchTime starting_at) {
         this.starting_at = starting_at;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
+    public int getInjury_time() {
+        return injury_time;
+    }
+
+    public void setInjury_time(int injury_time) {
+        this.injury_time = injury_time;
     }
 
     public static class MatchTime{

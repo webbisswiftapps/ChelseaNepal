@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
 import com.webbisswift.cfcn.domain.model.Match
+import com.webbisswift.cfcn.domain.model.v2.SMMatch
 import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsContract
 import com.webbisswift.cfcn.utils.Utilities
 import org.joda.time.DateTime
@@ -33,7 +34,7 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 try {
-                    val lmInfo = dataSnapshot.getValue<Match>(Match::class.java)
+                    val lmInfo = dataSnapshot.getValue<SMMatch>(SMMatch::class.java)
                     presentNextMatchInfo(lmInfo)
                 }catch (e:Exception){
                     e.printStackTrace()
@@ -54,22 +55,36 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
      * Presentation Methods
      **/
 
-    fun presentNextMatchInfo(match: Match?){
+    fun presentNextMatchInfo(match: SMMatch?){
         if(match!=null){
-            this.view?.setNextMatchHomeTeam(match.home, match.homeShirtURL)
-            this.view?.setNextMatchAwayTeam(match.away, match.awayShirtURL)
-            this.view?.setNextMatchCompetitionName(match.competition)
 
-            if(match.live.isStarted) {
-                this.view?.setNextMatchDate("LIVE - "+match.live.status, true)
-                this.view?.setNextMatchScore(match.live.homeScore, match.live.awayScore)
+            this.view?.setNextMatchHomeTeam(match.localTeam.data.name, match.localTeam.data.logo_path)
+            this.view?.setNextMatchAwayTeam(match.visitorTeam.data.name, match.visitorTeam.data.logo_path)
+            this.view?.setNextMatchCompetitionName(match.competitionDesc)
+            this.view?.setNextMatchVenue(match.venue.data.name)
 
-                if(match.hadPenalties())
-                    this.view?.setNextMatchPenalties(match.live.homeScore, match.live.awayScore)
-            }else{
-                this.view?.setNextMatchDate(Utilities.getLocaleFormattedDate(match.startDateTime), false)
-                this.view?.setNextMatchScore("-", "-")
-            }
+            val startDT = match.time.starting_at.startDateTime
+            if(startDT!= null) {
+                val timeDiff = Utilities.getTimeDifferenceFromNow(startDT)
+
+
+                if (timeDiff <= 0 || match.time.isLive) {
+
+                    val statusDesc = match.time.statusDescription
+
+                    this.view?.setNextMatchDate(statusDesc, true)
+                    this.view?.setNextMatchScore(match.scores.localteam_score, match.scores.visitorteam_score)
+
+
+                    if (match.time.showPenalties())
+                        this.view?.setNextMatchPenalties(match.scores.localteam_pen_score, match.scores.visitorteam_pen_score)
+
+                } else {
+                    val startDT = match.time.starting_at.startDateTime
+                    this.view?.setNextMatchDate(Utilities.getLocaleFormattedDate(startDT), false)
+                    this.view?.setNextMatchScore("-", "-")
+                }
+            }else view?.showNoDataAndFinish()
 
         }else view?.showNoDataAndFinish()
     }

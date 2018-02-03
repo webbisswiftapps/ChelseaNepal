@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
 import com.google.firebase.database.FirebaseDatabase
 import com.webbisswift.cfcn.R
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.ad_card_small_banner_season.*
 import kotlinx.android.synthetic.main.layout_match_stats_card.*
 import kotlinx.android.synthetic.main.layout_match_stats_events.*
 import kotlinx.android.synthetic.main.layout_tv_card.*
+import kotlinx.android.synthetic.main.layout_weather.*
 
 /**
  * Created by apple on 12/31/17.
@@ -71,8 +73,7 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
      *  Match Facts Display Methods
      *  */
 
-
-
+/*
     override fun hideLastMatchFactsLoading() {
         //do nothing
     }
@@ -157,16 +158,27 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
         awayRed?.text = awayStat.redcards
     }
 
-    override fun setTvGuide(guide: String) {
-        tvGuide?.text = guide
-    }
 
     override fun showMatchNotStarted() {
         Log.d("MCOverview","match has not started yet!")
         hideMatchEventsCard()
+    }*/
+
+    override fun setTvGuide(guide: String) {
+        tvGuide?.text = guide
     }
 
 
+    override fun setWeather(c: String, t: String, url: String) {
+        weatherCard?.visibility = View.VISIBLE
+        condition?.text = c
+        temperature?.text = t
+        Glide.with(context).load(url).into(conditionImg)
+    }
+
+    override fun hideWeather() {
+        weatherCard?.visibility = View.GONE
+    }
 
     /**
      * Base View Methods

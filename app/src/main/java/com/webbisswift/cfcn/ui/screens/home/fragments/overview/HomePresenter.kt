@@ -13,7 +13,7 @@ import com.webbisswift.cfcn.utils.Utilities
  * Created by apple on 12/3/17.
  */
 
-class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContract.LiveScoreListener{
+class HomePresenter(val model:HomeModel):HomeContract.HomePresenter{
 
     var view:HomeContract.HomeView? = null
 
@@ -115,7 +115,8 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
             this.view?.setNextMatchScoreHomeTeam(match.localTeam.data.name, match.localTeam.data.logo_path)
             this.view?.setNextMatchScoreAwayTeam(match.visitorTeam.data.name, match.visitorTeam.data.logo_path)
 
-            this.view?.setCompetitionName(match.venue.data.name+" | "+match.league.data.name)
+            this.view?.setCompetitionName(match.competitionDesc)
+            this.view?.setNextMatchVenue(match.venue.data.name)
 
 
             val startDT = match.time.starting_at.startDateTime
@@ -130,12 +131,12 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
 
                     val statusDesc = match.time.statusDescription
 
-                    this.view?.setMatchStatus(statusDesc)
-                    this.view?.setMatchHomeScore(match.score.localteam_score)
-                    this.view?.setMatchAwayScore(match.score.visitorteam_score)
+                    this.view?.setMatchStatus(statusDesc, match.time.isLive)
+                    this.view?.setMatchHomeScore(match.scores.localteam_score)
+                    this.view?.setMatchAwayScore(match.scores.visitorteam_score)
 
                     if(match.time.showPenalties()){
-                        this.view?.setNextMatchPenalties(match.score.localteam_pen_score, match.score.visitorteam_pen_score)
+                        this.view?.setNextMatchPenalties(match.scores.localteam_pen_score, match.scores.visitorteam_pen_score)
                     }else view?.hideNextMatchPenalties()
 
                 }else{
@@ -143,10 +144,7 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
                     this.view?.startNextMatchCountdown(timeDiff)
                 }
 
-
             }else view?.hideNextMatchCard()
-
-
 
 
             if(match.tv_guide_all != null) {
@@ -164,12 +162,7 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter, HomeContrac
         }else this.view?.hideNextMatchCard()
     }
 
-    override fun scoreUpdateEvent(homeScore: String, awayScore: String, status: String) {
-        this.view?.switchToScores()
-        this.view?.setMatchHomeScore(homeScore)
-        this.view?.setMatchAwayScore(awayScore)
-        this.view?.setMatchStatus(status)
-    }
+
 
     fun presentLastMatchInfo(match:Match?){
         if(match!=null){

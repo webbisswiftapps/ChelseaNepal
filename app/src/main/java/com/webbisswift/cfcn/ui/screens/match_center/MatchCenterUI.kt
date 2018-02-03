@@ -104,20 +104,23 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
         nextMatchTimings?.text = date
 
         if(blink){
-            nextMatchTimings.setBackgroundDrawable(resources.getDrawable(R.drawable.live_bg_round))
-            nextMatchTimings.startAnimation(blinkAnimation)
+            nextMatchTimings?.setBackgroundDrawable(resources.getDrawable(R.drawable.live_bg_round))
+            nextMatchTimings?.startAnimation(blinkAnimation)
         }else{
-            nextMatchTimings.setBackgroundDrawable(resources.getDrawable(R.drawable.bg_splash_gradient))
+            nextMatchTimings?.setBackgroundDrawable(resources.getDrawable(R.drawable.bg_splash_gradient))
             nextMatchTimings?.clearAnimation()
         }
 
 
     }
 
+    override fun setNextMatchVenue(venue: String) {
+        nextMatchVenue?.text = venue
+    }
 
     override fun setNextMatchPenalties(homePenalties: String, awayPenalties: String) {
         nextMatchPenalties?.visibility = View.VISIBLE
-        nextMatchPenalties?.text = "(Pens "+homePenalties+" - "+awayPenalties+")"
+        nextMatchPenalties?.text = "   "+homePenalties+" : "+awayPenalties +" PEN"
     }
 
     override fun setNextMatchScore(homeScore: String, awayScore: String) {

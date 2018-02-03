@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-     <ProgressBar
+      <ProgressBar
             android:id="@+id/nextMatchProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 />
 
             <com.webbisswift.cfcn.ui.custom_views.CTextView
-                android:id="@+id/nextMatchCompetition"
+                android:id="@+id/nextMatchVenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -85,6 +85,18 @@
                 android:layout_below="@id/nextMatchAwayTeam"
                 android:layout_toRightOf="@+id/awayTeamLogo"
                 android:layout_alignLeft="@+id/nextMatchAwayTeam"
+                />
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/nextMatchCompetition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_light"
+                android:textColor="@color/semi_dark_text"
+                android:layout_below="@id/nextMatchVenue"
+                android:layout_toRightOf="@+id/awayTeamLogo"
+                android:layout_alignLeft="@+id/nextMatchVenue"
                 />
 
             <com.webbisswift.cfcn.ui.custom_views.CTextView
@@ -116,12 +128,7 @@
                 android:drawablePadding="5dp"
                 />
 
-            <View android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@drawable/colorful_gradient"
-                android:layout_below="@+id/nextmatchTVGuide"
-                android:layout_marginTop="5dp"
-                />
+
 
 
 
@@ -172,6 +179,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/lastMatchDate"
                         android:gravity="center"
+                        android:layout_marginTop="4dp"
                         >
 
                         <LinearLayout

@@ -20,7 +20,6 @@ import com.webbisswift.cfcn.ui.widgets.NextMatchWidget
 class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Context) : HomeContract.HomeModel{
 
 
-    var listener:HomeContract.LiveScoreListener? = null
     var nextMatchRef:DatabaseReference? = null
     var nextMatchListener:ValueEventListener? = null
     var eplStatsRef:DatabaseReference? = null

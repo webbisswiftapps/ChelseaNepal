@@ -23,15 +23,14 @@ interface HomeContract {
         fun setNextMatchTimings(timings:String)
         fun hideNextMatchInfoLoading()
         fun hideNextMatchCard()
-
         fun switchToScores()
         fun switchToCountdown()
         fun setMatchHomeScore(score:String)
         fun setMatchAwayScore(score:String)
+        fun setNextMatchVenue(venue:String)
         fun setNextMatchScoreHomeTeam(name:String, logo:String)
         fun setNextMatchScoreAwayTeam(name:String, logo:String)
-        fun setMatchStatus(status:String)
-        fun addMatchEvent(event: MatchEvent)
+        fun setMatchStatus(status:String, blink:Boolean)
         fun setNextMatchPenalties(homePenalties: String, awayPenalties: String)
         fun hideNextMatchPenalties()
 
@@ -72,10 +71,6 @@ interface HomeContract {
         fun setNextMatchAlarm(startDateTime:Date, home:String, away:String)
         fun unsubscribeFromFirebase()
         fun getUserCountry():String
-    }
-
-    interface LiveScoreListener{
-        fun scoreUpdateEvent(homeScore:String, awayScore:String, status:String)
     }
 
 

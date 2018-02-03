@@ -5,6 +5,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
 import com.webbisswift.cfcn.domain.model.Match
+import com.webbisswift.cfcn.domain.model.v2.SMMatch
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterModel
 
 /**
@@ -26,7 +27,7 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 try {
-                    val lmInfo = dataSnapshot.getValue<Match>(Match::class.java)
+                    val lmInfo = dataSnapshot.getValue<SMMatch>(SMMatch::class.java)
                     presentNextMatchInfo(lmInfo)
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -47,15 +48,15 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
      * Presentation Methods
      **/
 
-    fun presentNextMatchInfo(match: Match?) {
+    fun presentNextMatchInfo(match: SMMatch?) {
 
 
         if (match != null) {
 
-            if(match.tvGuideAllCountries != null) {
-                var tv = match.tvGuideAllCountries[model.getUserCountry()];
+            if(match.tv_guide_all != null) {
+                var tv = match.tv_guide_all[model.getUserCountry()];
                 if (tv == null || tv.isBlank()) {
-                    tv = match.tvGuideAllCountries["International"]
+                    tv = match.tv_guide_all["International"]
                 }
 
                 if (tv != null && tv.isNotBlank()) {
@@ -63,7 +64,14 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
                 } else this.view?.setTvGuide("Not Available.")
             }else this.view?.setTvGuide("Not Available.")
 
-            if(match.live.match_facts != null){
+
+            if(match.weather != null){
+                val weather = match.weather
+                view?.setWeather(weather.conditionDesc, weather.temperatureDesc, weather.icon)
+            }else view?.hideWeather()
+
+
+            /*if(match.live.match_facts != null){
                 val events = match.live.match_facts.facts.events
                 if(events != null && events.size > 0){
                     view?.showMatchEventsCard()
@@ -77,7 +85,7 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
                     this.view?.showLastMatchStats(stats.localteam, stats.visitorteam)
                 }
 
-            }else this.view?.showLastMatchFactsNotFound()
+            }else this.view?.showLastMatchFactsNotFound()*/
         } else view?.showMatchNotStarted()
     }
 

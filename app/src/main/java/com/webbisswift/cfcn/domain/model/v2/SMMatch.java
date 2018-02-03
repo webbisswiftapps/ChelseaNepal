@@ -18,7 +18,7 @@ public class SMMatch {
     SMTeam  localTeam, visitorTeam;
     SMRound round;
     SMStage stage;
-    SMScore score;
+    SMScore scores;
     SMTime time;
     SMVenue venue;
     SMEvents events;
@@ -159,12 +159,12 @@ public class SMMatch {
         this.stage = stage;
     }
 
-    public SMScore getScore() {
-        return score;
+    public SMScore getScores() {
+        return scores;
     }
 
-    public void setScore(SMScore score) {
-        this.score = score;
+    public void setScores(SMScore score) {
+        this.scores = score;
     }
 
     public SMTime getTime() {
@@ -253,5 +253,16 @@ public class SMMatch {
 
     public void setBench(SMLineup bench) {
         this.bench = bench;
+    }
+
+
+
+    /* Custom Methods */
+    public String getCompetitionDesc(){
+        if(league.data.is_cup){
+            return league.data.name+" "+stage.data.name;
+        }else{
+            return league.data.name+", Matchday "+round.data.name;
+        }
     }
 }

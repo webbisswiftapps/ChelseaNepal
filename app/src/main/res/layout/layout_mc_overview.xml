@@ -13,6 +13,7 @@
         android:orientation="vertical"
         >
         <include layout="@layout/layout_tv_card" />
+        <include layout="@layout/layout_weather" />
         <include layout="@layout/layout_match_stats_card" />
         <include layout="@layout/ad_card_small_banner_season" />
         <include layout="@layout/layout_match_stats_events" />

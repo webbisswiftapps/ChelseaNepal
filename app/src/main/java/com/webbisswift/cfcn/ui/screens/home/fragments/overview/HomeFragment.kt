@@ -15,12 +15,10 @@ import com.webbisswift.cfcn.base.BasePresenter
 import kotlinx.android.synthetic.main.layout_last_match_card.*
 import kotlinx.android.synthetic.main.layout_next_match_card.*
 import com.webbisswift.cfcn.domain.model.LeagueTableItem
-import com.webbisswift.cfcn.domain.model.MatchEvent
 import com.webbisswift.cfcn.ui.screens.home.MainActivity
-import kotlinx.android.synthetic.main.fragment_overview.*
 import kotlinx.android.synthetic.main.layout_team_stats_epl_card.*
-import android.opengl.ETC1.getHeight
-import android.opengl.ETC1.getWidth
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import kotlinx.android.synthetic.main.ad_card_large_overview.*
 import kotlinx.android.synthetic.main.ad_card_small_overview.*
@@ -36,6 +34,7 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
     var presenter:HomePresenter? = null
 
     lateinit var settings:SettingsHelper
+    lateinit var blinkAnimation: Animation
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_overview, null, true)
@@ -56,6 +55,7 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
      * */
 
     override fun initView() {
+        blinkAnimation = AnimationUtils.loadAnimation(context, R.anim.blink_tween)
         val model = HomeModel(FirebaseDatabase.getInstance(),  context!!)
         this.presenter = HomePresenter(model)
         settings = SettingsHelper(context!!)
@@ -178,19 +178,29 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
     }
 
     override fun setNextMatchPenalties(homePenalties: String, awayPenalties: String) {
-        nextMatchPenalties?.text = "Penalties: "+homePenalties+" - "+awayPenalties
+        nextMatchPenalties?.visibility = View.VISIBLE
+        nextMatchPenalties?.text = "   "+homePenalties+" : "+awayPenalties +" PEN"
     }
 
     override fun hideNextMatchPenalties() {
         nextMatchPenalties?.visibility = View.GONE
     }
 
-    override fun setMatchStatus(status: String) {
+    override fun setMatchStatus(status: String, blink:Boolean) {
         statusLS?.text = status
+
+        if(blink){
+            statusLS?.setBackgroundDrawable(resources.getDrawable(R.drawable.live_bg_round))
+            statusLS?.startAnimation(blinkAnimation)
+        }else{
+            statusLS?.setBackgroundDrawable(resources.getDrawable(R.drawable.bg_splash_gradient))
+            statusLS?.clearAnimation()
+        }
+
     }
 
-    override fun addMatchEvent(event: MatchEvent) {
-        //not done
+    override fun setNextMatchVenue(venue: String) {
+        nextMatchVenue?.text = venue
     }
 
     /**

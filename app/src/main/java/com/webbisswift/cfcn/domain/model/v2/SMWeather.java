@@ -1,5 +1,7 @@
 package com.webbisswift.cfcn.domain.model.v2;
 
+import java.util.HashMap;
+
 /**
  * Created by biswas on 29/01/2018.
  */
@@ -69,6 +71,14 @@ public class SMWeather {
         this.temperature = temperature;
     }
 
+    public String getConditionDesc(){
+        return conditions.get(code);
+    }
+
+    public String getTemperatureDesc(){
+        return temperature.getTemp()+"° "+temperature.getUnit();
+    }
+
     public static class Wind{
 
         public Wind() {
@@ -117,5 +127,19 @@ public class SMWeather {
 
         String unit;
         double temp;
+    }
+
+    private static final HashMap<String, String> conditions = new HashMap<>();
+
+    static {
+        conditions.put("clear-sky", "Clear Sky");
+        conditions.put("few-clouds","Few Clouds");
+        conditions.put("scattered-clouds", "Scattered Clouds");
+        conditions.put("broken-clouds", "Broken Clouds");
+        conditions.put("shower-rain", "Rain Showers");
+        conditions.put("rain", "Rain");
+        conditions.put("thunderstorm", "Thunderstorm");
+        conditions.put("snow","Snow");
+        conditions.put("mist","Mist");
     }
 }
