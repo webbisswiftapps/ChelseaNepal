@@ -2,6 +2,7 @@ package com.webbisswift.cfcn.ui.screens.match_center.fragments.overview
 
 import com.webbisswift.cfcn.base.BasePresenter
 import com.webbisswift.cfcn.base.BaseView
+import com.webbisswift.cfcn.domain.model.v2.SMMatch
 
 
 /**
@@ -27,6 +28,10 @@ interface  MCOverviewContract{
         fun setTvGuide(guide:String)
         fun setWeather(condition:String, temperature:String, conditionURL:String)
         fun hideWeather()
+
+        fun setHeadToHead(h2h: List<SMMatch>)
+        fun hideHeadToHead()
+
 
 
     }

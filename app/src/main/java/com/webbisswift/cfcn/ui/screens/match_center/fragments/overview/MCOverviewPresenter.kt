@@ -31,7 +31,6 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
                     presentNextMatchInfo(lmInfo)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    view?.showMatchNotStarted()
                 }
             }
 
@@ -71,22 +70,12 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
             }else view?.hideWeather()
 
 
-            /*if(match.live.match_facts != null){
-                val events = match.live.match_facts.facts.events
-                if(events != null && events.size > 0){
-                    view?.showMatchEventsCard()
-                    for(event in events.reversed()){
-                        view?.addMatchEvent(event)
-                    }
-                }else this.view?.hideMatchEventsCard()
+            if(match.headtohead != null){
+                view?.setHeadToHead(match.headtohead)
+            }else view?.hideHeadToHead()
 
-                val stats = match.live.match_facts.match_stats
-                if(stats != null){
-                    this.view?.showLastMatchStats(stats.localteam, stats.visitorteam)
-                }
 
-            }else this.view?.showLastMatchFactsNotFound()*/
-        } else view?.showMatchNotStarted()
+        }
     }
 
     /**

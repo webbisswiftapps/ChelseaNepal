@@ -207,7 +207,7 @@ class HomePresenter(val model:HomeModel):HomeContract.HomePresenter{
 
 
     override fun destroy() {
-        this.model?.unsubscribeFromFirebase()
+        this.model.unsubscribeFromFirebase()
     }
 
     override fun detachView() {

@@ -16,8 +16,7 @@ import com.webbisswift.cfcn.ui.screens.match_center.fragments.liveticker.MCLiveT
 import com.webbisswift.cfcn.ui.screens.match_center.fragments.overview.MCOverviewFragment
 import kotlinx.android.synthetic.main.activity_match_center.*
 import android.view.animation.AnimationUtils
-
-
+import com.webbisswift.cfcn.ui.screens.match_center.fragments.stats.MCStatsFragment
 
 
 /**
@@ -58,6 +57,7 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
         val adapter = MainPagerAdapter(supportFragmentManager)
 
         adapter.addFragment(MCOverviewFragment(), R.layout.tab_overview)
+        adapter.addFragment(MCStatsFragment(), R.layout.tab_stats)
         adapter.addFragment(MCLineupFragment(), R.layout.tab_lineups)
         adapter.addFragment(MCLiveTickerFragment(), R.layout.tab_ticker)
 

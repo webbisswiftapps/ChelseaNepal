@@ -15,9 +15,11 @@ import com.webbisswift.cfcn.base.BaseFragment
 import com.webbisswift.cfcn.base.BasePresenter
 import com.webbisswift.cfcn.domain.model.FactsMatchEvent
 import com.webbisswift.cfcn.domain.model.MatchStat
+import com.webbisswift.cfcn.domain.model.v2.SMMatch
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterModel
 import kotlinx.android.synthetic.main.ad_card_large_overview.*
 import kotlinx.android.synthetic.main.ad_card_small_banner_season.*
+import kotlinx.android.synthetic.main.layout_head_to_head.*
 import kotlinx.android.synthetic.main.layout_match_stats_card.*
 import kotlinx.android.synthetic.main.layout_match_stats_events.*
 import kotlinx.android.synthetic.main.layout_tv_card.*
@@ -178,6 +180,42 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
 
     override fun hideWeather() {
         weatherCard?.visibility = View.GONE
+    }
+
+    override fun setHeadToHead(h2h: List<SMMatch>) {
+        h2hCard?.visibility = View.VISIBLE
+        for(match in h2h){
+            val nV = LayoutInflater.from(context).inflate(R.layout.layout_h2h_item, h2hHolder, false)
+            val homeLogo = nV.findViewById<ImageView>(R.id.homeTeamLogoR)
+            val awayLogo = nV.findViewById<ImageView>(R.id.awayTeamLogoR)
+            val homeName = nV.findViewById<TextView>(R.id.resultsHomeTeam)
+            val awayName = nV.findViewById<TextView>(R.id.resultsAwayTeam)
+            val resultsDate = nV.findViewById<TextView>(R.id.resultsDate)
+            val resultsPenalties = nV.findViewById<TextView>(R.id.resultsPenalties)
+            val homeScore = nV.findViewById<TextView>(R.id.homeScoreR)
+            val awayScore = nV.findViewById<TextView>(R.id.homeScoreR)
+
+            Glide.with(context).load(match.localTeam.data.logo_path).into(homeLogo)
+            Glide.with(context).load(match.visitorTeam.data.logo_path).into(awayLogo)
+            homeName.text = match.localTeam.data.name
+            awayName.text = match.visitorTeam.data.name
+            homeScore.text = match.scores.localteam_score
+            awayScore.text = match.scores.visitorteam_score
+
+            resultsDate.text = match.time.starting_at.date
+
+            if(match.time.showPenalties()){
+                resultsPenalties.visibility = View.VISIBLE
+                resultsPenalties.text = "   "+match.scores.localteam_pen_score+" : "+match.scores.visitorteam_pen_score +" PEN"
+            }
+
+            h2hHolder.addView(nV)
+        }
+    }
+
+
+    override fun hideHeadToHead() {
+        h2hCard?.visibility = View.GONE
     }
 
     /**
