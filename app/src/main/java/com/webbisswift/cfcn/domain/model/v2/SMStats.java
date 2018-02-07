@@ -153,15 +153,112 @@ public class SMStats {
         }
     }
 
-    class Attacks{
+    public static class Attacks{
+        public Attacks() {
+        }
+
         int attacks, dangerous_attacks;
+
+        public int getAttacks() {
+            return attacks;
+        }
+
+        public void setAttacks(int attacks) {
+            this.attacks = attacks;
+        }
+
+        public int getDangerous_attacks() {
+            return dangerous_attacks;
+        }
+
+        public void setDangerous_attacks(int dangerous_attacks) {
+            this.dangerous_attacks = dangerous_attacks;
+        }
     }
 
-    class Passes{
+    public static class Passes{
         int accurate, percentage, total;
+
+        public Passes() {
+        }
+
+        public int getAccurate() {
+            return accurate;
+        }
+
+        public void setAccurate(int accurate) {
+            this.accurate = accurate;
+        }
+
+        public int getPercentage() {
+            return percentage;
+        }
+
+        public void setPercentage(int percentage) {
+            this.percentage = percentage;
+        }
+
+        public int getTotal() {
+            return total;
+        }
+
+        public void setTotal(int total) {
+            this.total = total;
+        }
     }
 
-    class Shots{
+    public static class Shots{
         int blocked, insidebox, offgoal, ongoal, outsidebox, total;
+
+        public Shots() {
+        }
+
+        public int getBlocked() {
+            return blocked;
+        }
+
+        public void setBlocked(int blocked) {
+            this.blocked = blocked;
+        }
+
+        public int getInsidebox() {
+            return insidebox;
+        }
+
+        public void setInsidebox(int insidebox) {
+            this.insidebox = insidebox;
+        }
+
+        public int getOffgoal() {
+            return offgoal;
+        }
+
+        public void setOffgoal(int offgoal) {
+            this.offgoal = offgoal;
+        }
+
+        public int getOngoal() {
+            return ongoal;
+        }
+
+        public void setOngoal(int ongoal) {
+            this.ongoal = ongoal;
+        }
+
+        public int getOutsidebox() {
+            return outsidebox;
+        }
+
+        public void setOutsidebox(int outsidebox) {
+            this.outsidebox = outsidebox;
+        }
+
+        public int getTotal() {
+            return total;
+        }
+
+        public void setTotal(int total) {
+            this.total = total;
+        }
     }
 }

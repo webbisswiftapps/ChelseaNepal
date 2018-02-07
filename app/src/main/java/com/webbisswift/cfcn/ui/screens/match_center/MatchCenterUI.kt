@@ -30,6 +30,8 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
 
     lateinit var blinkAnimation: Animation
 
+     var endpoint:String = "next-match"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_center)
@@ -41,12 +43,18 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance(), this)
-        this.presenter =MatchCenterPresenter(model)
+        val ep = intent.getStringExtra("ENDPOINT")
+        if(ep != null && ep.isNotBlank()) endpoint = ep
+
+        val model = MatchCenterModel(ep, FirebaseDatabase.getInstance(), this)
+        this.presenter = MatchCenterPresenter(model)
         blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink_tween)
         setupTabs()
         setListeners()
+
     }
+
+
 
 
     override fun getPresenter(): BasePresenter {
@@ -79,6 +87,7 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
     private fun switchToLineups():Boolean{
         return (intent.action != null && intent.action.contentEquals("com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER_LINEUPS"))
     }
+
 
 
     /**

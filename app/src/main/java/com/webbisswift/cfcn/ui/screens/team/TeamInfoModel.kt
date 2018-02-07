@@ -3,7 +3,6 @@ package com.webbisswift.cfcn.ui.screens.team
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsContract
 
 /**
  * Created by biswas on 21/12/2017.

@@ -13,6 +13,7 @@ import com.webbisswift.cfcn.base.BaseFragment
 import com.webbisswift.cfcn.base.BasePresenter
 import com.webbisswift.cfcn.domain.model.LineupPlayer
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterModel
+import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterUI
 import com.webbisswift.cfcn.utils.FontManager
 import kotlinx.android.synthetic.main.layout_lineups.*
 
@@ -42,7 +43,8 @@ class MCLineupFragment : BaseFragment(), MCLineupContract.MCLineupView{
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance(), context!!)
+        val ep  = (activity as MatchCenterUI).endpoint!!
+        val model = MatchCenterModel(ep, FirebaseDatabase.getInstance(), context!!)
         this.presenter = MCLineupPresenter(model)
     }
 

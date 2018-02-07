@@ -23,7 +23,7 @@ public class SMMatch {
     SMVenue venue;
     SMEvents events;
     SMFormations formations;
-    SMWeather weather;
+    SMWeather weather_report;
     SMStats stats;
     List<SMMatch> headtohead;
     HashMap<String, String> tv_guide_all;
@@ -199,12 +199,12 @@ public class SMMatch {
         this.formations = formations;
     }
 
-    public SMWeather getWeather() {
-        return weather;
+    public SMWeather getWeather_report() {
+        return weather_report;
     }
 
-    public void setWeather(SMWeather weather) {
-        this.weather = weather;
+    public void setWeather_report(SMWeather weather_report) {
+        this.weather_report = weather_report;
     }
 
     public SMStats getStats() {

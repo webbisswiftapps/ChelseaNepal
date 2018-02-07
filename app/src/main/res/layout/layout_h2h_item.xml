@@ -32,13 +32,7 @@
             android:orientation="vertical"
             >
 
-            <ImageView
-                android:id="@+id/homeTeamLogoR"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/chelsea"
-                android:layout_gravity="center_vertical|center_horizontal"
-                />
+
 
             <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/resultsHomeTeam"
@@ -120,13 +114,7 @@
             android:orientation="vertical"
             >
 
-            <ImageView
-                android:id="@+id/awayTeamLogoR"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/atm_logo"
-                android:layout_gravity="center_vertical|center_horizontal"
-                />
+
 
             <com.webbisswift.cfcn.ui.custom_views.CTextView
                 android:id="@+id/resultsAwayTeam"

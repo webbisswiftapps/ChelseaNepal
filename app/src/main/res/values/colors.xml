@@ -39,4 +39,9 @@
     <color name="draw_2">#e7ae28</color>
     <color name="loss_1">#e00</color>
     <color name="loss_2">#df412f</color>
+
+
+    <!-- Neutral Colors -->
+    <color name="b_stats">#1c4976</color>
+    <color name="l_stats">#639fda</color>
 </resources>

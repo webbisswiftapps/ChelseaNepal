@@ -71,52 +71,6 @@
                         android:layout_marginLeft="16dp"
                         />
 
-
-
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/nextMatchCompetition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        app:font_name="@string/font_montserrat_semibold"
-                        android:textColor="@color/text_white"
-                        android:layout_below="@id/lastMatchTitle"
-                        android:text="Champions League"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="40dp"
-                        />
-
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/nextMatchVenue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        app:font_name="@string/font_montserrat_regular"
-                        android:textColor="@color/text_white"
-                        android:layout_below="@id/nextMatchCompetition"
-                        android:text="Wanda Metropolitano"
-                        android:layout_centerHorizontal="true"
-                        />
-
-
-
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
-                        android:id="@+id/nextMatchTimings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        app:font_name="@string/font_montserrat_regular"
-                        android:textColor="@color/text_white"
-                        android:layout_below="@id/nextMatchVenue"
-                        android:text="Today, 10:15 p.m."
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/live_bg_round"
-                        android:padding="8dp"
-                        />
-
-
-
                     <LinearLayout
                         android:id="@+id/scoresPaneLR"
                         android:layout_width="match_parent"
@@ -231,6 +185,54 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
+
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/nextMatchCompetition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/lastMatchTitle"
+                        android:text="Champions League"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40dp"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/nextMatchVenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/nextMatchCompetition"
+                        android:text="Wanda Metropolitano"
+                        android:layout_centerHorizontal="true"
+                        />
+
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/nextMatchTimings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/nextMatchVenue"
+                        android:text="Today, 10:15 p.m."
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/live_bg_round"
+                        android:padding="8dp"
+                        />
+
+
+
 
                     <com.webbisswift.cfcn.ui.custom_views.CTextView
                         android:id="@+id/nextMatchPenalties"

@@ -11,7 +11,6 @@ import com.webbisswift.cfcn.ui.screens.home.fragments.overview.HomeFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.matches.MatchesFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.news.NewsFragment
 import com.webbisswift.cfcn.ui.screens.home.fragments.season.SeasonFragment
-import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsUI
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main_coordinator.*
 import android.support.v4.view.GravityCompat
@@ -162,13 +161,10 @@ class MainActivity : AppCompatActivity(){
         return true
     }
 
-    fun toLastMatchFacts(){
-        val lmIntent = Intent(this, MatchFactsUI::class.java)
-        startActivity(lmIntent)
-    }
 
-    fun toMatchCenter(){
+    fun toMatchCenter(endpoint:String){
         val mcIntent = Intent(this, MatchCenterUI::class.java)
+        mcIntent.putExtra("ENDPOINT", endpoint)
         startActivity(mcIntent)
     }
 

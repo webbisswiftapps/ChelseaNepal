@@ -16,7 +16,9 @@ import com.webbisswift.cfcn.base.BasePresenter
 import com.webbisswift.cfcn.domain.model.FactsMatchEvent
 import com.webbisswift.cfcn.domain.model.MatchStat
 import com.webbisswift.cfcn.domain.model.v2.SMMatch
+import com.webbisswift.cfcn.domain.model.v2.SMTeamShort
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterModel
+import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterUI
 import kotlinx.android.synthetic.main.ad_card_large_overview.*
 import kotlinx.android.synthetic.main.ad_card_small_banner_season.*
 import kotlinx.android.synthetic.main.layout_head_to_head.*
@@ -53,7 +55,8 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
 
 
     override fun initView() {
-        val model = MatchCenterModel(FirebaseDatabase.getInstance(), context!!)
+        val ep  = (activity as MatchCenterUI).endpoint!!
+        val model = MatchCenterModel(ep, FirebaseDatabase.getInstance(), context!!)
         this.presenter = MCOverviewPresenter(model)
         loadAds()
     }
@@ -167,9 +170,13 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
     }*/
 
     override fun setTvGuide(guide: String) {
+        tvGuideCard?.visibility = View.VISIBLE
         tvGuide?.text = guide
     }
 
+    override fun hideTVGuide() {
+        tvGuideCard?.visibility = View.GONE
+    }
 
     override fun setWeather(c: String, t: String, url: String) {
         weatherCard?.visibility = View.VISIBLE
@@ -186,8 +193,7 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
         h2hCard?.visibility = View.VISIBLE
         for(match in h2h){
             val nV = LayoutInflater.from(context).inflate(R.layout.layout_h2h_item, h2hHolder, false)
-            val homeLogo = nV.findViewById<ImageView>(R.id.homeTeamLogoR)
-            val awayLogo = nV.findViewById<ImageView>(R.id.awayTeamLogoR)
+
             val homeName = nV.findViewById<TextView>(R.id.resultsHomeTeam)
             val awayName = nV.findViewById<TextView>(R.id.resultsAwayTeam)
             val resultsDate = nV.findViewById<TextView>(R.id.resultsDate)
@@ -195,10 +201,11 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
             val homeScore = nV.findViewById<TextView>(R.id.homeScoreR)
             val awayScore = nV.findViewById<TextView>(R.id.homeScoreR)
 
-            Glide.with(context).load(match.localTeam.data.logo_path).into(homeLogo)
-            Glide.with(context).load(match.visitorTeam.data.logo_path).into(awayLogo)
-            homeName.text = match.localTeam.data.name
-            awayName.text = match.visitorTeam.data.name
+            val homeTeam = SMTeamShort.getTeamShort(match.localTeam.data.name)
+            val awayTeam = SMTeamShort.getTeamShort(match.visitorTeam.data.name)
+
+            homeName.text = homeTeam
+            awayName.text = awayTeam
             homeScore.text = match.scores.localteam_score
             awayScore.text = match.scores.visitorteam_score
 

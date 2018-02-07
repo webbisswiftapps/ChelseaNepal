@@ -26,6 +26,7 @@ interface  MCOverviewContract{
 
 
         fun setTvGuide(guide:String)
+        fun hideTVGuide()
         fun setWeather(condition:String, temperature:String, conditionURL:String)
         fun hideWeather()
 

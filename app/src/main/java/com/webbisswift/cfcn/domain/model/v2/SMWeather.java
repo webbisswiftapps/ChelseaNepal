@@ -72,11 +72,14 @@ public class SMWeather {
     }
 
     public String getConditionDesc(){
-        return conditions.get(code);
+        String desc = conditions.get(code);
+        if(desc == null || desc.isEmpty())
+            desc = type;
+        return desc;
     }
 
     public String getTemperatureDesc(){
-        return temperature.getTemp()+"° "+temperature.getUnit();
+        return temperature.getTemp()+"° F";
     }
 
     public static class Wind{

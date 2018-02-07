@@ -4,13 +4,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
-import com.webbisswift.cfcn.domain.model.Match
 import com.webbisswift.cfcn.domain.model.v2.SMMatch
-import com.webbisswift.cfcn.ui.screens.match_facts.MatchFactsContract
+import com.webbisswift.cfcn.domain.model.v2.SMTeamShort
 import com.webbisswift.cfcn.utils.Utilities
-import org.joda.time.DateTime
-import org.joda.time.Days
-import org.joda.time.LocalDateTime
+
 
 /**
  * Created by apple on 12/31/17.
@@ -58,8 +55,8 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
     fun presentNextMatchInfo(match: SMMatch?){
         if(match!=null){
 
-            this.view?.setNextMatchHomeTeam(match.localTeam.data.name, match.localTeam.data.logo_path)
-            this.view?.setNextMatchAwayTeam(match.visitorTeam.data.name, match.visitorTeam.data.logo_path)
+            this.view?.setNextMatchHomeTeam(SMTeamShort.getTeamShort(match.localTeam.data.name), match.localTeam.data.logo_path)
+            this.view?.setNextMatchAwayTeam(SMTeamShort.getTeamShort(match.visitorTeam.data.name), match.visitorTeam.data.logo_path)
             this.view?.setNextMatchCompetitionName(match.competitionDesc)
             this.view?.setNextMatchVenue(match.venue.data.name)
 
@@ -72,7 +69,7 @@ class MatchCenterPresenter(val model: MatchCenterModel): MatchCenterContract.Mat
 
                     val statusDesc = match.time.statusDescription
 
-                    this.view?.setNextMatchDate(statusDesc, true)
+                    this.view?.setNextMatchDate(statusDesc, match.time.isLive)
                     this.view?.setNextMatchScore(match.scores.localteam_score, match.scores.visitorteam_score)
 
 

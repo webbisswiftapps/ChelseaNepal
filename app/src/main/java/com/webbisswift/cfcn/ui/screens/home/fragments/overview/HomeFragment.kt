@@ -87,12 +87,12 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
 
         matchFactsBtn.setOnClickListener({
             val mA:MainActivity = activity as MainActivity
-            mA.toLastMatchFacts()
+            mA.toMatchCenter("last-match")
         })
 
         matchCenterBtn.setOnClickListener({
             val mA:MainActivity = activity as MainActivity
-            mA.toMatchCenter()
+            mA.toMatchCenter("next-match")
         })
     }
 

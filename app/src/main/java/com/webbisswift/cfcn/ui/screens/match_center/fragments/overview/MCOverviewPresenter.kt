@@ -6,7 +6,9 @@ import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.base.BaseView
 import com.webbisswift.cfcn.domain.model.Match
 import com.webbisswift.cfcn.domain.model.v2.SMMatch
+import com.webbisswift.cfcn.domain.model.v2.SMTeamShort
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterModel
+import com.webbisswift.cfcn.utils.Utilities
 
 /**
  * Created by apple on 12/31/17.
@@ -52,25 +54,36 @@ class MCOverviewPresenter(val model: MatchCenterModel): MCOverviewContract.MCOve
 
         if (match != null) {
 
-            if(match.tv_guide_all != null) {
-                var tv = match.tv_guide_all[model.getUserCountry()];
-                if (tv == null || tv.isBlank()) {
-                    tv = match.tv_guide_all["International"]
+            val startDT = match.time.starting_at.startDateTime
+            val timeDiff = Utilities.getTimeDifferenceFromNow(startDT)
+
+            if (timeDiff > 0 || match.time.isLive) {
+                if(match.tv_guide_all != null) {
+                    var tv = match.tv_guide_all[model.getUserCountry()];
+                    if (tv == null || tv.isBlank()) {
+                        tv = match.tv_guide_all["International"]
+                    }
+
+                    if (tv != null && tv.isNotBlank()) {
+                        this.view?.setTvGuide(tv)
+                    } else this.view?.setTvGuide("Not Available.")
+                }else this.view?.setTvGuide("Not Available.")
+            }else this.view?.hideTVGuide()
+
+
+
+            if(match.weather_report != null){
+                val weather = match.weather_report
+                try {
+                    view?.setWeather(weather.conditionDesc, weather.temperatureDesc, weather.icon)
+                }catch(e:Exception){
+                    e.printStackTrace()
                 }
-
-                if (tv != null && tv.isNotBlank()) {
-                    this.view?.setTvGuide(tv)
-                } else this.view?.setTvGuide("Not Available.")
-            }else this.view?.setTvGuide("Not Available.")
-
-
-            if(match.weather != null){
-                val weather = match.weather
-                view?.setWeather(weather.conditionDesc, weather.temperatureDesc, weather.icon)
             }else view?.hideWeather()
 
 
             if(match.headtohead != null){
+
                 view?.setHeadToHead(match.headtohead)
             }else view?.hideHeadToHead()
 
