@@ -10,6 +10,38 @@
     android:padding="@dimen/small_padding"
     >
 
+    <LinearLayout
+        android:id="@+id/compHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/resultsCompetition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textColor="@color/light_text"
+            android:text="Premier League"
+            android:gravity="left"
+            />
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/resultsDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_regular"
+            android:textColor="@color/light_text"
+            android:text=", Friday, 24 Dec 2017"
+            android:gravity="right"
+            />
+    </LinearLayout>
+
+
 
 
 
@@ -19,11 +51,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/resultsCompetition"
+        android:layout_below="@+id/compHolder"
         android:gravity="center"
-        android:layout_marginTop="3dp"
-
+        android:layout_marginTop="5dp"
         >
+
+
 
         <LinearLayout
             android:layout_width="0dp"
@@ -150,24 +183,13 @@
         android:layout_marginTop="1dp"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
-        android:id="@+id/resultsDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        app:font_name="@string/font_montserrat_regular"
-        android:textColor="@color/semi_dark_text"
-        android:layout_below="@id/resultsPenalties"
-        android:text="Friday, 24 Dec 2017"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="2dp"
-        />
+
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/light_white"
-        android:layout_below="@id/resultsDate"
+        android:layout_below="@id/resultsPenalties"
         android:layout_marginTop="3dp"
         />
 

@@ -13,12 +13,10 @@
         android:orientation="vertical"
         >
         <include layout="@layout/layout_tv_card" />
+        <include layout="@layout/layout_weather" />
         <include layout="@layout/ad_card_small_banner_season" />
         <include layout="@layout/layout_head_to_head" />
-        <include layout="@layout/layout_weather" />
-        <!--
-        <include layout="@layout/layout_match_stats_events" />
-        -->
+        <!--<include layout="@layout/layout_match_stats_events" /> -->
         <include layout="@layout/ad_card_large_overview" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

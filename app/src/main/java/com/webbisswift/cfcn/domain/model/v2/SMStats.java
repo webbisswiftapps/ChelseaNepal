@@ -26,7 +26,7 @@ public class SMStats {
         public StatsData() {
         }
 
-        int team_id, throw_in, substitutions, saves, redcards, possesiontime, offsides, goal_kick, free_kick, fouls, corners;
+        int team_id, throw_in, substitutions, saves, yellowcards, redcards, possessiontime, offsides, goal_kick, free_kick, fouls, corners;
         long fixture_id;
         Attacks attacks;
         Passes passes;
@@ -72,12 +72,20 @@ public class SMStats {
             this.redcards = redcards;
         }
 
-        public int getPossesiontime() {
-            return possesiontime;
+        public int getYellowcards() {
+            return yellowcards;
         }
 
-        public void setPossesiontime(int possesiontime) {
-            this.possesiontime = possesiontime;
+        public void setYellowcards(int yellowcards) {
+            this.yellowcards = yellowcards;
+        }
+
+        public int getPossessiontime() {
+            return possessiontime;
+        }
+
+        public void setPossessiontime(int possessiontime) {
+            this.possessiontime = possessiontime;
         }
 
         public int getOffsides() {

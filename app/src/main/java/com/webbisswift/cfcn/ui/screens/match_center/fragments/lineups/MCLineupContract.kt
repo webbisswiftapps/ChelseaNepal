@@ -13,8 +13,9 @@ import com.webbisswift.cfcn.domain.model.MatchComment
 interface MCLineupContract {
 
     interface MCLineupView : BaseView {
-        fun setLineupChelsea(home:List<LineupPlayer>, subs:List<LineupPlayer>)
-        fun setLineupOpponent(away:List<LineupPlayer>, subs:List<LineupPlayer>, name:String)
+        fun setLineupChelsea(home:List<LineupPlayer>, subs:List<LineupPlayer>, formation:String)
+        fun setLineupOpponent(away:List<LineupPlayer>, subs:List<LineupPlayer>, name:String, formation: String)
+
         fun showLineupError(error:String)
         fun showLineupsMain()
 

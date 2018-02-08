@@ -115,6 +115,34 @@ public class Utilities {
         }
     }
 
+    public static String getLocaleFormattedDateOnly(Date date){
+        try{
+            LocalDate dt = new LocalDate(date);
+            LocalDate tomorrow = new LocalDate().plusDays(1);
+            LocalDate yesterday = new LocalDate().minusDays(1);
+            LocalDate today = new LocalDate();
+
+            if(dt.equals(today)) {
+                return "Today";
+            }else if(dt.equals(tomorrow)) {
+                return "Tomorrow";
+            }else if(dt.equals(yesterday)) {
+                return "Yesterday";
+            }else {
+                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
+                return df.format(date);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+            if(date != null) {
+                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
+                return df.format(date);
+            }else return "";
+        }
+    }
+
     private boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

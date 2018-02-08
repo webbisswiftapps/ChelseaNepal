@@ -19,6 +19,7 @@ import com.webbisswift.cfcn.domain.model.v2.SMMatch
 import com.webbisswift.cfcn.domain.model.v2.SMTeamShort
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterModel
 import com.webbisswift.cfcn.ui.screens.match_center.MatchCenterUI
+import com.webbisswift.cfcn.utils.Utilities
 import kotlinx.android.synthetic.main.ad_card_large_overview.*
 import kotlinx.android.synthetic.main.ad_card_small_banner_season.*
 import kotlinx.android.synthetic.main.layout_head_to_head.*
@@ -200,6 +201,7 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
             val resultsPenalties = nV.findViewById<TextView>(R.id.resultsPenalties)
             val homeScore = nV.findViewById<TextView>(R.id.homeScoreR)
             val awayScore = nV.findViewById<TextView>(R.id.homeScoreR)
+            val resultCompetition = nV.findViewById<TextView>(R.id.resultsCompetition)
 
             val homeTeam = SMTeamShort.getTeamShort(match.localTeam.data.name)
             val awayTeam = SMTeamShort.getTeamShort(match.visitorTeam.data.name)
@@ -208,8 +210,8 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
             awayName.text = awayTeam
             homeScore.text = match.scores.localteam_score
             awayScore.text = match.scores.visitorteam_score
-
-            resultsDate.text = match.time.starting_at.date
+            resultsDate.text = ", "+Utilities.getLocaleFormattedDateOnly(match.time.starting_at.startDateTime)
+            resultCompetition.text = match.league.data.name
 
             if(match.time.showPenalties()){
                 resultsPenalties.visibility = View.VISIBLE
