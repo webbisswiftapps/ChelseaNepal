@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/light_white"
+        android:padding="10dp"
+        >
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:text="Minute"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/light_text"
+            android:gravity="center"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:text="Goals"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/light_text"
+            android:gravity="center"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:text="PER"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/light_text"
+            android:gravity="center"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="2dp"
+        >
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:text="0 - 15"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:gravity="center"
+            android:background="@drawable/news_element_bg"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/sm1Goals"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textSize="16sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+
+            android:gravity="center"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/goalsFor"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textSize="24sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            />
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

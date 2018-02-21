@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewSwitcher
+        android:id="@+id/eventsMainSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:measureAllChildren="false"
+        >
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/eventsErr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/semi_dark_text"
+            android:gravity="center"
+            app:font_name="@string/font_montserrat_semibold"
+            />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/eventsRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            />
+
+
+    </ViewSwitcher>
+
+
+</android.support.v4.widget.NestedScrollView>

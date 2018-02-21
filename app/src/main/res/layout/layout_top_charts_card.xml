@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/topScorersCard"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    >
+
+    <ViewSwitcher
+        android:id="@+id/topScorersSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/topScorersProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyleSmall"
+            />
+
+        <RelativeLayout
+            android:id="@+id/topScorersDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/card_padding"
+            >
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/topScorersTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Top Charts"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_white"
+                android:layout_below="@+id/topScorersTitle"
+                android:layout_marginTop="5dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/topScorersHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@+id/topScorersTitle"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/topScorerImg"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:padding="3dp"
+                        android:background="@drawable/player_pic_round_bg"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topScorerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:text="Alvaro Morata"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topScorerImg"
+                        android:layout_alignTop="@+id/topScorerImg"
+                        android:layout_marginTop="3dp"
+                        />
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tSTag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textAllCaps="false"
+                        android:text="Top Goal Scorer"
+                        android:textColor="@color/light_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topScorerImg"
+                        android:layout_below="@+id/topScorerName"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tsGoals"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="10"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_white"
+                        android:layout_toRightOf="@+id/topScorerImg"
+                        android:layout_below="@+id/tSTag"
+                        android:layout_marginTop="10dp"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/topAssistsImg"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:padding="3dp"
+                        android:background="@drawable/player_pic_round_bg"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topAssistName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:text="Cesc Fabregas"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topAssistsImg"
+                        android:layout_alignTop="@+id/topAssistsImg"
+                        android:layout_marginTop="3dp"
+                        />
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tATag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textAllCaps="false"
+                        android:text="Top Assists"
+                        android:textColor="@color/light_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topAssistsImg"
+                        android:layout_below="@+id/topAssistName"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tsAssists"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="6"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_white"
+                        android:layout_toRightOf="@+id/topAssistsImg"
+                        android:layout_below="@+id/tATag"
+                        android:layout_marginTop="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/topAppImg"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:padding="3dp"
+                        android:background="@drawable/player_pic_round_bg"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topAppPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:text="Cesc Fabregas"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topAppImg"
+                        android:layout_alignTop="@+id/topAppImg"
+                        android:layout_marginTop="3dp"
+                        />
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tAppTag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textAllCaps="false"
+                        android:text="Most Appearances"
+                        android:textColor="@color/light_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topAppImg"
+                        android:layout_below="@+id/topAppPlayer"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tsApp"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="6"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_white"
+                        android:layout_toRightOf="@+id/topAppImg"
+                        android:layout_below="@+id/tAppTag"
+                        android:layout_marginTop="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/topYCImg"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:padding="3dp"
+                        android:background="@drawable/player_pic_round_bg"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topYCPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:text="Timeoue Bakayoko"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topYCImg"
+                        android:layout_alignTop="@+id/topYCImg"
+                        android:layout_marginTop="3dp"
+                        />
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topYCTag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textAllCaps="false"
+                        android:text="Most Yellow Cards"
+                        android:textColor="@color/light_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topYCImg"
+                        android:layout_below="@+id/topYCPlayer"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tsYC"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="6"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_white"
+                        android:layout_toRightOf="@+id/topYCImg"
+                        android:layout_below="@+id/topYCTag"
+                        android:layout_marginTop="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:orientation="vertical" android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    >
+
+
+                    <ImageView
+                        android:id="@+id/topRCImg"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="3dp"
+                        android:padding="3dp"
+                        android:background="@drawable/player_pic_round_bg"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topRCPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:text="Timeoue Bakayoko"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topRCImg"
+                        android:layout_alignTop="@+id/topRCImg"
+                        android:layout_marginTop="3dp"
+                        />
+
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/topRCTag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textAllCaps="false"
+                        android:text="Most Red Cards"
+                        android:textColor="@color/light_text"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/topRCImg"
+                        android:layout_below="@+id/topRCPlayer"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/tsRC"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="6"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/light_white"
+                        android:layout_toRightOf="@+id/topRCImg"
+                        android:layout_below="@+id/topRCTag"
+                        android:layout_marginTop="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+                <com.webbisswift.cfcn.ui.custom_views.CButton
+                    android:id="@+id/fullTeamStatsBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lastMatchDate"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/colorful_gradient"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:text="Full Charts"
+                    android:textColor="@color/text_white"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textAllCaps="true"
+                    android:layout_centerHorizontal="true"
+                    app:drawableRightCompat="@drawable/ic_arrow_forward_white_24dp"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ViewSwitcher>
+
+</android.support.v7.widget.CardView>

@@ -22,6 +22,10 @@ public class NewsItem {
 
     @SerializedName("thumbnail")
     private Thumbnail mThumbnail;
+
+    @SerializedName("featuredImage")
+    private String featuredImage;
+
     @SerializedName("title")
     private String mTitle;
 
@@ -76,6 +80,10 @@ public class NewsItem {
                return "Metro";
            }else if(mLink.contains("dailymail")){
                return "Daily Mail";
+           }else if(mLink.contains("squawka")){
+               return "Squawka";
+           }else if(mLink.contains("football365")){
+                return "Football 365";
            }else return "Chelsea News";
 
        }else return "Chelsea News";
@@ -90,11 +98,15 @@ public class NewsItem {
    public String getThumbURL(){
        if(this.mThumbnail != null){
            return mThumbnail.getUrl();
-       }else if(this.mEnclosure != null && this.mEnclosure.getType().contains("image")){
-           return mEnclosure.getUrl();
+       }else if(this.featuredImage != null && !featuredImage.isEmpty()){
+           return featuredImage;
+       }else if(this.mEnclosure != null){
+           if(this.mEnclosure.getType().contains("image") || mEnclosure.getType().contains("Image")) {
+               return mEnclosure.getUrl();
+           }else return "http://m.gardensbythebay.com.sg/etc/designs/gbb/clientlibs/images/common/not_found.jpg";
        }else if(this.mContent != null){
            return mContent.getUrl();
-       }else return null;
+       }else return  "http://m.gardensbythebay.com.sg/etc/designs/gbb/clientlibs/images/common/not_found.jpg";
    }
 
 

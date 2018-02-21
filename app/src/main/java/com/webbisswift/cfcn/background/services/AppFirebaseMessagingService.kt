@@ -19,7 +19,6 @@ import com.webbisswift.cfcn.ui.widgets.NextMatchWidget
 class AppFirebaseMessagingService : FirebaseMessagingService(){
 
     override fun onMessageReceived(message: RemoteMessage?) {
-        Log.d("FirebaseMessaging", "Message Received: "+message?.data +" "+message?.from)
 
         val from = message?.from
         if(from?.contentEquals("/topics/NextMatchTopic")!!) {

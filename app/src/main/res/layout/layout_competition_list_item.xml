@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    android:layout_margin="5dp"
+    >
+
+
+
+
+    <ImageView
+        android:id="@+id/compImg"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_comp_other"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:padding="3dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/compName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/dark_text"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/compImg"
+        android:layout_centerVertical="true"
+        />
+
+</RelativeLayout>

@@ -12,11 +12,7 @@ import android.util.Log;
 
 import com.webbisswift.cfcn.R;
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper;
-import com.webbisswift.cfcn.ui.screens.home.MainActivity;
-
-import org.joda.time.DateTime;
-import org.joda.time.Period;
-import org.joda.time.PeriodType;
+import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity;
 
 /**
  * Created by apple on 12/9/17.
@@ -53,7 +49,7 @@ public class LiveServiceAlarmReciever extends BroadcastReceiver{
         String title = home+" vs "+away;
         String  message = "This match will start shortly.";
 
-        Intent i = new Intent(c, MainActivity.class);
+        Intent i = new Intent(c, MainNavigationActivity.class);
         PendingIntent pi = PendingIntent.getActivity(c, 407, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(c, "NextMatchAlarmReceiver")

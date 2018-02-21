@@ -9,13 +9,10 @@ import android.preference.PreferenceManager
 
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
-import com.webbisswift.cfcn.ui.screens.home.MainActivity
 import com.webbisswift.cfcn.utils.FontManager
 import com.webbisswift.cfcn.utils.Utilities
 import kotlinx.android.synthetic.main.activity_splash.*
-import android.R.attr.path
-import android.net.Uri
-import android.util.Log
+import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 
 
 /**
@@ -79,7 +76,7 @@ class SplashActivity : AppCompatActivity() {
 
         if(!shouldShowCountrySelection()) {
 
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, MainNavigationActivity::class.java)
             startActivity(i)
             finish()
         }else{

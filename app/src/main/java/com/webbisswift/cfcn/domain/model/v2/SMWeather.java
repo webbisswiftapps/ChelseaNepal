@@ -120,8 +120,8 @@ public class SMWeather {
             this.unit = unit;
         }
 
-        public double getTemp() {
-            return temp;
+        public String getTemp() {
+            return String.format("%d", Math.round(temp));
         }
 
         public void setTemp(double temp) {

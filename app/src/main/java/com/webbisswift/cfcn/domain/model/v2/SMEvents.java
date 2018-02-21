@@ -25,8 +25,8 @@ public class SMEvents {
         public EventData() {
         }
 
-        String player_name, related_player_name, team_id, type;
-        int minute, player_id, related_player_id;
+        String player_name, related_player_name, team_id, type, reason, result;
+        int minute, extra_minute, player_id, related_player_id;
         long fixture_id, id;
 
         public String getPlayer_name() {
@@ -44,6 +44,7 @@ public class SMEvents {
         public void setRelated_player_name(String related_player_name) {
             this.related_player_name = related_player_name;
         }
+
 
         public String getTeam_id() {
             return team_id;
@@ -63,6 +64,14 @@ public class SMEvents {
 
         public int getMinute() {
             return minute;
+        }
+
+        public int getExtra_minute() {
+            return extra_minute;
+        }
+
+        public void setExtra_minute(int extra_minute) {
+            this.extra_minute = extra_minute;
         }
 
         public void setMinute(int minute) {
@@ -99,6 +108,22 @@ public class SMEvents {
 
         public void setId(long id) {
             this.id = id;
+        }
+
+        public String getReason() {
+            return reason;
+        }
+
+        public void setReason(String reason) {
+            this.reason = reason;
+        }
+
+        public String getResult() {
+            return result;
+        }
+
+        public void setResult(String result) {
+            this.result = result;
         }
     }
 }

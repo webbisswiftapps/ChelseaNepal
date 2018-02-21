@@ -10,6 +10,7 @@
 
     <color name="colorPrimary_tp">#ee1b5fc4</color>
     <color name="colorPrimaryDark_tp">#ee073a84</color>
+    <color name="colorPrimaryDark_tp_less">#aa073a84</color>
     <color name="chelsea_blue_dark_tp">#ef041d41</color>
     <color name="chelsea_blue_dark_tp_less">#66041d41</color>
 
@@ -22,12 +23,13 @@
 
 
     <color name="black_overlay">#66000000</color>
-    <color name="light_white">#ededed</color>
+    <color name="light_white">#fafafa</color>
 
 
     <!-- Text Colors -->
     <color name="text_white">#ffffff</color>
     <color name="light_text">#bababa</color>
+    <color name="light_text_2">#cacaca</color>
     <color name="semi_dark_text">#888</color>
     <color name="dark_text">#222</color>
     <color name="near_dark_text">#555</color>

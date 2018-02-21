@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:gravity="center"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/cleanSheets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:textSize="28sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="10"
+            android:textColor="@color/win_2"
+            android:background="@color/light_white"
+            />
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/cleanSheetsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="Clean Sheets"
+            android:textColor="@color/text_white"
+            android:background="@drawable/goal_comment_bg"
+            android:padding="5dp"
+            android:layout_below="@+id/cleanSheets"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/cleanSheetsHAT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="H 12 | A 24"
+            android:textColor="@color/light_text"
+            android:layout_below="@+id/cleanSheetsTitle"
+            android:gravity="center"
+            android:layout_alignRight="@+id/cleanSheetsTitle"
+            android:layout_alignLeft="@+id/cleanSheetsTitle"
+            android:padding="3dp"
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/fts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:textSize="28sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="10"
+            android:textColor="@color/loss_2"
+            android:background="@color/light_white"
+            />
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/ftsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="FAILED TO SCORE"
+            android:textColor="@color/text_white"
+            android:background="@drawable/red_gradient_rect"
+            android:padding="5dp"
+            android:layout_below="@+id/fts"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/ftsHAT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="H 12 | A 24"
+            android:textColor="@color/light_text"
+            android:layout_below="@+id/ftsTitle"
+            android:gravity="center"
+            android:layout_alignRight="@+id/ftsTitle"
+            android:layout_alignLeft="@+id/ftsTitle"
+            android:padding="3dp"
+            />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

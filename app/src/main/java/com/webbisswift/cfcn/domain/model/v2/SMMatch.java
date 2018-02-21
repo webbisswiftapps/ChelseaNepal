@@ -9,6 +9,10 @@ import java.util.List;
 
 public class SMMatch {
 
+    public static final int TYPE_FIXTURE = 0;
+    public static final int TYPE_RESULT = 1;
+    public static final int TYPE_AD = 2;
+
     public SMMatch(){}
 
     boolean commentaries, winning_odds_calculated;
@@ -30,6 +34,22 @@ public class SMMatch {
     SMStandings standings;
     SMLineup lineup;
     SMLineup bench;
+    SMComments comments;
+    SMReferee referee;
+    SMAggregate aggregate;
+
+
+
+
+    boolean isAd = false;
+
+    public boolean isAd() {
+        return isAd;
+    }
+
+    public void setAd(boolean ad) {
+        isAd = ad;
+    }
 
     public boolean isCommentaries() {
         return commentaries;
@@ -255,7 +275,29 @@ public class SMMatch {
         this.bench = bench;
     }
 
+    public SMComments getComments() {
+        return comments;
+    }
 
+    public void setComments(SMComments comments) {
+        this.comments = comments;
+    }
+
+    public SMReferee getReferee() {
+        return referee;
+    }
+
+    public void setReferee(SMReferee referee) {
+        this.referee = referee;
+    }
+
+    public SMAggregate getAggregate() {
+        return aggregate;
+    }
+
+    public void setAggregate(SMAggregate aggregate) {
+        this.aggregate = aggregate;
+    }
 
     /* Custom Methods */
     public String getCompetitionDesc(){
@@ -264,5 +306,34 @@ public class SMMatch {
         }else{
             return league.data.name+", Matchday "+round.data.name;
         }
+    }
+
+    public String getRoundDesc(){
+        if(league.data.is_cup){
+            return stage.data.name;
+        }else{
+            return "Matchday "+round.data.name;
+        }
+    }
+
+    public String getStatusDesc(){
+        StringBuilder status = new StringBuilder();
+        if(time.showPenalties()){
+            status.append(scores.localteam_pen_score+" : "+scores.visitorteam_pen_score +" PEN");
+
+        } else status.append(time.getStatusDescription());
+
+        if(aggregate != null && !aggregate.data.getResult().isEmpty()){
+            status.append(" (Agg: "+aggregate.data.result+")");
+        }
+
+        return status.toString();
+    }
+
+
+    public int getMatchType(){
+        if(isAd) return TYPE_AD;
+        if(time.isFinished()) return TYPE_RESULT;
+        else return TYPE_FIXTURE;
     }
 }

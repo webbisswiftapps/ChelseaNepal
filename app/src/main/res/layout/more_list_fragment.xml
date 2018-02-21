@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_white"
+    >
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/settingsLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/dark_text"
+        android:padding="10dp"
+        android:text="@string/settings"
+        android:gravity="center_vertical"
+        android:foreground="?android:attr/selectableItemBackground"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/formGuideTitle"
+        android:layout_marginTop="5dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/shareApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/dark_text"
+        android:padding="10dp"
+        android:text="@string/share_app"
+        android:gravity="center_vertical"
+        android:foreground="?android:attr/selectableItemBackground"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/formGuideTitle"
+        android:layout_marginTop="5dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/rateApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/dark_text"
+        android:padding="10dp"
+        android:text="@string/rate_app"
+        android:gravity="center_vertical"
+        android:foreground="?android:attr/selectableItemBackground"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/formGuideTitle"
+        android:layout_marginTop="5dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/aboutUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/dark_text"
+        android:padding="10dp"
+        android:text="@string/about_us"
+        android:gravity="center_vertical"
+        android:foreground="?android:attr/selectableItemBackground"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/formGuideTitle"
+        android:layout_marginTop="5dp"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/disclaimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/dark_text"
+        android:padding="10dp"
+        android:text="@string/disclaimer"
+        android:gravity="center_vertical"
+        android:foreground="?android:attr/selectableItemBackground"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_below="@+id/formGuideTitle"
+        android:layout_marginTop="5dp"
+        />
+
+
+
+</LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+
+                <ImageView
+                    android:id="@+id/clubLogo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/chelsea_logo"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/clubName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/chelsea_fc"
+                    android:layout_below="@+id/clubLogo"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/clubNickName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textColor="@color/light_text_2"
+                    android:text="@string/club_address"
+                    android:layout_below="@+id/clubName"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/clubAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textColor="@color/light_text_2"
+                    android:text="@string/club_address"
+                    android:layout_below="@+id/clubName"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/clubFounded"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:text="@string/founded"
+                    android:layout_below="@+id/clubAddress"
+                    android:background="@drawable/news_element_bg"
+                    android:padding="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <com.webbisswift.cfcn.ui.custom_views.CButton
+                    android:id="@+id/clubWebsiteLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/clubFounded"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/colorful_gradient"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:text="Visit Club website"
+                    android:textColor="@color/text_white"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textAllCaps="true"
+                    android:layout_centerHorizontal="true"
+                    app:drawableRightCompat="@drawable/ic_arrow_forward_white_24dp"
+                    />
+
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/stadiumTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_text_2"
+                    android:text="@string/stadium"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/light_white"
+                    android:layout_below="@+id/stadiumTitle"
+                    android:layout_marginTop="5dp"
+                    />
+
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/stadiumName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/stadium_name"
+                    android:layout_below="@+id/stadiumTitle"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/capacityTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/light_text_2"
+                    android:text="Capacity"
+                    android:layout_below="@+id/stadiumName"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/stadiumCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/capacity"
+                    android:layout_below="@+id/stadiumName"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/capacityTitle"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/pitchTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/light_text_2"
+                    android:text="Pitch Dimesions"
+                    android:layout_below="@+id/capacityTitle"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/pitchDiemensions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/pitch_dim"
+                    android:layout_below="@+id/capacityTitle"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/pitchTitle"
+                    />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/uefaRankingCard"
+            android:visibility="gone"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/uefaRankingTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_text_2"
+                    android:text="@string/uefa_ranking"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/light_white"
+                    android:layout_below="@+id/uefaRankingTitle"
+                    android:layout_marginTop="5dp"
+                    />
+
+
+                <LinearLayout
+                    android:id="@+id/rankingHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@+id/uefaRankingTitle"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        >
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/uefaPos"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="28sp"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center"
+                            android:text="Pos"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/semi_dark_text"
+                            app:font_name="@string/font_montserrat_semibold"
+                            />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="60dp"
+                        android:background="@color/light_white"
+                        android:layout_below="@+id/teamStatsTitle"
+                        android:layout_marginTop="5dp"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        >
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/uefaPts"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="28sp"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center"
+                            android:text="Pts"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/semi_dark_text"
+                            app:font_name="@string/font_montserrat_semibold"
+                            />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="60dp"
+                        android:background="@color/light_white"
+                        android:layout_below="@+id/teamStatsTitle"
+                        android:layout_marginTop="5dp"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="80dp"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="6dp"
+                        >
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/uefaCoeff"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="28sp"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/colorPrimary"
+                            />
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center"
+                            android:text="Coeff"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/semi_dark_text"
+                            app:font_name="@string/font_montserrat_semibold"
+                            />
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <include layout="@layout/ad_card_small_overview" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

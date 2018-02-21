@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rvRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewSwitcher
+        android:id="@+id/rvVS"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_semibold"
+                android:textColor="@color/text_white"
+                android:shadowColor="@color/dark_text"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:text="By"
+                android:paddingLeft="14dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/goal_comment_bg"
+                />
+
+
+            <Spinner
+                android:id="@+id/chartTypeSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/chart_types"
+                android:padding="10dp"
+                android:layout_below="@+id/by"
+                />
+
+
+
+
+            <LinearLayout
+                android:id="@+id/titleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/chartTypeSelector"
+                android:background="@drawable/goal_comment_bg"
+                android:padding="5dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/number"
+                    android:layout_width="20dp"
+                    android:layout_weight="0.1"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/text_white"
+                    android:text="#"
+                    android:gravity="center"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/text_white"
+                    android:shadowColor="@color/dark_text"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:text="Player"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/statsTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/text_white"
+                    android:layout_marginRight="15dp"
+                    android:text="Goals"
+                    android:gravity="right"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    />
+
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="5dp"
+                android:id="@+id/chartRV"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/text_white"
+                android:layout_below="@+id/titleBar"
+                />
+
+        </RelativeLayout>
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/errorRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/semi_dark_text"
+            android:gravity="center"
+            app:font_name="@string/font_montserrat_semibold"
+            />
+
+
+    </ViewSwitcher>
+
+</android.support.v4.widget.SwipeRefreshLayout>

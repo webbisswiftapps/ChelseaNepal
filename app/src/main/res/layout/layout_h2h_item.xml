@@ -101,7 +101,7 @@
                 app:font_name="@string/font_montserrat_semibold"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
-                android:text="3"
+                android:text=""
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="3dp"
                 />
@@ -127,7 +127,7 @@
                 app:font_name="@string/font_montserrat_semibold"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
-                android:text="1"
+                android:text=""
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="5dp"
                 />

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:id="@+id/tableTitlePanel"
+        >
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="match_parent"
+            android:textColor="@color/semi_dark_text"
+            android:text="Player"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:textSize="14sp"
+            app:font_name="@string/font_montserrat_semibold"
+            />
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="match_parent"
+            android:textColor="@color/semi_dark_text"
+            android:text="Pen."
+            android:gravity="center"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textSize="12sp"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="match_parent"
+            android:textColor="@color/semi_dark_text"
+            android:text="Goals"
+            android:gravity="center"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textSize="12sp"
+            />
+
+
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_white"
+        android:layout_marginBottom="3dp"
+        android:layout_below="@+id/tableTitlePanel"
+        />
+</RelativeLayout>

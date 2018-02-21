@@ -1,5 +1,6 @@
 package com.webbisswift.cfcn.domain.model.v2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,12 @@ public class SMLineup {
 
     List<SMLineupPlayer> data;
 
+
     public SMLineup() {
     }
+
+
+
 
     public List<SMLineupPlayer> getData() {
         return data;

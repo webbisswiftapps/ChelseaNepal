@@ -16,6 +16,9 @@
         The images, logos and names of the clubs used in the app belong to the respective clubs
         and we do not intend to infringe the copyright of any of these entities and we hereby credit them to the owner.
 
+        The external links that can be opened from the app in no way represents this app as an official partner or affiliate of the opened news portal or club website.
+
+        For any notices or copyright infringement issues, please contact us at webbisswiftapps@gmail.com so that we can resolve issues if any.
 
     </string>
 
@@ -25,6 +28,15 @@
 
 
     <string name="chelsea">Chelsea</string>
+    <string name="chelsea_fc">Chelsea Football Club</string>
+    <string name="founded">Founded 1905</string>
+    <string name="nickname">"The Blues"</string>
+    <string name="club_address">Fulham Road, London, England</string>
+    <string name="stadium">Stadium</string>
+    <string name="stadium_name">Stamford Bridge</string>
+    <string name="capacity">41,631</string>
+    <string name="pitch_dim">103 x 67m</string>
+    <string name="uefa_ranking">UEFA Ranking</string>
     <string name="welcome">Welcome!</string>
     <string name="desc_region_select"> Please select your country/region from the list.
         We use this information to show you TV channel information for upcoming matches.
@@ -45,8 +57,13 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="other">Other</string>
     <string name="share">Share</string>
-    <string name="players">Squad &amp; Transfers</string>
+    <string name="share_app">Share App</string>
+    <string name="rate_app">Rate in Play Store</string>
+    <string name="players">Team</string>
     <string name="home">Latest</string>
+    <string name="team">Club</string>
+    <string name="more">More</string>
+    <string name="competitions">Competitions</string>
     <string name="social">Social Media</string>
     <string name="settings">Settings</string>
 
@@ -82,9 +99,17 @@
     <string name="notify_match_to_start">Notify me when match is about to start, generally minutes before the match starts.</string>
 
     <string name="notify_me_title">Match Events</string>
-    <string name="notify_match_events">Notify me about match events (match start, goals, half time, full time etc.)</string>
+    <string name="notify_match_events_gen">Notify me about general match events (Kick off, Half time, Full time)</string>
+    <string name="notify_match_lineups">Notify me about match line ups.</string>
+    <string name="notify_match_events_cards">Notify me about cards (Yellow card, Red cards)</string>
+    <string name="notify_match_subs">Notify me about substitutions.</string>
+    <string name="notify_match_events_goals">Notify me about goals, penalties &amp; misses.</string>
+    <string name="notify_match_pen_live">Notify me about penalty shootout.</string>
     <string name="title_activity_settings">Settings</string>
 
     <string name="tv_info">Match Live TV Info</string>
+
+
+
 
 </resources>

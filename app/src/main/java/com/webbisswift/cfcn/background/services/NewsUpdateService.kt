@@ -1,6 +1,5 @@
 package com.webbisswift.cfcn.background.services
 
-import android.app.IntentService
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
@@ -8,11 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import android.support.v4.content.LocalBroadcastManager
-import android.support.v7.content.res.AppCompatResources
 import android.util.Log
 import android.widget.RemoteViews
 import com.android.volley.Request
@@ -21,7 +18,10 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.NotificationTarget
-import com.google.gson.Gson
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.localdb.AppDatabase
 import com.webbisswift.cfcn.domain.localdb.dao.NewsDao
@@ -34,8 +34,7 @@ import com.webbisswift.cfcn.domain.net.Constants
 import com.webbisswift.cfcn.domain.sharedpref.NewsUpdateManager
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.root.CFCNepalApp
-import com.webbisswift.cfcn.ui.screens.home.MainActivity
-import com.webbisswift.cfcn.ui.screens.webview.WebViewActivity
+import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import org.json.JSONObject
@@ -45,7 +44,7 @@ import kotlin.collections.ArrayList
  * Created by apple on 12/12/17.
  */
 
-class NewsUpdateService: Service(), Response.ErrorListener{
+class NewsUpdateService: Service(), Response.ErrorListener, ValueEventListener{
 
     private val requestQueue = CFCNepalApp.instance?.requestQueue
     private var newsDAO:NewsDao? = null
@@ -57,12 +56,10 @@ class NewsUpdateService: Service(), Response.ErrorListener{
     private val newNewsList:ArrayList<DBNewsItem> = ArrayList()
     private var oldNewsList:List<DBNewsItem> = ArrayList()
     private var potentialNotifications:ArrayList<NewsItem> = ArrayList()
-    private var potentialVideoNotifications:ArrayList<VideoItem> = ArrayList()
 
 
+    private val TAG = "NewsUpdateService"
 
-    private val newsSources = arrayOf(Constants.GUARDIAN_FEED_URL, Constants.METRO_FEED_URL, Constants.DM_FEED_URL, Constants.CNEWS_FEED_URL)
-    private val videoSources = arrayOf(Constants.CHELSEA_FC_URL, Constants.H100_PER_CHE_URL, Constants.SHPENDI_CFC_URL ,Constants.BEANYMAN_CHE_URL)
 
      var shouldNotify:Boolean = true
 
@@ -74,6 +71,9 @@ class NewsUpdateService: Service(), Response.ErrorListener{
         Log.d("NewsUpdateService", "news update service started... updating news ...")
         //check news updates and then show notifications if necessary
         //first load old news items in the db
+
+        updateFirebase()
+
         doAsync {
 
             newsDAO = AppDatabase.getInstance(applicationContext).newsDao()
@@ -84,7 +84,7 @@ class NewsUpdateService: Service(), Response.ErrorListener{
             uiThread {
 
                 if(intent != null) {
-                   // shouldNotify = intent.getBooleanExtra("SHOULD_NOTIFY", true)
+                    shouldNotify = intent.getBooleanExtra("SHOULD_NOTIFY", true)
                 }
 
                 newNewsList.clear()
@@ -97,7 +97,31 @@ class NewsUpdateService: Service(), Response.ErrorListener{
     }
 
 
-     private fun loadAllNews():Int {
+    private fun updateFirebase(){
+        //update firebase
+        Log.d(TAG, "Updatind Firebase database::: Fixtures")
+        val firebaseDBInstance = FirebaseDatabase.getInstance()
+        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/results").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/last-match").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/next-match").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/team").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/team-form").addListenerForSingleValueEvent(this)
+    }
+
+    // Value Event Listeners Dummy
+    override fun onCancelled(p0: DatabaseError?) {
+        Log.d(TAG,"Firebase Not updated.")
+    }
+
+    override fun onDataChange(p0: DataSnapshot?) {
+        Log.d(TAG,"Firebase updated.")
+    }
+
+
+
+    private fun loadAllNews():Int {
 
         val newsReceiver = object: Response.Listener<JSONObject> {
             override fun onResponse(response: JSONObject?) {
@@ -115,7 +139,7 @@ class NewsUpdateService: Service(), Response.ErrorListener{
 
 
         var totalLoading = 0
-        for(source in newsSources) {
+        for(source in Constants.newsSources) {
             val request = JsonObjectRequest(Request.Method.GET, source, null, newsReceiver, null)
             request.tag = this
             requestQueue?.add(request)
@@ -156,7 +180,7 @@ class NewsUpdateService: Service(), Response.ErrorListener{
 
 
         var totalLoading = 0
-        for(source in videoSources) {
+        for(source in Constants.videoSources) {
             val request = JsonObjectRequest(Request.Method.GET, source, null, newsReceiver, null)
             request.tag = this
             requestQueue?.add(request)
@@ -188,7 +212,7 @@ class NewsUpdateService: Service(), Response.ErrorListener{
 
     private fun addVideosToCollection(items:List<VideoItem>){
         var count = 0
-        potentialVideoNotifications.add(items[0])
+        //potentialVideoNotifications.add(items[0])
         for(item in items){
             try {
                 val normalized = DBNewsItem(item.title, item.group.thumbnail.url, item.author.name, item.published, true, item.link.href, true)
@@ -265,18 +289,6 @@ class NewsUpdateService: Service(), Response.ErrorListener{
                 updateManager.saveLastNotifiedNewsTime(itemToNotify.pubDate)
             } else Log.d("NewsUpdateService", "Stale news, do not notify.")
         }
-
-        val lastUpdatedYTTime = updateManager.getLastNotifiedYoutubeTime()
-
-        if(potentialVideoNotifications.size > 0) {
-            val vidToNotify = potentialVideoNotifications[0]
-            if (vidToNotify != null && vidToNotify.pubDate.isAfter(lastUpdatedYTTime)) {
-                addNotificationVideo(vidToNotify, 909, vidToNotify.title)
-                updateManager.saveLastNotifiedYoutubeTime(vidToNotify.pubDate)
-            } else Log.d("NewsUpdateService", "Stale video, do not notify..")
-        }
-
-
     }
 
 
@@ -290,10 +302,10 @@ class NewsUpdateService: Service(), Response.ErrorListener{
 
 
 
-        val notificationIntent = Intent(applicationContext, MainActivity::class.java)
+        val notificationIntent = Intent(applicationContext, MainNavigationActivity::class.java)
         notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
         notificationIntent.putExtra("NOTIFICATION_URL", item.link)
-        val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
 
 
@@ -305,7 +317,6 @@ class NewsUpdateService: Service(), Response.ErrorListener{
                 .setContentIntent(pendingIntent)
                 .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.news_updated))
                 .setLights(Color.BLUE, 3000, 3000)
-                .setCustomBigContentView(remoteViews)
 
 
         val notification = builder.build()
@@ -317,38 +328,7 @@ class NewsUpdateService: Service(), Response.ErrorListener{
 
     }
 
-    private fun addNotificationVideo(item:VideoItem, notificationId: Int, title:String){
-        val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)
-        remoteViews.setImageViewResource(R.id.imagenotileft, R.drawable.lion_logo_ony)
-        remoteViews.setImageViewResource(R.id.newsIcn, R.drawable.ic_news_youtube)
-        remoteViews.setTextViewText(R.id.title, item.author.name+" | CFCN" )
-        remoteViews.setTextViewText(R.id.desc, item.title.trim())
 
-        val notificationIntent = Intent(applicationContext, MainActivity::class.java)
-        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        notificationIntent.putExtra("NOTIFICATION_URL", item.link.href)
-        val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-
-        val builder = NotificationCompat.Builder(this, "News_Update_Service")
-                .setSmallIcon(R.drawable.ic_stat_notification)
-                .setContentTitle(title)
-                .setContentText(item.title)
-                .setContent(remoteViews)
-                .setContentIntent(pendingIntent)
-                .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.news_updated))
-                .setLights(Color.BLUE, 3000, 3000)
-                .setCustomBigContentView(remoteViews)
-
-
-        val notification = builder.build()
-        val notficationMGR = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        notficationMGR.notify(notificationId, notification)
-        notificationTarget = NotificationTarget(applicationContext,  R.id.imagenotileft,remoteViews, notification, notificationId)
-        Glide.with(applicationContext).asBitmap().load(item.group.thumbnail.url).into(notificationTarget!!)
-    }
     private fun sendNewsUpdateBroadcast(){
         val lbm = LocalBroadcastManager.getInstance(this)
         lbm.sendBroadcast(Intent("NEWS_UPDATED"))

@@ -5,18 +5,30 @@
         <item
             android:id="@+id/nav_home"
             android:title="@string/home"
-            android:icon="@drawable/ic_home_light_gray"
+            android:icon="@drawable/ic_menu_clock"
             />
         <item
             android:id="@+id/nav_players"
             android:title="@string/players"
-            android:icon="@drawable/ic_players_light_gray"
+            android:icon="@drawable/ic_menu_team"
+            />
+
+        <item
+            android:id="@+id/nav_club"
+            android:title="@string/team"
+            android:icon="@drawable/ic_menu_club"
+            />
+
+        <item
+            android:id="@+id/nav_competitions"
+            android:title="@string/competitions"
+            android:icon="@drawable/ic_menu_competitions"
             />
 
         <item
             android:id="@+id/nav_settings"
             android:title="@string/settings"
-            android:icon="@drawable/ic_settings_light_gray"
+            android:icon="@drawable/ic_menu_settings"
             />
 
 

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginTop="8dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        >
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/totalCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="60dp"
+                android:textSize="28sp"
+                android:gravity="center_vertical|center_horizontal"
+                app:font_name="@string/font_montserrat_semibold"
+                android:textAllCaps="true"
+                android:text="10"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@color/light_white"
+                />
+
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/gamesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:gravity="center_vertical|center_horizontal"
+                app:font_name="@string/font_montserrat_semibold"
+                android:textAllCaps="true"
+                android:text="PLD"
+                android:textColor="@color/text_white"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:layout_below="@+id/totalCount"
+                />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/totalHAStat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textAllCaps="true"
+                    android:text="H 12 | A 24"
+                    android:textColor="@color/light_text"
+                    android:layout_below="@+id/gamesTitle"
+                    android:gravity="center"
+                    android:layout_alignRight="@+id/gamesTitle"
+                    android:layout_alignLeft="@+id/gamesTitle"
+                    android:padding="3dp"
+                    />
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/wonCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:textSize="28sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="10"
+            android:textColor="@color/win_2"
+            android:background="@color/light_white"
+            />
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/wonTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="WON"
+            android:textColor="@color/text_white"
+            android:background="@color/win_2"
+            android:padding="5dp"
+            android:layout_below="@+id/wonCount"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/wonHAStat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="H 12 | A 24"
+            android:textColor="@color/light_text"
+            android:layout_below="@+id/wonTitle"
+            android:gravity="center"
+            android:layout_alignRight="@+id/wonTitle"
+            android:layout_alignLeft="@+id/wonTitle"
+            android:padding="3dp"
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/drawCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:textSize="28sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="10"
+            android:textColor="@color/draw_2"
+            android:background="@color/light_white"
+            />
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/drawTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="DRAW"
+            android:textColor="@color/text_white"
+            android:background="@color/draw_2"
+            android:padding="5dp"
+            android:layout_below="@+id/drawCount"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/drawHAStat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="H 12 | A 24"
+            android:textColor="@color/light_text"
+            android:layout_below="@+id/drawTitle"
+            android:gravity="center"
+            android:layout_alignRight="@+id/drawTitle"
+            android:layout_alignLeft="@+id/drawTitle"
+            android:padding="3dp"
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="3dp"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/lossCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:textSize="28sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="10"
+            android:textColor="@color/loss_2"
+            android:background="@color/light_white"
+            />
+
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/lossTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="center_vertical|center_horizontal"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="LOST"
+            android:textColor="@color/text_white"
+            android:background="@color/loss_2"
+            android:padding="5dp"
+            android:layout_below="@+id/lossCount"
+            />
+
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/lossHAStat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:font_name="@string/font_montserrat_semibold"
+            android:textAllCaps="true"
+            android:text="H 12 | A 24"
+            android:textColor="@color/light_text"
+            android:layout_below="@+id/lossTitle"
+            android:gravity="center"
+            android:layout_alignRight="@+id/lossTitle"
+            android:layout_alignLeft="@+id/lossTitle"
+            android:padding="3dp"
+            />
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

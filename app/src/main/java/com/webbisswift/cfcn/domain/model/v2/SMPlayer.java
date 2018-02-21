@@ -148,5 +148,19 @@ public class SMPlayer {
         public void setImage_path(String image_path) {
             this.image_path = image_path;
         }
+
+        public String getPositionName(){
+
+            if(position_id == 1)
+                return "Goalkeeper";
+            else if(position_id == 2)
+                return "Defence";
+            else if(position_id == 3)
+                return "Midfield";
+            else if(position_id == 4)
+                return "Attack";
+            else return "Unknown";
+
+        }
     }
 }

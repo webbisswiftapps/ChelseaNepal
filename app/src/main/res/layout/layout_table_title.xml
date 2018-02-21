@@ -12,8 +12,16 @@
         >
         <View
             android:layout_width="0dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.4"
             android:layout_height="match_parent"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:textColor="@color/semi_dark_text"
+            android:text="Form"
             android:gravity="center"
             />
         <TextView

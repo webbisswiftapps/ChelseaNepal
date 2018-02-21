@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compStatsSwitcher"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Matches"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+
+            <include layout="@layout/layout_stat_games" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goals Scored"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+
+            <include layout="@layout/layout_stat_goals_cs" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goals Conceded"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+            <include layout="@layout/layout_stat_goals_conc" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OTHER"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_regular"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="@color/light_white" />
+
+
+            <include layout="@layout/layout_stat_cs_fts"/>
+
+
+
+
+        </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/compStatsProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyle"
+            />
+
+
+
+
+    </ViewSwitcher>
+
+
+
+
+</android.support.v4.widget.NestedScrollView>
+

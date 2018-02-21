@@ -1,12 +1,11 @@
 package com.webbisswift.cfcn.ui.screens.splash
 
 import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
-import com.webbisswift.cfcn.ui.screens.home.MainActivity
+import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 import kotlinx.android.synthetic.main.layout_country_selector.*
 
 /**
@@ -44,7 +43,7 @@ class CountrySelectorActivity : AppCompatActivity(){
 
     private fun moveToHome(){
 
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, MainNavigationActivity::class.java)
             startActivity(i)
             finish()
 

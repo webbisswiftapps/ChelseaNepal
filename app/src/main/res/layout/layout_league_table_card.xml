@@ -9,6 +9,7 @@
     android:layout_height="wrap_content"
     card_view:cardElevation="3dp"
     android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     >
 
     <ViewSwitcher
@@ -17,7 +18,7 @@
         android:layout_height="wrap_content">
 
 
-        <ProgressBar
+       <ProgressBar
             android:id="@+id/leagueTableProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,6 +63,27 @@
                 android:layout_marginTop="5dp"
                 >
             </LinearLayout>
+
+            <com.webbisswift.cfcn.ui.custom_views.CButton
+                android:id="@+id/statsStandingsPLBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/leagueTableHolder"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/colorful_gradient"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Full Table &amp; Stats"
+                android:textColor="@color/text_white"
+                app:font_name="@string/font_montserrat_semibold"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textAllCaps="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                app:drawableRightCompat="@drawable/ic_arrow_forward_white_24dp"
+                />
 
 
         </RelativeLayout>

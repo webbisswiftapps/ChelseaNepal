@@ -24,15 +24,9 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_margin="5dp"
                 >
-                <include layout="@layout/layout_next_match_card"
-                    />
-
-                <include layout="@layout/layout_team_stats_epl_card"
-                    />
-                <include layout="@layout/ad_card_small_overview" />
-
-
+                <include layout="@layout/layout_next_match_card" />
 
 
 
@@ -41,11 +35,10 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_marginLeft="5dp"
+                android:layout_margin="5dp"
                 >
-
 
 
                 <include layout="@layout/layout_last_match_card"
@@ -54,15 +47,16 @@
                     android:layout_height="wrap_content"
                     />
 
-
-                <include layout="@layout/ad_card_large_overview" />
-
-
+                <include layout="@layout/ad_card_small_overview" />
 
             </LinearLayout>
 
 
+
         </LinearLayout>
+
+        <include layout="@layout/ad_card_full_overview" />
+
 
 
 

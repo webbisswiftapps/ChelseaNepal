@@ -39,11 +39,6 @@ class CFCNepalApp:Application(){
         instance = this
         JodaTimeAndroid.init(this)
         MobileAds.initialize(this, resources.getString(R.string.app_id))
-        FirebaseMessaging.getInstance().subscribeToTopic("NextMatchTopic")
-        FirebaseMessaging.getInstance().subscribeToTopic("NewsUpdatePing")
-        FirebaseMessaging.getInstance().subscribeToTopic("LiveScoreChelsea")
-        FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScoreChelsea")
-        FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopic")
         AppAlarmManagement(this).fetchNextMatchDetailsAndSetAlarm()
     }
 

@@ -26,7 +26,6 @@
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,58 +36,52 @@
             android:theme="@style/AppTheme.Fullscreen"/>
 
         <activity
-            android:name=".ui.screens.home.MainActivity"
+            android:name=".ui.screens.mainnavigation.MainNavigationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme"
-            />
-        <activity
-            android:name=".ui.screens.match_facts.MatchFactsUI"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme" />
-
-        <activity
-            android:name=".ui.screens.match_center.MatchCenterUI"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/AppTheme">
+            >
             <intent-filter>
                 <action android:name="com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER_LINEUPS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
+
         <activity
-            android:name=".ui.screens.team.TeamInfoActivity"
+            android:name="com.webbisswift.cfcn.ui.screens.modal.match_center.MatchCenterUI"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme"/>
+
+
+        <activity
+            android:name="com.webbisswift.cfcn.ui.screens.modal.compdetails.CompetitionDetailsUI"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.screens.about_us.AboutUsUI"
+            android:name=".ui.screens.modal.AboutUsUI"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.screens.webview.WebViewActivity"
+            android:name="com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".ui.screens.admin.AdminActivity"
+            android:name="com.webbisswift.cfcn.ui.screens.modal.admin.AdminActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:title="Admin"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
 
         <activity
-            android:name=".ui.screens.settings.SettingsActivity"
+            android:name="com.webbisswift.cfcn.ui.screens.modal.settings.SettingsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".ui.screens.home.MainActivity"
+            android:parentActivityName="com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.screens.home.MainActivity" />
+                android:value="com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity" />
         </activity>
 
         <receiver

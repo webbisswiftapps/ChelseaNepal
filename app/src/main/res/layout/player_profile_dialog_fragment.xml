@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:background="@color/light_white"
+    >
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/chelsea_blue_dark" />
+
+
+    <ImageView
+        android:id="@+id/playerImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@+id/playerNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:background="@drawable/player_pic_round_bg"
+        />
+
+
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lastMatchCard"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardElevation="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/playerImg"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp"
+            >
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/playerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                app:font_name="@string/font_montserrat_semibold"
+                android:text="Willy Caballero"
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_white"
+                android:layout_below="@id/playerHeightTitle"
+                android:layout_marginTop="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:font_name="@string/font_montserrat_regular"
+                    android:text="Country"
+                    android:textColor="@color/light_text"
+                    android:layout_below="@+id/playerName"
+                    android:layout_marginRight="10dp"
+                    android:minWidth="100dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerCountry"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:text="Argentina"
+                    android:textColor="@color/near_dark_text"
+                    />
+
+            </LinearLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_white"
+                android:layout_below="@id/playerHeightTitle"
+                android:layout_marginTop="10dp"
+                />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                app:font_name="@string/font_montserrat_regular"
+                android:text="Born"
+                android:textColor="@color/light_text"
+                android:layout_marginRight="10dp"
+                android:minWidth="100dp"
+                />
+
+            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                android:id="@+id/playerBorn"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_montserrat_semibold"
+                android:text="15 Jan 1986"
+                android:textColor="@color/near_dark_text"
+                />
+
+        </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_white"
+                android:layout_below="@id/playerHeightTitle"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerHeightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:font_name="@string/font_montserrat_regular"
+                    android:text="Height"
+                    android:textColor="@color/light_text"
+                    android:layout_marginRight="10dp"
+                    android:minWidth="100dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerHeight"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:text="180cm"
+                    android:textColor="@color/near_dark_text"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_white"
+                android:layout_below="@id/playerHeightTitle"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerWeightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:font_name="@string/font_montserrat_regular"
+                    android:text="Weight"
+                    android:textColor="@color/light_text"
+                    android:layout_marginRight="10dp"
+                    android:minWidth="100dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerWeight"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:text="180cm"
+                    android:textColor="@color/near_dark_text"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_white"
+                android:layout_below="@id/playerHeightTitle"
+                android:layout_marginTop="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:font_name="@string/font_montserrat_regular"
+                    android:text="Position"
+                    android:textColor="@color/light_text"
+                    android:layout_marginRight="10dp"
+                    android:minWidth="100dp"
+                    />
+
+                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    android:id="@+id/playerPosition"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:text="Goalkeeper"
+                    android:textColor="@color/near_dark_text"
+
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

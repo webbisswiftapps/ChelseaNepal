@@ -93,7 +93,7 @@
                         >
 
                         <com.webbisswift.cfcn.ui.custom_views.CTextView
-                            android:id="@+id/cheTitle"
+                            android:id="@+id/cheFormationTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -102,7 +102,47 @@
                             android:textColor="@color/light_text"
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
+                            android:text="Formation"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/light_white"
+                            android:layout_below="@+id/cheFormationTitle"
+                            android:layout_marginTop="5dp"
+
+                            />
+
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/cheFormation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="4 - 4 - 2"
+                            android:layout_below="@+id/cheFormationTitle"
+                            />
+
+
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/cheTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textAllCaps="true"
+                            android:textColor="@color/light_text"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Starting"
+                            android:layout_below="@+id/cheFormation"
                             />
 
                         <View
@@ -174,8 +214,9 @@
                         android:padding="10dp"
                         >
 
+
                         <com.webbisswift.cfcn.ui.custom_views.CTextView
-                            android:id="@+id/oppTitle"
+                            android:id="@+id/oppFormationTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
@@ -184,7 +225,46 @@
                             android:textColor="@color/light_text"
                             android:layout_marginTop="5dp"
                             android:layout_marginLeft="10dp"
+                            android:text="Formation"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/light_white"
+                            android:layout_below="@+id/oppFormationTitle"
+                            android:layout_marginTop="5dp"
+
+                            />
+
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/oppFormation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:text="4 - 4 - 2"
+                            android:layout_below="@+id/oppFormationTitle"
+                            />
+
+
+                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            android:id="@+id/oppTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textAllCaps="true"
+                            android:textColor="@color/light_text"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginLeft="10dp"
                             android:text="Starting"
+                            android:layout_below="@+id/oppFormation"
                             />
 
                         <View

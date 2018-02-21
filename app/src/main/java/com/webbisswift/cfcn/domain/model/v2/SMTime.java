@@ -23,6 +23,7 @@ public class SMTime {
     String status;
     int minute;
     int injury_time;
+    int extra_minute;
     MatchTime starting_at;
 
 
@@ -47,11 +48,23 @@ public class SMTime {
         String desc = statuses.get(status);
         if(desc== null)
             desc = "";
+
+        if(isLive()){
+            desc += " "+minute;
+            if(extra_minute > 0){
+                desc+= "+"+extra_minute+"'";
+            }else desc += "'";
+        }
+        
         return desc;
     }
 
     public boolean showPenalties(){
         return (status.contentEquals("FT_PEN") || status.contentEquals("PEN_LIVE"));
+    }
+
+    public boolean isFinished(){
+        return status_finished.get(status);
     }
 
     public void setStarting_at(MatchTime starting_at) {
@@ -72,6 +85,14 @@ public class SMTime {
 
     public void setInjury_time(int injury_time) {
         this.injury_time = injury_time;
+    }
+
+    public int getExtra_minute() {
+        return extra_minute;
+    }
+
+    public void setExtra_minute(int extra_minute) {
+        this.extra_minute = extra_minute;
     }
 
     public static class MatchTime{
@@ -147,6 +168,7 @@ public class SMTime {
 
     private static final HashMap<String, String> statuses = new HashMap<>();
     private static final HashMap<String, Boolean> status_live = new HashMap<>();
+    private static final HashMap<String, Boolean> status_finished = new HashMap<>();
 
     static {
         statuses.put("NS", "Not Started");
@@ -190,5 +212,27 @@ public class SMTime {
         status_live.put("TBA", false);
         status_live.put("WO",false);
         status_live.put("AU", false);
+    }
+
+    static {
+        status_finished.put("NS", false);
+        status_finished.put("LIVE",false);
+        status_finished.put("HT", false);
+        status_finished.put("FT", true);
+        status_finished.put("ET", false);
+        status_finished.put("PEN_LIVE", false);
+        status_finished.put("AET", true);
+        status_finished.put("BREAK",false);
+        status_finished.put("FT_PEN",true);
+        status_finished.put("CANCL", false);
+        status_finished.put("POSTP",false);
+        status_finished.put("INT", false);
+        status_finished.put("ABAN", false);
+        status_finished.put("SUSP", false);
+        status_finished.put("AWARDED",false);
+        status_finished.put("DELAYED",false);
+        status_finished.put("TBA", false);
+        status_finished.put("WO",false);
+        status_finished.put("AU", false);
     }
 }

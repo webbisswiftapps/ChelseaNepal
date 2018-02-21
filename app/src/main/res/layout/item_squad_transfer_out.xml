@@ -3,8 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
     android:padding="10dp"
     >
+
+    <ImageView
+        android:id="@+id/playerImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="3dp" />
+
 
 
     <com.webbisswift.cfcn.ui.custom_views.CTextView
@@ -14,9 +25,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         app:font_name="@string/font_montserrat_semibold"
         android:textAllCaps="true"
-        android:text="Davide Zappacosta"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/playerImg"
         />
 
 
@@ -25,49 +36,105 @@
         android:id="@+id/transferSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         app:font_name="@string/font_montserrat_semibold"
         android:textAllCaps="false"
-        android:text="23m Euros"
-        android:textColor="@color/text_white"
+        android:textColor="@color/light_white"
         android:layout_below="@+id/transferPlayer"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_toRightOf="@+id/playerImg"
         android:background="@drawable/colorful_gradient"
-        android:padding="6dp"
         />
 
-
     <com.webbisswift.cfcn.ui.custom_views.CTextView
-        android:id="@+id/soruceTitle"
-        android:layout_width="130dp"
+        android:id="@+id/transferDate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         app:font_name="@string/font_montserrat_regular"
         android:textAllCaps="false"
-        android:text="To"
         android:textColor="@color/light_text"
-        android:layout_below="@+id/transferSource"
+        android:layout_alignTop="@+id/transferSource"
         android:layout_marginTop="3dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/transferSource"
         />
+
+
+
+    <ImageView
+        android:id="@+id/cheImg"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/chelsea"
+        android:layout_below="@+id/playerImg"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/toImg"
+        />
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/dest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textAllCaps="false"
+        android:text="Chelsea"
+        android:textColor="@color/dark_text"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toLeftOf="@+id/cheImg"
+        android:layout_alignTop="@+id/cheImg"
+        />
+
+
+    <ImageView
+        android:id="@+id/toImg"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_transfer_to"
+        android:layout_below="@+id/playerImg"
+        android:layout_marginLeft="10dp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+
+    <ImageView
+        android:id="@+id/fromImg"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/playerImg"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/toImg"
+        />
+
 
     <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        app:font_name="@string/font_montserrat_semibold"
+        app:font_name="@string/font_montserrat_regular"
         android:textAllCaps="false"
-        android:text="Torino FC"
         android:textColor="@color/dark_text"
-        android:layout_below="@+id/transferSource"
         android:layout_marginTop="3dp"
         android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/soruceTitle"
+        android:layout_toRightOf="@+id/fromImg"
+        android:layout_alignTop="@+id/fromImg"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+
+
+
+
+    <!--<com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/transferDateTitle"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
@@ -81,20 +148,7 @@
         android:layout_marginLeft="10dp"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
-        android:id="@+id/transferDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        app:font_name="@string/font_montserrat_semibold"
-        android:textAllCaps="false"
-        android:text="2017-06-28"
-        android:textColor="@color/dark_text"
-        android:layout_below="@+id/soruceTitle"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/transferDateTitle"
-        />
+     -->
 
 
 </RelativeLayout>

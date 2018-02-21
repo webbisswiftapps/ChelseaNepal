@@ -17,17 +17,46 @@
                 android:summary="@string/notify_match_to_start"
                 android:defaultValue="true" />
 
-            <!--<SwitchPreference
-                android:key="notify_events"
-                android:title="@string/notify_me_title"
-                android:summary="@string/notify_match_events"
-                android:defaultValue="true" /> -->
+            <SwitchPreference
+                android:key="notify_lineups"
+                android:title="Lineups"
+                android:summary="@string/notify_match_lineups"
+                android:defaultValue="true" />
+
+            <SwitchPreference
+            android:key="notify_gen_events"
+            android:title="General Match Events"
+            android:summary="@string/notify_match_events_gen"
+            android:defaultValue="true" />
+
+            <SwitchPreference
+                android:key="notify_goals"
+                android:title="Goals"
+                android:summary="@string/notify_match_events_goals"
+                android:defaultValue="true" />
+
+            <SwitchPreference
+            android:key="notify_cards"
+            android:title="Cards"
+            android:summary="@string/notify_match_events_cards"
+            android:defaultValue="true" />
+
+            <SwitchPreference
+                android:key="notify_subs"
+                android:title="Substitutions"
+                android:summary="@string/notify_match_subs"
+                android:defaultValue="true" />
+
+            <SwitchPreference
+                android:key="notify_pen"
+                android:title="Penalty Shootout"
+                android:summary="@string/notify_match_pen_live"
+                android:defaultValue="true" />
 
         </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/tv_info">
-
 
         <ListPreference
             android:entries="@array/countries"

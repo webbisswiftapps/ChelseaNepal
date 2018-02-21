@@ -19,8 +19,6 @@
 
         <include layout="@layout/layout_last_match_card" />
 
-        <include layout="@layout/layout_team_stats_epl_card" />
-
         <include layout="@layout/ad_card_large_overview" />
 
 

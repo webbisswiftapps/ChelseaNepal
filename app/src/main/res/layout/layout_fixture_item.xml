@@ -17,10 +17,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        app:font_name="@string/font_montserrat_light"
-        android:textColor="@color/semi_dark_text"
+        app:font_name="@string/font_montserrat_regular"
+        android:textColor="@color/dark_text"
         android:text="Champions League"
         android:layout_centerHorizontal="true"
+        />
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/fixturesRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:font_name="@string/font_montserrat_light"
+        android:textColor="@color/semi_dark_text"
+        android:text="8th Round, 1st Leg"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/fixturesCompetition"
         />
 
 
@@ -61,6 +74,8 @@
                 android:textColor="@color/colorPrimary"
                 android:text="CHELSEA"
                 android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:maxLines="2"
                 />
 
 
@@ -111,6 +126,8 @@
                 android:textColor="@color/colorPrimary"
                 android:text="CHELSEA"
                 android:layout_gravity="center_horizontal"
+                android:maxLines="2"
+                android:gravity="center"
                 />
 
 

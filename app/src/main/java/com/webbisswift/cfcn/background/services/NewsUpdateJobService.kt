@@ -18,6 +18,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.NotificationTarget
+import com.google.firebase.database.*
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.localdb.AppDatabase
 import com.webbisswift.cfcn.domain.localdb.dao.NewsDao
@@ -30,7 +31,7 @@ import com.webbisswift.cfcn.domain.net.Constants
 import com.webbisswift.cfcn.domain.sharedpref.NewsUpdateManager
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.root.CFCNepalApp
-import com.webbisswift.cfcn.ui.screens.home.MainActivity
+import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import org.json.JSONObject
@@ -40,7 +41,7 @@ import org.json.JSONObject
  * Created by biswas on 02/01/2018.
  */
 
-class NewsUpdateJobService:JobService(), Response.ErrorListener{
+class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListener{
 
 
 
@@ -48,41 +49,54 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
 
     private val requestQueue = CFCNepalApp.instance?.requestQueue
     private var newsDAO: NewsDao? = null
-
-
-
-
     private var total = 0
     private val newNewsList:ArrayList<DBNewsItem> = ArrayList()
     private var oldNewsList:List<DBNewsItem> = ArrayList()
     private var potentialNotifications:ArrayList<NewsItem> = ArrayList()
-    private var potentialVideoNotifications:ArrayList<VideoItem> = ArrayList()
 
 
-
-    private val newsSources = arrayOf(Constants.GUARDIAN_FEED_URL, Constants.METRO_FEED_URL, Constants.DM_FEED_URL, Constants.CNEWS_FEED_URL)
-    private val videoSources = arrayOf(Constants.CHELSEA_FC_URL, Constants.H100_PER_CHE_URL, Constants.SHPENDI_CFC_URL , Constants.BEANYMAN_CHE_URL)
 
     var shouldNotify:Boolean = true
 
 
 
     override fun onStartJob(params: JobParameters): Boolean {
-        Log.d(TAG, "NewsUpdate Job Started.. starting service now..")
-       // val service = Intent(getApplicationContext(), NewsUpdateService::class.java)
-        //service.putExtra("SHOULD_NOTIFY", true)
-         //startService(service)
+        updateFirebase()
         startNewsLoading()
         return true
     }
 
 
+    private fun updateFirebase(){
+        //update firebase
+        Log.d(TAG, "Updatind Firebase database::: Fixtures")
+        val firebaseDBInstance = FirebaseDatabase.getInstance()
+        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/results").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/last-match").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/next-match").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/team").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/team-form").addListenerForSingleValueEvent(this)
+    }
+
+
+    // Value Event Listeners Dummy
+    override fun onCancelled(p0: DatabaseError?) {
+        Log.d(TAG,"Firebase Not updated.")
+    }
+
+    override fun onDataChange(p0: DataSnapshot?) {
+        Log.d(TAG,"Firebase updated.")
+    }
 
     private fun startNewsLoading(){
         Log.d(TAG, "news update service started... updating news ...")
         //check news updates and then show notifications if necessary
         //first load old news items in the db
         doAsync {
+
+
 
             newsDAO = AppDatabase.getInstance(applicationContext).newsDao()
             if (newsDAO != null) {
@@ -120,7 +134,7 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
 
 
         var totalLoading = 0
-        for(source in newsSources) {
+        for(source in Constants.newsSources) {
             val request = JsonObjectRequest(Request.Method.GET, source, null, newsReceiver, null)
             request.tag = this
             requestQueue?.add(request)
@@ -161,7 +175,7 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
 
 
         var totalLoading = 0
-        for(source in videoSources) {
+        for(source in Constants.videoSources) {
             val request = JsonObjectRequest(Request.Method.GET, source, null, newsReceiver, null)
             request.tag = this
             requestQueue?.add(request)
@@ -193,7 +207,6 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
 
     private fun addVideosToCollection(items:List<VideoItem>){
         var count = 0
-        potentialVideoNotifications.add(items[0])
         for(item in items){
             try {
                 val normalized = DBNewsItem(item.title, item.group.thumbnail.url, item.author.name, item.published, true, item.link.href, true)
@@ -270,18 +283,6 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
                 updateManager.saveLastNotifiedNewsTime(itemToNotify.pubDate)
             } else Log.d(TAG, "Stale news, do not notify.")
         }
-
-        val lastUpdatedYTTime = updateManager.getLastNotifiedYoutubeTime()
-
-        if(potentialVideoNotifications.size > 0) {
-            val vidToNotify = potentialVideoNotifications[0]
-            if (vidToNotify.pubDate.isAfter(lastUpdatedYTTime)) {
-                addNotificationVideo(vidToNotify, 909, vidToNotify.title)
-                updateManager.saveLastNotifiedYoutubeTime(vidToNotify.pubDate)
-            } else Log.d(TAG, "Stale video, do not notify..")
-        }
-
-
     }
 
 
@@ -294,7 +295,7 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
         remoteViews.setTextViewText(R.id.desc, item.title.trim())
 
 
-        val notificationIntent = Intent(applicationContext, MainActivity::class.java)
+        val notificationIntent = Intent(applicationContext, MainNavigationActivity::class.java)
         notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
         notificationIntent.putExtra("NOTIFICATION_URL", item.link)
         val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -321,38 +322,8 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener{
 
     }
 
-    private fun addNotificationVideo(item:VideoItem, notificationId: Int, title:String){
-        val remoteViews = RemoteViews(applicationContext.packageName, R.layout.news_notification_layout)
-        remoteViews.setImageViewResource(R.id.imagenotileft, R.drawable.lion_logo_ony)
-        remoteViews.setImageViewResource(R.id.newsIcn, R.drawable.ic_news_youtube)
-        remoteViews.setTextViewText(R.id.title, item.author.name+" | CFCN" )
-        remoteViews.setTextViewText(R.id.desc, item.title.trim())
-
-        val notificationIntent = Intent(applicationContext, MainActivity::class.java)
-        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        notificationIntent.putExtra("NOTIFICATION_URL", item.link.href)
-        val pendingIntent = PendingIntent.getActivity(this,  notificationId, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
-
-        val builder = NotificationCompat.Builder(this, "News_Update_Service")
-                .setSmallIcon(R.drawable.ic_stat_notification)
-                .setContentTitle(title)
-                .setContentText(item.title)
-                .setContent(remoteViews)
-                .setContentIntent(pendingIntent)
-                .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.news_updated))
-                .setLights(Color.BLUE, 3000, 3000)
-                .setCustomBigContentView(remoteViews)
-
-
-        val notification = builder.build()
-        val notficationMGR = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        notficationMGR.notify(notificationId, notification)
-        notificationTarget = NotificationTarget(applicationContext,  R.id.imagenotileft,remoteViews, notification, notificationId)
-        Glide.with(applicationContext).asBitmap().load(item.group.thumbnail.url).into(notificationTarget!!)
-    }
     private fun sendNewsUpdateBroadcast(){
         val lbm = LocalBroadcastManager.getInstance(this)
         lbm.sendBroadcast(Intent("NEWS_UPDATED"))

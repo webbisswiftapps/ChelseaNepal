@@ -17,6 +17,37 @@ class SettingsHelper(val c: Context){
         return pref.getBoolean("notify_news", true)
     }
 
+    fun shouldShowLineups():Boolean{
+        val pref = PreferenceManager.getDefaultSharedPreferences(c)
+        return pref.getBoolean("notify_lineups", true)
+    }
+
+    fun shouldShowGoals():Boolean{
+        val pref = PreferenceManager.getDefaultSharedPreferences(c)
+        return pref.getBoolean("notify_goals", true)
+    }
+
+    fun shouldShowGenEvents():Boolean{
+        val pref = PreferenceManager.getDefaultSharedPreferences(c)
+        return pref.getBoolean("notify_gen_events", true)
+    }
+
+
+    fun shouldShowCards():Boolean{
+        val pref = PreferenceManager.getDefaultSharedPreferences(c)
+        return pref.getBoolean("notify_cards", true)
+    }
+
+    fun shouldShowSubs():Boolean{
+        val pref = PreferenceManager.getDefaultSharedPreferences(c)
+        return pref.getBoolean("notify_subs", true)
+    }
+
+    fun shouldShowPen():Boolean{
+        val pref = PreferenceManager.getDefaultSharedPreferences(c)
+        return pref.getBoolean("notify_pen", true)
+    }
+
 
     fun shouldShowMatchAlert():Boolean{
         val pref = PreferenceManager.getDefaultSharedPreferences(c)

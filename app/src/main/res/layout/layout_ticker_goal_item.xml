@@ -4,62 +4,66 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:background="@drawable/bg_splash_gradient"
+    android:background="@drawable/goal_comment_bg"
     >
+
+
+    <ImageView
+        android:id="@+id/commentIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/goal"
+        android:layout_marginLeft="10dp"
+        />
 
 
     <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/commentMinute"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:text="21'"
         android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textColor="@color/light_white"
+        app:font_name="@string/font_montserrat_bold"
+        android:layout_below="@+id/commentIcon"
+        android:gravity="center"
+        />
+
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/goalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/commentMinute"
+        android:layout_toEndOf="@id/commentMinute"
+        android:text="GOAL!"
         android:textSize="20sp"
         android:textColor="@color/text_white"
-        app:font_name="@string/font_montserrat_regular"
-        android:layout_marginLeft="5dp"
+        app:font_name="@string/font_montserrat_bold"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/commentIcon"
+        android:layout_marginTop="3dp"
         />
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:layout_toRightOf="@+id/commentMinute"
-        android:layout_marginLeft="5dp"
-        android:layout_alignTop="@+id/commentMinute"
-        android:layout_alignBottom="@id/commentMinute"
-
-        />
-
-
-    <ImageView
-        android:id="@+id/goalImg"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/goal"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/commentMinute"
-        />
 
 
     <com.webbisswift.cfcn.ui.custom_views.CTextView
         android:id="@+id/comment"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/goalImg"
-        android:layout_toEndOf="@id/goalImg"
-        android:text="Goal!  Chelsea 2, Stoke City 0. Daniel Drinkwater  - Chelsea -  shot with right foot from outside the box to the top right corner."
-        android:textSize="16sp"
-        android:textColor="@color/text_white"
-        app:font_name="@string/font_montserrat_regular"
-        android:layout_marginLeft="15dp"
-
+        android:layout_toRightOf="@+id/commentMinute"
+        android:layout_toEndOf="@id/commentMinute"
+        android:text="Some event text to be displayed."
+        android:textSize="14sp"
+        android:textColor="@color/light_white"
+        app:font_name="@string/font_montserrat_semibold"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/goalTitle"
         />
-
-
 
 
 </RelativeLayout>

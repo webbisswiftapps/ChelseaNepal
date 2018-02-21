@@ -3,11 +3,11 @@
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:layout_marginBottom="3dp"
+        android:background="@drawable/goal_comment_bg"
         >
 
         <TextView
@@ -15,7 +15,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/text_white"
             android:text="1"
             android:gravity="center"
             />
@@ -23,19 +23,30 @@
         <TextView
             android:id="@+id/teamName"
             android:layout_width="0dp"
-            android:layout_weight="0.5"
+            android:layout_weight="0.3"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/text_white"
             android:text="Chelsea"
             android:gravity="left|center_vertical"
             />
+
+    <LinearLayout
+        android:id="@+id/formGuideHolder"
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+    </LinearLayout>
 
         <TextView
             android:id="@+id/gamesPlayed"
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/text_white"
             android:text="24"
             android:gravity="center"
             />
@@ -45,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/text_white"
             android:text="20"
             android:gravity="center"
             />
@@ -55,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/text_white"
             android:text="3"
             android:gravity="center"
             />
@@ -65,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/text_white"
             android:text="1"
             android:gravity="center"
             />
@@ -75,7 +86,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/text_white"
             android:text="24:11"
             android:gravity="center"
             android:visibility="gone"
@@ -88,7 +99,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.1"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/text_white"
             android:text="25"
             android:gravity="center"
             android:visibility="gone"
@@ -99,7 +110,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.2"
             android:layout_height="match_parent"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/text_white"
             android:text="88"
             android:gravity="center"
             />

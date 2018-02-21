@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="300dp"
+        android:layout_height="180dp"
+        android:layout_margin="5dp"
+        android:foreground="?android:attr/selectableItemBackground">
+        <ImageView
+            android:id="@+id/trophyImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/demo_img"
+            android:scaleType="centerCrop"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark_tp_less"
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_overlay"
+        android:orientation="vertical"
+        android:padding="6dp"
+        >
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/trophyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_bold"
+            android:text="FA Community Shield Winners 2009"
+            android:textColor="@color/text_white"
+            android:layout_toRightOf="@+id/playerImg"
+            />
+        <com.webbisswift.cfcn.ui.custom_views.CTextView
+            android:id="@+id/trophyCoach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_montserrat_regular"
+            android:text="Carlo Ancelotti"
+            android:textColor="@color/text_white"
+            android:layout_toRightOf="@+id/playerImg"
+            />
+    </LinearLayout>
+
+
+
+
+
+    <com.webbisswift.cfcn.ui.custom_views.CTextView
+        android:id="@+id/trophyPoints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        app:font_name="@string/font_montserrat_regular"
+        android:text="Final: Chelsea 2 - 2 Manchester United ( 4 - 1 on Penalties)"
+        android:textColor="@color/text_white"
+        android:padding="6dp"
+        android:background="@color/black_overlay"
+        android:layout_gravity="bottom"
+        />
+
+</FrameLayout>
+
