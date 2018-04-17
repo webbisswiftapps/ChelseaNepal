@@ -6,4 +6,8 @@ import com.webbisswift.cfcn.domain.localdb.entities.DBNewsItem
  * Created by apple on 12/8/17.
  */
 
-data class NormalizedNewsItem(val newsItem:DBNewsItem?, val isAd:Boolean)
+enum class AdType{
+    SMALL, LARGE
+}
+
+data class NormalizedNewsItem(val newsItem:DBNewsItem?, val isAd:Boolean, val adType:AdType)

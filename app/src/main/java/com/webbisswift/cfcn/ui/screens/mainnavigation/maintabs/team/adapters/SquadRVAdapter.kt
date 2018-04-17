@@ -73,7 +73,7 @@ class SquadRVAdapter(val context: Context?):
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SquadViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SquadViewHolder {
 
         when(viewType) {
              SquadAdapterConstants.TYPE_TITLE -> {

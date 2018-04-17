@@ -84,7 +84,7 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
         adapter.setCustomViews(tabs)
 
         Log.d("MatchCenterUI"," Action : "+intent.action)
-        if(switchToLineups()) viewPager.setCurrentItem(1, false)
+        if(switchToLineups()) viewPager.setCurrentItem(2, false)
     }
 
     private fun setListeners(){
@@ -94,11 +94,11 @@ class MatchCenterUI : BaseActivity(), MatchCenterContract.MatchCenterView{
     }
 
     private fun switchToLineups():Boolean{
-        return (intent.action != null && intent.action.contentEquals("com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER_LINEUPS"))
+        return (intent.action != null && intent.action.contentEquals("OPEN_MATCH_CENTER_LINEUPS"))
     }
 
     private fun isOpenedFromNotification():Boolean{
-        return (intent.action != null && intent.action.contentEquals("com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER"))
+        return (intent.action != null && intent.action.contentEquals("OPEN_MATCH_CENTER"))
     }
 
 

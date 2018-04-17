@@ -56,7 +56,7 @@ class LiveTickerAdapter(val context: Context?): RecyclerView.Adapter<LiveTickerV
         return comments.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): LiveTickerViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LiveTickerViewHolder {
 
         when(viewType){
             TickerAdapterConstants.TYPE_NORMAL ->{
@@ -81,7 +81,7 @@ class LiveTickerAdapter(val context: Context?): RecyclerView.Adapter<LiveTickerV
         }
     }
 
-    override fun onBindViewHolder(holder: LiveTickerViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: LiveTickerViewHolder, position: Int) {
         holder?.setItem(comments[position].item)
     }
 

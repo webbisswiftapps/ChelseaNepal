@@ -31,10 +31,11 @@ class TrophiesRVAdapter(val context: Context?):
         leagues.clear()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TrophyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrophyViewHolder {
         val resultView = LayoutInflater.from(context).inflate(R.layout.trophy_card_item, parent, false)
         return TrophyViewHolder(resultView, this)
     }
+
 
     override fun onBindViewHolder(holder: TrophyViewHolder, position: Int) {
         holder.setTrophy(leagues[position])

@@ -114,7 +114,9 @@ class MatchesPresenter(val model: MatchesModel): MatchesContract.MatchesPresente
 
             matches.clear()
             matches.addAll(array)
-            matches.addAll(fixtures!!)
+            if(fixtures != null) {
+                matches.addAll(fixtures!!)
+            }
 
             view?.addMatches(matches, array.size - 1)
         }

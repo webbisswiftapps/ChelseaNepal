@@ -126,7 +126,7 @@ class TransferInFragment: BaseFragment(), TransferInContract.TransferInView{
         if(rvVS?.currentView?.id != R.id.errorRV)
             rvVS?.showNext()
 
-        errorRV.text = "No transfer in data."
+        errorRV?.text = "No transfer in data."
     }
 
 

@@ -109,7 +109,7 @@
 
     <string name="tv_info">Match Live TV Info</string>
 
-
+    <string name="default_notification_channel_id">212</string>
 
 
 </resources>

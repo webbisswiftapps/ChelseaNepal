@@ -36,7 +36,8 @@ class CompetitionsAdapter(val context: Context?):
         leagues.clear()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BaseCompetitionsViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseCompetitionsViewHolder {
         if(viewType == 0) {
             val resultView = LayoutInflater.from(context).inflate(R.layout.layout_competition_list_item, parent, false)
             return CompLeagueVH(resultView, this)
@@ -45,6 +46,7 @@ class CompetitionsAdapter(val context: Context?):
             return CompAdVH(adItem)
         }
     }
+
 
     override fun onBindViewHolder(holder: BaseCompetitionsViewHolder, position: Int) {
         holder.setCompetition(leagues[position])

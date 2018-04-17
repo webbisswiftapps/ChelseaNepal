@@ -95,6 +95,8 @@ public class NewsItem {
    }
 
 
+
+
    public String getThumbURL(){
        if(this.mThumbnail != null){
            return mThumbnail.getUrl();
@@ -108,6 +110,8 @@ public class NewsItem {
            return mContent.getUrl();
        }else return  "http://m.gardensbythebay.com.sg/etc/designs/gbb/clientlibs/images/common/not_found.jpg";
    }
+
+
 
 
 

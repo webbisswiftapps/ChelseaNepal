@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
@@ -27,8 +28,10 @@ import com.webbisswift.cfcn.ui.screens.modal.AboutUsUI
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.LatestFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.team.TeamFragment
 import com.webbisswift.cfcn.ui.screens.modal.admin.AdminActivity
+import com.webbisswift.cfcn.ui.screens.modal.match_center.MatchCenterUI
 import com.webbisswift.cfcn.ui.screens.modal.settings.SettingsActivity
 import com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity
+import com.webbisswift.cfcn.utils.NotificationUtils
 import kotlinx.android.synthetic.main.activity_main_bnav.*
 import java.util.prefs.PreferenceChangeListener
 
@@ -49,7 +52,22 @@ class MainNavigationActivity : AppCompatActivity(), AHBottomNavigation.OnTabSele
             setFirstCopyright()
         }
 
+        //check if coming from notification
+        //val action = intent.action
+
+        if(intent.action != null){
+            if(intent.action.contentEquals("OPEN_MATCH_CENTER") || intent.action.contentEquals("OPEN_MATCH_CENTER_LINEUPS")){
+                this.toMatchCenter(intent.action)
+            }
+        }
+
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this)
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            // Compatibility for Android Oreo. Setup Notification Channels
+            val nUtils = NotificationUtils(this)
+            nUtils.createChannels()
+        }
         subscribeFirebaseTopics()
     }
 
@@ -142,6 +160,12 @@ class MainNavigationActivity : AppCompatActivity(), AHBottomNavigation.OnTabSele
         bottom_navigation.setCurrentItem(4, false)
     }
 
+    fun toMatchCenter(action:String){
+        val act = Intent(this, MatchCenterUI::class.java)
+        act.setAction(action)
+        startActivity(act)
+    }
+
 
     /**
      * Check and display copyright/disclaimer message.
@@ -195,6 +219,7 @@ class MainNavigationActivity : AppCompatActivity(), AHBottomNavigation.OnTabSele
 
 
 
+
     /**
     * Google Play Services Check
     *
@@ -232,35 +257,37 @@ class MainNavigationActivity : AppCompatActivity(), AHBottomNavigation.OnTabSele
     private fun subscribeFirebaseTopics(){
         FirebaseMessaging.getInstance().subscribeToTopic("NewsUpdatePing")
 
+        FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopicLineupsTest")
+
+
         val settings = SettingsHelper(this)
         if(settings.shouldShowGenEvents())
-            FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopicTest")
-        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2NextMatchTopicTest")
+            FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopic")
+        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2NextMatchTopic")
 
         if(settings.shouldShowLineups())
-            FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopicLineupsTest")
-        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2NextMatchTopicLineupsTest")
+            FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopicLineups")
+        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2NextMatchTopicLineups")
 
         if(settings.shouldShowGoals())
-            FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScoresgoalsTest")
-        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScoresgoalsTest")
+            FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScoresgoals")
+        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScoresgoals")
 
 
-        if(settings.shouldShowCards()) FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScorescardsTest")
-        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScorescardsTest")
+        if(settings.shouldShowCards()) FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScorescards")
+        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScorescards")
 
 
         if(settings.shouldShowPen())
-            FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScorespensTest")
-        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScorespensTest")
+            FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScorespens")
+        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScorespens")
 
         if(settings.shouldShowSubs())
-            FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScoressubsTest")
-        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScoressubsTest")
+            FirebaseMessaging.getInstance().subscribeToTopic("v2LiveScoressubs")
+        else FirebaseMessaging.getInstance().unsubscribeFromTopic("v2LiveScoressubs")
+
 
     }
-
-
 
 
 }

@@ -1,36 +1,24 @@
 package com.webbisswift.cfcn.root
 
 import android.app.Application
+import android.support.multidex.MultiDexApplication
 import android.text.TextUtils
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.messaging.FirebaseMessaging
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.background.AppAlarmManagement
 import net.danlew.android.joda.JodaTimeAndroid
-import org.acra.ACRA
-import org.acra.ReportField
-import org.acra.ReportingInteractionMode
-import org.acra.annotation.ReportsCrashes
 
 /**
  * Created by apple on 12/6/17.
  */
 
 
-@ReportsCrashes(formKey = "",
-        mode = ReportingInteractionMode.TOAST,
-        customReportContent = arrayOf(ReportField.DEVICE_ID, ReportField.APP_VERSION_NAME,
-            ReportField.ANDROID_VERSION, ReportField.BRAND,ReportField.PHONE_MODEL,
-            ReportField.CUSTOM_DATA, ReportField.STACK_TRACE ),
-        resToastText = R.string.crash_text,
-        forceCloseDialogAfterToast = false, // optional, default false
-        mailTo = "webbisswiftapps@gmail.com"
-)
-class CFCNepalApp:Application(){
+
+class CFCNepalApp:MultiDexApplication(){
 
     override fun onCreate() {
         super.onCreate()

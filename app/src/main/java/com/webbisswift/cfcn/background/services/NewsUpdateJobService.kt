@@ -1,5 +1,7 @@
 package com.webbisswift.cfcn.background.services
 
+import android.annotation.TargetApi
+import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.job.JobService
@@ -8,6 +10,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.support.v4.content.LocalBroadcastManager
 import android.util.Log
@@ -32,6 +35,8 @@ import com.webbisswift.cfcn.domain.sharedpref.NewsUpdateManager
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.root.CFCNepalApp
 import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
+import com.webbisswift.cfcn.utils.NotificationUtils
+import com.webbisswift.cfcn.utils.Utilities
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import org.json.JSONObject
@@ -41,6 +46,7 @@ import org.json.JSONObject
  * Created by biswas on 02/01/2018.
  */
 
+@TargetApi(21)
 class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListener{
 
 
@@ -71,13 +77,13 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListe
         //update firebase
         Log.d(TAG, "Updatind Firebase database::: Fixtures")
         val firebaseDBInstance = FirebaseDatabase.getInstance()
-        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/results").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/last-match").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/next-match").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/team").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/team-form").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/fixtures").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/results").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/fixtures").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/last-match").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/next-match").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/team").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/team-form").addValueEventListener(this)
     }
 
 
@@ -277,6 +283,7 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListe
 
         if(potentialNotifications.size > 0) {
             val itemToNotify = potentialNotifications[0]
+            Log.d(TAG,"Item DatE: "+itemToNotify.pubDate+" --- Last updated: "+lastNewsUpdateTime)
             if (itemToNotify.pubDate.isAfter(lastNewsUpdateTime)) {
                 //there is a new news!
                 addNotification(itemToNotify, 808, itemToNotify.title)
@@ -302,7 +309,7 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListe
 
 
 
-        val builder = NotificationCompat.Builder(this, "News_Update_Service")
+        val builder = NotificationCompat.Builder(this, NotificationUtils.news_notification_channel)
                 .setSmallIcon(R.drawable.ic_stat_notification)
                 .setContentTitle(title)
                 .setContentText(item.title)
@@ -311,6 +318,7 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListe
                 .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.news_updated))
                 .setLights(Color.BLUE, 3000, 3000)
                 .setCustomBigContentView(remoteViews)
+                .setAutoCancel(true)
 
 
         val notification = builder.build()
@@ -321,7 +329,6 @@ class NewsUpdateJobService:JobService(), Response.ErrorListener, ValueEventListe
         Glide.with(applicationContext).asBitmap().load(item.thumbURL).into(notificationTarget!!)
 
     }
-
 
 
     private fun sendNewsUpdateBroadcast(){

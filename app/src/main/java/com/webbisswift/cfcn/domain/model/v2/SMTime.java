@@ -177,17 +177,17 @@ public class SMTime {
         statuses.put("FT", "Full Time");
         statuses.put("ET", "Extra Time");
         statuses.put("PEN_LIVE", "Penalty Shootout");
-        statuses.put("AET", "Finished after extra time");
-        statuses.put("BREAK","Waiting for Extra Time");
-        statuses.put("FT_PEN","Full Time after Penalties");
-        statuses.put("CANCL", "Match Cancelled");
-        statuses.put("POSTP","Match Postponed");
-        statuses.put("INT","Match Interrupted.");
-        statuses.put("ABAN", "Match Abandoned");
-        statuses.put("SUSP", "Match Suspended");
-        statuses.put("AWARDED","Match Awarded");
-        statuses.put("DELAYED","Match Delayed");
-        statuses.put("TBA", "To be Announced");
+        statuses.put("AET", "After Extra Time");
+        statuses.put("BREAK","Extra Time");
+        statuses.put("FT_PEN","Full Time (PEN)");
+        statuses.put("CANCL", "Cancelled");
+        statuses.put("POSTP","Postponed");
+        statuses.put("INT","Interrupted");
+        statuses.put("ABAN", "Abandoned");
+        statuses.put("SUSP", "Suspended");
+        statuses.put("AWARDED","Awarded");
+        statuses.put("DELAYED","Delayed");
+        statuses.put("TBA", "TBA");
         statuses.put("WO","Walkover");
         statuses.put("AU", "Awaiting Updates");
     }

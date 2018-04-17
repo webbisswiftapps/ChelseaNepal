@@ -20,6 +20,10 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimaryDark" />
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="com.webbisswift.cfcn.notifications.MATCH_EVENTS_CHANNEL"/>
+
         <activity
             android:name=".ui.screens.splash.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -40,10 +44,18 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/AppTheme"
             >
+
             <intent-filter>
-                <action android:name="com.webbisswift.cfcn.actions.OPEN_MATCH_CENTER" />
+                <action android:name="OPEN_MATCH_CENTER_LINEUPS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="OPEN_MATCH_CENTER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+
         </activity>
 
 

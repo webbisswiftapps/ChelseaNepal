@@ -35,6 +35,7 @@ import com.webbisswift.cfcn.domain.sharedpref.NewsUpdateManager
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.root.CFCNepalApp
 import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
+import com.webbisswift.cfcn.utils.NotificationUtils
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import org.json.JSONObject
@@ -101,13 +102,13 @@ class NewsUpdateService: Service(), Response.ErrorListener, ValueEventListener{
         //update firebase
         Log.d(TAG, "Updatind Firebase database::: Fixtures")
         val firebaseDBInstance = FirebaseDatabase.getInstance()
-        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/results").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/fixtures").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/last-match").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/next-match").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/team").addListenerForSingleValueEvent(this)
-        firebaseDBInstance.getReference("v2/team-form").addListenerForSingleValueEvent(this)
+        firebaseDBInstance.getReference("v2/fixtures").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/results").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/fixtures").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/last-match").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/next-match").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/team").addValueEventListener(this)
+        firebaseDBInstance.getReference("v2/team-form").addValueEventListener(this)
     }
 
     // Value Event Listeners Dummy
@@ -283,7 +284,7 @@ class NewsUpdateService: Service(), Response.ErrorListener, ValueEventListener{
 
         if(potentialNotifications.size > 0) {
             val itemToNotify = potentialNotifications[0]
-            if (itemToNotify != null && itemToNotify.pubDate.isAfter(lastNewsUpdateTime)) {
+            if (itemToNotify.pubDate.isAfter(lastNewsUpdateTime)) {
                 //there is a new news!
                 addNotification(itemToNotify, 808, itemToNotify.title)
                 updateManager.saveLastNotifiedNewsTime(itemToNotify.pubDate)
@@ -309,7 +310,7 @@ class NewsUpdateService: Service(), Response.ErrorListener, ValueEventListener{
 
 
 
-        val builder = NotificationCompat.Builder(this, "News_Update_Service")
+        val builder = NotificationCompat.Builder(this, NotificationUtils.news_notification_channel)
                 .setSmallIcon(R.drawable.ic_stat_notification)
                 .setContentTitle(title)
                 .setContentText(item.title)

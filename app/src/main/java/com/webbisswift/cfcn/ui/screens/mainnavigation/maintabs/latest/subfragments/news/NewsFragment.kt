@@ -19,6 +19,7 @@ import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragmen
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter.NormalizedNewsItem
 import kotlinx.android.synthetic.main.fragment_news.*
 import android.support.v7.widget.StaggeredGridLayoutManager
+import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter.AdType
 
 
 /**
@@ -109,7 +110,7 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
         var normalizedList = ArrayList<NormalizedNewsItem>()
         for(item in items){
             //if(isWide)item.isHeading = true
-            normalizedList.add(NormalizedNewsItem(item, false))
+            normalizedList.add(NormalizedNewsItem(item, false, AdType.SMALL))
         }
         newsAdapter.addNewsSection(normalizedList)
     }

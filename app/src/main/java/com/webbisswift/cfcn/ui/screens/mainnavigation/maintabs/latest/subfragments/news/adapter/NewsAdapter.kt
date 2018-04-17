@@ -32,9 +32,10 @@ class NewsAdapter(val context: Context?):
             news.addAll(items)
 
             for (index in news.indices) {
-                if(index > 0 && index % 8 == 0){
+                if(index > 0 && index % 4 == 0){
                     //every five items, add in an ad item
-                    val adItem = NormalizedNewsItem(null, true)
+                    val adType = if (news[index].newsItem!!.shouldShowAsHighlighted()) AdType.LARGE else AdType.SMALL
+                    val adItem = NormalizedNewsItem(null, true, adType)
                     news.add(index, adItem)
                 }
             }
@@ -50,7 +51,7 @@ class NewsAdapter(val context: Context?):
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
             if(viewType == 0) {
                 val newsItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_item, parent, false)
@@ -58,8 +59,11 @@ class NewsAdapter(val context: Context?):
             }else if(viewType == 1){
                 val newsItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_item_small, parent, false)
                 return NewsViewHolder(newsItemView, this)
-            }else{
+            }else if(viewType == 2){
                 val adItem = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item, parent , false)
+                return NewsAdViewHolder(adItem)
+            }else{
+                val adItem = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item_large, parent , false)
                 return NewsAdViewHolder(adItem)
             }
 
@@ -78,10 +82,14 @@ class NewsAdapter(val context: Context?):
     override fun getItemViewType(position: Int): Int {
         val item = news[position]
         if(item.newsItem != null){
-            if(item.newsItem.isHeading)
+            if(item.newsItem.shouldShowAsHighlighted())
                 return 0
             else return 1
-        }else return 2
+        }else if(item.adType == AdType.SMALL){
+            return 2
+        }else{
+            return 3
+        }
 
     }
 

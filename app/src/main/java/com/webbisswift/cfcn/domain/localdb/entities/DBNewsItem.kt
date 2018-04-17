@@ -36,6 +36,12 @@ data class DBNewsItem(@ColumnInfo(name = "title") var title: String,
         }
     }
 
+    fun shouldShowAsHighlighted() : Boolean{
+
+        return (!(authorName.contains("Daily Mail") || authorName.contains("Football 365") || authorName.contains("Guardian")))
+                && (isHeading || isVideo)
+    }
+
     override fun toString(): String {
         return title + "  |  "+publishDate+"  | "+authorName+"\n"
     }
