@@ -10,74 +10,108 @@
     >
 
 
+
             <ImageView
                 android:id="@+id/newsThumb"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/west_stand"
                 />
 
-              <ImageButton
-                  android:id="@+id/mediaPlay"
-                  android:layout_width="50dp"
-                  android:layout_height="50dp"
-                  android:layout_gravity="center"
-                  android:src="@drawable/play_button"
-                  android:background="@null"
-                  android:scaleType="centerCrop"
-                  />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:background="@drawable/news_card_overlay"
+                    />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp">
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/newsAuthor"
+                        android:layout_width="wrap_content"
+                        android:minWidth="120dp"
+                        android:layout_height="wrap_content"
+                        android:text="Express Uk"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimary"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:padding="5dp"
+                        android:background="@drawable/white_diagonal_bg"
+                        android:layout_above="@+id/newsTitle"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:gravity="center"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/newsDateTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2h"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:padding="5dp"
+                        android:background="@drawable/white_diagonal_bg"
+                        android:layout_above="@id/newsTitle"
+                        android:layout_marginBottom="22dp"
+                        />
+
+                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        android:id="@+id/newsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:text="Chelsea boss Conte to be fined after being sent to the stands against Norwich."
+                        android:textSize="15sp"
+                        android:textColor="@color/text_white"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:shadowColor="@color/near_dark_text"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:lines = "3"
+                        android:layout_alignParentBottom="true"
+                        android:padding="6dp"
+                        />
 
 
 
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
-            android:id="@+id/newsTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Chelsea boss Conte to be fined after being sent to the stands against Norwich."
-            android:textSize="14sp"
-            android:textColor="@color/text_white"
-            app:font_name="@string/font_montserrat_semibold"
-            android:layout_gravity="bottom"
-            android:shadowColor="@color/near_dark_text"
-            android:shadowDx="2"
-            android:shadowDy="2"
-            android:background="@drawable/news_highlight_bg"
-            />
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
-            android:id="@+id/newsAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chelsea News"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
-            app:font_name="@string/font_montserrat_semibold"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="left"
-            android:padding="5dp"
-            android:background="@drawable/news_element_bg"
-            />
+                    <ImageButton
+                        android:id="@+id/mediaPlay"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/play_button"
+                        android:background="@null"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="10dp"
+                        />
 
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
-            android:id="@+id/newsDateTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/newsTitle"
-            android:text="2h"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/text_white"
-            app:font_name="@string/font_montserrat_semibold"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center"
-            android:layout_gravity="right"
-            android:drawablePadding="3dp"
-            android:padding="5dp"
-            android:background="@drawable/news_element_bg"
-            />
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
 
     </FrameLayout>

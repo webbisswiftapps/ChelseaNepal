@@ -1,36 +1,29 @@
-package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news
+package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new
 
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.database.FirebaseDatabase
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.base.BaseFragment
 import com.webbisswift.cfcn.base.BasePresenter
-import com.webbisswift.cfcn.domain.localdb.AppDatabase
-import com.webbisswift.cfcn.domain.localdb.entities.DBNewsItem
+import com.webbisswift.cfcn.domain.model.v2.NewsStreamItem
 import com.webbisswift.cfcn.ui.custom_views.ItemOffsetDecoration
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter.NewsAdapter
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter.NormalizedNewsItem
+import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter.AdType
+import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter.NewsAdapter
+import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter.NormalizedNewsItem
 import kotlinx.android.synthetic.main.fragment_news.*
-import android.support.v7.widget.StaggeredGridLayoutManager
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter.AdType
+
+class NewsStreamFragment: BaseFragment(), NewsStreamContract.NewsStreamView {
 
 
-/**
- * Created by apple on 12/8/17.
- */
-
-
-class NewsFragment: BaseFragment(), NewsContract.NewsView {
-
-
-    var presenter: NewsPresenter? = null
+    var presenter: NewsStreamPresenter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_news, null, true)
@@ -42,9 +35,7 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupRecyclerView()
-        newsRefresh.setOnRefreshListener {
-            this.presenter?.updateNews()
-        }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -56,10 +47,9 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
      * */
 
     override fun initView() {
-        val newsDAO = AppDatabase.getInstance(context!!).newsDao()
-        val lbm = LocalBroadcastManager.getInstance(context!!)
-        val model = NewsModel(newsDAO,context!!,lbm)
-        this.presenter = NewsPresenter(model)
+        val firebaseDB = FirebaseDatabase.getInstance()
+        val model = NewsStreamModel(firebaseDB)
+        this.presenter = NewsStreamPresenter(model)
     }
 
 
@@ -106,7 +96,7 @@ class NewsFragment: BaseFragment(), NewsContract.NewsView {
     }
 
 
-    override fun addNewsSection(items: List<DBNewsItem>) {
+    override fun addNewsSection(items: List<NewsStreamItem>) {
         var normalizedList = ArrayList<NormalizedNewsItem>()
         for(item in items){
             //if(isWide)item.isHeading = true

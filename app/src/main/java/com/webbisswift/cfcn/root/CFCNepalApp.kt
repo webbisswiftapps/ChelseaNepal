@@ -8,6 +8,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.database.FirebaseDatabase
+import com.twitter.sdk.android.core.Twitter
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.background.AppAlarmManagement
 import net.danlew.android.joda.JodaTimeAndroid
@@ -24,6 +25,7 @@ class CFCNepalApp:MultiDexApplication(){
         super.onCreate()
         //ACRA.init(this)
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+        Twitter.initialize(this)
         instance = this
         JodaTimeAndroid.init(this)
         MobileAds.initialize(this, resources.getString(R.string.app_id))

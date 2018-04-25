@@ -61,6 +61,22 @@ public class Utilities {
 
     }
 
+    public static DateTime parseNewsDate(String date){
+
+        try{
+            return new DateTime(date);
+        }catch (Exception e) {
+            // create parser for "GMT"
+            DateTimeParser gmtParser = DateTimeFormat.forPattern("ZZZ").getParser();
+            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                    .appendPattern("EEE, dd MMM yyyy HH:mm:ss ") // common pattern
+                    .appendOptional(gmtParser)    // optional parser for GMT
+                    .toFormatter().withZoneUTC().withOffsetParsed();
+
+            return formatter.parseDateTime(date);
+        }
+    }
+
 
 
     public static String getTimeAgo(DateTime chk){

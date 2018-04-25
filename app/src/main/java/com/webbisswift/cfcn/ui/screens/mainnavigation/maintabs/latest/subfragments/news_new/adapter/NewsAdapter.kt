@@ -1,4 +1,4 @@
-package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter
+package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity
 import android.content.ActivityNotFoundException
+import com.webbisswift.cfcn.domain.model.v2.NewsStreamItem
 
 
 /**
@@ -17,7 +18,7 @@ import android.content.ActivityNotFoundException
 
 
 class NewsAdapter(val context: Context?):
-        RecyclerView.Adapter<RecyclerView.ViewHolder>(), NewsViewHolder.OnItemClickListener{
+        RecyclerView.Adapter<RecyclerView.ViewHolder>(), StreamNewsVH.OnItemClickListener{
 
 
 
@@ -34,7 +35,7 @@ class NewsAdapter(val context: Context?):
             for (index in news.indices) {
                 if(index > 0 && index % 4 == 0){
                     //every five items, add in an ad item
-                    val adType = if (news[index].newsItem!!.shouldShowAsHighlighted()) AdType.LARGE else AdType.SMALL
+                    val adType = if (news[index].sNewsItem!!.isIs_highlighted()) AdType.LARGE else AdType.SMALL
                     val adItem = NormalizedNewsItem(null, true, adType)
                     news.add(index, adItem)
                 }
@@ -53,13 +54,16 @@ class NewsAdapter(val context: Context?):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-            if(viewType == 0) {
+            if(viewType == NewsStreamItem.NEWS_ARTICLE_HIGHLIGHTED || viewType == NewsStreamItem.YOUTUBE_VIDEO) {
                 val newsItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_item, parent, false)
-                return NewsViewHolder(newsItemView, this)
-            }else if(viewType == 1){
+                return StreamNewsVH(newsItemView, this)
+            }else if(viewType == NewsStreamItem.NEWS_ARTICLE){
                 val newsItemView = LayoutInflater.from(context).inflate(R.layout.layout_news_item_small, parent, false)
-                return NewsViewHolder(newsItemView, this)
-            }else if(viewType == 2){
+                return StreamNewsVH(newsItemView, this)
+            }else if(viewType == NewsStreamItem.TWEET){
+                val tweetView = LayoutInflater.from(context).inflate(R.layout.layout_news_item_tweet, parent, false)
+                return TweetItemVH(tweetView)
+            }else if(viewType == NewsStreamItem.AD_LARGE){
                 val adItem = LayoutInflater.from(context).inflate(R.layout.layout_news_ad_item, parent , false)
                 return NewsAdViewHolder(adItem)
             }else{
@@ -71,7 +75,13 @@ class NewsAdapter(val context: Context?):
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as? NewsViewHolder)?.setNews(news[position])
+
+        val viewType = getItemViewType(position)
+        if(viewType == NewsStreamItem.NEWS_ARTICLE_HIGHLIGHTED || viewType == NewsStreamItem.NEWS_ARTICLE || viewType == NewsStreamItem.YOUTUBE_VIDEO) {
+            (holder as? StreamNewsVH)?.setNews(news[position])
+        }else if(viewType == NewsStreamItem.TWEET){
+            (holder as? TweetItemVH)?.loadTweet(news[position])
+        }
     }
 
 
@@ -81,14 +91,12 @@ class NewsAdapter(val context: Context?):
 
     override fun getItemViewType(position: Int): Int {
         val item = news[position]
-        if(item.newsItem != null){
-            if(item.newsItem.shouldShowAsHighlighted())
-                return 0
-            else return 1
+         if(item.sNewsItem != null){
+            return item.sNewsItem.itemTypeId
         }else if(item.adType == AdType.SMALL){
-            return 2
+            return NewsStreamItem.AD_SMALL
         }else{
-            return 3
+            return NewsStreamItem.AD_LARGE
         }
 
     }
@@ -101,12 +109,12 @@ class NewsAdapter(val context: Context?):
     override fun onItemClicked(position:Int){
 
         val item = news[position]
-        if(item.newsItem != null) {
-            val url = item.newsItem.finalLink
+        if(item.sNewsItem != null) {
+            val url = item.sNewsItem.link
             var i = Intent(context, WebViewActivity::class.java)
             i.putExtra("URL", url)
 
-            if (url.contains("youtube")) {
+            if (item.sNewsItem.type == "youtube_video") {
                 val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 try {
                     context?.startActivity(appIntent)

@@ -1,7 +1,8 @@
-package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter
+package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,12 +10,7 @@ import com.bumptech.glide.Glide
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.utils.Utilities
 
-/**
- * Created by apple on 12/8/17.
- */
-
-
-class NewsViewHolder(v: View, val listener:NewsViewHolder.OnItemClickListener): RecyclerView.ViewHolder(v){
+class StreamNewsVH(v: View, val listener:StreamNewsVH.OnItemClickListener): RecyclerView.ViewHolder(v){
 
     interface OnItemClickListener{
         fun onItemClicked(position:Int)
@@ -25,8 +21,9 @@ class NewsViewHolder(v: View, val listener:NewsViewHolder.OnItemClickListener): 
     val newsTitle: TextView
     val newsSource: TextView
     val newsThumb: ImageView
+    val newsImage:FrameLayout?
     var newsTime: TextView
-    var mediaPlayButton:ImageButton
+    var mediaPlayButton: ImageButton
 
     init{
 
@@ -35,6 +32,7 @@ class NewsViewHolder(v: View, val listener:NewsViewHolder.OnItemClickListener): 
         newsThumb = this.view.findViewById(R.id.newsThumb)
         newsTime = this.view.findViewById(R.id.newsDateTime)
         mediaPlayButton = this.view.findViewById(R.id.mediaPlay)
+        newsImage = this.view.findViewById(R.id.newsImage)
 
         view.setOnClickListener({
             this.listener.onItemClicked(adapterPosition)
@@ -45,16 +43,21 @@ class NewsViewHolder(v: View, val listener:NewsViewHolder.OnItemClickListener): 
 
     fun setNews(nItem:NormalizedNewsItem){
 
-        val item = nItem.newsItem
-        newsTitle.text = item?.title?.trim()
-        newsSource.text = item?.authorName?.trim()
-        newsTime.text = Utilities.getTimeAgo(item?.getPubDate())
-        Glide.with(view.context).load(item?.thumbURL).into(newsThumb)
+        val item = nItem.sNewsItem
+        newsTitle.text = item?.title
+        newsSource.text = item?.author
+        newsTime.text = Utilities.getTimeAgo(item?.pubDate)
 
-        val isVideo = item?.isVideo
-        if(isVideo!=null && isVideo)
+        if(item?.image != null && item.image.isNotBlank()) {
+            newsImage?.visibility = View.VISIBLE
+            Glide.with(view.context).load(item?.image).into(newsThumb)
+        }else{
+            newsImage?.visibility = View.GONE
+        }
+
+        if(item?.type == "youtube_video") {
             mediaPlayButton.visibility = View.VISIBLE
-        else mediaPlayButton.visibility = View.GONE
+        }else mediaPlayButton.visibility = View.GONE
 
     }
 

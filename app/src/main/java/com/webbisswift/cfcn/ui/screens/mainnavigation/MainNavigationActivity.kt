@@ -255,7 +255,7 @@ class MainNavigationActivity : AppCompatActivity(), AHBottomNavigation.OnTabSele
     }
 
     private fun subscribeFirebaseTopics(){
-        FirebaseMessaging.getInstance().subscribeToTopic("NewsUpdatePing")
+        FirebaseMessaging.getInstance().subscribeToTopic("NewsUpdatePingv2")
 
         FirebaseMessaging.getInstance().subscribeToTopic("v2NextMatchTopicLineupsTest")
 

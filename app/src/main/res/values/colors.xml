@@ -14,8 +14,10 @@
     <color name="chelsea_blue_dark_tp">#ef041d41</color>
     <color name="chelsea_blue_dark_tp_less">#66041d41</color>
 
-    <color name="toolbar_tp">#cc1b5fc4</color>
+    <color name="tp_subtle_news">#332bcaee</color>
 
+    <color name="toolbar_tp">#cc1b5fc4</color>
+    <color name="full_tp">#0000</color>
     <color name="switch_color">#1565c0</color>
 
     <color name="colorAccent_tp">#ee69f0ae</color>

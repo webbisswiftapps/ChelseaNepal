@@ -20,8 +20,7 @@ class DeviceBootReciever :BroadcastReceiver(){
          //1. Fetch Next Match Details from Firebase and set alarm
           appAM?.fetchNextMatchDetailsAndSetAlarm()
 
-         //2. Start News Update Service
-         appAM?.startNewsUpdateService(true)
+
     }
 
 

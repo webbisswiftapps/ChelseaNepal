@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.matches.MatchesFragment
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.NewsFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.overview.HomeFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.season.SeasonFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
+import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.NewsStreamFragment
 import com.webbisswift.cfcn.ui.screens.modal.match_center.MatchCenterUI
 import kotlinx.android.synthetic.main.fragment_latest.*
 
@@ -51,7 +51,7 @@ class LatestFragment:Fragment(){
         val adapter = MainPagerAdapter(childFragmentManager)
 
         adapter.addFragment(HomeFragment(), "Overview")
-        adapter.addFragment(NewsFragment(), "News")
+        adapter.addFragment(NewsStreamFragment(), "News")
         adapter.addFragment(SeasonFragment(), "Season")
         adapter.addFragment(MatchesFragment(), "Matches")
 

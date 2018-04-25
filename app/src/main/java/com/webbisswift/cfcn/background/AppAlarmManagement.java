@@ -1,16 +1,10 @@
 package com.webbisswift.cfcn.background;
 
-import android.annotation.TargetApi;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,14 +13,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.webbisswift.cfcn.background.receivers.LiveServiceAlarmReciever;
-import com.webbisswift.cfcn.background.services.NewsUpdateJobService;
-import com.webbisswift.cfcn.background.services.NewsUpdateService;
 import com.webbisswift.cfcn.domain.model.Match;
 
 import java.util.Calendar;
 import java.util.Date;
-
-import kotlin.Suppress;
 
 /**
  * Created by apple on 12/12/17.
@@ -41,36 +31,6 @@ public class AppAlarmManagement {
 
 
 
-   public void startNewsUpdateService(boolean shouldNotify){
-      if(Build.VERSION.SDK_INT >= 26)
-          scheduleNewsUpdateWithJobScheduler(shouldNotify);
-      else startNewsUpdateServiceImmediate(shouldNotify);
-   }
-
-   @TargetApi(Build.VERSION_CODES.O)
-   private void scheduleNewsUpdateWithJobScheduler(boolean shouldNotify){
-           ComponentName serviceComponent = new ComponentName(c, NewsUpdateJobService.class);
-           JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
-           builder.setOverrideDeadline(15000); // maximum delay
-           builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED); // update only when the user has wifi
-           JobScheduler jobScheduler = c.getSystemService(JobScheduler.class);
-           jobScheduler.schedule(builder.build());
-            Log.d("AppAlarmManagement","Started News Update Service in JOB");
-
-   }
-
-
-   private void startNewsUpdateServiceImmediate(boolean shouldNotify){
-       try {
-           Intent i = new Intent(c, NewsUpdateService.class);
-           i.putExtra("SHOULD_NOTIFY", shouldNotify);
-           Log.d("AppAlarmManagement","Started News Update Service");
-           c.startService(i);
-       }catch (Exception e){
-           e.printStackTrace();
-           Log.d("AppAlarmManagement","Failed to start news update service..");
-       }
-   }
 
 
    public void fetchNextMatchDetailsAndSetAlarm(){

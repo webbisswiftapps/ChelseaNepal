@@ -1,4 +1,4 @@
-package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news.adapter
+package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

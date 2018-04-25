@@ -112,13 +112,6 @@
 
         <!-- <service android:name=".background.services.LiveScoreService" /> -->
 
-        <service android:name=".background.services.NewsUpdateService" />
-        <service
-            android:name=".background.services.NewsUpdateJobService"
-            android:label="NewsUpdateJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE" >
-
-        </service>
 
         <service android:name=".background.services.AppFirebaseMessagingService">
             <intent-filter>
