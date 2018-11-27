@@ -31,14 +31,14 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Con
         nextMatchRef = firebaseDBInstance.getReference("v2/next-match")
         nextMatchRef?.keepSynced(true)
         this.nextMatchListener = listener
-        nextMatchRef?.addValueEventListener(nextMatchListener)
+        nextMatchRef?.addValueEventListener(nextMatchListener!!)
     }
 
     override fun subscribeToLastMatch(listener:ValueEventListener) {
         this.lastMatchRef = firebaseDBInstance.getReference("v2/last-match")
         lastMatchRef?.keepSynced(true)
         this.lastMatchListener = listener
-        lastMatchRef?.addValueEventListener(this.lastMatchListener)
+        lastMatchRef?.addValueEventListener(this.lastMatchListener!!)
     }
 
 
@@ -68,11 +68,11 @@ class HomeModel(private val firebaseDBInstance:FirebaseDatabase,val context: Con
 
     override fun unsubscribeFromFirebase() {
         if(this.nextMatchRef != null && this.nextMatchListener != null){
-            nextMatchRef?.removeEventListener(nextMatchListener)
+            nextMatchRef?.removeEventListener(nextMatchListener!!)
         }
 
         if(this.lastMatchRef != null && this.lastMatchListener != null){
-            lastMatchRef?.removeEventListener(lastMatchListener)
+            lastMatchRef?.removeEventListener(lastMatchListener!!)
         }
 
        /* if(this.eplStatsRef != null && this.eplStatsListener != null){

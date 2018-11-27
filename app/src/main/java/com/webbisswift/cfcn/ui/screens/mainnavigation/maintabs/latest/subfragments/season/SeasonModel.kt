@@ -22,7 +22,7 @@ class SeasonModel(private val firebaseDBInstance: FirebaseDatabase) : SeasonCont
         this.formGuideRef = firebaseDBInstance.getReference("v2/team-form")
         formGuideRef?.keepSynced(true)
         this.formGuideListener = listener
-        formGuideRef?.addValueEventListener(formGuideListener)
+        formGuideRef?.addValueEventListener(formGuideListener!!)
     }
 
 
@@ -31,29 +31,29 @@ class SeasonModel(private val firebaseDBInstance: FirebaseDatabase) : SeasonCont
         this.eplStatsRef = firebaseDBInstance.getReference("v2/leagues/8/standings")
         eplStatsRef?.keepSynced(true)
         this.eplStatsListener = listener
-        eplStatsRef?.addValueEventListener(this.eplStatsListener)
+        eplStatsRef?.addValueEventListener(this.eplStatsListener!!)
     }
 
     override fun subscribeToSquad(listener: ValueEventListener) {
         this.squadRef = firebaseDBInstance.getReference("v2/team/squad")
         squadRef?.keepSynced(true)
         this.sqadListener = listener
-        squadRef?.addValueEventListener(this.sqadListener)
+        squadRef?.addValueEventListener(this.sqadListener!!)
     }
 
     override fun unsubscribeFromFirebase() {
 
 
         if(this.formGuideRef != null && this.formGuideListener != null){
-            formGuideRef?.removeEventListener(formGuideListener)
+            formGuideRef?.removeEventListener(formGuideListener!!)
         }
 
         if(this.eplStatsRef != null && this.eplStatsListener != null){
-            eplStatsRef?.removeEventListener(eplStatsListener)
+            eplStatsRef?.removeEventListener(eplStatsListener!!)
         }
 
         if(this.squadRef != null && this.sqadListener != null){
-            squadRef?.removeEventListener(sqadListener)
+            squadRef?.removeEventListener(sqadListener!!)
         }
 
 

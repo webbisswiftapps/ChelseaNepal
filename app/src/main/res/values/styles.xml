@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccentDark</item>
-        <item name="android:windowBackground">@color/text_white</item>
+        <item name="colorPrimary">@color/v3colorPrimary</item>
+        <item name="colorPrimaryDark">@color/v3colorPrimaryDark</item>
+        <item name="colorAccent">@color/v3colorAccentDark</item>
+        <item name="android:windowBackground">@color/windown_background_light</item>
 
     </style>
 
@@ -20,5 +20,8 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+
+
 
 </resources>

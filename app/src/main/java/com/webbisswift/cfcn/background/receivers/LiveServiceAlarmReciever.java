@@ -12,7 +12,7 @@ import android.util.Log;
 
 import com.webbisswift.cfcn.R;
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper;
-import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity;
+import com.webbisswift.cfcn.v3.ui.screens.mainnav.MainNavigationActivity;
 
 /**
  * Created by apple on 12/9/17.

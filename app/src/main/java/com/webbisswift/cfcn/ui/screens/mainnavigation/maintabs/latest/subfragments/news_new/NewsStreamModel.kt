@@ -21,7 +21,7 @@ class NewsStreamModel(private val firebaseDBInstance: FirebaseDatabase): NewsStr
 
     override fun unsubscribe() {
         if(this.newsStreamRef != null && this.newsStreamListener != null){
-            newsStreamRef?.removeEventListener(newsStreamListener)
+            newsStreamRef?.removeEventListener(newsStreamListener!!)
         }
     }
 }

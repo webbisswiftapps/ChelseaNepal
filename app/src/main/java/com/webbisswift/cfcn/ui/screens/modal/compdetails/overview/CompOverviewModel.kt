@@ -22,23 +22,23 @@ class CompOverviewModel(private val firebaseDBInstance: FirebaseDatabase, val le
         this.matchesRef = firebaseDBInstance.getReference(String.format("/v2/leagues/%d/matches", leagueId))
         matchesRef?.keepSynced(true)
         this.matchesListener = listener
-        matchesRef?.addValueEventListener(this.matchesListener)
+        matchesRef?.addValueEventListener(this.matchesListener!!)
     }
 
     override fun subscribeToStandings(listener: ValueEventListener) {
         this.matchesRef = firebaseDBInstance.getReference(String.format("/v2/leagues/%d/standings", leagueId))
         matchesRef?.keepSynced(true)
         this.matchesListener = listener
-        matchesRef?.addValueEventListener(this.matchesListener)
+        matchesRef?.addValueEventListener(this.matchesListener!!)
     }
 
     override fun unsubscribe() {
         if(this.standingRef != null && this.standingListener != null){
-            standingRef?.removeEventListener(standingListener)
+            standingRef?.removeEventListener(standingListener!!)
         }
 
         if(this.matchesRef != null && this.matchesListener != null){
-            matchesRef?.removeEventListener(matchesListener)
+            matchesRef?.removeEventListener(matchesListener!!)
         }
     }
 }

@@ -14,7 +14,7 @@ import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.base.BaseFragment
 import com.webbisswift.cfcn.base.BasePresenter
 import com.webbisswift.cfcn.domain.model.v2.NewsStreamItem
-import com.webbisswift.cfcn.ui.custom_views.ItemOffsetDecoration
+import com.webbisswift.cfcn.v3.custom_views.ItemOffsetDecoration
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter.AdType
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter.NewsAdapter
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.adapter.NormalizedNewsItem
@@ -50,6 +50,8 @@ class NewsStreamFragment: BaseFragment(), NewsStreamContract.NewsStreamView {
         val firebaseDB = FirebaseDatabase.getInstance()
         val model = NewsStreamModel(firebaseDB)
         this.presenter = NewsStreamPresenter(model)
+
+        newsRefresh?.isEnabled = false
     }
 
 
@@ -91,6 +93,7 @@ class NewsStreamFragment: BaseFragment(), NewsStreamContract.NewsStreamView {
     override fun showLoading() {
 
         newsRefresh?.postDelayed({
+            newsRefresh?.isEnabled = true
             newsRefresh?.isRefreshing = true
         }, 600)
     }
@@ -108,6 +111,7 @@ class NewsStreamFragment: BaseFragment(), NewsStreamContract.NewsStreamView {
     override fun hideLoading() {
         newsRefresh?.postDelayed({
             newsRefresh?.isRefreshing = false
+            newsRefresh?.isEnabled = false
         }, 600)
     }
 

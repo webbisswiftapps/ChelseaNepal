@@ -17,7 +17,7 @@
 
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/injuredPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
 
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/injuryDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         />
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/outSinceTitle"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
         android:layout_marginLeft="10dp"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/outSince"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
         android:layout_toRightOf="@+id/outSinceTitle"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/expectedReturnTitle"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
         android:layout_marginLeft="10dp"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/expectedReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

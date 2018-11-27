@@ -13,7 +13,7 @@
         android:measureAllChildren="false"
         >
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/statsErr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                             android:padding="10dp"
                             >
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="General"
@@ -71,7 +71,7 @@
 
 
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Possession"
@@ -92,7 +92,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homePossesionVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayPosessionVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                             </LinearLayout>
 
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Offsides"
@@ -167,7 +167,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homeOffsideVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayOffSideVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                             </LinearLayout>
 
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Corners"
@@ -242,7 +242,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homeCornersVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -281,7 +281,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayCornersVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -295,7 +295,7 @@
 
                             </LinearLayout>
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Saves"
@@ -316,7 +316,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homeSavesVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -355,7 +355,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awaySavesVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -370,7 +370,7 @@
                             </LinearLayout>
 
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Fouls"
@@ -391,7 +391,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homeFoulsVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -430,7 +430,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayFoulsVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -444,7 +444,7 @@
 
                             </LinearLayout>
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Yellow Cards"
@@ -465,7 +465,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homeYellowCardsVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -504,7 +504,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayYellowCardsVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -519,7 +519,7 @@
                             </LinearLayout>
 
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Red Cards"
@@ -540,7 +540,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homeRedCardsVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -579,7 +579,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayRedCardsVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -595,7 +595,7 @@
 
                             </LinearLayout>
 
-                            <com.webbisswift.cfcn.ui.custom_views.CTextView
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Passing"
@@ -616,7 +616,7 @@
                                 >
 
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/homePassingVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -655,7 +655,7 @@
                                     app:rcProgressColor="@color/b_stats"
                                     app:rcBackgroundColor="@color/light_white" />
 
-                                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
                                     android:id="@+id/awayPassingVal"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -702,7 +702,7 @@
                 android:padding="10dp"
                 >
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Attack"
@@ -719,7 +719,7 @@
                     android:layout_marginTop="3dp"
                     />
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Attacks"
@@ -740,7 +740,7 @@
                     >
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/homeTotalAttacksVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -779,7 +779,7 @@
                         app:rcProgressColor="@color/b_stats"
                         app:rcBackgroundColor="@color/light_white" />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/awayTotalAttacksVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -795,7 +795,7 @@
 
                 </LinearLayout>
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dangerous Attacks"
@@ -816,7 +816,7 @@
                     >
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/homeDangerousAttacksVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -855,7 +855,7 @@
                         app:rcProgressColor="@color/b_stats"
                         app:rcBackgroundColor="@color/light_white" />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/awayDangerousAttacksVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -871,7 +871,7 @@
 
                 </LinearLayout>
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Shots"
@@ -892,7 +892,7 @@
                     >
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/homeTotalShotsVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -931,7 +931,7 @@
                         app:rcProgressColor="@color/b_stats"
                         app:rcBackgroundColor="@color/light_white" />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/awayTotalShotsVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -948,7 +948,7 @@
                 </LinearLayout>
 
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Shots On Goal"
@@ -969,7 +969,7 @@
                     >
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/homeSOGVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -1008,7 +1008,7 @@
                         app:rcProgressColor="@color/b_stats"
                         app:rcBackgroundColor="@color/light_white" />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/awaySOGVal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

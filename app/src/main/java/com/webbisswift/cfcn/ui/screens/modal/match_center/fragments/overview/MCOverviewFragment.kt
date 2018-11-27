@@ -195,7 +195,7 @@ class MCOverviewFragment : BaseFragment(), MCOverviewContract.MCOverviewView{
         weatherCard?.visibility = View.VISIBLE
         condition?.text = c
         temperature?.text = t
-        Glide.with(context).load(url).into(conditionImg)
+        Glide.with(context!!).load(url).into(conditionImg)
     }
 
     override fun hideWeather() {

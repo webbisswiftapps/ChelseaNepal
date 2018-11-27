@@ -15,7 +15,7 @@
         >
 
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_height="match_parent"
@@ -27,7 +27,7 @@
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_height="match_parent"
@@ -39,7 +39,7 @@
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_height="match_parent"
@@ -66,7 +66,7 @@
         >
 
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_height="match_parent"
@@ -79,7 +79,7 @@
             android:background="@drawable/news_element_bg"
             />
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/sm1Goals"
             android:layout_width="0dp"
             android:layout_weight="0.3"
@@ -93,7 +93,7 @@
             android:gravity="center"
             />
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/goalsFor"
             android:layout_width="0dp"
             android:layout_weight="0.3"

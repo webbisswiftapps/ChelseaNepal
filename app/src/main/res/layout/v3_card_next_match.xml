@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nmCardView"
+    android:layout_width="340dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    app:cardUseCompatPadding="true"
+    app:elevation="9dp"
+    android:elevation="9dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginEnd="12dp"
+    android:foreground="?android:selectableItemBackground"
+    >
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginTop="20dp"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="12dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+            <!-- Header Section :: Contains date & Time and Latest / Last Match Label-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/gradient_moon_purple"
+                >
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/nmTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_bc_semi_bold"
+                    android:text="@string/nm_time"
+                    android:textSize="28sp"
+                    android:textColor="@color/text_white"
+                    android:layout_marginStart="@dimen/card_padding"
+                    android:layout_marginLeft="@dimen/card_padding"
+                    android:layout_marginTop="@dimen/card_padding"
+                    android:textAllCaps="true"
+                    />
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/nmDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_bc_medium"
+                    android:text="@string/nm_date"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_white"
+                    android:layout_alignLeft="@id/nmTime"
+                    android:layout_alignStart="@id/nmTime"
+                    android:layout_alignEnd="@id/nmTime"
+                    android:layout_alignRight="@id/nmTime"
+                    android:layout_below="@id/nmTime"
+                    />
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/nmStageRound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_montserrat_medium"
+                    android:text="@string/lm_round_stage"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_white"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="@dimen/card_padding"
+                    android:layout_marginEnd="@dimen/card_padding"
+                    android:layout_alignTop="@id/nmTime"
+                    android:layout_marginTop="6dp"
+                    />
+
+
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/nmCompetition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_montserrat_regular"
+                    android:text="@string/lm_comp"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_white"
+                    android:layout_below="@id/nmStageRound"
+                    android:layout_alignEnd="@id/nmStageRound"
+                    android:layout_alignRight="@id/nmStageRound"
+                    />
+
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/nmStadium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:text="Wembley Stadium"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_white"
+                    android:layout_below="@id/nmCompetition"
+                    android:layout_alignEnd="@id/nmCompetition"
+                    android:layout_alignRight="@id/nmCompetition"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+            <ViewSwitcher
+                android:id="@+id/liveSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <!-- Livescore Section :: Contains Livescore -->
+
+                <RelativeLayout
+                    android:id="@+id/nmLiveScore"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:padding="4dp"
+                    tools:background="@color/text_white">
+
+
+                    <LinearLayout
+                        android:id="@+id/nmScorePane"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <ImageView
+                                android:id="@+id/nmHomeTeamLogo"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/chelsea"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                />
+
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                android:id="@+id/nmHomeTeam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13sp"
+                                app:font_name="@string/font_montserrat_bold"
+                                android:textAllCaps="false"
+                                android:textColor="@color/text_dark_gray"
+                                android:text="Chelsea"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:layout_marginTop="4dp"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/nmHomeScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="40sp"
+                            app:font_name="@string/font_bc_semi_bold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_title_blue_2"
+                            android:text="3"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_gravity="top"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/nmhifen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="40sp"
+                            app:font_name="@string/font_montserrat_semibold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_title_blue_2"
+                            android:text=":"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_gravity="top"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/nmAwayScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="40sp"
+                            app:font_name="@string/font_bc_semi_bold"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_title_blue_2"
+                            android:text="1"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_gravity="top"
+                            />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <ImageView
+                                android:id="@+id/nmAwayTeamLogo"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/atm_logo"
+                                android:layout_gravity="center_vertical|center_horizontal"
+                                />
+
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                android:id="@+id/nmAwayTeam"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:font_name="@string/font_montserrat_bold"
+                                android:textAllCaps="false"
+                                android:textColor="@color/text_dark_gray"
+                                android:text="Everton"
+                                android:textSize="13sp"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:layout_marginTop="4dp"
+                                />
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nmHTScores"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/chelsea_blue_dark"
+                        android:text="0 - 0"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/nmScorePane"
+                        android:layout_marginTop="-24dp"
+                        android:paddingLeft="6dp"
+                        />
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nmPenScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textColor="@color/near_dark_text"
+                        android:text="5 - 1  (Pen)"
+                        android:layout_below="@id/nmHTScores"
+                        android:layout_centerHorizontal="true"
+                        android:visibility="gone"
+                        android:layout_marginTop="-4dp"
+                        />
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nmAggScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textColor="@color/near_dark_text"
+                        android:text="5 - 3  (Agg)"
+                        android:layout_above="@id/nmScorePane"
+                        android:layout_centerHorizontal="true"
+                        android:visibility="gone"
+                        android:layout_marginBottom="-30dp"
+                        />
+
+                </RelativeLayout>
+
+
+
+
+                <!-- Countdown Section :: Contains Countdown -->
+                <RelativeLayout
+                    android:id="@+id/nmCountDownPane"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:visibility="gone"
+                    >
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nmOpponentName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:font_name="@string/font_montserrat_bold"
+                        android:text="@string/opponent_name"
+                        android:textSize="18sp"
+                        android:textColor="@color/text_title_blue_2"
+                        android:layout_marginTop="40dp"
+                        android:textAllCaps="true"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/card_padding"
+                        android:layout_marginRight="@dimen/card_padding"
+                        />
+
+
+
+
+
+
+                    <cn.iwgang.countdownview.CountdownView
+                        android:id="@+id/nmCountDown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/nmOpponentName"
+                        android:layout_marginTop="8dp"
+                        app:isHideTimeBackground="false"
+                        app:isShowDay="true"
+                        app:isShowHour="true"
+                        app:isShowMillisecond="false"
+                        app:isShowMinute="true"
+                        app:isShowSecond="true"
+                        app:isSuffixTextBold="true"
+                        app:isTimeTextBold="true"
+                        app:suffixGravity="center"
+                        app:suffixTextColor="@color/colorPrimary"
+                        app:suffixDay="D"
+                        app:suffixHour="H"
+                        app:suffixMinute="M"
+                        app:suffixSecond="S"
+                        app:suffixTextSize="12sp"
+                        app:timeBgDivisionLineColor="#30FFFFFF"
+                        app:timeBgDivisionLineSize="1dp"
+                        app:timeBgRadius="12dp"
+                        app:timeBgSize="40dp"
+                        app:timeTextColor="#FFFFFF"
+                        app:timeTextSize="22sp"
+                        app:timeBgColor="@color/colorPrimaryDark"
+                        />
+
+
+
+
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+            </ViewSwitcher>
+
+
+
+
+            <!-- TV Guide Section -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_bottom_ribbon"
+                android:layout_marginLeft="@dimen/card_padding"
+                android:layout_marginRight="@dimen/card_padding"
+                app:elevation="4dp"
+                android:padding="@dimen/card_padding"
+                android:orientation="horizontal"
+                >
+
+                <!--<com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/liveOn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_montserrat_regular"
+                    android:text="@string/live_on"
+                    android:textSize="12sp"
+                    android:textColor="@color/light_text"
+                    android:textAllCaps="true"
+                    android:gravity="center"
+                    /> -->
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_tv_ch"
+                    />
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:id="@+id/channels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:font_name="@string/font_bc_medium"
+                    android:text="@string/tv_channels"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_light_gray"
+                    android:gravity="center"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginStart="6dp"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <ImageView
+        android:id="@+id/nmOpponentLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="8dp"
+        android:src="@drawable/spurs_logo"
+        android:background="@drawable/v3_next_match_opponent_logo_bg"
+        android:layout_gravity="center_horizontal"
+        android:elevation="3dp"
+        app:elevation="3dp"
+        android:layout_marginTop="90dp"
+        android:visibility="visible"
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/nmStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/v3_card_tag_bg"
+        android:gravity="center"
+        android:maxLines="2"
+        android:padding="5dp"
+        android:text="@string/status_demo"
+        android:textColor="@color/text_white"
+        android:textSize="15sp"
+        app:elevation="3dp"
+        android:elevation="3dp"
+        android:layout_marginTop="100dp"
+        app:font_name="@string/font_montserrat_bold"
+        android:visibility="gone"
+        />
+
+</FrameLayout>

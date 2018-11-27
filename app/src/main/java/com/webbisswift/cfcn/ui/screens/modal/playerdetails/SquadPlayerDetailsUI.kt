@@ -38,7 +38,7 @@ class SquadPlayerDetailsUI:DialogFragment(){
 
     private fun displayPlayer(){
         playerName?.text = player?.data?.common_name
-        Glide.with(context).load(player?.data?.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
+        Glide.with(context!!).load(player?.data?.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
         playerHeight?.text = player?.data?.height
         playerWeight?.text = player?.data?.weight
         playerBorn?.text = player?.data?.birthdate

@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.AppWidgetTarget
 import com.bumptech.glide.request.transition.Transition
 import android.app.PendingIntent
-import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
+import com.webbisswift.cfcn.v3.ui.screens.mainnav.MainNavigationActivity
 
 
 /**
@@ -52,11 +52,13 @@ class NextMatchWidgetUpdateService: Service(), ValueEventListener{
     }
 
 
-    override fun onCancelled(p0: DatabaseError?) {
+    override fun onCancelled(p0: DatabaseError) {
         Log.d("NextMatchWidget", "Firebase DB Error: "+p0.toString())
     }
 
-    override fun onDataChange(p0: DataSnapshot?) {
+
+
+    override fun onDataChange(p0: DataSnapshot) {
 
         try {
             val nextMatchInfo = p0?.getValue<Match>(Match::class.java)
@@ -96,7 +98,8 @@ class NextMatchWidgetUpdateService: Service(), ValueEventListener{
             view.setTextViewText(R.id.nextMatchTimings, match.start_date+" "+match.start_time)
 
             val appWidgetTarget = object : AppWidgetTarget(this, R.id.awayTeamLogo, view, appWidgetId!!) {
-                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>) {
+
+                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     super.onResourceReady(resource, transition)
                 }
             }

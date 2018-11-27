@@ -30,7 +30,7 @@
             android:padding="@dimen/card_padding"
             >
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/nextMatchTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 />
 
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/nextMatchAwayTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:layout_marginLeft="10dp"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/nextMatchVenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_alignLeft="@+id/nextMatchAwayTeam"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/nextMatchCompetition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
                 android:layout_alignLeft="@+id/nextMatchVenue"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/nextMatchTimings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                 android:drawablePadding="5dp"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/nextmatchTVGuide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                     android:layout_marginTop="10dp"
                     >
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/statusLS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
                         </LinearLayout>
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/homeScoreLS"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -212,7 +212,7 @@
                             android:layout_marginRight="5dp"
                             />
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/divider"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
@@ -226,7 +226,7 @@
                             android:gravity="center"
                             />
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/awayScoreLS"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -262,7 +262,7 @@
 
                     </LinearLayout>
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/nextMatchPenalties"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -322,7 +322,7 @@
 
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
@@ -338,7 +338,7 @@
 
 
 
-            <com.webbisswift.cfcn.ui.custom_views.CButton
+            <com.webbisswift.cfcn.v3.custom_views.CButton
                 android:id="@+id/matchCenterBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

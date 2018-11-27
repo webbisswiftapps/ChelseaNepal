@@ -59,14 +59,14 @@ class MCLiveTickerFragment:BaseFragment(), MCLiveTickerContract.MCLiveTickerView
 
     override fun showTickerNotStarted(error:String) {
         if(rvVS?.currentView?.id == R.id.rv){
-            rvVS.showNext()
+            rvVS?.showNext()
             errorRV.text = error
         }
     }
 
     override fun setComments(comments: List<SMComments.Comment>) {
         if(rvVS?.currentView?.id != R.id.rv){
-            rvVS.showPrevious()
+            rvVS?.showPrevious()
         }
         this.rvAdapter.addComments(comments)
     }

@@ -48,4 +48,53 @@
     <!-- Neutral Colors -->
     <color name="b_stats">#1c4976</color>
     <color name="l_stats">#639fda</color>
+
+
+    <!-- V3 Colors -->
+
+    <!-- Primary Colors -->
+
+
+    <!--<color name="v3colorPrimary">#1a57b1</color>
+    <color name="v3colorPrimaryDark">#174b97</color>
+    <color name="v3colorPrimaryDarkest">#134287</color>
+    <color name="v3colorPrimaryTP">#ef1a57b1</color>
+    <color name="v3colorPrimaryDarkTP">#ef174b97</color>
+    <color name="v3colorPrimaryDarkestTP">#ef134287</color> -->
+
+    <color name="v3colorPrimaryDarkest">#0d1348</color>
+    <color name="v3colorPrimaryDark">#1d2572</color>
+    <color name="v3colorPrimary">#192167</color>
+    <color name="v3colorPrimaryTP">#f5192167</color>
+    <color name="v3colorPrimaryDarkTP">#f51d2572</color>
+    <color name="v3colorPrimaryDarkestTP">#f50d1348</color>
+
+
+
+    <!-- Accent Colors -->
+    <color name="v3colorAccent">#e71a5e</color>
+    <color name="v3colorAccentDark">#cc1552</color>
+    <color name="v3colorAccentDarkest">#a61142</color>
+    <color name="v3colorAccentTP">#f5e71a5e</color>
+    <color name="v3colorAccentDarkTP">#f5cc1552</color>
+    <color name="v3colorAccentDarkestTP">#f5a61142</color>
+
+
+
+    <!-- Other Colors -->
+    <color name="v3tab_inactive_color">#555</color>
+    <color name="windown_background_light">#eaeaea</color>
+    
+    <!-- Text Colors -->
+    <color name="text_title_blue_1">#1e2d87</color>
+    <color name="text_title_blue_2">#26399f</color>
+    <color name="text_black">#000</color>
+    <color name="text_darkest_gray">#333</color>
+    <color name="text_dark_gray">#555</color>
+    <color name="text_light_gray">#999</color>
+    <color name="text_lighter_gray">#aaa</color>
+    <color name="text_lightest_gray">#ccc</color>
+    <!-- Gradient Colors -->
+    <color name="moon_purple_g1">#4e54c8</color>
+    <color name="moon_purple_g2">#8f94fb</color>
 </resources>

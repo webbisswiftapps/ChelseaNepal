@@ -133,6 +133,43 @@ public class Utilities {
         }
     }
 
+    public static String getLocaleFormattedTimeOnly(Date date){
+        try{
+            LocalDate dt = new LocalDate(date);
+
+                SimpleDateFormat df = new SimpleDateFormat("hh:mm a");
+                return df.format(date);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+            if(date != null) {
+                SimpleDateFormat df =  new SimpleDateFormat("hh:mm a");
+                return df.format(date);
+            }else return "";
+        }
+    }
+
+
+    public static String getLocaleFormattedDayOnly(Date date){
+        try{
+            LocalDate dt = new LocalDate(date);
+
+            SimpleDateFormat df = new SimpleDateFormat("EEE");
+            return df.format(date);
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+            if(date != null) {
+                SimpleDateFormat df =  new SimpleDateFormat("EEE");
+                return df.format(date);
+            }else return "";
+        }
+    }
+
     public static String getLocaleFormattedDateOnly(Date date){
         try{
             LocalDate dt = new LocalDate(date);
@@ -147,7 +184,7 @@ public class Utilities {
             }else if(dt.equals(yesterday)) {
                 return "Yesterday";
             }else {
-                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
+                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM");
                 return df.format(date);
             }
 
@@ -155,7 +192,35 @@ public class Utilities {
             e.printStackTrace();
 
             if(date != null) {
-                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
+                SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM");
+                return df.format(date);
+            }else return "";
+        }
+    }
+
+    public static String getLocaleFormattedMonthOnly(Date date){
+        try{
+            LocalDate dt = new LocalDate(date);
+            LocalDate tomorrow = new LocalDate().plusDays(1);
+            LocalDate yesterday = new LocalDate().minusDays(1);
+            LocalDate today = new LocalDate();
+
+            if(dt.equals(today)) {
+                return "Today";
+            }else if(dt.equals(tomorrow)) {
+                return "Tomorrow";
+            }else if(dt.equals(yesterday)) {
+                return "Yesterday";
+            }else {
+                SimpleDateFormat df = new SimpleDateFormat("d MMM");
+                return df.format(date);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+            if(date != null) {
+                SimpleDateFormat df = new SimpleDateFormat("d MMM");
                 return df.format(date);
             }else return "";
         }

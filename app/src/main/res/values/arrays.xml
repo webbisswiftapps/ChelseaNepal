@@ -15,7 +15,6 @@
         <item>Substituted Out</item>
     </string-array>
     <string-array name="countries">
-        <item>Select a Region</item>
         <item>International</item>
         <item>Albania</item>
         <item>Algeria</item>
@@ -63,7 +62,7 @@
         <item>Congo</item>
         <item>Congo DR</item>
         <item>Costa Rica</item>
-        <item>Cote D'Ivoire</item>
+        <item>Cote D\'Ivoire</item>
         <item>Croatia</item>
         <item>Curacao</item>
         <item>Cyprus</item>

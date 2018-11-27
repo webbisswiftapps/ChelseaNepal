@@ -127,7 +127,7 @@ class MCLineupFragment : BaseFragment(), MCLineupContract.MCLineupView{
                 numberV.text = String.format("%d", player.number)
                 nameV.text = player.player_name
                 countryV.text = player.player?.data?.nationality
-                Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
+                Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
                 cheStarting.addView(nV)
             }
         }
@@ -145,7 +145,7 @@ class MCLineupFragment : BaseFragment(), MCLineupContract.MCLineupView{
                 numberV.text = String.format("%d", player.number)
                 nameV.text = player.player_name
                 countryV.text = player.player?.data?.nationality
-                Glide.with(context).load(player?.player?.data?.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
+                Glide.with(context!!).load(player?.player?.data?.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
                 cheSubs.addView(nV)
             }
             cheSubs.visibility = View.VISIBLE
@@ -173,7 +173,7 @@ class MCLineupFragment : BaseFragment(), MCLineupContract.MCLineupView{
                 numberV.text = String.format("%d", player.number)
                 nameV.text = player.player_name
                 countryV.text = player.player?.data?.nationality
-                Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
+                Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
                 oppStarting.addView(nV)
             }
         }
@@ -191,7 +191,7 @@ class MCLineupFragment : BaseFragment(), MCLineupContract.MCLineupView{
                 numberV.text = String.format("%d", player.number)
                 nameV.text = player.player_name
                 countryV.text = player.player?.data?.nationality
-                Glide.with(context).load(player?.player?.data?.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
+                Glide.with(context!!).load(player?.player?.data?.image_path).apply(RequestOptions.circleCropTransform()).into(playerImg)
 
                 oppSubs.addView(nV)
             }

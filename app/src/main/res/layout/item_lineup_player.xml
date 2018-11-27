@@ -8,7 +8,7 @@
 
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/playerNumber"
         android:layout_width="30dp"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:background="@drawable/player_pic_round_bg"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/playerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         />
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/playerCountry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_below="@+id/playerName"
      />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/playerPos"
         android:layout_width="50dp"
         android:layout_height="wrap_content"

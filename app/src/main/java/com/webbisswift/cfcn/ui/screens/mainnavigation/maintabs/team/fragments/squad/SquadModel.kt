@@ -20,22 +20,22 @@ class SquadModel(private val firebaseDBInstance: FirebaseDatabase):SquadContract
         this.teamInfoRef = firebaseDBInstance.getReference("/v2/team/squad")
         teamInfoRef?.keepSynced(true)
         this.teamInfoListener = listener
-        teamInfoRef?.addValueEventListener(this.teamInfoListener)
+        teamInfoRef?.addValueEventListener(this.teamInfoListener!!)
     }
 
     override fun subscribeToCoach(listener: ValueEventListener) {
         this.coachRef = firebaseDBInstance.getReference("/v2/team/coach")
         coachRef?.keepSynced(true)
         this.coachListener = listener
-        coachRef?.addValueEventListener(this.coachListener)
+        coachRef?.addValueEventListener(this.coachListener!!)
     }
 
     override fun unsubscribe() {
         if(this.teamInfoRef != null && this.teamInfoListener != null){
-            teamInfoRef?.removeEventListener(teamInfoListener)
+            teamInfoRef?.removeEventListener(teamInfoListener!!)
         }
         if(this.coachRef != null && this.coachListener != null){
-            teamInfoRef?.removeEventListener(coachListener)
+            teamInfoRef?.removeEventListener(coachListener!!)
         }
     }
 }

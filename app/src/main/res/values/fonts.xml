@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="font_montserrat_black">Montserrat-Black.otf</string>
+    <string name="font_montserrat_extra_bold">Montserrat-ExtraBold.otf</string>
     <string name="font_montserrat_bold">Montserrat-Bold.otf</string>
     <string name="font_montserrat_light">Montserrat-Light.otf</string>
+    <string name="font_montserrat_extra_light">Montserrat-ExtraLight.otf</string>
     <string name="font_montserrat_regular">Montserrat-Regular.otf</string>
+    <string name="font_montserrat_medium">Montserrat-Medium.otf</string>
     <string name="font_montserrat_semibold">Montserrat-SemiBold.otf</string>
+    <string name="font_montserrat_thin">Montserrat-Thin.otf</string>
+
+    <string name="font_bc_black">BarlowCondensed-Black.ttf</string>
+    <string name="font_bc_black_italic">BarlowCondensed-BlackItalic.ttf</string>
+    <string name="font_bc_bold">BarlowCondensed-Bold.ttf</string>
+    <string name="font_bc_bold_italic">BarlowCondensed-BoldItalic.ttf</string>
+    <string name="font_bc_extra_bold">BarlowCondensed-ExtraBold.ttf</string>
+    <string name="font_bc_extra_bold_italic">BarlowCondensed-ExtraBoldItalic.ttf</string>
+    <string name="font_bc_extra_light">BarlowCondensed-ExtraLight.ttf</string>
+    <string name="font_bc_extra_light_italic">BarlowCondensed-ExtraLightItalic.ttf</string>
+    <string name="font_bc_italic">BarlowCondensed-Italic.ttf</string>
+    <string name="font_bc_light">BarlowCondensed-Light.ttf</string>
+    <string name="font_bc_light_italic">BarlowCondensed-LightItalic.ttf</string>
+    <string name="font_bc_medium">BarlowCondensed-Medium.ttf</string>
+    <string name="font_bc_medium_italic">BarlowCondensed-MediumItalic.ttf</string>
+    <string name="font_bc_regular">BarlowCondensed-Regular.ttf</string>
+    <string name="font_bc_semi_bold">BarlowCondensed-SemiBold.ttf</string>
+    <string name="font_bc_semi_bold_italic">BarlowCondensed-SemiBoldItalic.ttf</string>
+    <string name="font_bc_thin">BarlowCondensed-Thin.ttf</string>
+    <string name="font_bc_thin_italic">BarlowCondensed-ThinItalic.ttf</string>
+
 </resources>

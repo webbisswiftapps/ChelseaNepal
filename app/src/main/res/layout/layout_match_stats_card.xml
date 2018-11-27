@@ -21,7 +21,7 @@
             android:padding="10dp"
             >
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/lastMatchTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
                 >
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/homePossesion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                     app:font_name="@string/font_montserrat_semibold"
                     android:textColor="@color/dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -68,7 +68,7 @@
                     app:font_name="@string/font_montserrat_regular"
                     android:textColor="@color/semi_dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/awayPosession"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:layout_marginTop="2dp"
                 android:padding="5dp"
                 >
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/homeSOT"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     app:font_name="@string/font_montserrat_semibold"
                     android:textColor="@color/dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -106,7 +106,7 @@
                     app:font_name="@string/font_montserrat_regular"
                     android:textColor="@color/semi_dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/awaySOT"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                 android:layout_marginTop="2dp"
                 android:padding="5dp"
                 >
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/homeShots"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                     app:font_name="@string/font_montserrat_semibold"
                     android:textColor="@color/dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -144,7 +144,7 @@
                     app:font_name="@string/font_montserrat_regular"
                     android:textColor="@color/semi_dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/awayShots"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -163,7 +163,7 @@
                 android:layout_marginTop="2dp"
                 android:padding="5dp"
                 >
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/homeOffsides"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
                     app:font_name="@string/font_montserrat_semibold"
                     android:textColor="@color/dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -182,7 +182,7 @@
                     app:font_name="@string/font_montserrat_regular"
                     android:textColor="@color/semi_dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/awayOffsides"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
                 android:layout_marginTop="2dp"
                 android:padding="5dp"
                 >
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/homeYellow"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                     app:font_name="@string/font_montserrat_semibold"
                     android:textColor="@color/dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -220,7 +220,7 @@
                     app:font_name="@string/font_montserrat_regular"
                     android:textColor="@color/semi_dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/awayYellow"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
                 android:layout_marginTop="2dp"
                 android:padding="5dp"
                 >
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/homeRed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -249,7 +249,7 @@
                     app:font_name="@string/font_montserrat_semibold"
                     android:textColor="@color/dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -258,7 +258,7 @@
                     app:font_name="@string/font_montserrat_regular"
                     android:textColor="@color/semi_dark_text"
                     />
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/awayRed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

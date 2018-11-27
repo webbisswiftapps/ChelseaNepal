@@ -15,7 +15,7 @@
                 android:id="@+id/newsThumb"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/west_stand"
                 />
 
@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="280dp">
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/newsAuthor"
                         android:layout_width="wrap_content"
                         android:minWidth="120dp"
@@ -47,7 +47,7 @@
                         android:gravity="center"
                         />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/newsDateTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                         android:layout_marginBottom="22dp"
                         />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/newsTitle"
                         android:layout_width="match_parent"
                         android:layout_height="75dp"

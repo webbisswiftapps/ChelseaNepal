@@ -10,9 +10,9 @@ import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.matches.MatchesFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.overview.HomeFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.season.SeasonFragment
-import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.news_new.NewsStreamFragment
 import com.webbisswift.cfcn.ui.screens.modal.match_center.MatchCenterUI
+import com.webbisswift.cfcn.v3.ui.screens.mainnav.MainNavigationActivity
 import kotlinx.android.synthetic.main.fragment_latest.*
 
 /**

@@ -1,5 +1,6 @@
 package com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,13 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.webbisswift.cfcn.R
-import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 import com.webbisswift.cfcn.ui.screens.modal.AboutUsUI
 import com.webbisswift.cfcn.ui.screens.modal.admin.AdminActivity
 import com.webbisswift.cfcn.ui.screens.modal.settings.SettingsActivity
 import kotlinx.android.synthetic.main.more_list_fragment.*
 import android.content.ActivityNotFoundException
+import android.content.DialogInterface
 import android.net.Uri
+import android.text.InputType
+import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
+import android.widget.LinearLayout
+import android.widget.EditText
+import com.webbisswift.cfcn.v3.ui.screens.mainnav.MainNavigationActivity
 
 
 /**
@@ -22,14 +28,18 @@ import android.net.Uri
 
 class MoreListFragment:Fragment(){
 
+    private lateinit var settings:SettingsHelper
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.more_fragment, null, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        settings = SettingsHelper(context!!)
         initView()
     }
+
 
     private fun initView(){
         settingsLink.setOnClickListener{ goToSettings()}
@@ -48,6 +58,8 @@ class MoreListFragment:Fragment(){
             }
 
         }
+
+
         rateApp.setOnClickListener{
 
             val uri = Uri.parse("market://details?id=" + context?.getPackageName())
@@ -65,18 +77,50 @@ class MoreListFragment:Fragment(){
             }
 
         }
+
         aboutUs.setOnClickListener { toAboutUs() }
         disclaimer.setOnClickListener { (activity as MainNavigationActivity).showDisclaimer() }
         aboutUs.setOnLongClickListener { startAdminActivity() }
     }
+
+
+   /* override fun onResume() {
+        super.onResume()
+
+        /* if current country is Nepal, display CFCN Events Centre */
+        val country = settings.getUserCurrentCountry()
+        if(country.equals("Nepal", true)){
+           cfcnEventsCentre.visibility = View.VISIBLE
+
+        }else cfcnEventsCentre.visibility = View.GONE
+    }*/
 
     /**
      * Other Methods
      */
 
     private fun startAdminActivity():Boolean{
-        val i = Intent(context, AdminActivity::class.java)
-        startActivity(i)
+
+        val dialogB = AlertDialog.Builder(context!!)
+        dialogB.setTitle("Verify")
+        dialogB.setMessage("Please verify Admin Password")
+        val input = EditText(context)
+        input.inputType = InputType.TYPE_TEXT_VARIATION_PASSWORD
+        val lp = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT)
+        input.layoutParams = lp
+        dialogB.setView(input)
+
+        dialogB.setPositiveButton("Continue", DialogInterface.OnClickListener { dialogInterface, i ->
+            val password = input.text.toString()
+            if(password.contentEquals("1cfcn2admin3p")){
+                val i = Intent(context, AdminActivity::class.java)
+                startActivity(i)
+            }
+        })
+
+        dialogB.create().show()
         return true
     }
 
@@ -91,5 +135,6 @@ class MoreListFragment:Fragment(){
         startActivity(i)
         return true
     }
+
 
 }

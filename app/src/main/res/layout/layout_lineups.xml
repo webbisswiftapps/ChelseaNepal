@@ -12,7 +12,7 @@
         android:measureAllChildren="false"
         >
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/lineupsErr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                         android:padding="10dp"
                         >
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/cheFormationTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                             />
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/cheFormation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/cheTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                         </LinearLayout>
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/cheSubsTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
                         >
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/oppFormationTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -238,7 +238,7 @@
                             />
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/oppFormation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -253,7 +253,7 @@
                             />
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/oppTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -289,7 +289,7 @@
                             />
 
 
-                        <com.webbisswift.cfcn.ui.custom_views.CTextView
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
                             android:id="@+id/oppSubsTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

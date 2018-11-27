@@ -27,7 +27,7 @@
             android:background="@drawable/player_pic_round_bg"
             />
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/playerName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             />
 
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/playerTeam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
 
     </RelativeLayout>
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/penaltiesCount"
         android:layout_width="0dp"
         android:layout_weight="0.15"
@@ -78,7 +78,7 @@
         android:gravity="center"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/goalsCount"
         android:layout_width="0dp"
         android:layout_weight="0.15"

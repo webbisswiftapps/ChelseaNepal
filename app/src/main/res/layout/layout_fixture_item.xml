@@ -12,7 +12,7 @@
 
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/fixturesCompetition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         />
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/fixturesRound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/fixturesHomeTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
         </LinearLayout>
 
 
-        <com.webbisswift.cfcn.ui.custom_views.CTextView
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
             android:id="@+id/hifen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/fixturesAwayTeam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
     </LinearLayout>
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/fixturesDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

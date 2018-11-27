@@ -96,8 +96,8 @@ class CompetitionOverviewFragment : BaseFragment(), CompOverviewContract.CompOve
         fixturesAwayTeam.text = match.visitorTeam.data.name
         fixturesDate.text = Utilities.getLocaleFormattedDate(match.time.starting_at.startDateTime)
 
-        Glide.with(context).load(match.localTeam.data.logo_path).into(homeTeamLogoF)
-        Glide.with(context).load(match.visitorTeam.data.logo_path).into(awayTeamLogoF)
+        Glide.with(context!!).load(match.localTeam.data.logo_path).into(homeTeamLogoF)
+        Glide.with(context!!).load(match.visitorTeam.data.logo_path).into(awayTeamLogoF)
         leagueNextMatchCard.visibility = View.VISIBLE
 
     }
@@ -120,8 +120,8 @@ class CompetitionOverviewFragment : BaseFragment(), CompOverviewContract.CompOve
 
 
 
-        Glide.with(context).load(match.localTeam.data.logo_path).into(homeTeamLogoR)
-        Glide.with(context).load(match.visitorTeam.data.logo_path).into(awayTeamLogoR)
+        Glide.with(context!!).load(match.localTeam.data.logo_path).into(homeTeamLogoR)
+        Glide.with(context!!).load(match.visitorTeam.data.logo_path).into(awayTeamLogoR)
 
         leagueLastMatchCard.visibility = View.VISIBLE
 

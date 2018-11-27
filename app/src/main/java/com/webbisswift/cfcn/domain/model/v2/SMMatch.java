@@ -39,8 +39,6 @@ public class SMMatch {
     SMAggregate aggregate;
 
 
-
-
     boolean isAd = false;
 
     public boolean isAd() {
@@ -307,6 +305,12 @@ public class SMMatch {
             return league.data.name+", Matchday "+round.data.name;
         }
     }
+
+    public String getCompetitionName(){
+        return league.data.name;
+    }
+
+
 
     public String getRoundDesc(){
         if(league.data.is_cup){

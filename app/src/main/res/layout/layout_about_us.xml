@@ -56,7 +56,7 @@
                 app:contentInsetEnd="0dp"
                 >
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:font_name="@string/font_montserrat_semibold"
@@ -116,7 +116,7 @@
                     android:padding="12dp"
                     >
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/groupTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                         />
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/groupDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                         />
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/joinGroupLink"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                     android:padding="12dp"
                     >
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
 
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                         android:layout_marginLeft="10dp"
                         />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/team"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -242,7 +242,7 @@
                         android:layout_marginLeft="10dp"
                         />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/fbLink"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -256,7 +256,7 @@
                         />
 
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/moreAppsLink"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

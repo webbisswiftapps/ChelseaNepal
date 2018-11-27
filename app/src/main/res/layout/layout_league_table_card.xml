@@ -33,7 +33,7 @@
             android:padding="12dp"
             >
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/tableTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                 >
             </LinearLayout>
 
-            <com.webbisswift.cfcn.ui.custom_views.CButton
+            <com.webbisswift.cfcn.v3.custom_views.CButton
                 android:id="@+id/statsStandingsPLBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

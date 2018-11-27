@@ -64,11 +64,10 @@ class CompetitionDetailsUI : AppCompatActivity(){
     private fun loadCoverage(){
         val ref = FirebaseDatabase.getInstance().getReference("v2/leagues/"+leagueId+"/coverage")
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onCancelled(p0: DatabaseError?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            override fun onCancelled(p0: DatabaseError) {
             }
 
-            override fun onDataChange(snapshot: DataSnapshot?) {
+            override fun onDataChange(snapshot: DataSnapshot) {
                 val coverage =  snapshot?.getValue<SMLeagueCoverage>(SMLeagueCoverage::class.java)
                 setupTabs(coverage)
             }

@@ -18,7 +18,7 @@
 
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/transferPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
 
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/transferSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         android:background="@drawable/colorful_gradient"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/transferDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
         android:layout_toLeftOf="@+id/toImg"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/dest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
         />
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
 
 
 
-    <!--<com.webbisswift.cfcn.ui.custom_views.CTextView
+    <!--<com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/transferDateTitle"
         android:layout_width="130dp"
         android:layout_height="wrap_content"

@@ -49,7 +49,7 @@
             android:padding="8dp"
             >
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/playerName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="10dp"
                 >
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
@@ -87,7 +87,7 @@
                     android:minWidth="100dp"
                     />
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/playerCountry"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
@@ -117,7 +117,7 @@
             android:layout_marginTop="10dp"
             >
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -128,7 +128,7 @@
                 android:minWidth="100dp"
                 />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:id="@+id/playerBorn"
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
@@ -157,7 +157,7 @@
                 android:layout_marginTop="10dp"
                 >
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/playerHeightTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                     android:minWidth="100dp"
                     />
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/playerHeight"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
@@ -198,7 +198,7 @@
                 android:layout_marginTop="10dp"
                 >
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/playerWeightTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
                     android:minWidth="100dp"
                     />
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/playerWeight"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
@@ -238,7 +238,7 @@
                 android:layout_marginTop="10dp"
                 >
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
@@ -249,7 +249,7 @@
                     android:minWidth="100dp"
                     />
 
-                <com.webbisswift.cfcn.ui.custom_views.CTextView
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/playerPosition"
                     android:layout_width="0dp"
                     android:layout_weight="0.5"

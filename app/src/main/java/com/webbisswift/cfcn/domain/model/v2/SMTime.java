@@ -63,6 +63,10 @@ public class SMTime {
         return (status.contentEquals("FT_PEN") || status.contentEquals("PEN_LIVE"));
     }
 
+    public boolean isAfterHalfTime(){
+        return (status.contentEquals("HT") || getMinute() >= 45);
+    }
+
     public boolean isFinished(){
         return status_finished.get(status);
     }

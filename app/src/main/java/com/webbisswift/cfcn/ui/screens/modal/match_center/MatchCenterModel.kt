@@ -23,12 +23,12 @@ class MatchCenterModel(private val endpoint: String, private val firebaseDBInsta
         this.liveMatchRef = firebaseDBInstance.getReference("/v2/"+endpoint)
         liveMatchRef?.keepSynced(true)
         this.liveMatchListener = listener
-        liveMatchRef?.addValueEventListener(this.liveMatchListener)
+        liveMatchRef?.addValueEventListener(this.liveMatchListener!!)
     }
 
     fun unsubscribeFromNextMatch() {
         if(this.liveMatchRef != null && this.liveMatchListener != null){
-            liveMatchRef?.removeEventListener(liveMatchListener)
+            liveMatchRef?.removeEventListener(liveMatchListener!!)
         }
 
     }

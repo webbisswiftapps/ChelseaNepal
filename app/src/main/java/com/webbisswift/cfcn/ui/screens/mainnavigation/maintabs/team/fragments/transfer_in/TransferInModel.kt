@@ -17,12 +17,12 @@ class TransferInModel(private val firebaseDBInstance: FirebaseDatabase): Transfe
         this.teamInfoRef = firebaseDBInstance.getReference("/v2/team/transfers/in")
         teamInfoRef?.keepSynced(true)
         this.teamInfoListener = listener
-        teamInfoRef?.addValueEventListener(this.teamInfoListener)
+        teamInfoRef?.addValueEventListener(this.teamInfoListener!!)
     }
 
     override fun unsubscribeFromTxIn()  {
         if(this.teamInfoRef != null && this.teamInfoListener != null){
-            teamInfoRef?.removeEventListener(teamInfoListener)
+            teamInfoRef?.removeEventListener(teamInfoListener!!)
         }
 
     }

@@ -22,13 +22,13 @@ class LeaderboardModel(private val firebaseDBInstance: FirebaseDatabase, val lea
         this.matchesRef = firebaseDBInstance.getReference(String.format("/v2/leagues/%d/charts", leagueId))
         matchesRef?.keepSynced(true)
         this.matchesListener = listener
-        matchesRef?.addValueEventListener(this.matchesListener)
+        matchesRef?.addValueEventListener(this.matchesListener!!)
     }
 
     override fun unsubscribe() {
 
         if(this.matchesRef != null && this.matchesListener != null){
-            matchesRef?.removeEventListener(matchesListener)
+            matchesRef?.removeEventListener(matchesListener!!)
         }
     }
 }

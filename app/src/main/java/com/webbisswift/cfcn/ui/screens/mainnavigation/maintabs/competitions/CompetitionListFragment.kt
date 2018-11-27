@@ -66,13 +66,13 @@ class CompetitionListFragment : Fragment(), CompetitionsAdapter.CompetitionClick
             showCompetitionLoading()
             val ref = FirebaseDatabase.getInstance().getReference("v2/leagues/playing")
             ref.addListenerForSingleValueEvent(object:ValueEventListener{
-                override fun onCancelled(p0: DatabaseError?) {
+                override fun onCancelled(p0: DatabaseError) {
                     hideCompetitionLoading()
                 }
 
-                override fun onDataChange(snapshot: DataSnapshot?) {
+                override fun onDataChange(snapshot: DataSnapshot) {
                     val t = object : GenericTypeIndicator<List<@kotlin.jvm.JvmSuppressWildcards SMPlayingLeague>>() {}
-                    val leagues: List<SMPlayingLeague>? = snapshot?.getValue(t)
+                    val leagues: List<SMPlayingLeague>? = snapshot.getValue(t)
                     showLeagues(leagues)
 
                 }

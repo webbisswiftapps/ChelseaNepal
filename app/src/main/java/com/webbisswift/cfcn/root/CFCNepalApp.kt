@@ -8,6 +8,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.database.FirebaseDatabase
+import com.kobakei.ratethisapp.RateThisApp
 import com.twitter.sdk.android.core.Twitter
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.background.AppAlarmManagement
@@ -30,6 +31,11 @@ class CFCNepalApp:MultiDexApplication(){
         JodaTimeAndroid.init(this)
         MobileAds.initialize(this, resources.getString(R.string.app_id))
         AppAlarmManagement(this).fetchNextMatchDetailsAndSetAlarm()
+
+        RateThisApp.onCreate(this)
+        // Custom condition: 3 days and 5 launches
+        val config = RateThisApp.Config(3, 5)
+        RateThisApp.init(config)
     }
 
     val requestQueue: RequestQueue? = null

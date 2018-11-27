@@ -17,12 +17,12 @@ class TransferOutModel(private val firebaseDBInstance: FirebaseDatabase): Transf
         this.teamInfoRef = firebaseDBInstance.getReference("/v2/team/transfers/out")
         teamInfoRef?.keepSynced(true)
         this.teamInfoListener = listener
-        teamInfoRef?.addValueEventListener(this.teamInfoListener)
+        teamInfoRef?.addValueEventListener(this.teamInfoListener!!)
     }
 
     override fun unsubscribeFromTxOut()  {
         if(this.teamInfoRef != null && this.teamInfoListener != null){
-            teamInfoRef?.removeEventListener(teamInfoListener)
+            teamInfoRef?.removeEventListener(teamInfoListener!!)
         }
 
     }

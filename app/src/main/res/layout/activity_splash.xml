@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screens.splash.SplashActivity">
+    tools:context=".v3.ui.screens.splash.SplashActivity">
 
 
    <ImageView
@@ -16,21 +16,21 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/toolbar_tp" />
+        android:background="@drawable/v3_bg_gradient_tp" />
 
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:src="@drawable/lion_logo_ony"
+        android:src="@drawable/v3_app_logo_cfcn"
         />
 
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/copyrightText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

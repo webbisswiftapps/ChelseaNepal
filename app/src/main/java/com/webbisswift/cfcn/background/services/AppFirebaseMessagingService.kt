@@ -19,10 +19,11 @@ import android.widget.RemoteViews
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.NotificationTarget
 import com.webbisswift.cfcn.R
-import com.webbisswift.cfcn.ui.screens.mainnavigation.MainNavigationActivity
 import com.webbisswift.cfcn.ui.widgets.NextMatchWidget
 import com.webbisswift.cfcn.utils.NotificationUtils
+import com.webbisswift.cfcn.v3.ui.screens.mainnav.MainNavigationActivity
 import org.jetbrains.anko.runOnUiThread
+
 
 
 /**
@@ -38,8 +39,12 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
         val from = message?.from
         if(from?.contentEquals("/topics/NextMatchTopic")!!) {
             parseNextMatchUpdatePush(message.data)
-        }else if(from?.contentEquals("/topics/NewsUpdatePingv2")){
+        }else if(from.contentEquals("/topics/NewsUpdatePingv2")){
             readNewsNotification(message.data)
+        }else if(from.contentEquals("/topics/v2CFCNEventsNotifications")){
+            if(message.notification != null) {
+                showCFCNEventNotification(message.notification!!)
+            }
         }
     }
 
@@ -132,6 +137,34 @@ class AppFirebaseMessagingService : FirebaseMessagingService(){
 
     }
 
+
+    fun showCFCNEventNotification(message: RemoteMessage.Notification){
+
+
+
+        val notificationIntent = Intent(applicationContext, MainNavigationActivity::class.java)
+        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        val pendingIntent = PendingIntent.getActivity(this,  8080, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val text = message.body
+
+
+        val builder = NotificationCompat.Builder(this, NotificationUtils.match_notification_channel)
+                .setSmallIcon(R.drawable.ic_stat_notification)
+                .setContentTitle(message.title)
+                .setContentText(text)
+                .setStyle(NotificationCompat.BigTextStyle().bigText(text))
+                .setContentIntent(pendingIntent)
+                .setSound(Uri.parse("android.resource://" + this.getPackageName() + "/" + R.raw.news_updated))
+                .setLights(Color.BLUE, 3000, 3000)
+                .setAutoCancel(true)
+
+
+        val notification = builder.build()
+        val notficationMGR = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        notficationMGR.notify(8080, notification)
+    }
 
 
     fun updateNextMatchWidget(){

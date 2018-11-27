@@ -23,7 +23,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/light_white" />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Matches"
@@ -50,7 +50,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/light_white" />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Goals Scored"
@@ -76,7 +76,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/light_white" />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Goals Conceded"
@@ -101,7 +101,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@color/light_white" />
 
-            <com.webbisswift.cfcn.ui.custom_views.CTextView
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="OTHER"

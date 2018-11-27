@@ -94,14 +94,14 @@ class ClubTrophiesFragment: Fragment(){
         val ref = FirebaseDatabase.getInstance().getReference("v2/trophies")
         ref.keepSynced(true)
         ref.addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onCancelled(p0: DatabaseError?) {
+            override fun onCancelled(p0: DatabaseError) {
                 uefaRankingCard?.visibility = View.GONE
                 showLoadError()
             }
 
-            override fun onDataChange(snapshot: DataSnapshot?) {
+            override fun onDataChange(snapshot: DataSnapshot) {
                 try {
-                    val ranking: SMClubTrophies? = snapshot?.getValue<SMClubTrophies>(SMClubTrophies::class.java)
+                    val ranking: SMClubTrophies? = snapshot.getValue<SMClubTrophies>(SMClubTrophies::class.java)
                     presentUefaRanking(ranking)
                 }catch (e:Exception){
                     e.printStackTrace()

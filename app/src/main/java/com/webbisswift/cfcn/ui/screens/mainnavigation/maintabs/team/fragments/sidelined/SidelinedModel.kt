@@ -17,12 +17,12 @@ class SidelinedModel(private val firebaseDBInstance: FirebaseDatabase):Sidelined
         this.teamInfoRef = firebaseDBInstance.getReference("/v2/team/sidelined")
         teamInfoRef?.keepSynced(true)
         this.teamInfoListener = listener
-        teamInfoRef?.addValueEventListener(this.teamInfoListener)
+        teamInfoRef?.addValueEventListener(this.teamInfoListener!!)
     }
 
     override fun unsubscribeFromSidelined() {
         if(this.teamInfoRef != null && this.teamInfoListener != null){
-            teamInfoRef?.removeEventListener(teamInfoListener)
+            teamInfoRef?.removeEventListener(teamInfoListener!!)
         }
 
     }

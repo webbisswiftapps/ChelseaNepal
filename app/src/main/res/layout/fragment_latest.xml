@@ -1,11 +1,9 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.screens.mainnavigation.maintabs.latest.MainActivity"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -19,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/frag_toolbar_height"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
-            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@android:color/transparent"
             android:fitsSystemWindows="true">
 
@@ -69,7 +66,7 @@
                         android:layout_centerVertical="true"
                         />
 
-                    <com.webbisswift.cfcn.ui.custom_views.CTextView
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
                         android:id="@+id/appTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

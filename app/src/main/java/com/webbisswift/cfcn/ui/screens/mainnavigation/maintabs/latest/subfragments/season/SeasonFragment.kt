@@ -149,31 +149,31 @@ class SeasonFragment : BaseFragment(), SeasonContract.SeasonView{
     }
 
     override fun setTopScorer(player: SMSquad.SMSquadItem) {
-        Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topScorerImg)
+        Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topScorerImg)
         topScorerName.text = player.player.data.common_name
         tsGoals.text = String.format("%d", player.goals)
     }
 
     override fun setTopAssister(player: SMSquad.SMSquadItem) {
-        Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topAssistsImg)
+        Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topAssistsImg)
         topAssistName.text = player.player.data.common_name
         tsAssists.text = String.format("%d", player.assists)
     }
 
     override fun setTopYC(player: SMSquad.SMSquadItem) {
-        Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topYCImg)
+        Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topYCImg)
         topYCPlayer.text = player.player.data.common_name
         tsYC.text = String.format("%d", player.yellowcards)
     }
 
     override fun setTopAppearance(player: SMSquad.SMSquadItem) {
-        Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topAppImg)
+        Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topAppImg)
         topAppPlayer.text = player.player.data.common_name
         tsApp.text = String.format("%d", player.appearences)
     }
 
     override fun setTopRC(player: SMSquad.SMSquadItem) {
-        Glide.with(context).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topRCImg)
+        Glide.with(context!!).load(player.player.data.image_path).apply(RequestOptions.circleCropTransform()).into(topRCImg)
         topRCPlayer.text = player.player.data.common_name
         tsRC.text = String.format("%d", player.redcards)
     }

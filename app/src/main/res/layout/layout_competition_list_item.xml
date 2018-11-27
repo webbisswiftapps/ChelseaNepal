@@ -20,7 +20,7 @@
         android:padding="3dp"
         />
 
-    <com.webbisswift.cfcn.ui.custom_views.CTextView
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/compName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
