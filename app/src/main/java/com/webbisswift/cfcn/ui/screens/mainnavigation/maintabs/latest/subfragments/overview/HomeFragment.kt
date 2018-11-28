@@ -52,7 +52,6 @@ class HomeFragment:BaseFragment(), HomeContract.HomeView, SharedPreferences.OnSh
      * */
 
     override fun initView() {
-        blinkAnimation = AnimationUtils.loadAnimation(context, R.anim.blink_tween)
         val model = HomeModel(FirebaseDatabase.getInstance(),  context!!)
         this.presenter = HomePresenter(model)
         settings = SettingsHelper(context!!)

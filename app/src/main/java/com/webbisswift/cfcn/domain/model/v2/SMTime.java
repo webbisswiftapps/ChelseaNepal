@@ -24,6 +24,7 @@ public class SMTime {
     int minute;
     int injury_time;
     int extra_minute;
+    int added_time;
     MatchTime starting_at;
 
 
@@ -41,13 +42,16 @@ public class SMTime {
     }
 
     public boolean isLive(){
-        return status_live.get(status);
+        if(status_live.containsKey(status))
+            return status_live.get(status);
+        else return false;
     }
 
     public String getStatusDescription(){
+
         String desc = statuses.get(status);
         if(desc== null)
-            desc = "";
+            desc = "--";
 
         if(isLive()){
             desc += " "+minute;
@@ -199,7 +203,7 @@ public class SMTime {
     static {
         status_live.put("NS", false);
         status_live.put("LIVE",true);
-        status_live.put("HT", true);
+        status_live.put("HT", false);
         status_live.put("FT", false);
         status_live.put("ET", true);
         status_live.put("PEN_LIVE", true);

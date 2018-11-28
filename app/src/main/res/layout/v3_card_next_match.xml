@@ -267,7 +267,7 @@
                         android:text="0 - 0"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@id/nmScorePane"
-                        android:layout_marginTop="-24dp"
+                        android:layout_marginTop="-36dp"
                         android:paddingLeft="6dp"
                         />
                     <com.webbisswift.cfcn.v3.custom_views.CTextView
@@ -280,7 +280,7 @@
                         android:text="5 - 1  (Pen)"
                         android:layout_below="@id/nmHTScores"
                         android:layout_centerHorizontal="true"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_marginTop="-4dp"
                         />
 

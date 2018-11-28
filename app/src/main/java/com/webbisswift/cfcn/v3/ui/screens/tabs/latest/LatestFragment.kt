@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.webbisswift.cfcn.R
@@ -27,6 +29,8 @@ class LatestFragment : Fragment(){
 
     var nextMatchRef:DatabaseReference?  = null
     var lastMatchRef:DatabaseReference?  = null
+    lateinit var blinkAnimation: Animation
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.v3_layout_latest, null)
@@ -35,13 +39,18 @@ class LatestFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initViews()
         setListeners()
         subscribe()
     }
 
 
+    fun initViews(){
+        blinkAnimation = AnimationUtils.loadAnimation(context, R.anim.blink_tween)
+    }
 
     fun setListeners(){
+
         app_bar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             if (verticalOffset == -toolbar_layout.height + toolbar.height) {
                 //toolbar is collapsed here
@@ -65,7 +74,7 @@ class LatestFragment : Fragment(){
 
 
     fun subscribe(){
-        nextMatchRef = FirebaseDatabase.getInstance().getReference("v3/next-match")
+        nextMatchRef = FirebaseDatabase.getInstance().getReference("v2/next-match")
         nextMatchRef?.keepSynced(true)
         val listener = object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
@@ -108,7 +117,7 @@ class LatestFragment : Fragment(){
                 val logo = match.visitorTeam.data.logo_path
 
                 nmOpponentName.text = name
-                Glide.with(context!!).load(logo)
+                Glide.with(context!!).load(logo).into(nmOpponentLogo)
             }else{
                 val name = match.localTeam.data.name
                 val logo = match.localTeam.data.logo_path
@@ -146,8 +155,16 @@ class LatestFragment : Fragment(){
                     nmHomeScore.text = match.scores.localteam_score
                     nmAwayScore.text = match.scores.visitorteam_score
 
-
                     nmStatus.text = match.statusDesc
+
+                    if(match.time.isLive){
+                        nmStatus?.setBackgroundDrawable(resources.getDrawable(R.drawable.v3_card_live_bg))
+                        nmStatus?.startAnimation(blinkAnimation)
+                    }else{
+                        nmStatus?.setBackgroundDrawable(resources.getDrawable(R.drawable.v3_card_tag_bg))
+                        nmStatus?.clearAnimation()
+                    }
+
 
                     if(match.time.isAfterHalfTime){
                         nmHTScores.text = match.scores.ht_score
@@ -157,16 +174,16 @@ class LatestFragment : Fragment(){
                     if(match.time.showPenalties()){
 
                         nmPenScore.visibility = View.VISIBLE
-                        nmPenScore.text = match.scores.localteam_pen_score+" - "+match.scores.visitorteam_pen_score
+                        nmPenScore.text = match.scores.localteam_pen_score+" - "+match.scores.visitorteam_pen_score +" (PEN) "
                     }else nmPenScore.visibility = View.GONE
 
                     if(match.aggregate != null){
                         nmAggScore.visibility = View.VISIBLE
 
                         if(match.aggregate.data.localteam_id == match.localteam_id){
-                            nmAggScore.text = match.aggregate.data.result
+                            nmAggScore.text = match.aggregate.data.result+" (agg)"
                         }else{
-                            nmAggScore.text = match.aggregate.data.result.reversed()
+                            nmAggScore.text = match.aggregate.data.result.reversed()+" (agg)"
                         }
 
                     }else nmAggScore.visibility = View.GONE
@@ -238,7 +255,6 @@ class LatestFragment : Fragment(){
             lmStatus.text = match.statusDesc
 
             if(match.time.showPenalties()){
-
                 lmPenScore.visibility = View.VISIBLE
                 lmPenScore.text = match.scores.localteam_pen_score+" - "+match.scores.visitorteam_pen_score
             }else lmPenScore.visibility = View.GONE

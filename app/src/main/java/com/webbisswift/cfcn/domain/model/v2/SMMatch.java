@@ -322,15 +322,7 @@ public class SMMatch {
 
     public String getStatusDesc(){
         StringBuilder status = new StringBuilder();
-        if(time.showPenalties()){
-            status.append(scores.localteam_pen_score+" : "+scores.visitorteam_pen_score +" PEN");
-
-        } else status.append(time.getStatusDescription());
-
-        if(aggregate != null && !aggregate.data.getResult().isEmpty()){
-            status.append(" (Agg: "+aggregate.data.result+")");
-        }
-
+        status.append(time.getStatusDescription());
         return status.toString();
     }
 
