@@ -11,7 +11,7 @@ import com.google.firebase.database.*
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.v2.SMPlayingLeague
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.competitions.adapter.CompetitionsAdapter
-import com.webbisswift.cfcn.ui.screens.modal.compdetails.CompetitionDetailsUI
+import com.webbisswift.cfcn.v3.ui.screens.modal_screens.compdetails.CompetitionDetailsUI
 import kotlinx.android.synthetic.main.layout_competitions_list.*
 
 

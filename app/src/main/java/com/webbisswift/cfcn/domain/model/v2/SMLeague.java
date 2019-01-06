@@ -6,6 +6,54 @@ package com.webbisswift.cfcn.domain.model.v2;
 
 public class SMLeague {
 
+    public enum Leagues{
+        PREMIER_LEAGUE (8, 1),
+        CHAMPIONS_LEAGUE(2, 2),
+        EUROPA_LEAGUE(5,3),
+        COMMUNITY_SHIELD(23, 7),
+        FA_CUP(24, 4),
+        LEAGUE_CUP(27, 5),
+        CLUB_FRIENDLIES(1101, 9),
+        ICC_CUP(1121, 8),
+        UEFA_SUPER_CUP(1328, 6);
+
+        private final int code;
+        private final int order;
+
+         Leagues(int code, int order){
+            this.code = code;
+            this.order = order;
+        }
+
+
+        public int getLeagueCode(){
+             return this.code;
+        }
+
+        public int getOrder(){
+             return this.order;
+        }
+    }
+
+
+
+    public static int getOrderById(int id){
+
+        if(id == Leagues.PREMIER_LEAGUE.code) return  Leagues.PREMIER_LEAGUE.order;
+        else if(id == Leagues.CHAMPIONS_LEAGUE.code) return  Leagues.CHAMPIONS_LEAGUE.order;
+        else if(id == Leagues.EUROPA_LEAGUE.code) return Leagues.EUROPA_LEAGUE.order;
+        else if(id == Leagues.COMMUNITY_SHIELD.code) return  Leagues.COMMUNITY_SHIELD.order;
+        else if(id == Leagues.FA_CUP.code) return  Leagues.FA_CUP.order;
+        else if(id == Leagues.LEAGUE_CUP.code) return  Leagues.LEAGUE_CUP.order;
+        else if(id == Leagues.CLUB_FRIENDLIES.code) return  Leagues.CLUB_FRIENDLIES.order;
+        else if(id == Leagues.ICC_CUP.code) return  Leagues.ICC_CUP.order;
+        else if(id == Leagues.UEFA_SUPER_CUP.code) return  Leagues.UEFA_SUPER_CUP.order;
+        else return 9999;
+    }
+
+
+
+
     public SMLeague() {
     }
 

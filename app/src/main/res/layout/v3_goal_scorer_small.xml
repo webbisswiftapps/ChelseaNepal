@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+
+    <ImageView
+        android:id="@+id/eventTypeImg"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:src="@drawable/goal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/eventTime"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="45+3'"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="12sp"
+        android:textColor="@color/dark_text"
+        app:font_name="@string/font_bc_regular"
+        android:layout_toRightOf="@+id/eventTypeImg"
+        android:layout_toEndOf="@+id/eventTypeImg"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/eventPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marcos Alonso"
+        android:textSize="12sp"
+        app:font_name="@string/font_montserrat_regular"
+        android:textColor="@color/dark_text"
+        android:layout_toRightOf="@id/eventTime"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_toEndOf="@id/eventTime"
+        android:layout_centerVertical="true"
+        android:maxLines="1"
+        />
+
+
+
+</RelativeLayout>

@@ -8,9 +8,13 @@
     <string name="skip">SKIP</string>
     <string name="latest_page">LATEST</string>
     <string name="matches_section">MATCHES</string>
+    <string name="news_section">TOP NEWS</string>
+    <string name="tab_news">News</string>
+    <string name="competitions_section">COMPETITIONS</string>
+    <string name="top_charts_section">TOP CHARTS</string>
     <string name="upcoming">UPCOMING</string>
     <string name="last_match">LATEST</string>
-    <string name="opponent_name">Tottenham Hotspur</string>
+    <string name="opponent_name">WOLVERHAMPTON WANDERERS</string>
     <string name="match_stadium">Stamford Bridge</string>
     <string name="nm_comp">Premier League</string>
     <string name="nm_round_stage">Matchday 16</string>
@@ -26,4 +30,10 @@
 
     <string name="status_demo">Full Time</string>
     <string name="view_all">more</string>
+
+
+    <string name="stat_goal">Goal</string>
+    <string name="stat_assist">Assist</string>
+    <string name="stat_appearances">Appearance</string>
 </resources>
+

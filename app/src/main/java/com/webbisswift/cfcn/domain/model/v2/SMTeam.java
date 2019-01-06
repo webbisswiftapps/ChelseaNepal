@@ -26,7 +26,7 @@ public class SMTeam {
 
         int country_id, founded, id, legacy_id, venue_id;
         boolean national_team;
-        String name, logo_path, twitter;
+        String name, short_code, logo_path, twitter;
 
         public int getCountry_id() {
             return country_id;
@@ -98,6 +98,20 @@ public class SMTeam {
 
         public void setTwitter(String twitter) {
             this.twitter = twitter;
+        }
+
+        public String getShort_code() {
+            return short_code;
+        }
+
+        public void setShort_code(String short_code) {
+            this.short_code = short_code;
+        }
+
+
+        public String getMinimalName(){
+            if(short_code!=null && !short_code.isEmpty()) return short_code;
+            else return name;
         }
     }
 

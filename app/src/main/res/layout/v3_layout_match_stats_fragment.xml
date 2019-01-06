@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v3colorPrimaryDark"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+    <ViewSwitcher
+        android:id="@+id/statsMainSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:measureAllChildren="false"
+        >
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/statsErr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/semi_dark_text"
+            android:gravity="center"
+            app:font_name="@string/font_montserrat_semibold"
+            />
+
+    <LinearLayout
+        android:id="@+id/statsMain"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/card_padding"
+        >
+
+
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            card_view:cardCornerRadius="6dp"
+            >
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="General"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                app:font_name="@string/font_bc_semi_bold"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_white"
+                                android:padding="@dimen/card_padding"
+                                android:background="@drawable/gradient_moon_purple"
+                                android:layout_marginBottom="6dp"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/card_padding"
+                                >
+
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Possession"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homePossesionVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="37%"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homePossesion"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="37"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayPosession"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="63"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayPosessionVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="63%"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+                                </LinearLayout>
+
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Offsides"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homeOffsideVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="4"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homeOffsides"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="67"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayOffsides"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="33"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayOffSideVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="2"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+                                </LinearLayout>
+
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Corners"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homeCornersVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homeCorners"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayCorners"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayCornersVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+                                </LinearLayout>
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Saves"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homeSavesVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homeSaves"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awaySaves"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awaySavesVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+                                </LinearLayout>
+
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Fouls"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homeFoulsVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homeFouls"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayFouls"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayFoulsVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+                                </LinearLayout>
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yellow Cards"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homeYellowCardsVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homeYellowCards"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayYellowCards"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayYellowCardsVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+                                </LinearLayout>
+
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Red Cards"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homeRedCardsVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homeRedCards"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayRedCards"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayRedCardsVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+
+
+                                </LinearLayout>
+
+                                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Passing"
+                                    android:layout_gravity="center"
+                                    app:font_name="@string/font_montserrat_semibold"
+                                    android:textColor="@color/semi_dark_text"
+                                    android:layout_marginTop="8dp"
+                                    />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="2dp"
+                                    android:padding="3dp"
+                                    android:layout_gravity="center"
+                                    >
+
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/homePassingVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginRight="5dp"
+                                        android:gravity="right|end"
+                                        />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/homePassing"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="true"
+                                        app:rcProgressColor="@color/l_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:id="@+id/awayPassing"
+                                        android:layout_width="0dp"
+                                        android:layout_weight="0.3"
+                                        android:layout_height="20dp"
+                                        app:rcProgress="50"
+                                        app:rcMax="100"
+                                        app:rcRadius="8dp"
+                                        app:rcBackgroundPadding="4dp"
+                                        app:rcReverse="false"
+                                        app:rcProgressColor="@color/b_stats"
+                                        app:rcBackgroundColor="@color/light_white" />
+
+                                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                        android:id="@+id/awayPassingVal"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0.1"
+                                        android:text="5"
+                                        android:layout_gravity="center"
+                                        app:font_name="@string/font_montserrat_semibold"
+                                        android:textColor="@color/semi_dark_text"
+                                        android:layout_marginLeft="5dp"
+                                        />
+
+
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+
+
+
+
+                        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+        <include layout="@layout/ad_card_small_banner_season" />
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Attack"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_bc_semi_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:padding="@dimen/card_padding"
+                    android:background="@drawable/gradient_moon_purple"
+                    android:layout_marginBottom="6dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding"
+                    >
+
+
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Attacks"
+                    android:layout_gravity="center"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/semi_dark_text"
+                    android:layout_marginTop="8dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    >
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/homeTotalAttacksVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right|end"
+                        />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/homeTotalAttacks"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="true"
+                        app:rcProgressColor="@color/l_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/awayTotalAttacks"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="false"
+                        app:rcProgressColor="@color/b_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/awayTotalAttacksVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginLeft="5dp"
+                        />
+
+
+
+                </LinearLayout>
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dangerous Attacks"
+                    android:layout_gravity="center"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/semi_dark_text"
+                    android:layout_marginTop="8dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    >
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/homeDangerousAttacksVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right|end"
+                        />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/homeDangerousAttacks"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="true"
+                        app:rcProgressColor="@color/l_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/awayDangerousAttacks"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="false"
+                        app:rcProgressColor="@color/b_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/awayDangerousAttacksVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginLeft="5dp"
+                        />
+
+
+
+                </LinearLayout>
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Shots"
+                    android:layout_gravity="center"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/semi_dark_text"
+                    android:layout_marginTop="8dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    >
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/homeTotalShotsVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right|end"
+                        />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/homeTotalShots"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="true"
+                        app:rcProgressColor="@color/l_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/awayTotalShots"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="false"
+                        app:rcProgressColor="@color/b_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/awayTotalShotsVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginLeft="5dp"
+                        />
+
+
+
+                </LinearLayout>
+
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shots On Goal"
+                    android:layout_gravity="center"
+                    app:font_name="@string/font_montserrat_semibold"
+                    android:textColor="@color/semi_dark_text"
+                    android:layout_marginTop="8dp"
+                    />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="2dp"
+                    android:padding="3dp"
+                    android:layout_gravity="center"
+                    >
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/homeSOGVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginRight="5dp"
+                        android:gravity="right|end"
+                        />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/homeSOG"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="true"
+                        app:rcProgressColor="@color/l_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/awaySOG"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="20dp"
+                        app:rcProgress="50"
+                        app:rcMax="100"
+                        app:rcRadius="8dp"
+                        app:rcBackgroundPadding="4dp"
+                        app:rcReverse="false"
+                        app:rcProgressColor="@color/b_stats"
+                        app:rcBackgroundColor="@color/light_white" />
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/awaySOGVal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:text="5"
+                        android:layout_gravity="center"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/semi_dark_text"
+                        android:layout_marginLeft="5dp"
+                        />
+
+
+
+                </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+    </ViewSwitcher>
+
+
+</android.support.v4.widget.NestedScrollView>

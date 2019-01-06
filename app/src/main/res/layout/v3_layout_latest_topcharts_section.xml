@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topChartsSection"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@drawable/v3_main_bg">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/topchartsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:font_name="@string/font_bc_semi_bold"
+            android:text="@string/top_charts_section"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:shadowDx="6"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:shadowColor="@color/black_overlay"
+            android:layout_marginTop="@dimen/card_padding"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            />
+
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_all_players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_ghost="true"
+            fancy:fb_iconPosition="right"
+            fancy:fb_radius="30dp"
+            fancy:fb_text="@string/view_all"
+            fancy:fb_textColor="#FFFFFF"
+            fancy:fb_textFont="@string/font_montserrat_semibold"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:foreground="?android:selectableItemBackground"
+            android:layout_alignTop="@id/topchartsTitle"
+            android:layout_alignBottom="@id/topchartsTitle"
+            fancy:fb_textSize="13sp"
+            />
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            android:id="@+id/topChartsScroller"
+            >
+
+
+
+            <LinearLayout
+                android:id="@+id/topChartsHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                >
+
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <include android:id="@+id/tcLoading"
+            layout="@layout/v3_loading_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="@dimen/card_padding"
+            android:layout_marginEnd="@dimen/card_padding"
+            android:layout_marginLeft="@dimen/card_padding"
+            android:layout_marginRight="@dimen/card_padding"
+            android:layout_marginBottom="12dp"
+            />
+    </FrameLayout>
+
+
+</LinearLayout>

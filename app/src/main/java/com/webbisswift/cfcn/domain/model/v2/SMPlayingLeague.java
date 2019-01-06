@@ -59,4 +59,8 @@ public class SMPlayingLeague {
         this.is_ad = is_ad;
     }
 
+
+
+
+
 }

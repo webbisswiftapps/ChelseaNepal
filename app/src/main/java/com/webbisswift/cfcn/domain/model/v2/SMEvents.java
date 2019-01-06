@@ -125,5 +125,11 @@ public class SMEvents {
         public void setResult(String result) {
             this.result = result;
         }
+
+
+
+        public boolean isGoal(){
+            return type.contentEquals("goal") || type.contentEquals("penalty")||type.contentEquals("own_goal");
+        }
     }
 }

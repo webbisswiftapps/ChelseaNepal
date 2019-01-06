@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v3colorPrimaryDark"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/leagueNextMatchCard"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="6dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/upcomingHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    >
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="UPCOMING"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:padding="@dimen/card_padding"
+                        android:background="@drawable/gradient_moon_purple"
+                        android:layout_marginBottom="6dp"
+                        />
+
+                    <include layout="@layout/v3_vs_small" />
+
+                </LinearLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/leagueLastMatchCard"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:visibility="visible"
+                >
+
+                <LinearLayout
+                    android:id="@+id/resultHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    >
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="LAST MATCH"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:padding="@dimen/card_padding"
+                        android:background="@drawable/gradient_moon_purple"
+                        android:layout_marginBottom="6dp"
+                        />
+
+                    <include layout="@layout/v3_score_small" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+
+
+
+
+        <include layout="@layout/v3_layout_league_table_card" />
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

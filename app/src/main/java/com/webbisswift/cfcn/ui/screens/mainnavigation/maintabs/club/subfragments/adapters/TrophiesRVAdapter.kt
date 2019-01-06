@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.v2.SMTrophyItem
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.team.adapters.RVItemClickListener
-import com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity
+import com.webbisswift.cfcn.v3.ui.screens.modal_screens.newsview.WebViewActivity
+import com.webbisswift.cfcn.v3.ui.screens.tabs.team.adapters.RVItemClickListener
 
 /**
  * Created by apple on 2/16/18.

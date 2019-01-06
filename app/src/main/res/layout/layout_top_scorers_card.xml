@@ -60,7 +60,7 @@
                 android:orientation="vertical"
                 >
 
-                <include layout="@layout/layout_top_scorer_title" />
+                <include layout="@layout/v3_layout_top_scorer_title" />
                 <include layout="@layout/layout_top_scorer_item" />
 
             </LinearLayout>

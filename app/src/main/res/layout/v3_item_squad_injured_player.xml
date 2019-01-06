@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:foreground="?attr/selectableItemBackground"
+    android:background="@color/text_white"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginRight="@dimen/card_padding"
+    android:layout_marginLeft="@dimen/card_padding">
+
+    <ImageView
+        android:id="@+id/playerImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="3dp"
+        android:padding="3dp"
+        android:background="@drawable/v3_next_match_opponent_logo_bg"
+        />
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/injuredPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        tools:text="Charly Musonda"
+        android:textColor="@color/v3colorPrimaryDark"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_toEndOf="@id/playerImg"
+        />
+
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/injuryDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="false"
+        tools:text="Knee Injury"
+        android:textColor="@color/v3colorAccentDark"
+        android:layout_below="@+id/injuredPlayer"
+        android:layout_alignLeft="@+id/injuredPlayer"
+        android:layout_alignStart="@id/injuredPlayer"
+        />
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/expectedReturn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:text="Expected to return in 10 days."
+        android:textColor="@color/v3colorPrimary"
+        android:gravity="left"
+        android:layout_below="@+id/injuryDescription"
+        android:layout_alignLeft="@+id/injuredPlayer"
+        android:layout_alignStart="@id/injuredPlayer"
+        />
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_white"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_toEndOf="@id/playerImg"
+        android:layout_below="@+id/expectedReturn"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>

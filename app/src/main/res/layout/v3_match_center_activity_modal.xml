@@ -1,0 +1,238 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".v3.ui.screens.modal_screens.match_center.MatchCenterUI">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleTextAppearance="@android:color/transparent"
+            android:fitsSystemWindows="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/west_stand"
+                android:scaleType="centerCrop"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/v3colorPrimaryTP"
+                />
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:contentInsetLeft="0dp"
+                android:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:contentInsetRight="0dp"
+                android:contentInsetEnd="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetEnd="0dp"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/nextMatchDisplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/backButton"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        app:srcCompat="@drawable/ic_arrow_back_white_24dp"
+                        android:clickable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
+                        />
+
+                   <include layout="@layout/v3_score_view_tp"
+                       android:id="@+id/scoreView"
+                       android:layout_width="match_parent"
+                       android:layout_height="120dp"
+                       android:layout_marginTop="100dp"
+                       />
+
+
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nextMatchCompetition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_semibold"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/lastMatchTitle"
+                        tools:text="Champions League, Semi Finals"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="12dp"
+                        />
+
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nextMatchVenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/nextMatchCompetition"
+                        android:text="Wanda Metropolitano"
+                        android:layout_centerHorizontal="true"
+                        />
+
+
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:id="@+id/nextMatchTimings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_montserrat_regular"
+                        android:textColor="@color/text_white"
+                        android:layout_below="@id/nextMatchVenue"
+                        android:text="Today, 10:15 p.m."
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/v3_card_tag_bg"
+                        android:padding="8dp"
+                        />
+
+
+                    <!-- TV Guide Section -->
+
+                    <RelativeLayout
+                        android:id="@+id/tvGuideDisp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/card_padding"
+                        android:layout_marginRight="@dimen/card_padding"
+                        android:padding="3dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="200dp"
+                        android:layout_centerHorizontal="true"
+                        >
+
+                        <!--<com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/liveOn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:font_name="@string/font_montserrat_regular"
+                            tools:text="@string/live_on"
+                            android:textSize="12sp"
+                            android:textColor="@color/light_text"
+                            android:textAllCaps="true"
+                            android:gravity="center"
+                            /> -->
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/liveOn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:font_name="@string/font_bc_light"
+                            android:text="@string/live_on"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_white"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginStart="12dp"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/channels"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:font_name="@string/font_montserrat_regular"
+                            tools:text="Talksport Radio World,  Saints Live, Chelsea TV Online, Other tv networks."
+                            android:textSize="12sp"
+                            android:textColor="@color/text_white"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:lines="2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_toRightOf="@id/liveOn"
+                            android:layout_toEndOf="@id/liveOn"
+                            />
+
+
+                    </RelativeLayout>
+
+
+
+
+
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <com.ogaclejapan.smarttablayout.SmartTabLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_height"
+            android:clipToPadding="false"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            app:stl_defaultTabTextColor="@color/text_white"
+            app:stl_defaultTabTextHorizontalPadding="18dp"
+            app:stl_dividerColor="@color/full_tp"
+            app:stl_dividerThickness="0dp"
+            app:stl_indicatorColor="@color/tp_subtle_news"
+            app:stl_indicatorCornerRadius="18dp"
+            app:stl_indicatorGravity="center"
+            app:stl_indicatorInterpolation="smart"
+            app:stl_indicatorThickness="36dp"
+            app:stl_underlineColor="@color/full_tp"
+            app:stl_underlineThickness="0dp"
+            android:background="@color/full_tp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+</android.support.design.widget.CoordinatorLayout>

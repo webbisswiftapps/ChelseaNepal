@@ -10,7 +10,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.firebase.database.*
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.v2.SMUefaRanking
-import com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity
+import com.webbisswift.cfcn.v3.ui.screens.modal_screens.newsview.WebViewActivity
 import kotlinx.android.synthetic.main.ad_card_small_overview.*
 import kotlinx.android.synthetic.main.club_info_fragment.*
 

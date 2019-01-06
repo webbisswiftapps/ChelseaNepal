@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/matchesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:font_name="@string/font_bc_semi_bold"
+            android:text="@string/matches_section"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:shadowDx="6"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:shadowColor="@color/black_overlay"
+            android:layout_marginTop="@dimen/card_padding"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            />
+
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/btn_all_matches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            fancy:fb_borderColor="#FFFFFF"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_ghost="true"
+            fancy:fb_iconPosition="right"
+            fancy:fb_radius="30dp"
+            fancy:fb_text="@string/view_all"
+            fancy:fb_textColor="#FFFFFF"
+            fancy:fb_textFont="@string/font_montserrat_semibold"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:foreground="?android:selectableItemBackground"
+            android:layout_alignTop="@id/matchesTitle"
+            android:layout_alignBottom="@id/matchesTitle"
+            fancy:fb_textSize="13sp"
+            />
+
+    </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+            >
+            <include layout="@layout/v3_card_last_match"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                />
+            <include layout="@layout/v3_card_next_match"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+</LinearLayout>

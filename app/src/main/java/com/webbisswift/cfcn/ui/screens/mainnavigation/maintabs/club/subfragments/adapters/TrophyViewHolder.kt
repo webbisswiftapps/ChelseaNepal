@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.v2.SMTrophyItem
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.team.adapters.RVItemClickListener
+import com.webbisswift.cfcn.v3.ui.screens.tabs.team.adapters.RVItemClickListener
 import org.jetbrains.anko.find
 
 /**

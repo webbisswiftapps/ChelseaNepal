@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/card_padding"
+    android:layout_marginRight="@dimen/card_padding"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/gradient_moon_purple_cornered"
+    >
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goalkeeper"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_bc_semi_bold"
+        android:textAllCaps="true"
+        android:textColor="@color/text_white"
+        android:padding="@dimen/card_padding"
+        />
+
+
+
+</LinearLayout>

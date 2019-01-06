@@ -9,7 +9,7 @@ import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.club.subfragments.ClubInfoFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.club.subfragments.ClubTrophiesFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.MainPagerAdapter
-import kotlinx.android.synthetic.main.fragment_team.*
+import kotlinx.android.synthetic.main.v3_fragment_team.*
 
 /**
  * Created by apple on 2/16/18.
@@ -40,7 +40,7 @@ class ClubFragment: Fragment(){
     }
 
     private fun initFragment(){
-        setupTabs()
+       // setupTabs()
     }
 
     fun setupTabs(){
@@ -53,8 +53,8 @@ class ClubFragment: Fragment(){
 
         viewPager.offscreenPageLimit = 2
         viewPager.adapter = adapter
-        tabs.setupWithViewPager(viewPager)
-        adapter.setCustomViews(tabs)
+       // tabs.setupWithViewPager(viewPager)
+        //adapter.setCustomViews(tabs)
 
         viewPager.currentItem = page
 

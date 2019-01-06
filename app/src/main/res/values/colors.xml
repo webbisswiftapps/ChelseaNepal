@@ -46,8 +46,8 @@
 
 
     <!-- Neutral Colors -->
-    <color name="b_stats">#1c4976</color>
-    <color name="l_stats">#639fda</color>
+    <color name="b_stats">#0d1348</color>
+    <color name="l_stats">#df412f</color>
 
 
     <!-- V3 Colors -->
@@ -69,6 +69,8 @@
     <color name="v3colorPrimaryDarkTP">#f51d2572</color>
     <color name="v3colorPrimaryDarkestTP">#f50d1348</color>
 
+    <color name="v3colorPrimaryDarkestvTP">#550d1348</color>
+
 
 
     <!-- Accent Colors -->
@@ -84,6 +86,7 @@
     <!-- Other Colors -->
     <color name="v3tab_inactive_color">#555</color>
     <color name="windown_background_light">#eaeaea</color>
+    <color name="v3_news_transparent_overlay">#cc0d1348</color>
     
     <!-- Text Colors -->
     <color name="text_title_blue_1">#1e2d87</color>
@@ -97,4 +100,14 @@
     <!-- Gradient Colors -->
     <color name="moon_purple_g1">#4e54c8</color>
     <color name="moon_purple_g2">#8f94fb</color>
+
+
+    <!-- Bottom Navigation Colors -->
+    <color name="bottom_navigation_bg">#f5192167</color>
+    <color name="bottom_navigation_accent">#ffffff</color>
+    <color name="bottom_navigation_inactive">#f08589e7</color>
+
+
+    <!-- News Colors-->
+    <color name="v3_news_bg">#eaeaea</color>
 </resources>

@@ -168,17 +168,19 @@ public class SMStandingItem {
     }
 
     public static class SMStandingTotal{
-        String goal_difference;
+         Object goal_difference;
         int points;
 
         public SMStandingTotal() {
         }
 
         public String getGoal_difference() {
-            return goal_difference;
+            if(goal_difference instanceof String)
+             return goal_difference.toString();
+            else return String.valueOf(goal_difference);
         }
 
-        public void setGoal_difference(String goal_difference) {
+        public void setGoal_difference(Object goal_difference) {
             this.goal_difference = goal_difference;
         }
 

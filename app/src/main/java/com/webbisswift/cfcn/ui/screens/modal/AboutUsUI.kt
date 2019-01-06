@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.webbisswift.cfcn.R
-import com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity
+import com.webbisswift.cfcn.v3.ui.screens.modal_screens.newsview.WebViewActivity
 import kotlinx.android.synthetic.main.layout_about_us.*
 
 /**

@@ -179,5 +179,20 @@ public class SMSquad {
             else return "Unknown";
 
         }
+
+
+        public String getStatByTag(String tag){
+            if(tag.contentEquals("Goal")){
+                return String.valueOf(goals);
+            }else if(tag.contentEquals("Assist")){
+                return String.valueOf(assists);
+            }else if(tag.contentEquals("Appearance")){
+                return String.valueOf(appearences);
+            }else if(tag.contentEquals("Yellow Card")){
+                return String.valueOf(yellowcards);
+            }else if(tag.contentEquals("Red Card")){
+                return String.valueOf(redcards);
+            }else return "0";
+        }
     }
 }

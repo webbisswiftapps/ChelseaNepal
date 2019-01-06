@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v3colorPrimaryDark"
+    >
+
+    <ViewSwitcher
+        android:id="@+id/lineupMainSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:measureAllChildren="false"
+        >
+
+       <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/lineupsErr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/text_white"
+            android:gravity="center"
+            app:font_name="@string/font_montserrat_semibold"
+            />
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/lineupsMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            android:layout_margin="@dimen/card_padding"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <!-- Formation Group -->
+
+                <LinearLayout
+                    android:id="@+id/formationGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Formation"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:padding="@dimen/card_padding"
+                        android:background="@drawable/gradient_moon_purple"
+                        android:layout_marginBottom="6dp"
+                        />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp"
+                            >
+
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                android:id="@+id/homeFormation"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                app:font_name="@string/font_bc_medium"
+                                android:textAllCaps="true"
+                                android:textColor="@color/v3colorPrimaryDark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
+                                tools:text="4 - 4 - 2"
+                                android:gravity="center"
+                                android:textSize="32sp"
+                                />
+
+                            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                                android:id="@+id/awayFormation"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                app:font_name="@string/font_bc_medium"
+                                android:textAllCaps="true"
+                                android:textColor="@color/v3colorPrimaryDark"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginStart="10dp"
+                                tools:text="4 - 3 - 3"
+                                android:gravity="center"
+                                android:textSize="32sp"
+                                />
+
+                        </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!-- Lineup Group -->
+                <LinearLayout
+                    android:id="@+id/startingGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Starting "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:padding="@dimen/card_padding"
+                        android:background="@drawable/gradient_moon_purple"
+                        android:layout_marginBottom="6dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        >
+
+
+                        <LinearLayout
+                            android:id="@+id/homeStarting"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="15dp"
+                            >
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_text_2"
+                            />
+
+                        <LinearLayout
+                            android:id="@+id/awayStarting"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="15dp"
+                            >
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!-- Bench Group -->
+                <LinearLayout
+                    android:id="@+id/benchGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <com.webbisswift.cfcn.v3.custom_views.CTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bench "
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        app:font_name="@string/font_bc_semi_bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:padding="@dimen/card_padding"
+                        android:background="@drawable/gradient_moon_purple"
+                        android:layout_marginBottom="6dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp"
+                        >
+
+
+                        <LinearLayout
+                            android:id="@+id/homeBench"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="15dp"
+                            >
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/light_text_2"
+                            />
+
+                        <LinearLayout
+                            android:id="@+id/awayBench"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="15dp"
+                            >
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+    </ViewSwitcher>
+
+
+</android.support.v4.widget.NestedScrollView>

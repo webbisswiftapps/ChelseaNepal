@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v3colorPrimaryDark"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/card_padding"
+        >
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/goalsLBCard"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="6dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/goalsLBUI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Goals"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_bc_semi_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:padding="@dimen/card_padding"
+                    android:background="@drawable/gradient_moon_purple"
+                    android:layout_marginBottom="6dp"
+                    />
+
+
+
+                <include layout="@layout/v3_leaderboard_goals_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+
+                <LinearLayout
+                    android:id="@+id/goalsLBHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="3dp"
+                    >
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/assistsLBCard"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="6dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/assistsLBUI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assists"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_bc_semi_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:padding="@dimen/card_padding"
+                    android:background="@drawable/gradient_moon_purple"
+                    android:layout_marginBottom="6dp"
+                    />
+
+
+                <include layout="@layout/v3_leaderboard_assists_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/assistsTitle"
+                    android:layout_marginTop="3dp"
+                    />
+
+
+                <LinearLayout
+                    android:id="@+id/assistsLBHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="3dp"
+                   />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardsLBCard"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardElevation="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="6dp"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/cardsLBUI"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cards"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_bc_semi_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:padding="@dimen/card_padding"
+                    android:background="@drawable/gradient_moon_purple"
+                    android:layout_marginBottom="6dp"
+                    />
+
+
+                <include
+                    layout="@layout/v3_leaderboard_cards_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    />
+
+
+                <LinearLayout
+                    android:id="@+id/cardsLBHolder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="3dp"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

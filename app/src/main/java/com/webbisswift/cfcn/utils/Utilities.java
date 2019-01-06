@@ -78,7 +78,6 @@ public class Utilities {
     }
 
 
-
     public static String getTimeAgo(DateTime chk){
         DateTime now = new DateTime();
         Period period = new Period(chk, now);
@@ -133,6 +132,10 @@ public class Utilities {
         }
     }
 
+    public static String getLocaleFormattedDateWithYear(Date date){
+        SimpleDateFormat df = new SimpleDateFormat("EEE, d MMM YYYY");
+        return df.format(date);
+    }
     public static String getLocaleFormattedTimeOnly(Date date){
         try{
             LocalDate dt = new LocalDate(date);

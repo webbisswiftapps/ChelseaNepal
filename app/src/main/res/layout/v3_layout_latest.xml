@@ -8,22 +8,13 @@
         android:layout_height="match_parent"
         tools:context=".v3.ui.screens.splash.SplashActivity"
         android:id="@+id/mainCoordinator"
+        tools:background="@drawable/v3_main_bg"
         >
 
         <!-- Top Bg here -->
 
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/app_bg_3"
-            android:scaleType="centerCrop"
-            />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/v3_bg_gradient_tp" />
 
         <!-- Scrollable view here -->
         <android.support.design.widget.AppBarLayout
@@ -49,13 +40,13 @@
 
                 <ImageView
                     android:id="@+id/logo"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/v3_app_logo_cfcn"
                     android:layout_gravity="center_vertical|center_horizontal"
                     app:layout_collapseMode="pin"
                     app:layout_collapseParallaxMultiplier="0.2"
-                    android:layout_marginBottom="60dp"
+                    android:layout_marginBottom="40dp"
                     />
 
                 <android.support.v7.widget.Toolbar
@@ -101,7 +92,7 @@
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:behavior_overlapTop="160dp"
+            app:behavior_overlapTop="120dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             >
@@ -113,6 +104,9 @@
                 >
 
                 <include layout="@layout/v3_layout_latest_matches_section" />
+                <include layout="@layout/v3_layout_latest_news_section" />
+                <include layout="@layout/v3_layout_latest_competitions_section" />
+                <include layout="@layout/v3_layout_latest_topcharts_section" />
 
 
             </LinearLayout>

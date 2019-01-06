@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lmCardView"
     android:layout_width="340dp"
     android:layout_height="match_parent"
@@ -15,6 +16,9 @@
 
 
 
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -43,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:font_name="@string/font_bc_semi_bold"
-                    android:text="@string/lm_day"
+                    tools:text="@string/lm_day"
                     android:textSize="28sp"
                     android:textColor="@color/text_white"
                     android:layout_marginStart="@dimen/card_padding"
@@ -55,15 +59,14 @@
                 <com.webbisswift.cfcn.v3.custom_views.CTextView
                     android:id="@+id/lmDate"
                     android:layout_width="wrap_content"
+                    android:maxWidth="100dp"
                     android:layout_height="wrap_content"
                     app:font_name="@string/font_bc_medium"
-                    android:text="@string/lm_date"
+                    tools:text="November 3 dasdfasd"
                     android:textSize="16sp"
                     android:textColor="@color/text_white"
                     android:layout_alignLeft="@id/lmTime"
                     android:layout_alignStart="@id/lmTime"
-                    android:layout_alignEnd="@id/lmTime"
-                    android:layout_alignRight="@id/lmTime"
                     android:layout_below="@id/lmTime"
                     />
 
@@ -73,8 +76,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:font_name="@string/font_montserrat_medium"
-                    android:text="@string/lm_round_stage"
+                    tools:text="@string/lm_round_stage"
                     android:textSize="13sp"
+                    android:maxWidth="150dp"
+                    android:gravity="right"
                     android:textColor="@color/text_white"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
@@ -91,8 +96,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:font_name="@string/font_montserrat_regular"
-                    android:text="@string/lm_comp"
+                    tools:text="@string/lm_comp"
                     android:textSize="14sp"
+                    android:maxWidth="150dp"
+                    android:gravity="right"
                     android:textColor="@color/text_white"
                     android:layout_below="@id/lmStageRound"
                     android:layout_alignEnd="@id/lmStageRound"
@@ -105,8 +112,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:font_name="@string/font_montserrat_semibold"
-                    android:text="@string/stadium_name"
+                    tools:text="Puskas Akademia Pancho Arena"
                     android:textSize="12sp"
+                    android:maxWidth="130dp"
+                    android:gravity="right"
+                    android:lines="2"
                     android:textColor="@color/text_white"
                     android:layout_below="@id/lmCompetition"
                     android:layout_alignEnd="@id/lmCompetition"
@@ -148,15 +158,24 @@
         android:gravity="center"
         android:maxLines="2"
         android:padding="5dp"
-        android:text="@string/status_demo"
+        tools:text="@string/status_demo"
         android:textColor="@color/text_white"
         android:textSize="15sp"
         app:elevation="2dp"
         android:elevation="2dp"
         android:layout_marginTop="100dp"
         app:font_name="@string/font_montserrat_bold" />
+</FrameLayout>
 
 
+
+
+    <include android:id="@+id/lmLoading"
+        layout="@layout/v3_loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginTop="20dp"
+        />
 
 
 </FrameLayout>

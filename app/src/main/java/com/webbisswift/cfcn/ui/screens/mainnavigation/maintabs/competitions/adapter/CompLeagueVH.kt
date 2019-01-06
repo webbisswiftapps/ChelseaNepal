@@ -5,14 +5,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.webbisswift.cfcn.R
 import com.webbisswift.cfcn.domain.model.v2.SMPlayingLeague
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.team.adapters.RVItemClickListener
+import com.webbisswift.cfcn.v3.ui.screens.tabs.team.adapters.RVItemClickListener
 
 /**
  * Created by apple on 2/12/18.
  */
 
 
-class CompLeagueVH(v: View, onclick:RVItemClickListener): BaseCompetitionsViewHolder(v){
+class CompLeagueVH(v: View, onclick: RVItemClickListener): BaseCompetitionsViewHolder(v){
 
     private var view: View = v
 

@@ -1,20 +1,13 @@
 package com.webbisswift.cfcn.v3.ui.screens.mainnav
 
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Color
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
-import android.view.MenuItem
 import com.webbisswift.cfcn.R
 import kotlinx.android.synthetic.main.v3_layout_main_navigation.*
-import android.support.design.widget.AppBarLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.util.Log
@@ -29,12 +22,11 @@ import com.webbisswift.cfcn.BuildConfig
 import com.webbisswift.cfcn.domain.sharedpref.SettingsHelper
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.MoreListFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.club.ClubFragment
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.competitions.CompetitionListFragment
-import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.team.TeamFragment
-import com.webbisswift.cfcn.ui.screens.modal.match_center.MatchCenterUI
-import com.webbisswift.cfcn.ui.screens.modal.webview.WebViewActivity
+import com.webbisswift.cfcn.v3.ui.screens.tabs.news.NewsStreamFragment
+import com.webbisswift.cfcn.v3.ui.screens.modal_screens.match_center.MatchCenterUI
 import com.webbisswift.cfcn.utils.NotificationUtils
 import com.webbisswift.cfcn.v3.ui.screens.tabs.latest.LatestFragment
+import com.webbisswift.cfcn.v3.ui.screens.tabs.team.TeamFragment
 
 
 class MainNavigationActivity : AppCompatActivity(),AHBottomNavigation.OnTabSelectedListener, SharedPreferences.OnSharedPreferenceChangeListener{
@@ -76,8 +68,8 @@ class MainNavigationActivity : AppCompatActivity(),AHBottomNavigation.OnTabSelec
 
     private fun setupNavigation(){
         val latestItem = AHBottomNavigationItem(R.string.home, R.drawable.ic_bnav_clock, R.color.text_white)
-        val compItem = AHBottomNavigationItem(R.string.competitions, R.drawable.ic_bnav_trophy, R.color.text_white)
-        val teamItem = AHBottomNavigationItem(R.string.players, R.drawable.ic_bnav_players, R.color.text_white)
+        val compItem = AHBottomNavigationItem(R.string.tab_news, R.drawable.v3_rss_feed_icon, R.color.text_white)
+        val teamItem = AHBottomNavigationItem(R.string.players, R.drawable.v3_ic_team, R.color.text_white)
         val clubItem = AHBottomNavigationItem(R.string.team, R.drawable.ic_bnav_club, R.color.text_white)
         val moreItem = AHBottomNavigationItem(R.string.more, R.drawable.ic_bnav_more, R.color.text_white)
 
@@ -88,9 +80,9 @@ class MainNavigationActivity : AppCompatActivity(),AHBottomNavigation.OnTabSelec
         bottom_navigation.addItem(moreItem)
 
 
-        bottom_navigation.defaultBackgroundColor = ContextCompat.getColor(this, R.color.text_white)
-        bottom_navigation.accentColor = ContextCompat.getColor(this, R.color.v3colorPrimary)
-        bottom_navigation.inactiveColor = ContextCompat.getColor(this, R.color.v3tab_inactive_color)
+        bottom_navigation.defaultBackgroundColor = ContextCompat.getColor(this, R.color.bottom_navigation_bg)
+        bottom_navigation.accentColor = ContextCompat.getColor(this, R.color.bottom_navigation_accent)
+        bottom_navigation.inactiveColor = ContextCompat.getColor(this, R.color.bottom_navigation_inactive)
         bottom_navigation.titleState = AHBottomNavigation.TitleState.ALWAYS_SHOW
         bottom_navigation.isBehaviorTranslationEnabled = false
 
@@ -120,7 +112,7 @@ class MainNavigationActivity : AppCompatActivity(),AHBottomNavigation.OnTabSelec
 
         when(position){
             0 -> toLatestTab()
-            1 -> toCompetitionsTab(0)
+            1 -> toNewsTab()
             2 -> toTeamTab(0)
             3 -> toClubTab(0)
             4 -> toMoreTab()
@@ -138,8 +130,8 @@ class MainNavigationActivity : AppCompatActivity(),AHBottomNavigation.OnTabSelec
 
     }
 
-    fun toCompetitionsTab(subtab:Int){
-        val fragment = CompetitionListFragment.makeFragment(subtab)
+    fun toNewsTab(){
+        val fragment = NewsStreamFragment()
         supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
         bottom_navigation.setCurrentItem(1, false)
     }

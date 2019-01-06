@@ -1,0 +1,197 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/v3colorPrimaryDark"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding"
+        >
+
+
+        <include layout="@layout/v3_layout_match_stats_events"  />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <com.webbisswift.cfcn.v3.custom_views.CTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Match Details"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    app:font_name="@string/font_bc_semi_bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:padding="@dimen/card_padding"
+                    android:background="@drawable/gradient_moon_purple"
+                    android:layout_marginBottom="6dp"
+                    />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/card_padding"
+                    >
+
+
+                    <TableRow
+                        android:id="@+id/matchDateRow"
+                        >
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.3"
+                            android:layout_height="wrap_content"
+                            android:text="Date"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/text_light_gray"
+                            android:gravity="center_vertical"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/mfMatchDate"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.7"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/refereeTitle"
+                            android:textColor="@color/text_dark_gray"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_medium"
+                            tools:text="Sun, 30 Dec, 2018, 05:45 PM"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginStart="6dp"
+                            />
+
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/matchVenueRow"
+                        >
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.3"
+                            android:layout_height="wrap_content"
+                            android:text="Venue"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/text_light_gray"
+                            android:gravity="center_vertical"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/venueName"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.7"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_dark_gray"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_medium"
+                            tools:text="Vicarage Road Stadium"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginStart="6dp"
+                            />
+
+
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/matchRefereeRow"
+                        >
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.3"
+                            android:layout_height="wrap_content"
+                            android:text="Referee"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/text_light_gray"
+                            android:gravity="center_vertical"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/refereeName"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.7"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_dark_gray"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_medium"
+                            tools:text="Martin Atkinson"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginStart="6dp"
+                            />
+
+
+                    </TableRow>
+
+
+
+
+                    <TableRow
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/matchTournamentRow"
+                        >
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="0.3"
+                            android:layout_height="wrap_content"
+                            android:text="Tournament"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_regular"
+                            android:textColor="@color/text_light_gray"
+                            android:gravity="center_vertical"
+                            />
+
+                        <com.webbisswift.cfcn.v3.custom_views.CTextView
+                            android:id="@+id/tournamentName"
+                            android:layout_width="0dp"
+                            android:layout_weight="0.7"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_dark_gray"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            app:font_name="@string/font_montserrat_medium"
+                            tools:text="Premier League - Matchday 13"
+                            android:gravity="center_vertical"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginStart="6dp"
+                            />
+
+
+                    </TableRow>
+
+
+                </TableLayout>
+
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <!--<include layout="@layout/v3_card_match_referee" /> -->
+        <!--<include layout="@layout/ad_card_small_banner_season" /> -->
+        <include layout="@layout/v3_layout_weather" />
+         <include layout="@layout/ad_card_large_overview" />
+        <include layout="@layout/v3_layout_head_to_head" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

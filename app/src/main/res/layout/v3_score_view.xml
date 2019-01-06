@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="140dp"
     android:padding="4dp"
-    tools:background="@color/text_white">
+    android:background="@color/text_white">
 
 
 
@@ -18,7 +18,7 @@
     android:orientation="horizontal"
     android:layout_centerHorizontal="true"
     android:gravity="center"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="8dp"
     >
     <LinearLayout
         android:layout_width="0dp"
@@ -43,7 +43,7 @@
             app:font_name="@string/font_montserrat_bold"
             android:textAllCaps="false"
             android:textColor="@color/text_dark_gray"
-            android:text="Chelsea"
+            tools:text="Chelsea"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:maxLines="2"
@@ -55,6 +55,7 @@
 
 
 
+
     <com.webbisswift.cfcn.v3.custom_views.CTextView
         android:id="@+id/lmHomeScore"
         android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
         app:font_name="@string/font_bc_semi_bold"
         android:textAllCaps="true"
         android:textColor="@color/text_title_blue_2"
-        android:text="3"
+        tools:text="3"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="5dp"
         android:layout_gravity="top"
@@ -91,7 +92,7 @@
         app:font_name="@string/font_bc_semi_bold"
         android:textAllCaps="true"
         android:textColor="@color/text_title_blue_2"
-        android:text="1"
+        tools:text="1"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_gravity="top"
@@ -120,7 +121,7 @@
             app:font_name="@string/font_montserrat_bold"
             android:textAllCaps="false"
             android:textColor="@color/text_dark_gray"
-            android:text="Everton"
+            tools:text="Everton"
             android:textSize="13sp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
@@ -133,30 +134,19 @@
 
 </LinearLayout>
 
-<com.webbisswift.cfcn.v3.custom_views.CTextView
-    android:id="@+id/htScores"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="20sp"
-    app:font_name="@string/font_bc_semi_bold"
-    android:textAllCaps="true"
-    android:textColor="@color/chelsea_blue_dark"
-    android:text="0 - 0"
-    android:layout_centerHorizontal="true"
-    android:layout_below="@id/lmScorePane"
-    android:layout_marginTop="-36dp"
-    />
+
 <com.webbisswift.cfcn.v3.custom_views.CTextView
     android:id="@+id/lmPenScore"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="14sp"
-    app:font_name="@string/font_bc_semi_bold"
+    app:font_name="@string/font_bc_light"
     android:textColor="@color/near_dark_text"
-    android:text="5 - 1  (Pen)"
-    android:layout_below="@id/htScores"
+    tools:text="5 - 1  (Pen)"
+    android:layout_below="@id/lmScorePane"
     android:layout_centerHorizontal="true"
-    android:visibility="visible"
+    android:visibility="gone"
+    android:layout_marginTop="-20dp"
     />
 
 <com.webbisswift.cfcn.v3.custom_views.CTextView
@@ -164,13 +154,46 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textSize="14sp"
-    app:font_name="@string/font_bc_semi_bold"
+    app:font_name="@string/font_bc_light"
     android:textColor="@color/near_dark_text"
-    android:text="5 - 3  (Agg)"
+    tools:text="5 - 3  (Agg)"
     android:layout_above="@id/lmScorePane"
     android:layout_centerHorizontal="true"
-    android:visibility="visible"
+    android:visibility="gone"
     android:layout_marginBottom="-30dp"
     />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lmPenScore"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:id="@+id/lmScorersHome"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lmScorersAway"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="3dp"
+            >
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

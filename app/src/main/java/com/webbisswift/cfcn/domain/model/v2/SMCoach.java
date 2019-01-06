@@ -22,6 +22,11 @@ public class SMCoach {
     public static class CoachData{
         int coach_id;
         String fullname;
+        String firstname;
+        String lastname;
+        String nationality;
+        String image_path;
+
 
         public CoachData() {
         }
@@ -40,6 +45,39 @@ public class SMCoach {
 
         public void setFullname(String fullname) {
             this.fullname = fullname;
+        }
+
+
+        public String getFirstname() {
+            return firstname;
+        }
+
+        public void setFirstname(String firstname) {
+            this.firstname = firstname;
+        }
+
+        public String getLastname() {
+            return lastname;
+        }
+
+        public void setLastname(String lastname) {
+            this.lastname = lastname;
+        }
+
+        public String getNationality() {
+            return nationality;
+        }
+
+        public void setNationality(String nationality) {
+            this.nationality = nationality;
+        }
+
+        public String getImage_path() {
+            return image_path;
+        }
+
+        public void setImage_path(String image_path) {
+            this.image_path = image_path;
         }
     }
 }

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="5dp"
+    android:layout_marginLeft="@dimen/card_padding"
+    android:layout_marginRight="@dimen/card_padding"
+    android:background="@color/text_white">
+
+    <ImageView
+        android:id="@+id/playerImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="3dp"
+        android:background="@drawable/v3_next_match_opponent_logo_bg"
+        />
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/transferPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textColor="@color/v3colorPrimaryDark"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_toEndOf="@id/playerImg"
+        tools:text="Christian Pulisic"
+        android:layout_toLeftOf="@id/transferDate"
+        android:layout_toStartOf="@id/transferDate"
+        />
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/transferType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="false"
+        android:textColor="@color/v3colorAccentDark"
+        android:layout_below="@+id/transferPlayer"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_toEndOf="@id/playerImg"
+        tools:text="Permanent Transfer"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/transferAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:font_name="@string/font_bc_semi_bold"
+        android:textAllCaps="false"
+        android:textColor="@color/v3colorPrimaryDark"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_centerVertical="true"
+        tools:text="64m"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/transferDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_bc_medium"
+        android:textAllCaps="false"
+        android:textColor="@color/near_dark_text"
+        tools:text="2018-10-10"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_alignTop="@id/transferPlayer"
+        />
+
+    <ImageView
+        android:id="@+id/fromImg"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/transferType"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@id/transferType"
+        android:layout_alignStart="@id/transferType"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/chelsea"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_text"
+        android:layout_toRightOf="@id/fromImg"
+        android:layout_toEndOf="@id/fromImg"
+        android:layout_alignTop="@+id/fromImg"
+        android:text="Chelsea"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        />
+
+
+
+
+    <ImageView
+        android:id="@+id/toImg"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/chelsea"
+        android:layout_below="@+id/fromImg"
+        android:layout_alignStart="@id/fromImg"
+        android:layout_alignLeft="@id/fromImg"
+        android:layout_marginTop="3dp"
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/dest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_regular"
+        android:textAllCaps="false"
+        tools:text="Borussia Dortmund"
+        android:textColor="@color/dark_text"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/toImg"
+        android:layout_alignTop="@+id/toImg"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toStartOf="@id/fromImg"
+        android:layout_toLeftOf="@id/fromImg"
+        android:layout_alignTop="@id/fromImg"
+        android:layout_marginRight="-10dp"
+        android:layout_marginEnd="-10dp"
+        android:layout_marginTop="3dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            >
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/accent_marker"
+
+                />
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/accent_marker"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+
+                />
+        </LinearLayout>
+        <View
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/accent_marker"
+            android:layout_marginTop="5dp"
+            />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/accent_marker"
+            android:layout_marginTop="4dp"
+            />
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:background="@drawable/accent_marker"
+            android:layout_marginTop="4dp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            >
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/accent_marker"
+
+                />
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/accent_marker"
+                android:layout_marginLeft="3dp"
+                android:layout_marginStart="3dp"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_white"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_below="@id/cheImg"
+        android:layout_marginTop="5dp"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>

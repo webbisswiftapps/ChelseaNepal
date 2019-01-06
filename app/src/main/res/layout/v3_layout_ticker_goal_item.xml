@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@drawable/gradient_moon_purple"
+    android:layout_marginLeft="@dimen/card_padding"
+    android:layout_marginRight="@dimen/card_padding"
+    >
+
+
+    <ImageView
+        android:id="@+id/commentIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/goal"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/commentMinute"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="21'"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textColor="@color/light_white"
+        app:font_name="@string/font_montserrat_bold"
+        android:layout_below="@+id/commentIcon"
+        android:gravity="center"
+        />
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/goalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/commentMinute"
+        android:layout_toEndOf="@id/commentMinute"
+        android:text="GOAL!"
+        android:textSize="20sp"
+        android:textColor="@color/text_white"
+        app:font_name="@string/font_montserrat_bold"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/commentIcon"
+        android:layout_marginTop="3dp"
+        />
+
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/commentMinute"
+        android:layout_toEndOf="@id/commentMinute"
+        android:text="Some event text to be displayed."
+        android:textSize="14sp"
+        android:textColor="@color/light_white"
+        app:font_name="@string/font_montserrat_semibold"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/goalTitle"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_white"
+        android:layout_alignParentBottom="true"
+        />
+
+
+</RelativeLayout>

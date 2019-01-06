@@ -18,10 +18,10 @@ import com.webbisswift.cfcn.domain.model.v2.SMStandingItem
 import com.webbisswift.cfcn.domain.model.v2.SMTeamShort
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.LatestFragment
 import com.webbisswift.cfcn.ui.screens.mainnavigation.maintabs.latest.subfragments.overview.SeasonPresenter
-import com.webbisswift.cfcn.ui.screens.modal.compdetails.CompetitionDetailsUI
+import com.webbisswift.cfcn.v3.ui.screens.modal_screens.compdetails.CompetitionDetailsUI
 import kotlinx.android.synthetic.main.ad_card_small_banner_season.*
 import kotlinx.android.synthetic.main.layout_form_guide_card.*
-import kotlinx.android.synthetic.main.layout_league_table_card.*
+import kotlinx.android.synthetic.main.v3_layout_league_table_card.*
 import kotlinx.android.synthetic.main.layout_top_charts_card.*
 
 /**
@@ -45,16 +45,11 @@ class SeasonFragment : BaseFragment(), SeasonContract.SeasonView{
         loadAds()
     }
 
-    private fun setListeners(){
+    private fun setListeners() {
         fullTeamStatsBtn.setOnClickListener {
             (parentFragment as LatestFragment)?.toCharts()
         }
 
-        statsStandingsPLBtn.visibility = View.VISIBLE
-        statsStandingsPLBtn.setOnClickListener{
-            val i = CompetitionDetailsUI.getIntent(context!!, 8, "Premier League")
-            startActivity(i)
-        }
     }
 
 
@@ -200,7 +195,7 @@ class SeasonFragment : BaseFragment(), SeasonContract.SeasonView{
 
     override fun addTeamToTable(team: SMStandingItem, isChelsea:Boolean) {
         if(context != null) {
-            val resource = if (isChelsea) R.layout.layout_table_item_chelsea else R.layout.layout_table_item
+            val resource = if (isChelsea) R.layout.v3_layout_table_item_chelsea else R.layout.v3_layout_table_item
             val ltItem = LayoutInflater.from(context).inflate(resource,
                     leagueTableHolder, false)
 
@@ -238,7 +233,7 @@ class SeasonFragment : BaseFragment(), SeasonContract.SeasonView{
     override fun clearTable() {
         if(context != null) {
             leagueTableHolder?.removeAllViews()
-            val ltTitle = LayoutInflater.from(context).inflate(R.layout.layout_table_title, leagueTableHolder, false)
+            val ltTitle = LayoutInflater.from(context).inflate(R.layout.v3_layout_table_title, leagueTableHolder, false)
             leagueTableHolder?.addView(ltTitle)
         }
     }

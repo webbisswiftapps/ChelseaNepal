@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp"
+        android:background="@color/text_title_blue_2"
+        >
+
+        <TextView
+            android:id="@+id/position"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="1"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="Chelsea"
+            android:gravity="left|center_vertical"
+            />
+
+    <LinearLayout
+        android:id="@+id/formGuideHolder"
+        android:layout_width="0dp"
+        android:layout_weight="0.2"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center"
+        >
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/gamesPlayed"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="24"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/gamesWon"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="20"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/gamesDrawn"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="3"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/gamesLost"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="1"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/goalStats"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="24 : 11"
+            android:gravity="center"
+            />
+
+
+
+        <TextView
+            android:id="@+id/goalDifference"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="25"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_white"
+            android:text="88"
+            android:gravity="center"
+            />
+
+
+    </LinearLayout>
+

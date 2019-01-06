@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/leagueTableCard"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    card_view:cardCornerRadius="6dp">
+
+    <ViewSwitcher
+        android:id="@+id/leageTableSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+       <ProgressBar
+            android:id="@+id/leagueTableProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyleSmall"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                android:id="@+id/tableTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="STANDINGS"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                app:font_name="@string/font_bc_semi_bold"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                android:padding="@dimen/card_padding"
+                android:background="@drawable/gradient_moon_purple"
+                android:layout_marginBottom="6dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/light_white"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/tableTitle"
+                />
+
+
+            <LinearLayout
+                android:id="@+id/leagueTableHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/tableTitle"
+                android:layout_marginTop="5dp"
+                >
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </ViewSwitcher>
+</android.support.v7.widget.CardView>

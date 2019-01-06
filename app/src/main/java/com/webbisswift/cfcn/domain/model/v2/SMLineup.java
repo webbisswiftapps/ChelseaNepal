@@ -1,6 +1,7 @@
 package com.webbisswift.cfcn.domain.model.v2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -36,6 +37,7 @@ public class SMLineup {
         double posx, posy;
         SMPlayer player;
         SMLineupStats stats;
+        static HashMap<String, String> positions = new HashMap<>();
 
         public int getTeam_id() {
             return team_id;
@@ -78,7 +80,9 @@ public class SMLineup {
         }
 
         public String getPosition() {
-            return position;
+            String posStr =  positions.get(position);
+            if(posStr==null || posStr.isEmpty()) return position;
+            else return posStr;
         }
 
         public void setPosition(String position) {
@@ -115,6 +119,15 @@ public class SMLineup {
 
         public void setStats(SMLineupStats stats) {
             this.stats = stats;
+        }
+
+
+        static {
+            positions.put("G", "Goalkeeper");
+            positions.put("D","Defender");
+            positions.put("M","Midfielder");
+            positions.put("F","Forward");
+
         }
     }
 

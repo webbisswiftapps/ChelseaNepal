@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_margin="2dp">
+
+
+    <ImageView
+        android:id="@+id/playerImg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:padding="3dp"
+        android:background="@drawable/v3_next_match_opponent_logo_bg"
+
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/playerName"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        tools:text="Aaron Wan-Bissaka"
+        android:textColor="@color/v3colorPrimaryDark"
+        android:layout_below="@id/playerImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/playerNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:font_name="@string/font_bc_semi_bold"
+        android:textAllCaps="true"
+        android:textColor="@color/v3colorPrimaryDark"
+        tools:text="10"
+        android:layout_toStartOf="@id/playerImg"
+        android:layout_toLeftOf="@id/playerImg"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="12dp"
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/playerPos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:textAllCaps="true"
+        android:textColor="@color/text_white"
+        tools:text="Goalkeeper"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/playerName"
+        android:background="@drawable/v3_card_tag_bg"
+        android:padding="5dp"
+        android:layout_marginTop="2dp"
+        />
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/competitionsSection"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@drawable/v3_main_bg">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/compTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:font_name="@string/font_bc_semi_bold"
+            android:text="@string/competitions_section"
+            android:textSize="22sp"
+            android:textColor="@color/text_white"
+            android:shadowDx="6"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:shadowColor="@color/black_overlay"
+            android:layout_marginTop="@dimen/card_padding"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+    <com.ogaclejapan.smarttablayout.SmartTabLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/viewpagertab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"
+        android:clipToPadding="false"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        app:stl_defaultTabTextColor="@color/text_white"
+        app:stl_defaultTabTextHorizontalPadding="18dp"
+        app:stl_dividerColor="@color/full_tp"
+        app:stl_dividerThickness="0dp"
+        app:stl_indicatorColor="@color/tp_subtle_news"
+        app:stl_indicatorCornerRadius="18dp"
+        app:stl_indicatorGravity="center"
+        app:stl_indicatorInterpolation="smart"
+        app:stl_indicatorThickness="36dp"
+        app:stl_underlineColor="@color/full_tp"
+        app:stl_underlineThickness="0dp"
+        android:layout_marginTop="12dp"
+        />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/competitionsViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginBottom="12dp"
+            />
+
+
+        <include android:id="@+id/coLoading"
+            layout="@layout/v3_loading_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="@dimen/card_padding"
+            android:layout_marginEnd="@dimen/card_padding"
+            android:layout_marginLeft="@dimen/card_padding"
+            android:layout_marginRight="@dimen/card_padding"
+            />
+    </FrameLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    android:background="@color/text_white"
+    android:padding="5dp"
+    android:layout_marginLeft="@dimen/card_padding"
+    android:layout_marginRight="@dimen/card_padding"
+    >
+
+
+
+
+
+    <ImageView
+        android:id="@+id/playerImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:padding="3dp"
+        android:background="@drawable/v3_next_match_opponent_logo_bg"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/playerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_semibold"
+        android:text="Willy Caballero"
+        android:textColor="@color/v3colorPrimaryDark"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_toEndOf="@id/playerImg"
+        android:layout_alignTop="@+id/playerImg"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/playerNumber"
+        android:layout_toStartOf="@id/playerNumber"
+        />
+
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/playerCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:font_name="@string/font_montserrat_medium"
+        android:textAllCaps="false"
+        android:text="Argentina"
+        android:textColor="@color/light_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_toEndOf="@id/playerImg"
+        android:layout_below="@+id/playerName"
+        android:layout_toStartOf="@id/playerNumber"
+        android:layout_toLeftOf="@id/playerNumber"
+        />
+
+    <com.webbisswift.cfcn.v3.custom_views.CTextView
+        android:id="@+id/playerNumber"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        app:font_name="@string/font_bc_semi_bold"
+        android:textAllCaps="true"
+        android:textColor="@color/text_white"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="1"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_chelsea_kit"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_white"
+        android:layout_toRightOf="@+id/playerImg"
+        android:layout_below="@+id/playerCountry"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+</RelativeLayout>

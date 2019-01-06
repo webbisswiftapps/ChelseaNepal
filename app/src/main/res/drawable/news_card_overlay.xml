@@ -4,7 +4,7 @@
 <item>
     <shape
         android:shape="rectangle">
-        <solid android:color="@color/tp_subtle_news" />
+        <solid android:color="@color/black_overlay" />
     </shape>
 </item>
 
@@ -13,13 +13,13 @@
     android:left="0dp"
     android:right="-300dp">
     <rotate
-        android:fromDegrees="-4"
+        android:fromDegrees="-1"
         android:pivotX="20%"
         android:pivotY="100%">
         <shape
             android:shape="rectangle">
-            <gradient android:startColor="#ff69f0ae"
-                android:endColor="#fd346db4"
+            <gradient android:startColor="@color/v3colorPrimaryDarkestvTP"
+                android:endColor="@color/moon_purple_g1"
                 android:angle="90"
                 />
 

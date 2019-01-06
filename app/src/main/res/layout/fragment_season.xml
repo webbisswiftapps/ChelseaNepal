@@ -13,7 +13,7 @@
         >
         <include layout="@layout/layout_form_guide_card" />
         <include layout="@layout/ad_card_small_banner_season" />
-        <include layout="@layout/layout_league_table_card" />
+        <include layout="@layout/v3_layout_league_table_card" />
         <include layout="@layout/layout_top_charts_card" />
 
 

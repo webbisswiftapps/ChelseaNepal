@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/weatherCard"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    card_view:cardCornerRadius="6dp"
+    >
+
+
+
+    <LinearLayout
+        android:id="@+id/weatherDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/weatherTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WEATHER"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:font_name="@string/font_bc_semi_bold"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:padding="@dimen/card_padding"
+            android:background="@drawable/gradient_moon_purple"
+            android:layout_marginBottom="6dp"
+            />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/card_padding"
+            >
+
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/near_dark_text"
+                android:textSize="28sp"
+                app:font_name="@string/font_montserrat_semibold"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                />
+
+            <com.webbisswift.cfcn.v3.custom_views.CTextView
+                android:id="@+id/condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/temperature"
+                android:textColor="@color/semi_dark_text"
+                android:textSize="16sp"
+                app:font_name="@string/font_montserrat_regular"
+                android:gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                />
+
+            <ImageView
+                android:id="@+id/conditionImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/tvGuideTitle"
+                android:layout_alignLeft="@+id/nextMatchTimings"
+                android:textColor="@color/near_dark_text"
+                android:textSize="40sp"
+                android:gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/temperature" />
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

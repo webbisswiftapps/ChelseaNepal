@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@color/text_white"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+
+
+    <ImageView
+        android:id="@+id/newsBG"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/west_stand"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/v3_news_transparent_overlay"
+        />
+
+
+    <ImageView
+        android:id="@+id/newsMainImg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:layout_margin="12dp"
+        android:src="@drawable/chelsea_players"
+        />
+
+    <!-- <View
+         android:layout_width="match_parent"
+         android:layout_height="320dp"
+         android:background="@drawable/news_card_overlay"
+         /> -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp">
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/newsAuthor"
+            android:layout_width="wrap_content"
+            android:minWidth="120dp"
+            android:layout_height="wrap_content"
+            tools:text="Express Uk"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/text_white"
+            app:font_name="@string/font_montserrat_semibold"
+            android:padding="5dp"
+            android:background="@drawable/v3_card_tag_bg"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            />
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/newsDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2h"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/text_white"
+            app:font_name="@string/font_montserrat_semibold"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:background="@drawable/v3_card_tag_bg"
+            android:layout_marginTop="12dp"
+            />
+
+        <com.webbisswift.cfcn.v3.custom_views.CTextView
+            android:id="@+id/newsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            tools:text="Chelsea boss Conte to be fined after being sent to the stands against Norwich."
+            android:textSize="14sp"
+            android:textColor="@color/text_white"
+            app:font_name="@string/font_montserrat_regular"
+            android:shadowColor="@color/light_white"
+            android:shadowDx="2"
+            android:shadowDy="3"
+            android:lines = "3"
+            android:layout_alignParentBottom="true"
+            android:padding="8dp"
+            android:ellipsize="end"
+            android:gravity="center|top"
+            />
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>
